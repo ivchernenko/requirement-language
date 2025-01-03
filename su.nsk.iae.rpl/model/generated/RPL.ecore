@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rPL" nsURI="http://www.nsk.su/iae/rpl/RPL" nsPrefix="rPL">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" eType="#//Import"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementPattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//Formula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraInvPattern" eType="#//DerivedExtraInvariantPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//DerivedLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VarDeclaration" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vars" upperBound="-1" eType="#//ProgramVariable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgramVariable" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateStateVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantParameter" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FormulaParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionalParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Formula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionFormula" eSuperTypes="#//Formula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryFormula" eSuperTypes="#//ConjunctionFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//RequirementPatternInstance"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormulaParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//UpdateStateVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//InnerFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InnerFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//InnerFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//InnerFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionInnerFormula" eSuperTypes="#//InnerFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryInnerFormula" eSuperTypes="#//ConjunctionInnerFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atomic" eType="#//NegationFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//RequirementPatternInstance"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//InnerFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NegationFormula">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="neg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//AtomicFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AtomicFormula">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boolTerm" eType="#//Term"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParam" eType="#//FormulaParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
+        upperBound="-1" eType="#//UpdateStateVariable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementPatternInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//RequirementPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameterValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//UpdateStateVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="curState" eType="#//UpdateStateVariable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FutureRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraInvPattern" eType="#//FutureExtraInvariantPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lessas" eType="#//FutureLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PastRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraInvPattern" eType="#//PastExtraInvariantPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//PastLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FutureExtraInvariantPattern" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
+        eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//FutureLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PastExtraInvariantPattern" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
+        eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//PastLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedExtraInvariantPattern" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
+        eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//DerivedLemmas"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Term">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Term"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionTerm" eSuperTypes="#//Term"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegationTerm" eSuperTypes="#//ConjunctionTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EqTerm" eSuperTypes="#//NegationTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eqPred" eType="#//EqPredicate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EqPredicate">
+    <eLiterals name="EQ" literal="=="/>
+    <eLiterals name="NOT_EQ" value="1" literal="~="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompareTerm" eSuperTypes="#//EqTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compPred" eType="#//CompPredicate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompPredicate">
+    <eLiterals name="LESS" literal="&lt;"/>
+    <eLiterals name="GREATER" value="1" literal=">"/>
+    <eLiterals name="LESS_EQ" value="2" literal="&lt;="/>
+    <eLiterals name="GREATER_EQ" value="3" literal=">="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddTerm" eSuperTypes="#//CompareTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="addOp" eType="#//AddOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AddOperator">
+    <eLiterals name="PLUS" literal="+"/>
+    <eLiterals name="BMINUS" value="1" literal="-"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MulTerm" eSuperTypes="#//AddTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mulOp" eType="#//MulOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MulOperator">
+    <eLiterals name="MUL" literal="*"/>
+    <eLiterals name="DIV" value="1" literal="/"/>
+    <eLiterals name="MOD" value="2" literal="mod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PowerTerm" eSuperTypes="#//MulTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryTerm" eSuperTypes="#//PowerTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unOp" eType="#//UnMinus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnMinus">
+    <eLiterals name="UNMINUS" literal="-"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryTerm" eSuperTypes="#//UnaryTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedTerm" eType="#//Term"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunApplication" eSuperTypes="#//PrimaryTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnParam" eType="#//FunctionalParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//PrimaryTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="num" eType="#//NumericLiteral"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericLiteral">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sig" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerLiteral" eSuperTypes="#//NumericLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RealLiteral" eSuperTypes="#//NumericLiteral"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternFreeFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//PatternFreeFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//PatternFreeFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionPatternFreeFormula" eSuperTypes="#//PatternFreeFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryPatternFreeFormula" eSuperTypes="#//ConjunctionPatternFreeFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atomic" eType="#//NegationFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//PatternFreeFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//DerivedRequirementPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//PatternFreeFormulaParameterValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtraInvariant" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//DerivedExtraInvariantPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reqName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="req" eType="#//Requirement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternFreeFormulaParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//UpdateStateVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//PatternFreeFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FutureLemmas">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L1" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L2" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L3" eType="#//Lemma" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PastLemmas">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L4" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L5" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L6" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L7" eType="#//Lemma" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedLemmas">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L8" eType="#//Lemma" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L9" eType="#//Lemma" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lemma">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cVars" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnVars" upperBound="-1"
+        eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifmVars" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rfmVars" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initState" eType="#//UpdateStateVariable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finalState" eType="#//UpdateStateVariable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prem" eType="#//LemmaPremiseFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LemmaPremiseFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//LemmaPremiseFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisjunctionLemmaPremiseFormula" eSuperTypes="#//LemmaPremiseFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConjunctionLemmaPremiseFormula" eSuperTypes="#//DisjunctionLemmaPremiseFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryLemmaPremiseFormula" eSuperTypes="#//ConjunctionLemmaPremiseFormula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atomic" eType="#//NegationFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alwaysImp" eType="#//AlwaysImplication"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inst" eType="#//PastExtraInvariantPatternInstance"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//LemmaPremiseFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlwaysImplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//AtomicFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//AtomicFormula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PastExtraInvariantPatternInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//PastExtraInvariantPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//ConstantParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
+        eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//ConjunctionFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnunctionInnerFormula" eSuperTypes="#//ConjunctionInnerFormula"/>
+</ecore:EPackage>

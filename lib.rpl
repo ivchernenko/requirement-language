@@ -1,0 +1,1 @@
+derivedeinv pattern P2_inv(const : t fun : t1 formulas : A1, A2) from Pattern1;

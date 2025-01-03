@@ -1,0 +1,283 @@
+grammar su.nsk.iae.rpl.RPL with org.eclipse.xtext.common.Terminals
+generate rPL "http://www.nsk.su/iae/rpl/RPL"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Model:
+	(imports=Import)?
+	(elements+=Element)*;
+	
+Import:
+	"import" importURI=STRING ";";
+	
+Element:
+	VarDeclaration | DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern | 
+	DerivedExtraInvariantPattern | FutureExtraInvariantPattern | PastExtraInvariantPattern | Requirement | ExtraInvariant;
+           	
+RequirementPattern:
+	DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern;
+	
+	/* ======================= Derived requirement pattern ======================= */
+           	
+DerivedRequirementPattern:
+	'derivedreq' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
+   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+   (lemmas=DerivedLemmas)? ";";
+   
+Variable:
+	ConstantParameter | ProgramVariable;
+/* ======================= Variables ======================= */
+VarDeclaration:
+	"var" vars+=ProgramVariable ("," vars+=ProgramVariable)* ";";
+	
+ProgramVariable:
+	name=ID;
+           	
+UpdateStateVariable:
+	name=ID;
+	
+/* ======================= Pattern parameters ======================= */
+ConstantParameter:
+	name=ID;
+           	
+FormulaParameter:
+	name=ID;
+           	
+FunctionalParameter:
+	name=ID;
+	
+/* ======================= Top-level formulas ======================= */
+           	
+Formula:
+	ConjunctionFormula ({Formula.left=current} DISJUNCTION right=Formula)*;
+           	
+terminal DISJUNCTION:
+	"OR" | "||" | "\\/";
+           	
+ConjunctionFormula:
+	PrimaryFormula ({Conjunction.left=current} CONJUNCTION right=ConjunctionFormula)*;
+           	            	
+PrimaryFormula:
+	patternInst=RequirementPatternInstance | "(" nestedFormula=Formula ")";
+           	
+terminal CONJUNCTION:
+	"AND" | "&" | "&&" | "/\\";
+	
+/* ======================= Inner formulas ======================= */
+           	
+FormulaParameterValue:
+	("lambda" (states+=UpdateStateVariable)+ ".")? formula=InnerFormula;
+           	
+InnerFormula:
+	ConjunctionInnerFormula ({InnerFormula.left=current} DISJUNCTION right=InnerFormula)*;
+           	
+ConjunctionInnerFormula:
+	PrimaryInnerFormula ({ConnunctionInnerFormula.left=current} CONJUNCTION right=ConjunctionInnerFormula)*;
+           	
+PrimaryInnerFormula:
+	atomic=NegationFormula | patternInst=RequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
+	
+NegationFormula:
+	(neg?=NEGATION)? right=AtomicFormula;
+	
+terminal NEGATION:
+	"NOT" | "~";
+           	
+AtomicFormula:
+	boolLiteral=BOOLEAN_LITERAL | "frm" "(" boolTerm=Term ")" |
+	fmParam=[FormulaParameter] ("(" states+=[UpdateStateVariable] ("," states+=[UpdateStateVariable])* ")")?;
+RequirementPatternInstance:
+	pattern=[RequirementPattern] "("
+	("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+	 ")";
+	
+/* ======================= Pattern declarations ======================= */
+FutureRequirementPattern:
+	'futurereq' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	 ")"
+	 "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
+	 
+PastRequirementPattern:
+	'pastreq' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	")"
+	"from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
+                       	
+FutureExtraInvariantPattern:
+	'futureeinv' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	")"
+	("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
+           	
+PastExtraInvariantPattern:
+	'pasteinv' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	")"
+	("from" file=FilePath)? (lemmas=PastLemmas)? ";";
+                          	
+DerivedExtraInvariantPattern:
+	'derivedeinv' 'pattern' name=ID '('
+	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	")"
+	("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
+	
+FilePath:
+	'/'? (Dir '/')* ID;
+
+Dir:
+	ID | "." | "..";
+
+	
+/* ======================= Terms ======================= */
+Term:
+	ConjunctionTerm ({Term.left=current} DISJUNCTION right=Term)*;
+ConjunctionTerm:
+	NegationTerm ({ConjunctionTerm.left=current} CONJUNCTION right=ConjunctionTerm)*;
+NegationTerm:
+	EqTerm | (NEGATION right=EqTerm);
+           	
+EqTerm:
+	CompareTerm ({EqTerm.left=current} eqPred=EqPredicate right=EqTerm)*;
+enum EqPredicate:
+	EQ="==" | NOT_EQ="~=";
+           	
+CompareTerm:
+	AddTerm ({CompareTerm.left=current} compPred=CompPredicate right=CompareTerm)*;
+           	
+enum CompPredicate:
+	LESS="<" | GREATER=">" | LESS_EQ="<=" | GREATER_EQ=">=";
+           	
+AddTerm:
+	MulTerm ({AddTerm.left=current} addOp=AddOperator right=AddTerm)*;
+           	
+enum AddOperator:
+	PLUS="+" | BMINUS="-";
+           	
+MulTerm:
+	PowerTerm ({MulTerm.left=current} mulOp=MulOperator right=MulTerm)*;
+           	
+enum MulOperator:
+	MUL="*" | DIV="/" | MOD="mod";
+           	
+PowerTerm:
+	UnaryTerm ({PowerTerm.left=current} POWER_OPERATOR right=PowerTerm)*;
+           	
+terminal POWER_OPERATOR:
+	"**";
+           	
+UnaryTerm:
+	PrimaryTerm | (unOp=UnMinus right=PrimaryTerm);
+           	
+enum UnMinus:
+	UNMINUS="-";
+           	
+PrimaryTerm:
+	Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" | FunApplication |
+	"(" nestedTerm=Term ")";
+           	 
+FunApplication:
+	fnParam=[FunctionalParameter] "(" state=[UpdateStateVariable] ")";
+	
+/* ======================= Literals ======================= */
+
+           	
+terminal BOOLEAN_LITERAL:
+	"True" | "False";
+	            	
+Constant:
+	num=NumericLiteral | bool=BOOLEAN_LITERAL;
+           	
+NumericLiteral:
+	IntegerLiteral | RealLiteral;
+           	
+IntegerLiteral:
+	(sig?="-")? value=INTEGER;
+           	
+terminal INTEGER returns ecore::EString:
+	DIGIT+;
+terminal fragment DIGIT:
+	'0'..'9';
+           	
+RealLiteral:
+	(sig?="-")? value=REAL;
+           	
+terminal REAL returns ecore::EString:
+	INTEGER '.' INTEGER;
+	
+
+ /* ======================= Formulas without patterns ======================= */
+            	
+PatternFreeFormula:
+	ConjunctionPatternFreeFormula ({PatternFreeFormula.left=current} DISJUNCTION right=PatternFreeFormula)*;
+           	
+ConjunctionPatternFreeFormula:
+	PrimaryPatternFreeFormula ({ConjunctionPatternFreeFormula.left=current} CONJUNCTION right=ConjunctionPatternFreeFormula)*;
+PrimaryPatternFreeFormula:
+	atomic=NegationFormula | "(" nestedFormula=PatternFreeFormula ")";
+           	
+Requirement:
+	"requirement" name=ID (("=" pattern=[DerivedRequirementPattern] "("
+	("const" ":" cParams+=Term ("," cParams+=Term)*)?
+	("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
+	(":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)) ";";
+	
+ExtraInvariant:
+	"extra" "invariant" name=ID (":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
+		"for" req=[Requirement]
+	) ";";
+                          	
+PatternFreeFormulaParameterValue:
+	("lambda" states+=UpdateStateVariable+ ".")? formula=PatternFreeFormula;
+           	
+/* ======================= Lemmas ======================= */
+FutureLemmas:
+	{FutureLemmas} ("lemmas" "{" (("LS1" L1=Lemma)? & ("LS2" L2=Lemma)? & ("LS3" L3=Lemma)?) "}");
+           	
+PastLemmas:
+	{PastLemmas} ("lemmas" "{" (("LS4" L4=Lemma)? & ("LS5" L5=Lemma)? & ("LS6" L6=Lemma)? & ("LS7" L7=Lemma)?) "}");
+           	
+DerivedLemmas:
+	{DerivedLemmas} ("lemmas" "{" (("LS8" L8=Lemma)? & ("LS9" L9=Lemma)?) "}");
+Lemma:
+	"lemma" name=ID
+	("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
+	("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
+   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
+   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
+   ("init" "state" ":" initState=UpdateStateVariable)? &
+   "final" "state" ":" finalState=UpdateStateVariable &
+   "premise" prem=LemmaPremiseFormula ";";
+           	
+ /* ======================= Formulas in lemma premises ======================= */
+ LemmaPremiseFormula:
+	DisjunctionLemmaPremiseFormula | left=FunApplication IMPLICATION right=LemmaPremiseFormula;
+           	
+terminal IMPLICATION:
+	"-->";
+DisjunctionLemmaPremiseFormula:
+	ConjunctionLemmaPremiseFormula ({DisjunctionLemmaPremiseFormula.left=current} DISJUNCTION right=DisjunctionLemmaPremiseFormula)*;
+ConjunctionLemmaPremiseFormula:
+	PrimaryLemmaPremiseFormula ({ConjunctionLemmaPremiseFormula.left=current} CONJUNCTION right=ConjunctionLemmaPremiseFormula)*;
+PrimaryLemmaPremiseFormula:
+	atomic=NegationFormula | alwaysImp=AlwaysImplication | inst=PastExtraInvariantPatternInstance | "(" nestedFormula=LemmaPremiseFormula ")";
+AlwaysImplication:
+	"alwaysimp" "(" state=[UpdateStateVariable] "," left=AtomicFormula "," right=AtomicFormula ")";
+	
+PastExtraInvariantPatternInstance:
+	pattern=[PastExtraInvariantPattern] "("
+	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
+	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	"current" state=[UpdateStateVariable]
+	 ")";

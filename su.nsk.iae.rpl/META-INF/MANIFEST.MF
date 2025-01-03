@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: su.nsk.iae.rpl
+Bundle-ManifestVersion: 2
+Bundle-Name: su.nsk.iae.rpl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: su.nsk.iae.rpl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.36.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: su.nsk.iae.rpl,
+ su.nsk.iae.rpl.rPL.util,
+ su.nsk.iae.rpl.rPL,
+ su.nsk.iae.rpl.parser.antlr.internal,
+ su.nsk.iae.rpl.scoping,
+ su.nsk.iae.rpl.rPL.impl,
+ su.nsk.iae.rpl.validation,
+ su.nsk.iae.rpl.generator,
+ su.nsk.iae.rpl.services,
+ su.nsk.iae.rpl.serializer,
+ su.nsk.iae.rpl.parser.antlr,
+ su.nsk.iae.rpl.domainmodel.impl,
+ su.nsk.iae.rpl.domainmodel.util,
+ su.nsk.iae.rpl.domainmodel
+Import-Package: org.apache.log4j
