@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
-import su.nsk.iae.rpl.rPL.AtomicFormula;
+import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -52,7 +52,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected AtomicFormula left;
+  protected AlwaysImplicationParameterValue left;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -62,7 +62,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected AtomicFormula right;
+  protected AlwaysImplicationParameterValue right;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,7 +136,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public AtomicFormula getLeft()
+  public AlwaysImplicationParameterValue getLeft()
   {
     return left;
   }
@@ -146,9 +146,9 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft(AtomicFormula newLeft, NotificationChain msgs)
+  public NotificationChain basicSetLeft(AlwaysImplicationParameterValue newLeft, NotificationChain msgs)
   {
-    AtomicFormula oldLeft = left;
+    AlwaysImplicationParameterValue oldLeft = left;
     left = newLeft;
     if (eNotificationRequired())
     {
@@ -164,7 +164,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public void setLeft(AtomicFormula newLeft)
+  public void setLeft(AlwaysImplicationParameterValue newLeft)
   {
     if (newLeft != left)
     {
@@ -186,7 +186,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public AtomicFormula getRight()
+  public AlwaysImplicationParameterValue getRight()
   {
     return right;
   }
@@ -196,9 +196,9 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(AtomicFormula newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(AlwaysImplicationParameterValue newRight, NotificationChain msgs)
   {
-    AtomicFormula oldRight = right;
+    AlwaysImplicationParameterValue oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -214,7 +214,7 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
-  public void setRight(AtomicFormula newRight)
+  public void setRight(AlwaysImplicationParameterValue newRight)
   {
     if (newRight != right)
     {
@@ -283,10 +283,10 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
         setState((UpdateStateVariable)newValue);
         return;
       case RPLPackage.ALWAYS_IMPLICATION__LEFT:
-        setLeft((AtomicFormula)newValue);
+        setLeft((AlwaysImplicationParameterValue)newValue);
         return;
       case RPLPackage.ALWAYS_IMPLICATION__RIGHT:
-        setRight((AtomicFormula)newValue);
+        setRight((AlwaysImplicationParameterValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -306,10 +306,10 @@ public class AlwaysImplicationImpl extends MinimalEObjectImpl.Container implemen
         setState((UpdateStateVariable)null);
         return;
       case RPLPackage.ALWAYS_IMPLICATION__LEFT:
-        setLeft((AtomicFormula)null);
+        setLeft((AlwaysImplicationParameterValue)null);
         return;
       case RPLPackage.ALWAYS_IMPLICATION__RIGHT:
-        setRight((AtomicFormula)null);
+        setRight((AlwaysImplicationParameterValue)null);
         return;
     }
     super.eUnset(featureID);

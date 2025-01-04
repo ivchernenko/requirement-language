@@ -537,6 +537,15 @@ public interface RPLFactory extends EFactory
   AlwaysImplication createAlwaysImplication();
 
   /**
+   * Returns a new object of class '<em>Always Implication Parameter Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Always Implication Parameter Value</em>'.
+   * @generated
+   */
+  AlwaysImplicationParameterValue createAlwaysImplicationParameterValue();
+
+  /**
    * Returns a new object of class '<em>Past Extra Invariant Pattern Instance</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

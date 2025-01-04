@@ -361,6 +361,11 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createAlwaysImplicationAdapter();
       }
       @Override
+      public Adapter caseAlwaysImplicationParameterValue(AlwaysImplicationParameterValue object)
+      {
+        return createAlwaysImplicationParameterValueAdapter();
+      }
+      @Override
       public Adapter casePastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance object)
       {
         return createPastExtraInvariantPatternInstanceAdapter();
@@ -1248,6 +1253,21 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAlwaysImplicationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue <em>Always Implication Parameter Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue
+   * @generated
+   */
+  public Adapter createAlwaysImplicationParameterValueAdapter()
   {
     return null;
   }

@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import su.nsk.iae.rpl.rPL.AddTerm;
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
+import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
 import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.CompareTerm;
 import su.nsk.iae.rpl.rPL.Conjunction;
@@ -90,6 +91,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.ALWAYS_IMPLICATION:
 				sequence_AlwaysImplication(context, (AlwaysImplication) semanticObject); 
+				return; 
+			case RPLPackage.ALWAYS_IMPLICATION_PARAMETER_VALUE:
+				sequence_AlwaysImplicationParameterValue(context, (AlwaysImplicationParameterValue) semanticObject); 
 				return; 
 			case RPLPackage.ATOMIC_FORMULA:
 				sequence_AtomicFormula(context, (AtomicFormula) semanticObject); 
@@ -291,10 +295,24 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     AlwaysImplicationParameterValue returns AlwaysImplicationParameterValue
+	 *
+	 * Constraint:
+	 *     (state=UpdateStateVariable? formula=NegationFormula)
+	 * </pre>
+	 */
+	protected void sequence_AlwaysImplicationParameterValue(ISerializationContext context, AlwaysImplicationParameterValue semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     AlwaysImplication returns AlwaysImplication
 	 *
 	 * Constraint:
-	 *     (state=[UpdateStateVariable|ID] left=AtomicFormula right=AtomicFormula)
+	 *     (state=[UpdateStateVariable|ID] left=AlwaysImplicationParameterValue right=AlwaysImplicationParameterValue)
 	 * </pre>
 	 */
 	protected void sequence_AlwaysImplication(ISerializationContext context, AlwaysImplication semanticObject) {
@@ -308,8 +326,8 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RPLPackage.Literals.ALWAYS_IMPLICATION__STATE, false));
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getLeftAtomicFormulaParserRuleCall_4_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getRightAtomicFormulaParserRuleCall_6_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getLeftAlwaysImplicationParameterValueParserRuleCall_4_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getRightAlwaysImplicationParameterValueParserRuleCall_6_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -966,7 +984,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     ((imports=Import elements+=Element+) | elements+=Element+)?
+	 *     ((imports+=Import+ elements+=Element+) | elements+=Element+)?
 	 * </pre>
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {

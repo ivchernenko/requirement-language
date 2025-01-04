@@ -36,15 +36,15 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cElementsElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
 		
 		//Model:
-		//    (imports=Import)?
+		//    (imports+=Import)*
 		//    (elements+=Element)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(imports=Import)?
+		//(imports+=Import)*
 		//(elements+=Element)*
 		public Group getGroup() { return cGroup; }
 		
-		//(imports=Import)?
+		//(imports+=Import)*
 		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
 		
 		//Import
@@ -3171,15 +3171,16 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cLemmaKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
-		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
-		private final Keyword cConstKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
-		private final Keyword cColonKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
-		private final Assignment cCVarsAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
-		private final RuleCall cCVarsConstantParameterParserRuleCall_0_2_2_0 = (RuleCall)cCVarsAssignment_0_2_2.eContents().get(0);
-		private final Group cGroup_0_2_3 = (Group)cGroup_0_2.eContents().get(3);
-		private final Keyword cCommaKeyword_0_2_3_0 = (Keyword)cGroup_0_2_3.eContents().get(0);
-		private final Assignment cCVarsAssignment_0_2_3_1 = (Assignment)cGroup_0_2_3.eContents().get(1);
-		private final RuleCall cCVarsConstantParameterParserRuleCall_0_2_3_1_0 = (RuleCall)cCVarsAssignment_0_2_3_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
+		private final Keyword cConstKeyword_0_3_0 = (Keyword)cGroup_0_3.eContents().get(0);
+		private final Keyword cColonKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
+		private final Assignment cCVarsAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
+		private final RuleCall cCVarsConstantParameterParserRuleCall_0_3_2_0 = (RuleCall)cCVarsAssignment_0_3_2.eContents().get(0);
+		private final Group cGroup_0_3_3 = (Group)cGroup_0_3.eContents().get(3);
+		private final Keyword cCommaKeyword_0_3_3_0 = (Keyword)cGroup_0_3_3.eContents().get(0);
+		private final Assignment cCVarsAssignment_0_3_3_1 = (Assignment)cGroup_0_3_3.eContents().get(1);
+		private final RuleCall cCVarsConstantParameterParserRuleCall_0_3_3_1_0 = (RuleCall)cCVarsAssignment_0_3_3_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cUnorderedGroup.eContents().get(1);
 		private final Keyword cFunKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -3226,30 +3227,31 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cPremiseKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cPremAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cPremLemmaPremiseFormulaParserRuleCall_6_1_0 = (RuleCall)cPremAssignment_6_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Keyword cSemicolonKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
 		
 		//Lemma:
-		//    "lemma" name=ID
+		//    "lemma" name=ID "{"
 		//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 		//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
 		//   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
 		//   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
 		//   ("init" "state" ":" initState=UpdateStateVariable)? &
 		//   "final" "state" ":" finalState=UpdateStateVariable &
-		//   "premise" prem=LemmaPremiseFormula ";";
+		//   "premise" prem=LemmaPremiseFormula "}" ";";
 		@Override public ParserRule getRule() { return rule; }
 		
-		// "lemma" name=ID
+		// "lemma" name=ID "{"
 		// ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 		// ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
 		//("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
 		//("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
 		//("init" "state" ":" initState=UpdateStateVariable)? &
 		//"final" "state" ":" finalState=UpdateStateVariable &
-		//"premise" prem=LemmaPremiseFormula ";"
+		//"premise" prem=LemmaPremiseFormula "}" ";"
 		public UnorderedGroup getUnorderedGroup() { return cUnorderedGroup; }
 		
-		//"lemma" name=ID
+		//"lemma" name=ID "{"
 		//("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
 		public Group getGroup_0() { return cGroup_0; }
 		
@@ -3262,32 +3264,35 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
 		
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0_2() { return cLeftCurlyBracketKeyword_0_2; }
+		
 		//("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
-		public Group getGroup_0_2() { return cGroup_0_2; }
+		public Group getGroup_0_3() { return cGroup_0_3; }
 		
 		//"const"
-		public Keyword getConstKeyword_0_2_0() { return cConstKeyword_0_2_0; }
+		public Keyword getConstKeyword_0_3_0() { return cConstKeyword_0_3_0; }
 		
 		//":"
-		public Keyword getColonKeyword_0_2_1() { return cColonKeyword_0_2_1; }
+		public Keyword getColonKeyword_0_3_1() { return cColonKeyword_0_3_1; }
 		
 		//cVars+=ConstantParameter
-		public Assignment getCVarsAssignment_0_2_2() { return cCVarsAssignment_0_2_2; }
+		public Assignment getCVarsAssignment_0_3_2() { return cCVarsAssignment_0_3_2; }
 		
 		//ConstantParameter
-		public RuleCall getCVarsConstantParameterParserRuleCall_0_2_2_0() { return cCVarsConstantParameterParserRuleCall_0_2_2_0; }
+		public RuleCall getCVarsConstantParameterParserRuleCall_0_3_2_0() { return cCVarsConstantParameterParserRuleCall_0_3_2_0; }
 		
 		//("," cVars+=ConstantParameter)*
-		public Group getGroup_0_2_3() { return cGroup_0_2_3; }
+		public Group getGroup_0_3_3() { return cGroup_0_3_3; }
 		
 		//","
-		public Keyword getCommaKeyword_0_2_3_0() { return cCommaKeyword_0_2_3_0; }
+		public Keyword getCommaKeyword_0_3_3_0() { return cCommaKeyword_0_3_3_0; }
 		
 		//cVars+=ConstantParameter
-		public Assignment getCVarsAssignment_0_2_3_1() { return cCVarsAssignment_0_2_3_1; }
+		public Assignment getCVarsAssignment_0_3_3_1() { return cCVarsAssignment_0_3_3_1; }
 		
 		//ConstantParameter
-		public RuleCall getCVarsConstantParameterParserRuleCall_0_2_3_1_0() { return cCVarsConstantParameterParserRuleCall_0_2_3_1_0; }
+		public RuleCall getCVarsConstantParameterParserRuleCall_0_3_3_1_0() { return cCVarsConstantParameterParserRuleCall_0_3_3_1_0; }
 		
 		//("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
 		public Group getGroup_1() { return cGroup_1; }
@@ -3415,7 +3420,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//UpdateStateVariable
 		public RuleCall getFinalStateUpdateStateVariableParserRuleCall_5_3_0() { return cFinalStateUpdateStateVariableParserRuleCall_5_3_0; }
 		
-		//"premise" prem=LemmaPremiseFormula ";"
+		//"premise" prem=LemmaPremiseFormula "}" ";"
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//"premise"
@@ -3427,8 +3432,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//LemmaPremiseFormula
 		public RuleCall getPremLemmaPremiseFormulaParserRuleCall_6_1_0() { return cPremLemmaPremiseFormulaParserRuleCall_6_1_0; }
 		
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6_2() { return cRightCurlyBracketKeyword_6_2; }
+		
 		//";"
-		public Keyword getSemicolonKeyword_6_2() { return cSemicolonKeyword_6_2; }
+		public Keyword getSemicolonKeyword_6_3() { return cSemicolonKeyword_6_3; }
 	}
 	public class LemmaPremiseFormulaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
@@ -3605,17 +3613,19 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_1 = (RuleCall)cStateUpdateStateVariableCrossReference_2_0.eContents().get(1);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cLeftAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLeftAtomicFormulaParserRuleCall_4_0 = (RuleCall)cLeftAssignment_4.eContents().get(0);
+		private final RuleCall cLeftAlwaysImplicationParameterValueParserRuleCall_4_0 = (RuleCall)cLeftAssignment_4.eContents().get(0);
 		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cRightAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cRightAtomicFormulaParserRuleCall_6_0 = (RuleCall)cRightAssignment_6.eContents().get(0);
+		private final RuleCall cRightAlwaysImplicationParameterValueParserRuleCall_6_0 = (RuleCall)cRightAssignment_6.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//AlwaysImplication:
-		//    "alwaysimp" "(" state=[UpdateStateVariable] "," left=AtomicFormula "," right=AtomicFormula ")";
+		//    "alwaysimp" "(" state=[UpdateStateVariable] "," left=AlwaysImplicationParameterValue ","
+		//    right=AlwaysImplicationParameterValue ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"alwaysimp" "(" state=[UpdateStateVariable] "," left=AtomicFormula "," right=AtomicFormula ")"
+		//"alwaysimp" "(" state=[UpdateStateVariable] "," left=AlwaysImplicationParameterValue ","
+		//right=AlwaysImplicationParameterValue ")"
 		public Group getGroup() { return cGroup; }
 		
 		//"alwaysimp"
@@ -3636,23 +3646,62 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//","
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
 		
-		//left=AtomicFormula
+		//left=AlwaysImplicationParameterValue
 		public Assignment getLeftAssignment_4() { return cLeftAssignment_4; }
 		
-		//AtomicFormula
-		public RuleCall getLeftAtomicFormulaParserRuleCall_4_0() { return cLeftAtomicFormulaParserRuleCall_4_0; }
+		//AlwaysImplicationParameterValue
+		public RuleCall getLeftAlwaysImplicationParameterValueParserRuleCall_4_0() { return cLeftAlwaysImplicationParameterValueParserRuleCall_4_0; }
 		
 		//","
 		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
 		
-		//right=AtomicFormula
+		//right=AlwaysImplicationParameterValue
 		public Assignment getRightAssignment_6() { return cRightAssignment_6; }
 		
-		//AtomicFormula
-		public RuleCall getRightAtomicFormulaParserRuleCall_6_0() { return cRightAtomicFormulaParserRuleCall_6_0; }
+		//AlwaysImplicationParameterValue
+		public RuleCall getRightAlwaysImplicationParameterValueParserRuleCall_6_0() { return cRightAlwaysImplicationParameterValueParserRuleCall_6_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+	public class AlwaysImplicationParameterValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.AlwaysImplicationParameterValue");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cLambdaKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cStateAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cStateUpdateStateVariableParserRuleCall_0_1_0 = (RuleCall)cStateAssignment_0_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cFormulaAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFormulaNegationFormulaParserRuleCall_1_0 = (RuleCall)cFormulaAssignment_1.eContents().get(0);
+		
+		//AlwaysImplicationParameterValue:
+		//    ("lambda" state=UpdateStateVariable ".")? formula=NegationFormula;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//("lambda" state=UpdateStateVariable ".")? formula=NegationFormula
+		public Group getGroup() { return cGroup; }
+		
+		//("lambda" state=UpdateStateVariable ".")?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//"lambda"
+		public Keyword getLambdaKeyword_0_0() { return cLambdaKeyword_0_0; }
+		
+		//state=UpdateStateVariable
+		public Assignment getStateAssignment_0_1() { return cStateAssignment_0_1; }
+		
+		//UpdateStateVariable
+		public RuleCall getStateUpdateStateVariableParserRuleCall_0_1_0() { return cStateUpdateStateVariableParserRuleCall_0_1_0; }
+		
+		//"."
+		public Keyword getFullStopKeyword_0_2() { return cFullStopKeyword_0_2; }
+		
+		//formula=NegationFormula
+		public Assignment getFormulaAssignment_1() { return cFormulaAssignment_1; }
+		
+		//NegationFormula
+		public RuleCall getFormulaNegationFormulaParserRuleCall_1_0() { return cFormulaNegationFormulaParserRuleCall_1_0; }
 	}
 	public class PastExtraInvariantPatternInstanceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.PastExtraInvariantPatternInstance");
@@ -4041,6 +4090,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final ConjunctionLemmaPremiseFormulaElements pConjunctionLemmaPremiseFormula;
 	private final PrimaryLemmaPremiseFormulaElements pPrimaryLemmaPremiseFormula;
 	private final AlwaysImplicationElements pAlwaysImplication;
+	private final AlwaysImplicationParameterValueElements pAlwaysImplicationParameterValue;
 	private final PastExtraInvariantPatternInstanceElements pPastExtraInvariantPatternInstance;
 	
 	private final Grammar grammar;
@@ -4125,6 +4175,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pConjunctionLemmaPremiseFormula = new ConjunctionLemmaPremiseFormulaElements();
 		this.pPrimaryLemmaPremiseFormula = new PrimaryLemmaPremiseFormulaElements();
 		this.pAlwaysImplication = new AlwaysImplicationElements();
+		this.pAlwaysImplicationParameterValue = new AlwaysImplicationParameterValueElements();
 		this.pPastExtraInvariantPatternInstance = new PastExtraInvariantPatternInstanceElements();
 	}
 	
@@ -4156,7 +4207,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 
 	
 	//Model:
-	//    (imports=Import)?
+	//    (imports+=Import)*
 	//    (elements+=Element)*;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -4833,14 +4884,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Lemma:
-	//    "lemma" name=ID
+	//    "lemma" name=ID "{"
 	//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 	//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
 	//   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
 	//   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
 	//   ("init" "state" ":" initState=UpdateStateVariable)? &
 	//   "final" "state" ":" finalState=UpdateStateVariable &
-	//   "premise" prem=LemmaPremiseFormula ";";
+	//   "premise" prem=LemmaPremiseFormula "}" ";";
 	public LemmaElements getLemmaAccess() {
 		return pLemma;
 	}
@@ -4897,13 +4948,24 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//AlwaysImplication:
-	//    "alwaysimp" "(" state=[UpdateStateVariable] "," left=AtomicFormula "," right=AtomicFormula ")";
+	//    "alwaysimp" "(" state=[UpdateStateVariable] "," left=AlwaysImplicationParameterValue ","
+	//    right=AlwaysImplicationParameterValue ")";
 	public AlwaysImplicationElements getAlwaysImplicationAccess() {
 		return pAlwaysImplication;
 	}
 	
 	public ParserRule getAlwaysImplicationRule() {
 		return getAlwaysImplicationAccess().getRule();
+	}
+	
+	//AlwaysImplicationParameterValue:
+	//    ("lambda" state=UpdateStateVariable ".")? formula=NegationFormula;
+	public AlwaysImplicationParameterValueElements getAlwaysImplicationParameterValueAccess() {
+		return pAlwaysImplicationParameterValue;
+	}
+	
+	public ParserRule getAlwaysImplicationParameterValueRule() {
+		return getAlwaysImplicationParameterValueAccess().getRule();
 	}
 	
 	//PastExtraInvariantPatternInstance:

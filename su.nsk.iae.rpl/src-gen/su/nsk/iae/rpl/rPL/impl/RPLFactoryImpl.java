@@ -123,6 +123,7 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.CONJUNCTION_LEMMA_PREMISE_FORMULA: return createConjunctionLemmaPremiseFormula();
       case RPLPackage.PRIMARY_LEMMA_PREMISE_FORMULA: return createPrimaryLemmaPremiseFormula();
       case RPLPackage.ALWAYS_IMPLICATION: return createAlwaysImplication();
+      case RPLPackage.ALWAYS_IMPLICATION_PARAMETER_VALUE: return createAlwaysImplicationParameterValue();
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE: return createPastExtraInvariantPatternInstance();
       case RPLPackage.CONJUNCTION: return createConjunction();
       case RPLPackage.CONNUNCTION_INNER_FORMULA: return createConnunctionInnerFormula();
@@ -863,6 +864,18 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
   {
     AlwaysImplicationImpl alwaysImplication = new AlwaysImplicationImpl();
     return alwaysImplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AlwaysImplicationParameterValue createAlwaysImplicationParameterValue()
+  {
+    AlwaysImplicationParameterValueImpl alwaysImplicationParameterValue = new AlwaysImplicationParameterValueImpl();
+    return alwaysImplicationParameterValue;
   }
 
   /**

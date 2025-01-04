@@ -52,12 +52,12 @@ public interface AlwaysImplication extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(AtomicFormula)
+   * @see #setLeft(AlwaysImplicationParameterValue)
    * @see su.nsk.iae.rpl.rPL.RPLPackage#getAlwaysImplication_Left()
    * @model containment="true"
    * @generated
    */
-  AtomicFormula getLeft();
+  AlwaysImplicationParameterValue getLeft();
 
   /**
    * Sets the value of the '{@link su.nsk.iae.rpl.rPL.AlwaysImplication#getLeft <em>Left</em>}' containment reference.
@@ -67,19 +67,19 @@ public interface AlwaysImplication extends EObject
    * @see #getLeft()
    * @generated
    */
-  void setLeft(AtomicFormula value);
+  void setLeft(AlwaysImplicationParameterValue value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(AtomicFormula)
+   * @see #setRight(AlwaysImplicationParameterValue)
    * @see su.nsk.iae.rpl.rPL.RPLPackage#getAlwaysImplication_Right()
    * @model containment="true"
    * @generated
    */
-  AtomicFormula getRight();
+  AlwaysImplicationParameterValue getRight();
 
   /**
    * Sets the value of the '{@link su.nsk.iae.rpl.rPL.AlwaysImplication#getRight <em>Right</em>}' containment reference.
@@ -89,6 +89,6 @@ public interface AlwaysImplication extends EObject
    * @see #getRight()
    * @generated
    */
-  void setRight(AtomicFormula value);
+  void setRight(AlwaysImplicationParameterValue value);
 
 } // AlwaysImplication

@@ -27,26 +27,16 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Imports</b></em>' containment reference.
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.Import}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imports</em>' containment reference.
-   * @see #setImports(Import)
+   * @return the value of the '<em>Imports</em>' containment reference list.
    * @see su.nsk.iae.rpl.rPL.RPLPackage#getModel_Imports()
    * @model containment="true"
    * @generated
    */
-  Import getImports();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Model#getImports <em>Imports</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Imports</em>' containment reference.
-   * @see #getImports()
-   * @generated
-   */
-  void setImports(Import value);
+  EList<Import> getImports();
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

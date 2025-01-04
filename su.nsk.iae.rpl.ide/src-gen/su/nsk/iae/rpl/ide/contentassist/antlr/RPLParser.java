@@ -178,8 +178,8 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDerivedLemmasAccess().getGroup_1_2_0(), "rule__DerivedLemmas__Group_1_2_0__0");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getGroup_1_2_1(), "rule__DerivedLemmas__Group_1_2_1__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_0(), "rule__Lemma__Group_0__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_0_2(), "rule__Lemma__Group_0_2__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_0_2_3(), "rule__Lemma__Group_0_2_3__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_0_3(), "rule__Lemma__Group_0_3__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_0_3_3(), "rule__Lemma__Group_0_3_3__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_1(), "rule__Lemma__Group_1__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_1_3(), "rule__Lemma__Group_1_3__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_2(), "rule__Lemma__Group_2__0");
@@ -196,6 +196,8 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConjunctionLemmaPremiseFormulaAccess().getGroup_1(), "rule__ConjunctionLemmaPremiseFormula__Group_1__0");
 			builder.put(grammarAccess.getPrimaryLemmaPremiseFormulaAccess().getGroup_3(), "rule__PrimaryLemmaPremiseFormula__Group_3__0");
 			builder.put(grammarAccess.getAlwaysImplicationAccess().getGroup(), "rule__AlwaysImplication__Group__0");
+			builder.put(grammarAccess.getAlwaysImplicationParameterValueAccess().getGroup(), "rule__AlwaysImplicationParameterValue__Group__0");
+			builder.put(grammarAccess.getAlwaysImplicationParameterValueAccess().getGroup_0(), "rule__AlwaysImplicationParameterValue__Group_0__0");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getGroup(), "rule__PastExtraInvariantPatternInstance__Group__0");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getGroup_2(), "rule__PastExtraInvariantPatternInstance__Group_2__0");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getGroup_2_3(), "rule__PastExtraInvariantPatternInstance__Group_2_3__0");
@@ -344,8 +346,8 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDerivedLemmasAccess().getL8Assignment_1_2_0_1(), "rule__DerivedLemmas__L8Assignment_1_2_0_1");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getL9Assignment_1_2_1_1(), "rule__DerivedLemmas__L9Assignment_1_2_1_1");
 			builder.put(grammarAccess.getLemmaAccess().getNameAssignment_0_1(), "rule__Lemma__NameAssignment_0_1");
-			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_2_2(), "rule__Lemma__CVarsAssignment_0_2_2");
-			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_2_3_1(), "rule__Lemma__CVarsAssignment_0_2_3_1");
+			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_3_2(), "rule__Lemma__CVarsAssignment_0_3_2");
+			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_3_3_1(), "rule__Lemma__CVarsAssignment_0_3_3_1");
 			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_1_2(), "rule__Lemma__FnVarsAssignment_1_2");
 			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_1_3_1(), "rule__Lemma__FnVarsAssignment_1_3_1");
 			builder.put(grammarAccess.getLemmaAccess().getIfmVarsAssignment_2_4(), "rule__Lemma__IfmVarsAssignment_2_4");
@@ -366,6 +368,8 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAlwaysImplicationAccess().getStateAssignment_2(), "rule__AlwaysImplication__StateAssignment_2");
 			builder.put(grammarAccess.getAlwaysImplicationAccess().getLeftAssignment_4(), "rule__AlwaysImplication__LeftAssignment_4");
 			builder.put(grammarAccess.getAlwaysImplicationAccess().getRightAssignment_6(), "rule__AlwaysImplication__RightAssignment_6");
+			builder.put(grammarAccess.getAlwaysImplicationParameterValueAccess().getStateAssignment_0_1(), "rule__AlwaysImplicationParameterValue__StateAssignment_0_1");
+			builder.put(grammarAccess.getAlwaysImplicationParameterValueAccess().getFormulaAssignment_1(), "rule__AlwaysImplicationParameterValue__FormulaAssignment_1");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getPatternAssignment_0(), "rule__PastExtraInvariantPatternInstance__PatternAssignment_0");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getCParamsAssignment_2_2(), "rule__PastExtraInvariantPatternInstance__CParamsAssignment_2_2");
 			builder.put(grammarAccess.getPastExtraInvariantPatternInstanceAccess().getCParamsAssignment_2_3_1(), "rule__PastExtraInvariantPatternInstance__CParamsAssignment_2_3_1");

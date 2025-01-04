@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import su.nsk.iae.rpl.rPL.AddOperator;
 import su.nsk.iae.rpl.rPL.AddTerm;
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
+import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
 import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.CompPredicate;
 import su.nsk.iae.rpl.rPL.CompareTerm;
@@ -485,6 +486,13 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   private EClass alwaysImplicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass alwaysImplicationParameterValueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2590,6 +2598,39 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
+  public EClass getAlwaysImplicationParameterValue()
+  {
+    return alwaysImplicationParameterValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlwaysImplicationParameterValue_State()
+  {
+    return (EReference)alwaysImplicationParameterValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAlwaysImplicationParameterValue_Formula()
+  {
+    return (EReference)alwaysImplicationParameterValueEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getPastExtraInvariantPatternInstance()
   {
     return pastExtraInvariantPatternInstanceEClass;
@@ -2995,6 +3036,10 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     createEReference(alwaysImplicationEClass, ALWAYS_IMPLICATION__LEFT);
     createEReference(alwaysImplicationEClass, ALWAYS_IMPLICATION__RIGHT);
 
+    alwaysImplicationParameterValueEClass = createEClass(ALWAYS_IMPLICATION_PARAMETER_VALUE);
+    createEReference(alwaysImplicationParameterValueEClass, ALWAYS_IMPLICATION_PARAMETER_VALUE__STATE);
+    createEReference(alwaysImplicationParameterValueEClass, ALWAYS_IMPLICATION_PARAMETER_VALUE__FORMULA);
+
     pastExtraInvariantPatternInstanceEClass = createEClass(PAST_EXTRA_INVARIANT_PATTERN_INSTANCE);
     createEReference(pastExtraInvariantPatternInstanceEClass, PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__PATTERN);
     createEReference(pastExtraInvariantPatternInstanceEClass, PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__CPARAMS);
@@ -3084,7 +3129,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Elements(), this.getElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3317,8 +3362,12 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     initEClass(alwaysImplicationEClass, AlwaysImplication.class, "AlwaysImplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAlwaysImplication_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, AlwaysImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAlwaysImplication_Left(), this.getAtomicFormula(), null, "left", null, 0, 1, AlwaysImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAlwaysImplication_Right(), this.getAtomicFormula(), null, "right", null, 0, 1, AlwaysImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlwaysImplication_Left(), this.getAlwaysImplicationParameterValue(), null, "left", null, 0, 1, AlwaysImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlwaysImplication_Right(), this.getAlwaysImplicationParameterValue(), null, "right", null, 0, 1, AlwaysImplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(alwaysImplicationParameterValueEClass, AlwaysImplicationParameterValue.class, "AlwaysImplicationParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAlwaysImplicationParameterValue_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, AlwaysImplicationParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAlwaysImplicationParameterValue_Formula(), this.getNegationFormula(), null, "formula", null, 0, 1, AlwaysImplicationParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pastExtraInvariantPatternInstanceEClass, PastExtraInvariantPatternInstance.class, "PastExtraInvariantPatternInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPastExtraInvariantPatternInstance_Pattern(), this.getPastExtraInvariantPattern(), null, "pattern", null, 0, 1, PastExtraInvariantPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -5,7 +5,6 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -41,14 +39,14 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference.
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImports()
    * @generated
    * @ordered
    */
-  protected Import imports;
+  protected EList<Import> imports;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -87,48 +85,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public Import getImports()
+  public EList<Import> getImports()
   {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RPLPackage.MODEL__IMPORTS);
+    }
     return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetImports(Import newImports, NotificationChain msgs)
-  {
-    Import oldImports = imports;
-    imports = newImports;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RPLPackage.MODEL__IMPORTS, oldImports, newImports);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setImports(Import newImports)
-  {
-    if (newImports != imports)
-    {
-      NotificationChain msgs = null;
-      if (imports != null)
-        msgs = ((InternalEObject)imports).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RPLPackage.MODEL__IMPORTS, null, msgs);
-      if (newImports != null)
-        msgs = ((InternalEObject)newImports).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RPLPackage.MODEL__IMPORTS, null, msgs);
-      msgs = basicSetImports(newImports, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.MODEL__IMPORTS, newImports, newImports));
   }
 
   /**
@@ -157,7 +120,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case RPLPackage.MODEL__IMPORTS:
-        return basicSetImports(null, msgs);
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case RPLPackage.MODEL__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -194,7 +157,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case RPLPackage.MODEL__IMPORTS:
-        setImports((Import)newValue);
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
         return;
       case RPLPackage.MODEL__ELEMENTS:
         getElements().clear();
@@ -215,7 +179,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case RPLPackage.MODEL__IMPORTS:
-        setImports((Import)null);
+        getImports().clear();
         return;
       case RPLPackage.MODEL__ELEMENTS:
         getElements().clear();
@@ -235,7 +199,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case RPLPackage.MODEL__IMPORTS:
-        return imports != null;
+        return imports != null && !imports.isEmpty();
       case RPLPackage.MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }

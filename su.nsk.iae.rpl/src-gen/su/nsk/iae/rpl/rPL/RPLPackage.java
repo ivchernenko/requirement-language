@@ -69,7 +69,7 @@ public interface RPLPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Imports</b></em>' containment reference.
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -2978,6 +2978,43 @@ public interface RPLPackage extends EPackage
   int ALWAYS_IMPLICATION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.AlwaysImplicationParameterValueImpl <em>Always Implication Parameter Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see su.nsk.iae.rpl.rPL.impl.AlwaysImplicationParameterValueImpl
+   * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAlwaysImplicationParameterValue()
+   * @generated
+   */
+  int ALWAYS_IMPLICATION_PARAMETER_VALUE = 57;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALWAYS_IMPLICATION_PARAMETER_VALUE__STATE = 0;
+
+  /**
+   * The feature id for the '<em><b>Formula</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALWAYS_IMPLICATION_PARAMETER_VALUE__FORMULA = 1;
+
+  /**
+   * The number of structural features of the '<em>Always Implication Parameter Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALWAYS_IMPLICATION_PARAMETER_VALUE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternInstanceImpl <em>Past Extra Invariant Pattern Instance</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2985,7 +3022,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPastExtraInvariantPatternInstance()
    * @generated
    */
-  int PAST_EXTRA_INVARIANT_PATTERN_INSTANCE = 57;
+  int PAST_EXTRA_INVARIANT_PATTERN_INSTANCE = 58;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' reference.
@@ -3049,7 +3086,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 58;
+  int CONJUNCTION = 59;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3086,7 +3123,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConnunctionInnerFormula()
    * @generated
    */
-  int CONNUNCTION_INNER_FORMULA = 59;
+  int CONNUNCTION_INNER_FORMULA = 60;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3123,7 +3160,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getEqPredicate()
    * @generated
    */
-  int EQ_PREDICATE = 60;
+  int EQ_PREDICATE = 61;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.CompPredicate <em>Comp Predicate</em>}' enum.
@@ -3133,7 +3170,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getCompPredicate()
    * @generated
    */
-  int COMP_PREDICATE = 61;
+  int COMP_PREDICATE = 62;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.AddOperator <em>Add Operator</em>}' enum.
@@ -3143,7 +3180,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAddOperator()
    * @generated
    */
-  int ADD_OPERATOR = 62;
+  int ADD_OPERATOR = 63;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.MulOperator <em>Mul Operator</em>}' enum.
@@ -3153,7 +3190,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getMulOperator()
    * @generated
    */
-  int MUL_OPERATOR = 63;
+  int MUL_OPERATOR = 64;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.UnMinus <em>Un Minus</em>}' enum.
@@ -3163,7 +3200,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getUnMinus()
    * @generated
    */
-  int UN_MINUS = 64;
+  int UN_MINUS = 65;
 
 
   /**
@@ -3177,10 +3214,10 @@ public interface RPLPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.Model#getImports <em>Imports</em>}'.
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.Model#getImports <em>Imports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Imports</em>'.
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
    * @see su.nsk.iae.rpl.rPL.Model#getImports()
    * @see #getModel()
    * @generated
@@ -5090,6 +5127,38 @@ public interface RPLPackage extends EPackage
   EReference getAlwaysImplication_Right();
 
   /**
+   * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue <em>Always Implication Parameter Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Always Implication Parameter Value</em>'.
+   * @see su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue
+   * @generated
+   */
+  EClass getAlwaysImplicationParameterValue();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>State</em>'.
+   * @see su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue#getState()
+   * @see #getAlwaysImplicationParameterValue()
+   * @generated
+   */
+  EReference getAlwaysImplicationParameterValue_State();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue#getFormula <em>Formula</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Formula</em>'.
+   * @see su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue#getFormula()
+   * @see #getAlwaysImplicationParameterValue()
+   * @generated
+   */
+  EReference getAlwaysImplicationParameterValue_Formula();
+
+  /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance <em>Past Extra Invariant Pattern Instance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5258,7 +5327,7 @@ public interface RPLPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -6800,6 +6869,32 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference ALWAYS_IMPLICATION__RIGHT = eINSTANCE.getAlwaysImplication_Right();
+
+    /**
+     * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.AlwaysImplicationParameterValueImpl <em>Always Implication Parameter Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see su.nsk.iae.rpl.rPL.impl.AlwaysImplicationParameterValueImpl
+     * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAlwaysImplicationParameterValue()
+     * @generated
+     */
+    EClass ALWAYS_IMPLICATION_PARAMETER_VALUE = eINSTANCE.getAlwaysImplicationParameterValue();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ALWAYS_IMPLICATION_PARAMETER_VALUE__STATE = eINSTANCE.getAlwaysImplicationParameterValue_State();
+
+    /**
+     * The meta object literal for the '<em><b>Formula</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ALWAYS_IMPLICATION_PARAMETER_VALUE__FORMULA = eINSTANCE.getAlwaysImplicationParameterValue_Formula();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternInstanceImpl <em>Past Extra Invariant Pattern Instance</em>}' class.

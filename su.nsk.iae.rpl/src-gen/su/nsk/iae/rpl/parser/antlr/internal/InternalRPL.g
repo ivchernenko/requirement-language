@@ -87,7 +87,7 @@ ruleModel returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
-					set(
+					add(
 						$current,
 						"imports",
 						lv_imports_0_0,
@@ -95,7 +95,7 @@ ruleModel returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)*
 		(
 			(
 				{
@@ -4990,21 +4990,25 @@ ruleLemma returns [EObject current=null]
 									}
 								)
 							)
+							otherlv_3='{'
+							{
+								newLeafNode(otherlv_3, grammarAccess.getLemmaAccess().getLeftCurlyBracketKeyword_0_2());
+							}
 							(
-								otherlv_3='const'
+								otherlv_4='const'
 								{
-									newLeafNode(otherlv_3, grammarAccess.getLemmaAccess().getConstKeyword_0_2_0());
+									newLeafNode(otherlv_4, grammarAccess.getLemmaAccess().getConstKeyword_0_3_0());
 								}
-								otherlv_4=':'
+								otherlv_5=':'
 								{
-									newLeafNode(otherlv_4, grammarAccess.getLemmaAccess().getColonKeyword_0_2_1());
+									newLeafNode(otherlv_5, grammarAccess.getLemmaAccess().getColonKeyword_0_3_1());
 								}
 								(
 									(
 										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_2_2_0());
+											newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_3_2_0());
 										}
-										lv_cVars_5_0=ruleConstantParameter
+										lv_cVars_6_0=ruleConstantParameter
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5012,23 +5016,23 @@ ruleLemma returns [EObject current=null]
 											add(
 												$current,
 												"cVars",
-												lv_cVars_5_0,
+												lv_cVars_6_0,
 												"su.nsk.iae.rpl.RPL.ConstantParameter");
 											afterParserOrEnumRuleCall();
 										}
 									)
 								)
 								(
-									otherlv_6=','
+									otherlv_7=','
 									{
-										newLeafNode(otherlv_6, grammarAccess.getLemmaAccess().getCommaKeyword_0_2_3_0());
+										newLeafNode(otherlv_7, grammarAccess.getLemmaAccess().getCommaKeyword_0_3_3_0());
 									}
 									(
 										(
 											{
-												newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_2_3_1_0());
+												newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_3_3_1_0());
 											}
-											lv_cVars_7_0=ruleConstantParameter
+											lv_cVars_8_0=ruleConstantParameter
 											{
 												if ($current==null) {
 													$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5036,7 +5040,7 @@ ruleLemma returns [EObject current=null]
 												add(
 													$current,
 													"cVars",
-													lv_cVars_7_0,
+													lv_cVars_8_0,
 													"su.nsk.iae.rpl.RPL.ConstantParameter");
 												afterParserOrEnumRuleCall();
 											}
@@ -5055,20 +5059,20 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 1);
 				}
-							({true}?=>(otherlv_8='fun'
+							({true}?=>(otherlv_9='fun'
 							{
-								newLeafNode(otherlv_8, grammarAccess.getLemmaAccess().getFunKeyword_1_0());
+								newLeafNode(otherlv_9, grammarAccess.getLemmaAccess().getFunKeyword_1_0());
 							}
-							otherlv_9=':'
+							otherlv_10=':'
 							{
-								newLeafNode(otherlv_9, grammarAccess.getLemmaAccess().getColonKeyword_1_1());
+								newLeafNode(otherlv_10, grammarAccess.getLemmaAccess().getColonKeyword_1_1());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_1_2_0());
 									}
-									lv_fnVars_10_0=ruleFunctionalParameter
+									lv_fnVars_11_0=ruleFunctionalParameter
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5076,23 +5080,23 @@ ruleLemma returns [EObject current=null]
 										add(
 											$current,
 											"fnVars",
-											lv_fnVars_10_0,
+											lv_fnVars_11_0,
 											"su.nsk.iae.rpl.RPL.FunctionalParameter");
 										afterParserOrEnumRuleCall();
 									}
 								)
 							)
 							(
-								otherlv_11=','
+								otherlv_12=','
 								{
-									newLeafNode(otherlv_11, grammarAccess.getLemmaAccess().getCommaKeyword_1_3_0());
+									newLeafNode(otherlv_12, grammarAccess.getLemmaAccess().getCommaKeyword_1_3_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_1_3_1_0());
 										}
-										lv_fnVars_12_0=ruleFunctionalParameter
+										lv_fnVars_13_0=ruleFunctionalParameter
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5100,7 +5104,7 @@ ruleLemma returns [EObject current=null]
 											add(
 												$current,
 												"fnVars",
-												lv_fnVars_12_0,
+												lv_fnVars_13_0,
 												"su.nsk.iae.rpl.RPL.FunctionalParameter");
 											afterParserOrEnumRuleCall();
 										}
@@ -5118,28 +5122,28 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 2);
 				}
-							({true}?=>(otherlv_13='extra'
+							({true}?=>(otherlv_14='extra'
 							{
-								newLeafNode(otherlv_13, grammarAccess.getLemmaAccess().getExtraKeyword_2_0());
+								newLeafNode(otherlv_14, grammarAccess.getLemmaAccess().getExtraKeyword_2_0());
 							}
-							otherlv_14='invariant'
+							otherlv_15='invariant'
 							{
-								newLeafNode(otherlv_14, grammarAccess.getLemmaAccess().getInvariantKeyword_2_1());
+								newLeafNode(otherlv_15, grammarAccess.getLemmaAccess().getInvariantKeyword_2_1());
 							}
-							otherlv_15='formulas'
+							otherlv_16='formulas'
 							{
-								newLeafNode(otherlv_15, grammarAccess.getLemmaAccess().getFormulasKeyword_2_2());
+								newLeafNode(otherlv_16, grammarAccess.getLemmaAccess().getFormulasKeyword_2_2());
 							}
-							otherlv_16=':'
+							otherlv_17=':'
 							{
-								newLeafNode(otherlv_16, grammarAccess.getLemmaAccess().getColonKeyword_2_3());
+								newLeafNode(otherlv_17, grammarAccess.getLemmaAccess().getColonKeyword_2_3());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsFormulaParameterParserRuleCall_2_4_0());
 									}
-									lv_ifmVars_17_0=ruleFormulaParameter
+									lv_ifmVars_18_0=ruleFormulaParameter
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5147,23 +5151,23 @@ ruleLemma returns [EObject current=null]
 										add(
 											$current,
 											"ifmVars",
-											lv_ifmVars_17_0,
+											lv_ifmVars_18_0,
 											"su.nsk.iae.rpl.RPL.FormulaParameter");
 										afterParserOrEnumRuleCall();
 									}
 								)
 							)
 							(
-								otherlv_18=','
+								otherlv_19=','
 								{
-									newLeafNode(otherlv_18, grammarAccess.getLemmaAccess().getCommaKeyword_2_5_0());
+									newLeafNode(otherlv_19, grammarAccess.getLemmaAccess().getCommaKeyword_2_5_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsFormulaParameterParserRuleCall_2_5_1_0());
 										}
-										lv_ifmVars_19_0=ruleFormulaParameter
+										lv_ifmVars_20_0=ruleFormulaParameter
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5171,7 +5175,7 @@ ruleLemma returns [EObject current=null]
 											add(
 												$current,
 												"ifmVars",
-												lv_ifmVars_19_0,
+												lv_ifmVars_20_0,
 												"su.nsk.iae.rpl.RPL.FormulaParameter");
 											afterParserOrEnumRuleCall();
 										}
@@ -5189,24 +5193,24 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 3);
 				}
-							({true}?=>(otherlv_20='requirement'
+							({true}?=>(otherlv_21='requirement'
 							{
-								newLeafNode(otherlv_20, grammarAccess.getLemmaAccess().getRequirementKeyword_3_0());
+								newLeafNode(otherlv_21, grammarAccess.getLemmaAccess().getRequirementKeyword_3_0());
 							}
-							otherlv_21='formulas'
+							otherlv_22='formulas'
 							{
-								newLeafNode(otherlv_21, grammarAccess.getLemmaAccess().getFormulasKeyword_3_1());
+								newLeafNode(otherlv_22, grammarAccess.getLemmaAccess().getFormulasKeyword_3_1());
 							}
-							otherlv_22=':'
+							otherlv_23=':'
 							{
-								newLeafNode(otherlv_22, grammarAccess.getLemmaAccess().getColonKeyword_3_2());
+								newLeafNode(otherlv_23, grammarAccess.getLemmaAccess().getColonKeyword_3_2());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsFormulaParameterParserRuleCall_3_3_0());
 									}
-									lv_rfmVars_23_0=ruleFormulaParameter
+									lv_rfmVars_24_0=ruleFormulaParameter
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5214,23 +5218,23 @@ ruleLemma returns [EObject current=null]
 										add(
 											$current,
 											"rfmVars",
-											lv_rfmVars_23_0,
+											lv_rfmVars_24_0,
 											"su.nsk.iae.rpl.RPL.FormulaParameter");
 										afterParserOrEnumRuleCall();
 									}
 								)
 							)
 							(
-								otherlv_24=','
+								otherlv_25=','
 								{
-									newLeafNode(otherlv_24, grammarAccess.getLemmaAccess().getCommaKeyword_3_4_0());
+									newLeafNode(otherlv_25, grammarAccess.getLemmaAccess().getCommaKeyword_3_4_0());
 								}
 								(
 									(
 										{
 											newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsFormulaParameterParserRuleCall_3_4_1_0());
 										}
-										lv_rfmVars_25_0=ruleFormulaParameter
+										lv_rfmVars_26_0=ruleFormulaParameter
 										{
 											if ($current==null) {
 												$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5238,7 +5242,7 @@ ruleLemma returns [EObject current=null]
 											add(
 												$current,
 												"rfmVars",
-												lv_rfmVars_25_0,
+												lv_rfmVars_26_0,
 												"su.nsk.iae.rpl.RPL.FormulaParameter");
 											afterParserOrEnumRuleCall();
 										}
@@ -5256,24 +5260,24 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 4);
 				}
-							({true}?=>(otherlv_26='init'
+							({true}?=>(otherlv_27='init'
 							{
-								newLeafNode(otherlv_26, grammarAccess.getLemmaAccess().getInitKeyword_4_0());
+								newLeafNode(otherlv_27, grammarAccess.getLemmaAccess().getInitKeyword_4_0());
 							}
-							otherlv_27='state'
+							otherlv_28='state'
 							{
-								newLeafNode(otherlv_27, grammarAccess.getLemmaAccess().getStateKeyword_4_1());
+								newLeafNode(otherlv_28, grammarAccess.getLemmaAccess().getStateKeyword_4_1());
 							}
-							otherlv_28=':'
+							otherlv_29=':'
 							{
-								newLeafNode(otherlv_28, grammarAccess.getLemmaAccess().getColonKeyword_4_2());
+								newLeafNode(otherlv_29, grammarAccess.getLemmaAccess().getColonKeyword_4_2());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getInitStateUpdateStateVariableParserRuleCall_4_3_0());
 									}
-									lv_initState_29_0=ruleUpdateStateVariable
+									lv_initState_30_0=ruleUpdateStateVariable
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5281,7 +5285,7 @@ ruleLemma returns [EObject current=null]
 										set(
 											$current,
 											"initState",
-											lv_initState_29_0,
+											lv_initState_30_0,
 											"su.nsk.iae.rpl.RPL.UpdateStateVariable");
 										afterParserOrEnumRuleCall();
 									}
@@ -5298,24 +5302,24 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 5);
 				}
-							({true}?=>(otherlv_30='final'
+							({true}?=>(otherlv_31='final'
 							{
-								newLeafNode(otherlv_30, grammarAccess.getLemmaAccess().getFinalKeyword_5_0());
+								newLeafNode(otherlv_31, grammarAccess.getLemmaAccess().getFinalKeyword_5_0());
 							}
-							otherlv_31='state'
+							otherlv_32='state'
 							{
-								newLeafNode(otherlv_31, grammarAccess.getLemmaAccess().getStateKeyword_5_1());
+								newLeafNode(otherlv_32, grammarAccess.getLemmaAccess().getStateKeyword_5_1());
 							}
-							otherlv_32=':'
+							otherlv_33=':'
 							{
-								newLeafNode(otherlv_32, grammarAccess.getLemmaAccess().getColonKeyword_5_2());
+								newLeafNode(otherlv_33, grammarAccess.getLemmaAccess().getColonKeyword_5_2());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getFinalStateUpdateStateVariableParserRuleCall_5_3_0());
 									}
-									lv_finalState_33_0=ruleUpdateStateVariable
+									lv_finalState_34_0=ruleUpdateStateVariable
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5323,7 +5327,7 @@ ruleLemma returns [EObject current=null]
 										set(
 											$current,
 											"finalState",
-											lv_finalState_33_0,
+											lv_finalState_34_0,
 											"su.nsk.iae.rpl.RPL.UpdateStateVariable");
 										afterParserOrEnumRuleCall();
 									}
@@ -5340,16 +5344,16 @@ ruleLemma returns [EObject current=null]
 				{
 					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 6);
 				}
-							({true}?=>(otherlv_34='premise'
+							({true}?=>(otherlv_35='premise'
 							{
-								newLeafNode(otherlv_34, grammarAccess.getLemmaAccess().getPremiseKeyword_6_0());
+								newLeafNode(otherlv_35, grammarAccess.getLemmaAccess().getPremiseKeyword_6_0());
 							}
 							(
 								(
 									{
 										newCompositeNode(grammarAccess.getLemmaAccess().getPremLemmaPremiseFormulaParserRuleCall_6_1_0());
 									}
-									lv_prem_35_0=ruleLemmaPremiseFormula
+									lv_prem_36_0=ruleLemmaPremiseFormula
 									{
 										if ($current==null) {
 											$current = createModelElementForParent(grammarAccess.getLemmaRule());
@@ -5357,15 +5361,19 @@ ruleLemma returns [EObject current=null]
 										set(
 											$current,
 											"prem",
-											lv_prem_35_0,
+											lv_prem_36_0,
 											"su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
 										afterParserOrEnumRuleCall();
 									}
 								)
 							)
-							otherlv_36=';'
+							otherlv_37='}'
 							{
-								newLeafNode(otherlv_36, grammarAccess.getLemmaAccess().getSemicolonKeyword_6_2());
+								newLeafNode(otherlv_37, grammarAccess.getLemmaAccess().getRightCurlyBracketKeyword_6_2());
+							}
+							otherlv_38=';'
+							{
+								newLeafNode(otherlv_38, grammarAccess.getLemmaAccess().getSemicolonKeyword_6_3());
 							}
 							))
 				{ 
@@ -5725,9 +5733,9 @@ ruleAlwaysImplication returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAlwaysImplicationAccess().getLeftAtomicFormulaParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getAlwaysImplicationAccess().getLeftAlwaysImplicationParameterValueParserRuleCall_4_0());
 				}
-				lv_left_4_0=ruleAtomicFormula
+				lv_left_4_0=ruleAlwaysImplicationParameterValue
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAlwaysImplicationRule());
@@ -5736,7 +5744,7 @@ ruleAlwaysImplication returns [EObject current=null]
 						$current,
 						"left",
 						lv_left_4_0,
-						"su.nsk.iae.rpl.RPL.AtomicFormula");
+						"su.nsk.iae.rpl.RPL.AlwaysImplicationParameterValue");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -5748,9 +5756,9 @@ ruleAlwaysImplication returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAlwaysImplicationAccess().getRightAtomicFormulaParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getAlwaysImplicationAccess().getRightAlwaysImplicationParameterValueParserRuleCall_6_0());
 				}
-				lv_right_6_0=ruleAtomicFormula
+				lv_right_6_0=ruleAlwaysImplicationParameterValue
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAlwaysImplicationRule());
@@ -5759,7 +5767,7 @@ ruleAlwaysImplication returns [EObject current=null]
 						$current,
 						"right",
 						lv_right_6_0,
-						"su.nsk.iae.rpl.RPL.AtomicFormula");
+						"su.nsk.iae.rpl.RPL.AlwaysImplicationParameterValue");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -5768,6 +5776,73 @@ ruleAlwaysImplication returns [EObject current=null]
 		{
 			newLeafNode(otherlv_7, grammarAccess.getAlwaysImplicationAccess().getRightParenthesisKeyword_7());
 		}
+	)
+;
+
+// Entry rule entryRuleAlwaysImplicationParameterValue
+entryRuleAlwaysImplicationParameterValue returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAlwaysImplicationParameterValueRule()); }
+	iv_ruleAlwaysImplicationParameterValue=ruleAlwaysImplicationParameterValue
+	{ $current=$iv_ruleAlwaysImplicationParameterValue.current; }
+	EOF;
+
+// Rule AlwaysImplicationParameterValue
+ruleAlwaysImplicationParameterValue returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			otherlv_0='lambda'
+			{
+				newLeafNode(otherlv_0, grammarAccess.getAlwaysImplicationParameterValueAccess().getLambdaKeyword_0_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAlwaysImplicationParameterValueAccess().getStateUpdateStateVariableParserRuleCall_0_1_0());
+					}
+					lv_state_1_0=ruleUpdateStateVariable
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAlwaysImplicationParameterValueRule());
+						}
+						set(
+							$current,
+							"state",
+							lv_state_1_0,
+							"su.nsk.iae.rpl.RPL.UpdateStateVariable");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_2='.'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getAlwaysImplicationParameterValueAccess().getFullStopKeyword_0_2());
+			}
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAlwaysImplicationParameterValueAccess().getFormulaNegationFormulaParserRuleCall_1_0());
+				}
+				lv_formula_3_0=ruleNegationFormula
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAlwaysImplicationParameterValueRule());
+					}
+					set(
+						$current,
+						"formula",
+						lv_formula_3_0,
+						"su.nsk.iae.rpl.RPL.NegationFormula");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 

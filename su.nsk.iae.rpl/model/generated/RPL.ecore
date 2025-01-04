@@ -2,8 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rPL" nsURI="http://www.nsk.su/iae/rpl/RPL" nsPrefix="rPL">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" eType="#//Import"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Element" containment="true"/>
   </eClassifiers>
@@ -308,9 +308,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AlwaysImplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//AtomicFormula"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//AlwaysImplicationParameterValue"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//AtomicFormula"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//AlwaysImplicationParameterValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlwaysImplicationParameterValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//NegationFormula"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PastExtraInvariantPatternInstance">
