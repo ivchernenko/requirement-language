@@ -3,7 +3,11 @@
  */
 package su.nsk.iae.rpl.rPL;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
+
+import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,4 +21,9 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RequirementPattern extends EObject
 {
+	public su.nsk.iae.rpl.invpatterngenerator.Formula 
+	generateExtraInvariantPatternInstance(
+			List<Term> cParams,
+			List<su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue> einvFmParams,
+			ExtraInvariantPatternGenerator generator);
 } // RequirementPattern

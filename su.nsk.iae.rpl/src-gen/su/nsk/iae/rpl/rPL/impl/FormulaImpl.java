@@ -60,6 +60,12 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
   {
     super();
   }
+  
+  @Override
+  public su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula
+  (su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator generator) {
+	  return generator.generateFormula(this);
+  }
 
   /**
    * <!-- begin-user-doc -->

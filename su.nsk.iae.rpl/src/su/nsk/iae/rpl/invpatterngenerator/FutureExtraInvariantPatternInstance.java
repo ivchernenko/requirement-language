@@ -10,10 +10,10 @@ public class FutureExtraInvariantPatternInstance extends Formula {
 	private FutureExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;
-	private List<Formula> fmParams;
+	private List<FormulaParameterValue> fmParams;
 	
 	public FutureExtraInvariantPatternInstance(FutureExtraInvariantPattern pattern, List<Term> cParams,
-			List<FunctionalParameter> fnParams, List<Formula> fmParams) {
+			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams) {
 		super();
 		this.pattern = pattern;
 		this.cParams = cParams;
@@ -33,7 +33,7 @@ public class FutureExtraInvariantPatternInstance extends Formula {
 		return fnParams;
 	}
 	
-	public List<Formula> getFmParams() {
+	public List<FormulaParameterValue> getFmParams() {
 		return fmParams;
 	}
 	

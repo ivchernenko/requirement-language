@@ -24,6 +24,9 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Formula extends EObject
 {
+	su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(
+			su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator 
+			generator);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
