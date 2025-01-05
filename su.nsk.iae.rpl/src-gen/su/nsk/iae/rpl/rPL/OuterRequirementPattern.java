@@ -24,8 +24,4 @@ import su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue;
  */
 public interface OuterRequirementPattern extends EObject
 {
-
-	Formula generateExtraInvariantPatternInstance(EList<Term> cParams,
-			List<FormulaParameterValue> extraInvariantFmParams,
-			ExtraInvariantPatternGenerator extraInvariantPatternGenerator);
 } // OuterRequirementPattern
