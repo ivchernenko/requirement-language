@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import su.nsk.iae.rpl.rPL.OuterRequirementPattern;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.RequirementPattern;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Requirement Pattern</b></em>'.
+ * An implementation of the model object '<em><b>Outer Requirement Pattern</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class RequirementPatternImpl extends MinimalEObjectImpl.Container implements RequirementPattern
+public class OuterRequirementPatternImpl extends MinimalEObjectImpl.Container implements OuterRequirementPattern
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RequirementPatternImpl()
+  protected OuterRequirementPatternImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class RequirementPatternImpl extends MinimalEObjectImpl.Container impleme
   @Override
   protected EClass eStaticClass()
   {
-    return RPLPackage.Literals.REQUIREMENT_PATTERN;
+    return RPLPackage.Literals.OUTER_REQUIREMENT_PATTERN;
   }
 
-} //RequirementPatternImpl
+} //OuterRequirementPatternImpl

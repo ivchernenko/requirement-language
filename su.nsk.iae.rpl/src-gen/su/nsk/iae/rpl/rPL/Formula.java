@@ -5,6 +5,8 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
+import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Formula</b></em>'.
@@ -24,9 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Formula extends EObject
 {
-	su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(
-			su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator 
-			generator);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -70,5 +69,8 @@ public interface Formula extends EObject
    * @generated
    */
   void setRight(Formula value);
+
+su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(
+		ExtraInvariantPatternGenerator extraInvariantPatternGenerator);
 
 } // Formula

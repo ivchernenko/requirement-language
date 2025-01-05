@@ -91,9 +91,9 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createElementAdapter();
       }
       @Override
-      public Adapter caseRequirementPattern(RequirementPattern object)
+      public Adapter caseBasicRequirementPattern(BasicRequirementPattern object)
       {
-        return createRequirementPatternAdapter();
+        return createBasicRequirementPatternAdapter();
       }
       @Override
       public Adapter caseDerivedRequirementPattern(DerivedRequirementPattern object)
@@ -151,6 +151,16 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createPrimaryFormulaAdapter();
       }
       @Override
+      public Adapter caseOuterRequirementPatternInstance(OuterRequirementPatternInstance object)
+      {
+        return createOuterRequirementPatternInstanceAdapter();
+      }
+      @Override
+      public Adapter caseOuterRequirementPattern(OuterRequirementPattern object)
+      {
+        return createOuterRequirementPatternAdapter();
+      }
+      @Override
       public Adapter caseFormulaParameterValue(FormulaParameterValue object)
       {
         return createFormulaParameterValueAdapter();
@@ -181,9 +191,9 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createAtomicFormulaAdapter();
       }
       @Override
-      public Adapter caseRequirementPatternInstance(RequirementPatternInstance object)
+      public Adapter caseBasicRequirementPatternInstance(BasicRequirementPatternInstance object)
       {
-        return createRequirementPatternInstanceAdapter();
+        return createBasicRequirementPatternInstanceAdapter();
       }
       @Override
       public Adapter caseFutureRequirementPattern(FutureRequirementPattern object)
@@ -448,16 +458,16 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.RequirementPattern <em>Requirement Pattern</em>}'.
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.BasicRequirementPattern <em>Basic Requirement Pattern</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see su.nsk.iae.rpl.rPL.RequirementPattern
+   * @see su.nsk.iae.rpl.rPL.BasicRequirementPattern
    * @generated
    */
-  public Adapter createRequirementPatternAdapter()
+  public Adapter createBasicRequirementPatternAdapter()
   {
     return null;
   }
@@ -628,6 +638,36 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance <em>Outer Requirement Pattern Instance</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance
+   * @generated
+   */
+  public Adapter createOuterRequirementPatternInstanceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.OuterRequirementPattern <em>Outer Requirement Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see su.nsk.iae.rpl.rPL.OuterRequirementPattern
+   * @generated
+   */
+  public Adapter createOuterRequirementPatternAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.FormulaParameterValue <em>Formula Parameter Value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -718,16 +758,16 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.RequirementPatternInstance <em>Requirement Pattern Instance</em>}'.
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance <em>Basic Requirement Pattern Instance</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see su.nsk.iae.rpl.rPL.RequirementPatternInstance
+   * @see su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance
    * @generated
    */
-  public Adapter createRequirementPatternInstanceAdapter()
+  public Adapter createBasicRequirementPatternInstanceAdapter()
   {
     return null;
   }

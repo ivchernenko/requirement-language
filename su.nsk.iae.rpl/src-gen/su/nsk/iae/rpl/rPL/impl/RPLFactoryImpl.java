@@ -69,7 +69,7 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.MODEL: return createModel();
       case RPLPackage.IMPORT: return createImport();
       case RPLPackage.ELEMENT: return createElement();
-      case RPLPackage.REQUIREMENT_PATTERN: return createRequirementPattern();
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN: return createBasicRequirementPattern();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN: return createDerivedRequirementPattern();
       case RPLPackage.VARIABLE: return createVariable();
       case RPLPackage.VAR_DECLARATION: return createVarDeclaration();
@@ -81,13 +81,15 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.FORMULA: return createFormula();
       case RPLPackage.CONJUNCTION_FORMULA: return createConjunctionFormula();
       case RPLPackage.PRIMARY_FORMULA: return createPrimaryFormula();
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE: return createOuterRequirementPatternInstance();
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN: return createOuterRequirementPattern();
       case RPLPackage.FORMULA_PARAMETER_VALUE: return createFormulaParameterValue();
       case RPLPackage.INNER_FORMULA: return createInnerFormula();
       case RPLPackage.CONJUNCTION_INNER_FORMULA: return createConjunctionInnerFormula();
       case RPLPackage.PRIMARY_INNER_FORMULA: return createPrimaryInnerFormula();
       case RPLPackage.NEGATION_FORMULA: return createNegationFormula();
       case RPLPackage.ATOMIC_FORMULA: return createAtomicFormula();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE: return createRequirementPatternInstance();
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE: return createBasicRequirementPatternInstance();
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN: return createFutureRequirementPattern();
       case RPLPackage.PAST_REQUIREMENT_PATTERN: return createPastRequirementPattern();
       case RPLPackage.FUTURE_EXTRA_INVARIANT_PATTERN: return createFutureExtraInvariantPattern();
@@ -224,10 +226,10 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
    * @generated
    */
   @Override
-  public RequirementPattern createRequirementPattern()
+  public BasicRequirementPattern createBasicRequirementPattern()
   {
-    RequirementPatternImpl requirementPattern = new RequirementPatternImpl();
-    return requirementPattern;
+    BasicRequirementPatternImpl basicRequirementPattern = new BasicRequirementPatternImpl();
+    return basicRequirementPattern;
   }
 
   /**
@@ -368,6 +370,30 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
    * @generated
    */
   @Override
+  public OuterRequirementPatternInstance createOuterRequirementPatternInstance()
+  {
+    OuterRequirementPatternInstanceImpl outerRequirementPatternInstance = new OuterRequirementPatternInstanceImpl();
+    return outerRequirementPatternInstance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public OuterRequirementPattern createOuterRequirementPattern()
+  {
+    OuterRequirementPatternImpl outerRequirementPattern = new OuterRequirementPatternImpl();
+    return outerRequirementPattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public FormulaParameterValue createFormulaParameterValue()
   {
     FormulaParameterValueImpl formulaParameterValue = new FormulaParameterValueImpl();
@@ -440,10 +466,10 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
    * @generated
    */
   @Override
-  public RequirementPatternInstance createRequirementPatternInstance()
+  public BasicRequirementPatternInstance createBasicRequirementPatternInstance()
   {
-    RequirementPatternInstanceImpl requirementPatternInstance = new RequirementPatternInstanceImpl();
-    return requirementPatternInstance;
+    BasicRequirementPatternInstanceImpl basicRequirementPatternInstance = new BasicRequirementPatternInstanceImpl();
+    return basicRequirementPatternInstance;
   }
 
   /**

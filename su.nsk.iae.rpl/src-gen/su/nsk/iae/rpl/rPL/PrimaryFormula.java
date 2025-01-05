@@ -28,12 +28,12 @@ public interface PrimaryFormula extends ConjunctionFormula
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pattern Inst</em>' containment reference.
-   * @see #setPatternInst(RequirementPatternInstance)
+   * @see #setPatternInst(OuterRequirementPatternInstance)
    * @see su.nsk.iae.rpl.rPL.RPLPackage#getPrimaryFormula_PatternInst()
    * @model containment="true"
    * @generated
    */
-  RequirementPatternInstance getPatternInst();
+  OuterRequirementPatternInstance getPatternInst();
 
   /**
    * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PrimaryFormula#getPatternInst <em>Pattern Inst</em>}' containment reference.
@@ -43,7 +43,7 @@ public interface PrimaryFormula extends ConjunctionFormula
    * @see #getPatternInst()
    * @generated
    */
-  void setPatternInst(RequirementPatternInstance value);
+  void setPatternInst(OuterRequirementPatternInstance value);
 
   /**
    * Returns the value of the '<em><b>Nested Formula</b></em>' containment reference.

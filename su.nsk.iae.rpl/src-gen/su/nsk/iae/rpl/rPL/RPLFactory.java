@@ -51,13 +51,13 @@ public interface RPLFactory extends EFactory
   Element createElement();
 
   /**
-   * Returns a new object of class '<em>Requirement Pattern</em>'.
+   * Returns a new object of class '<em>Basic Requirement Pattern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requirement Pattern</em>'.
+   * @return a new object of class '<em>Basic Requirement Pattern</em>'.
    * @generated
    */
-  RequirementPattern createRequirementPattern();
+  BasicRequirementPattern createBasicRequirementPattern();
 
   /**
    * Returns a new object of class '<em>Derived Requirement Pattern</em>'.
@@ -159,6 +159,24 @@ public interface RPLFactory extends EFactory
   PrimaryFormula createPrimaryFormula();
 
   /**
+   * Returns a new object of class '<em>Outer Requirement Pattern Instance</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outer Requirement Pattern Instance</em>'.
+   * @generated
+   */
+  OuterRequirementPatternInstance createOuterRequirementPatternInstance();
+
+  /**
+   * Returns a new object of class '<em>Outer Requirement Pattern</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Outer Requirement Pattern</em>'.
+   * @generated
+   */
+  OuterRequirementPattern createOuterRequirementPattern();
+
+  /**
    * Returns a new object of class '<em>Formula Parameter Value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -213,13 +231,13 @@ public interface RPLFactory extends EFactory
   AtomicFormula createAtomicFormula();
 
   /**
-   * Returns a new object of class '<em>Requirement Pattern Instance</em>'.
+   * Returns a new object of class '<em>Basic Requirement Pattern Instance</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requirement Pattern Instance</em>'.
+   * @return a new object of class '<em>Basic Requirement Pattern Instance</em>'.
    * @generated
    */
-  RequirementPatternInstance createRequirementPatternInstance();
+  BasicRequirementPatternInstance createBasicRequirementPatternInstance();
 
   /**
    * Returns a new object of class '<em>Future Requirement Pattern</em>'.

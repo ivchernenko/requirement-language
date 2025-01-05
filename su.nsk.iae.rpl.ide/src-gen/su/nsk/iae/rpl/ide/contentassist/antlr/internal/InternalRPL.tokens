@@ -28,14 +28,14 @@
 ']'=58
 'alwaysimp'=79
 'const'=39
-'current'=50
+'current'=48
 'derivedeinv'=56
 'derivedreq'=35
 'extra'=60
-'final'=49
+'final'=47
 'for'=62
 'formulas'=42
-'frm'=48
+'frm'=50
 'from'=44
 'fun'=54
 'futureeinv'=53
@@ -43,7 +43,7 @@
 'import'=33
 'init'=76
 'invariant'=61
-'lambda'=47
+'lambda'=49
 'lemma'=75
 'lemmas'=63
 'mod'=32

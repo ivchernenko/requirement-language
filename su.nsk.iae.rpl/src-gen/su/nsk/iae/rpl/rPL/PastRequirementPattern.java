@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface PastRequirementPattern extends Element, RequirementPattern
+public interface PastRequirementPattern extends Element, BasicRequirementPattern, OuterRequirementPattern
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

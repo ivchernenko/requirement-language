@@ -11,10 +11,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
 import su.nsk.iae.rpl.rPL.Formula;
+import su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.PrimaryFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.RequirementPatternInstance;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +33,13 @@ import su.nsk.iae.rpl.rPL.RequirementPatternInstance;
  */
 public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements PrimaryFormula
 {
-  /**
+  @Override
+	public su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(ExtraInvariantPatternGenerator generator) {
+		// TODO Auto-generated method stub
+		return generator.generateFormula(this);
+	}
+
+/**
    * The cached value of the '{@link #getPatternInst() <em>Pattern Inst</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -40,7 +47,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
    * @generated
    * @ordered
    */
-  protected RequirementPatternInstance patternInst;
+  protected OuterRequirementPatternInstance patternInst;
 
   /**
    * The cached value of the '{@link #getNestedFormula() <em>Nested Formula</em>}' containment reference.
@@ -79,7 +86,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
    * @generated
    */
   @Override
-  public RequirementPatternInstance getPatternInst()
+  public OuterRequirementPatternInstance getPatternInst()
   {
     return patternInst;
   }
@@ -89,9 +96,9 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPatternInst(RequirementPatternInstance newPatternInst, NotificationChain msgs)
+  public NotificationChain basicSetPatternInst(OuterRequirementPatternInstance newPatternInst, NotificationChain msgs)
   {
-    RequirementPatternInstance oldPatternInst = patternInst;
+    OuterRequirementPatternInstance oldPatternInst = patternInst;
     patternInst = newPatternInst;
     if (eNotificationRequired())
     {
@@ -107,7 +114,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
    * @generated
    */
   @Override
-  public void setPatternInst(RequirementPatternInstance newPatternInst)
+  public void setPatternInst(OuterRequirementPatternInstance newPatternInst)
   {
     if (newPatternInst != patternInst)
     {
@@ -220,7 +227,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
     switch (featureID)
     {
       case RPLPackage.PRIMARY_FORMULA__PATTERN_INST:
-        setPatternInst((RequirementPatternInstance)newValue);
+        setPatternInst((OuterRequirementPatternInstance)newValue);
         return;
       case RPLPackage.PRIMARY_FORMULA__NESTED_FORMULA:
         setNestedFormula((Formula)newValue);
@@ -240,7 +247,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
     switch (featureID)
     {
       case RPLPackage.PRIMARY_FORMULA__PATTERN_INST:
-        setPatternInst((RequirementPatternInstance)null);
+        setPatternInst((OuterRequirementPatternInstance)null);
         return;
       case RPLPackage.PRIMARY_FORMULA__NESTED_FORMULA:
         setNestedFormula((Formula)null);

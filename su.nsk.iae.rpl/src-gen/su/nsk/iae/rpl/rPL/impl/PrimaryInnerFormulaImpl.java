@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.InnerFormula;
 import su.nsk.iae.rpl.rPL.NegationFormula;
 import su.nsk.iae.rpl.rPL.PrimaryInnerFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.RequirementPatternInstance;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
    * @generated
    * @ordered
    */
-  protected RequirementPatternInstance patternInst;
+  protected BasicRequirementPatternInstance patternInst;
 
   /**
    * The cached value of the '{@link #getNestedFormula() <em>Nested Formula</em>}' containment reference.
@@ -141,7 +141,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
    * @generated
    */
   @Override
-  public RequirementPatternInstance getPatternInst()
+  public BasicRequirementPatternInstance getPatternInst()
   {
     return patternInst;
   }
@@ -151,9 +151,9 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPatternInst(RequirementPatternInstance newPatternInst, NotificationChain msgs)
+  public NotificationChain basicSetPatternInst(BasicRequirementPatternInstance newPatternInst, NotificationChain msgs)
   {
-    RequirementPatternInstance oldPatternInst = patternInst;
+    BasicRequirementPatternInstance oldPatternInst = patternInst;
     patternInst = newPatternInst;
     if (eNotificationRequired())
     {
@@ -169,7 +169,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
    * @generated
    */
   @Override
-  public void setPatternInst(RequirementPatternInstance newPatternInst)
+  public void setPatternInst(BasicRequirementPatternInstance newPatternInst)
   {
     if (newPatternInst != patternInst)
     {
@@ -289,7 +289,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
         setAtomic((NegationFormula)newValue);
         return;
       case RPLPackage.PRIMARY_INNER_FORMULA__PATTERN_INST:
-        setPatternInst((RequirementPatternInstance)newValue);
+        setPatternInst((BasicRequirementPatternInstance)newValue);
         return;
       case RPLPackage.PRIMARY_INNER_FORMULA__NESTED_FORMULA:
         setNestedFormula((InnerFormula)newValue);
@@ -312,7 +312,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
         setAtomic((NegationFormula)null);
         return;
       case RPLPackage.PRIMARY_INNER_FORMULA__PATTERN_INST:
-        setPatternInst((RequirementPatternInstance)null);
+        setPatternInst((BasicRequirementPatternInstance)null);
         return;
       case RPLPackage.PRIMARY_INNER_FORMULA__NESTED_FORMULA:
         setNestedFormula((InnerFormula)null);

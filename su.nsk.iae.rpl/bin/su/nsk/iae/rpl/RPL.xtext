@@ -13,7 +13,7 @@ Element:
 	VarDeclaration | DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern | 
 	DerivedExtraInvariantPattern | FutureExtraInvariantPattern | PastExtraInvariantPattern | Requirement | ExtraInvariant;
            	
-RequirementPattern:
+BasicRequirementPattern:
 	DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern;
 	
 	/* ======================= Derived requirement pattern ======================= */
@@ -59,10 +59,19 @@ ConjunctionFormula:
 	PrimaryFormula ({Conjunction.left=current} CONJUNCTION right=ConjunctionFormula)*;
            	            	
 PrimaryFormula:
-	patternInst=RequirementPatternInstance | "(" nestedFormula=Formula ")";
+	patternInst=OuterRequirementPatternInstance | "(" nestedFormula=Formula ")";
            	
 terminal CONJUNCTION:
 	"AND" | "&" | "&&" | "/\\";
+	
+OuterRequirementPatternInstance:
+	pattern=[OuterRequirementPattern] "("
+	("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+	 ")";
+	 
+OuterRequirementPattern:
+	DerivedRequirementPattern | PastRequirementPattern;
 	
 /* ======================= Inner formulas ======================= */
            	
@@ -76,7 +85,7 @@ ConjunctionInnerFormula:
 	PrimaryInnerFormula ({ConnunctionInnerFormula.left=current} CONJUNCTION right=ConjunctionInnerFormula)*;
            	
 PrimaryInnerFormula:
-	atomic=NegationFormula | patternInst=RequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
+	atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
 	
 NegationFormula:
 	(neg?=NEGATION)? right=AtomicFormula;
@@ -87,8 +96,9 @@ terminal NEGATION:
 AtomicFormula:
 	boolLiteral=BOOLEAN_LITERAL | "frm" "(" boolTerm=Term ")" |
 	fmParam=[FormulaParameter] ("(" states+=[UpdateStateVariable] ("," states+=[UpdateStateVariable])* ")")?;
-RequirementPatternInstance:
-	pattern=[RequirementPattern] "("
+	
+BasicRequirementPatternInstance:
+	pattern=[BasicRequirementPattern] "("
 	("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 	 ")";

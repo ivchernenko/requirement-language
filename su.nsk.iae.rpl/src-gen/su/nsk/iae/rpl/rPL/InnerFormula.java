@@ -6,6 +6,7 @@ package su.nsk.iae.rpl.rPL;
 import org.eclipse.emf.ecore.EObject;
 
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.Formula;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,9 +27,6 @@ import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
  */
 public interface InnerFormula extends EObject
 {
-	public su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(
-			ExtraInvariantPatternGenerator generator);
-	
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -72,5 +70,7 @@ public interface InnerFormula extends EObject
    * @generated
    */
   void setRight(InnerFormula value);
+
+Formula generateFormula(ExtraInvariantPatternGenerator generator);
 
 } // InnerFormula

@@ -19,7 +19,12 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
  */
 public class ConjunctionFormulaImpl extends FormulaImpl implements ConjunctionFormula
 {
-  /**
+  @Override
+	public Formula generateFormula(ExtraInvariantPatternGenerator generator) {
+		return generator.generateFormula(this);
+	}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -28,17 +33,8 @@ public class ConjunctionFormulaImpl extends FormulaImpl implements ConjunctionFo
   {
     super();
   }
-  
-  
 
-  @Override
-public Formula generateFormula(ExtraInvariantPatternGenerator generator) {
-	return generator.generateFormula(this);
-}
-
-
-
-/**
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

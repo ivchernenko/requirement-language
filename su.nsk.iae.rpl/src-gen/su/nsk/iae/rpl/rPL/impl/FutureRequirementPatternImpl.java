@@ -4,7 +4,6 @@
 package su.nsk.iae.rpl.rPL.impl;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,16 +18,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
-import su.nsk.iae.rpl.invpatterngenerator.Formula;
-import su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FutureLemmas;
 import su.nsk.iae.rpl.rPL.FutureRequirementPattern;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.Term;
 
 /**
  * <!-- begin-user-doc -->
@@ -138,15 +133,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
   protected FutureRequirementPatternImpl()
   {
     super();
-  }
-  
-  @Override
-  public Formula generateExtraInvariantPatternInstance(List<Term> cParams, List<FormulaParameterValue> einvFmParams,
-  		ExtraInvariantPatternGenerator generator) {
-  	return generator.generatePatternInstance(
-  			getExtraInvPattern(),
-  			cParams, 
-  			einvFmParams);
   }
 
   /**

@@ -94,10 +94,10 @@ public class RPLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RPLPackage.REQUIREMENT_PATTERN:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN:
       {
-        RequirementPattern requirementPattern = (RequirementPattern)theEObject;
-        T result = caseRequirementPattern(requirementPattern);
+        BasicRequirementPattern basicRequirementPattern = (BasicRequirementPattern)theEObject;
+        T result = caseBasicRequirementPattern(basicRequirementPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,7 +106,8 @@ public class RPLSwitch<T> extends Switch<T>
         DerivedRequirementPattern derivedRequirementPattern = (DerivedRequirementPattern)theEObject;
         T result = caseDerivedRequirementPattern(derivedRequirementPattern);
         if (result == null) result = caseElement(derivedRequirementPattern);
-        if (result == null) result = caseRequirementPattern(derivedRequirementPattern);
+        if (result == null) result = caseBasicRequirementPattern(derivedRequirementPattern);
+        if (result == null) result = caseOuterRequirementPattern(derivedRequirementPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -186,6 +187,20 @@ public class RPLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE:
+      {
+        OuterRequirementPatternInstance outerRequirementPatternInstance = (OuterRequirementPatternInstance)theEObject;
+        T result = caseOuterRequirementPatternInstance(outerRequirementPatternInstance);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN:
+      {
+        OuterRequirementPattern outerRequirementPattern = (OuterRequirementPattern)theEObject;
+        T result = caseOuterRequirementPattern(outerRequirementPattern);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RPLPackage.FORMULA_PARAMETER_VALUE:
       {
         FormulaParameterValue formulaParameterValue = (FormulaParameterValue)theEObject;
@@ -231,10 +246,10 @@ public class RPLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE:
       {
-        RequirementPatternInstance requirementPatternInstance = (RequirementPatternInstance)theEObject;
-        T result = caseRequirementPatternInstance(requirementPatternInstance);
+        BasicRequirementPatternInstance basicRequirementPatternInstance = (BasicRequirementPatternInstance)theEObject;
+        T result = caseBasicRequirementPatternInstance(basicRequirementPatternInstance);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -243,7 +258,7 @@ public class RPLSwitch<T> extends Switch<T>
         FutureRequirementPattern futureRequirementPattern = (FutureRequirementPattern)theEObject;
         T result = caseFutureRequirementPattern(futureRequirementPattern);
         if (result == null) result = caseElement(futureRequirementPattern);
-        if (result == null) result = caseRequirementPattern(futureRequirementPattern);
+        if (result == null) result = caseBasicRequirementPattern(futureRequirementPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -252,7 +267,8 @@ public class RPLSwitch<T> extends Switch<T>
         PastRequirementPattern pastRequirementPattern = (PastRequirementPattern)theEObject;
         T result = casePastRequirementPattern(pastRequirementPattern);
         if (result == null) result = caseElement(pastRequirementPattern);
-        if (result == null) result = caseRequirementPattern(pastRequirementPattern);
+        if (result == null) result = caseBasicRequirementPattern(pastRequirementPattern);
+        if (result == null) result = caseOuterRequirementPattern(pastRequirementPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -653,17 +669,17 @@ public class RPLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Requirement Pattern</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Basic Requirement Pattern</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Requirement Pattern</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Basic Requirement Pattern</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRequirementPattern(RequirementPattern object)
+  public T caseBasicRequirementPattern(BasicRequirementPattern object)
   {
     return null;
   }
@@ -845,6 +861,38 @@ public class RPLSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Outer Requirement Pattern Instance</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outer Requirement Pattern Instance</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOuterRequirementPatternInstance(OuterRequirementPatternInstance object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Outer Requirement Pattern</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Outer Requirement Pattern</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOuterRequirementPattern(OuterRequirementPattern object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Formula Parameter Value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -941,17 +989,17 @@ public class RPLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Requirement Pattern Instance</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Basic Requirement Pattern Instance</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Requirement Pattern Instance</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Basic Requirement Pattern Instance</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRequirementPatternInstance(RequirementPatternInstance object)
+  public T caseBasicRequirementPatternInstance(BasicRequirementPatternInstance object)
   {
     return null;
   }

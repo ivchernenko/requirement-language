@@ -11,8 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Element"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RequirementPattern"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DerivedRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+  <eClassifiers xsi:type="ecore:EClass" name="BasicRequirementPattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedRequirementPattern" eSuperTypes="#//Element #//BasicRequirementPattern #//OuterRequirementPattern">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//ConstantParameter" containment="true"/>
@@ -51,11 +51,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConjunctionFormula" eSuperTypes="#//Formula"/>
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryFormula" eSuperTypes="#//ConjunctionFormula">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//RequirementPatternInstance"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//OuterRequirementPatternInstance"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//Formula"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OuterRequirementPatternInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//OuterRequirementPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
+        eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
+        eType="#//FormulaParameterValue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//UpdateStateVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="curState" eType="#//UpdateStateVariable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OuterRequirementPattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="FormulaParameterValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="#//UpdateStateVariable" containment="true"/>
@@ -72,7 +82,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PrimaryInnerFormula" eSuperTypes="#//ConjunctionInnerFormula">
     <eStructuralFeatures xsi:type="ecore:EReference" name="atomic" eType="#//NegationFormula"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//RequirementPatternInstance"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternInst" eType="#//BasicRequirementPatternInstance"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestedFormula" eType="#//InnerFormula"
         containment="true"/>
@@ -90,8 +100,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" unique="false"
         upperBound="-1" eType="#//UpdateStateVariable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequirementPatternInstance">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//RequirementPattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicRequirementPatternInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//BasicRequirementPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//Term" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
@@ -99,7 +109,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//UpdateStateVariable"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="curState" eType="#//UpdateStateVariable"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FutureRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+  <eClassifiers xsi:type="ecore:EClass" name="FutureRequirementPattern" eSuperTypes="#//Element #//BasicRequirementPattern">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//ConstantParameter" containment="true"/>
@@ -110,7 +120,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lessas" eType="#//FutureLemmas"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PastRequirementPattern" eSuperTypes="#//Element #//RequirementPattern">
+  <eClassifiers xsi:type="ecore:EClass" name="PastRequirementPattern" eSuperTypes="#//Element #//BasicRequirementPattern #//OuterRequirementPattern">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//ConstantParameter" containment="true"/>

@@ -132,14 +132,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExtraInvariant
 		public RuleCall getExtraInvariantParserRuleCall_8() { return cExtraInvariantParserRuleCall_8; }
 	}
-	public class RequirementPatternElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.RequirementPattern");
+	public class BasicRequirementPatternElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.BasicRequirementPattern");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDerivedRequirementPatternParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cFutureRequirementPatternParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cPastRequirementPatternParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//RequirementPattern:
+		//BasicRequirementPattern:
 		//    DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -549,7 +549,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.PrimaryFormula");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cPatternInstAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cPatternInstRequirementPatternInstanceParserRuleCall_0_0 = (RuleCall)cPatternInstAssignment_0.eContents().get(0);
+		private final RuleCall cPatternInstOuterRequirementPatternInstanceParserRuleCall_0_0 = (RuleCall)cPatternInstAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cNestedFormulaAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -557,17 +557,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//PrimaryFormula:
-		//    patternInst=RequirementPatternInstance | "(" nestedFormula=Formula ")";
+		//    patternInst=OuterRequirementPatternInstance | "(" nestedFormula=Formula ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//patternInst=RequirementPatternInstance | "(" nestedFormula=Formula ")"
+		//patternInst=OuterRequirementPatternInstance | "(" nestedFormula=Formula ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//patternInst=RequirementPatternInstance
+		//patternInst=OuterRequirementPatternInstance
 		public Assignment getPatternInstAssignment_0() { return cPatternInstAssignment_0; }
 		
-		//RequirementPatternInstance
-		public RuleCall getPatternInstRequirementPatternInstanceParserRuleCall_0_0() { return cPatternInstRequirementPatternInstanceParserRuleCall_0_0; }
+		//OuterRequirementPatternInstance
+		public RuleCall getPatternInstOuterRequirementPatternInstanceParserRuleCall_0_0() { return cPatternInstOuterRequirementPatternInstanceParserRuleCall_0_0; }
 		
 		//"(" nestedFormula=Formula ")"
 		public Group getGroup_1() { return cGroup_1; }
@@ -583,6 +583,182 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+	}
+	public class OuterRequirementPatternInstanceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.OuterRequirementPatternInstance");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPatternAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cPatternOuterRequirementPatternCrossReference_0_0 = (CrossReference)cPatternAssignment_0.eContents().get(0);
+		private final RuleCall cPatternOuterRequirementPatternIDTerminalRuleCall_0_0_1 = (RuleCall)cPatternOuterRequirementPatternCrossReference_0_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cConstKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cColonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cCParamsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cCParamsTermParserRuleCall_2_2_0 = (RuleCall)cCParamsAssignment_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cCommaKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cCParamsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cCParamsTermParserRuleCall_2_3_1_0 = (RuleCall)cCParamsAssignment_2_3_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFormulasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cFmParamsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_2_0 = (RuleCall)cFmParamsAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cFmParamsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0 = (RuleCall)cFmParamsAssignment_3_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFinalKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cFinStateAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final CrossReference cFinStateUpdateStateVariableCrossReference_4_2_0 = (CrossReference)cFinStateAssignment_4_2.eContents().get(0);
+		private final RuleCall cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1 = (RuleCall)cFinStateUpdateStateVariableCrossReference_4_2_0.eContents().get(1);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCurrentKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Keyword cColonKeyword_4_3_1 = (Keyword)cGroup_4_3.eContents().get(1);
+		private final Assignment cCurStateAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
+		private final CrossReference cCurStateUpdateStateVariableCrossReference_4_3_2_0 = (CrossReference)cCurStateAssignment_4_3_2.eContents().get(0);
+		private final RuleCall cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1 = (RuleCall)cCurStateUpdateStateVariableCrossReference_4_3_2_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//OuterRequirementPatternInstance:
+		//    pattern=[OuterRequirementPattern] "("
+		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+		//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		//     ")";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//pattern=[OuterRequirementPattern] "("
+		//("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+		//  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		// ")"
+		public Group getGroup() { return cGroup; }
+		
+		//pattern=[OuterRequirementPattern]
+		public Assignment getPatternAssignment_0() { return cPatternAssignment_0; }
+		
+		//[OuterRequirementPattern]
+		public CrossReference getPatternOuterRequirementPatternCrossReference_0_0() { return cPatternOuterRequirementPatternCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getPatternOuterRequirementPatternIDTerminalRuleCall_0_0_1() { return cPatternOuterRequirementPatternIDTerminalRuleCall_0_0_1; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//("const" ":" cParams+=Term ("," cParams+=Term)*)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//"const"
+		public Keyword getConstKeyword_2_0() { return cConstKeyword_2_0; }
+		
+		//":"
+		public Keyword getColonKeyword_2_1() { return cColonKeyword_2_1; }
+		
+		//cParams+=Term
+		public Assignment getCParamsAssignment_2_2() { return cCParamsAssignment_2_2; }
+		
+		//Term
+		public RuleCall getCParamsTermParserRuleCall_2_2_0() { return cCParamsTermParserRuleCall_2_2_0; }
+		
+		//("," cParams+=Term)*
+		public Group getGroup_2_3() { return cGroup_2_3; }
+		
+		//","
+		public Keyword getCommaKeyword_2_3_0() { return cCommaKeyword_2_3_0; }
+		
+		//cParams+=Term
+		public Assignment getCParamsAssignment_2_3_1() { return cCParamsAssignment_2_3_1; }
+		
+		//Term
+		public RuleCall getCParamsTermParserRuleCall_2_3_1_0() { return cCParamsTermParserRuleCall_2_3_1_0; }
+		
+		//("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//"formulas"
+		public Keyword getFormulasKeyword_3_0() { return cFormulasKeyword_3_0; }
+		
+		//":"
+		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
+		
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_3_2() { return cFmParamsAssignment_3_2; }
+		
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_2_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_2_0; }
+		
+		//("," fmParams+=FormulaParameterValue)*
+		public Group getGroup_3_3() { return cGroup_3_3; }
+		
+		//","
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
+		
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_3_3_1() { return cFmParamsAssignment_3_3_1; }
+		
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_3_1_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0; }
+		
+		//("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//"final"
+		public Keyword getFinalKeyword_4_0() { return cFinalKeyword_4_0; }
+		
+		//":"
+		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
+		
+		//finState=[UpdateStateVariable]
+		public Assignment getFinStateAssignment_4_2() { return cFinStateAssignment_4_2; }
+		
+		//[UpdateStateVariable]
+		public CrossReference getFinStateUpdateStateVariableCrossReference_4_2_0() { return cFinStateUpdateStateVariableCrossReference_4_2_0; }
+		
+		//ID
+		public RuleCall getFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1() { return cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1; }
+		
+		//("current" ":" curState=[UpdateStateVariable])?
+		public Group getGroup_4_3() { return cGroup_4_3; }
+		
+		//"current"
+		public Keyword getCurrentKeyword_4_3_0() { return cCurrentKeyword_4_3_0; }
+		
+		//":"
+		public Keyword getColonKeyword_4_3_1() { return cColonKeyword_4_3_1; }
+		
+		//curState=[UpdateStateVariable]
+		public Assignment getCurStateAssignment_4_3_2() { return cCurStateAssignment_4_3_2; }
+		
+		//[UpdateStateVariable]
+		public CrossReference getCurStateUpdateStateVariableCrossReference_4_3_2_0() { return cCurStateUpdateStateVariableCrossReference_4_3_2_0; }
+		
+		//ID
+		public RuleCall getCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1() { return cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
+	public class OuterRequirementPatternElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.OuterRequirementPattern");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDerivedRequirementPatternParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPastRequirementPatternParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//OuterRequirementPattern:
+		//    DerivedRequirementPattern | PastRequirementPattern;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DerivedRequirementPattern | PastRequirementPattern
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DerivedRequirementPattern
+		public RuleCall getDerivedRequirementPatternParserRuleCall_0() { return cDerivedRequirementPatternParserRuleCall_0; }
+		
+		//PastRequirementPattern
+		public RuleCall getPastRequirementPatternParserRuleCall_1() { return cPastRequirementPatternParserRuleCall_1; }
 	}
 	public class FormulaParameterValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FormulaParameterValue");
@@ -700,7 +876,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cAtomicAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cAtomicNegationFormulaParserRuleCall_0_0 = (RuleCall)cAtomicAssignment_0.eContents().get(0);
 		private final Assignment cPatternInstAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cPatternInstRequirementPatternInstanceParserRuleCall_1_0 = (RuleCall)cPatternInstAssignment_1.eContents().get(0);
+		private final RuleCall cPatternInstBasicRequirementPatternInstanceParserRuleCall_1_0 = (RuleCall)cPatternInstAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cNestedFormulaAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
@@ -708,10 +884,10 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cRightParenthesisKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
 		//PrimaryInnerFormula:
-		//    atomic=NegationFormula | patternInst=RequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
+		//    atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//atomic=NegationFormula | patternInst=RequirementPatternInstance | "(" nestedFormula=InnerFormula ")"
+		//atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | "(" nestedFormula=InnerFormula ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//atomic=NegationFormula
@@ -720,11 +896,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NegationFormula
 		public RuleCall getAtomicNegationFormulaParserRuleCall_0_0() { return cAtomicNegationFormulaParserRuleCall_0_0; }
 		
-		//patternInst=RequirementPatternInstance
+		//patternInst=BasicRequirementPatternInstance
 		public Assignment getPatternInstAssignment_1() { return cPatternInstAssignment_1; }
 		
-		//RequirementPatternInstance
-		public RuleCall getPatternInstRequirementPatternInstanceParserRuleCall_1_0() { return cPatternInstRequirementPatternInstanceParserRuleCall_1_0; }
+		//BasicRequirementPatternInstance
+		public RuleCall getPatternInstBasicRequirementPatternInstanceParserRuleCall_1_0() { return cPatternInstBasicRequirementPatternInstanceParserRuleCall_1_0; }
 		
 		//"(" nestedFormula=InnerFormula ")"
 		public Group getGroup_2() { return cGroup_2; }
@@ -873,12 +1049,12 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_2_1_3() { return cRightParenthesisKeyword_2_1_3; }
 	}
-	public class RequirementPatternInstanceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.RequirementPatternInstance");
+	public class BasicRequirementPatternInstanceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.BasicRequirementPatternInstance");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPatternAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cPatternRequirementPatternCrossReference_0_0 = (CrossReference)cPatternAssignment_0.eContents().get(0);
-		private final RuleCall cPatternRequirementPatternIDTerminalRuleCall_0_0_1 = (RuleCall)cPatternRequirementPatternCrossReference_0_0.eContents().get(1);
+		private final CrossReference cPatternBasicRequirementPatternCrossReference_0_0 = (CrossReference)cPatternAssignment_0.eContents().get(0);
+		private final RuleCall cPatternBasicRequirementPatternIDTerminalRuleCall_0_0_1 = (RuleCall)cPatternBasicRequirementPatternCrossReference_0_0.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cConstKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
@@ -912,27 +1088,27 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1 = (RuleCall)cCurStateUpdateStateVariableCrossReference_4_3_2_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//RequirementPatternInstance:
-		//    pattern=[RequirementPattern] "("
+		//BasicRequirementPatternInstance:
+		//    pattern=[BasicRequirementPattern] "("
 		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 		//     ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//pattern=[RequirementPattern] "("
+		//pattern=[BasicRequirementPattern] "("
 		//("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		//  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 		// ")"
 		public Group getGroup() { return cGroup; }
 		
-		//pattern=[RequirementPattern]
+		//pattern=[BasicRequirementPattern]
 		public Assignment getPatternAssignment_0() { return cPatternAssignment_0; }
 		
-		//[RequirementPattern]
-		public CrossReference getPatternRequirementPatternCrossReference_0_0() { return cPatternRequirementPatternCrossReference_0_0; }
+		//[BasicRequirementPattern]
+		public CrossReference getPatternBasicRequirementPatternCrossReference_0_0() { return cPatternBasicRequirementPatternCrossReference_0_0; }
 		
 		//ID
-		public RuleCall getPatternRequirementPatternIDTerminalRuleCall_0_0_1() { return cPatternRequirementPatternIDTerminalRuleCall_0_0_1; }
+		public RuleCall getPatternBasicRequirementPatternIDTerminalRuleCall_0_0_1() { return cPatternBasicRequirementPatternIDTerminalRuleCall_0_0_1; }
 		
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
@@ -4020,7 +4196,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final ModelElements pModel;
 	private final ImportElements pImport;
 	private final ElementElements pElement;
-	private final RequirementPatternElements pRequirementPattern;
+	private final BasicRequirementPatternElements pBasicRequirementPattern;
 	private final DerivedRequirementPatternElements pDerivedRequirementPattern;
 	private final VariableElements pVariable;
 	private final VarDeclarationElements pVarDeclaration;
@@ -4034,6 +4210,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final ConjunctionFormulaElements pConjunctionFormula;
 	private final PrimaryFormulaElements pPrimaryFormula;
 	private final TerminalRule tCONJUNCTION;
+	private final OuterRequirementPatternInstanceElements pOuterRequirementPatternInstance;
+	private final OuterRequirementPatternElements pOuterRequirementPattern;
 	private final FormulaParameterValueElements pFormulaParameterValue;
 	private final InnerFormulaElements pInnerFormula;
 	private final ConjunctionInnerFormulaElements pConjunctionInnerFormula;
@@ -4041,7 +4219,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final NegationFormulaElements pNegationFormula;
 	private final TerminalRule tNEGATION;
 	private final AtomicFormulaElements pAtomicFormula;
-	private final RequirementPatternInstanceElements pRequirementPatternInstance;
+	private final BasicRequirementPatternInstanceElements pBasicRequirementPatternInstance;
 	private final FutureRequirementPatternElements pFutureRequirementPattern;
 	private final PastRequirementPatternElements pPastRequirementPattern;
 	private final FutureExtraInvariantPatternElements pFutureExtraInvariantPattern;
@@ -4105,7 +4283,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pModel = new ModelElements();
 		this.pImport = new ImportElements();
 		this.pElement = new ElementElements();
-		this.pRequirementPattern = new RequirementPatternElements();
+		this.pBasicRequirementPattern = new BasicRequirementPatternElements();
 		this.pDerivedRequirementPattern = new DerivedRequirementPatternElements();
 		this.pVariable = new VariableElements();
 		this.pVarDeclaration = new VarDeclarationElements();
@@ -4119,6 +4297,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pConjunctionFormula = new ConjunctionFormulaElements();
 		this.pPrimaryFormula = new PrimaryFormulaElements();
 		this.tCONJUNCTION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.CONJUNCTION");
+		this.pOuterRequirementPatternInstance = new OuterRequirementPatternInstanceElements();
+		this.pOuterRequirementPattern = new OuterRequirementPatternElements();
 		this.pFormulaParameterValue = new FormulaParameterValueElements();
 		this.pInnerFormula = new InnerFormulaElements();
 		this.pConjunctionInnerFormula = new ConjunctionInnerFormulaElements();
@@ -4126,7 +4306,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pNegationFormula = new NegationFormulaElements();
 		this.tNEGATION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.NEGATION");
 		this.pAtomicFormula = new AtomicFormulaElements();
-		this.pRequirementPatternInstance = new RequirementPatternInstanceElements();
+		this.pBasicRequirementPatternInstance = new BasicRequirementPatternInstanceElements();
 		this.pFutureRequirementPattern = new FutureRequirementPatternElements();
 		this.pPastRequirementPattern = new PastRequirementPatternElements();
 		this.pFutureExtraInvariantPattern = new FutureExtraInvariantPatternElements();
@@ -4238,14 +4418,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getElementAccess().getRule();
 	}
 	
-	//RequirementPattern:
+	//BasicRequirementPattern:
 	//    DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern;
-	public RequirementPatternElements getRequirementPatternAccess() {
-		return pRequirementPattern;
+	public BasicRequirementPatternElements getBasicRequirementPatternAccess() {
+		return pBasicRequirementPattern;
 	}
 	
-	public ParserRule getRequirementPatternRule() {
-		return getRequirementPatternAccess().getRule();
+	public ParserRule getBasicRequirementPatternRule() {
+		return getBasicRequirementPatternAccess().getRule();
 	}
 	
 	//    /* ======================= Derived requirement pattern ======================= */
@@ -4363,7 +4543,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//PrimaryFormula:
-	//    patternInst=RequirementPatternInstance | "(" nestedFormula=Formula ")";
+	//    patternInst=OuterRequirementPatternInstance | "(" nestedFormula=Formula ")";
 	public PrimaryFormulaElements getPrimaryFormulaAccess() {
 		return pPrimaryFormula;
 	}
@@ -4376,6 +4556,29 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    "AND" | "&" | "&&" | "/\\";
 	public TerminalRule getCONJUNCTIONRule() {
 		return tCONJUNCTION;
+	}
+	
+	//OuterRequirementPatternInstance:
+	//    pattern=[OuterRequirementPattern] "("
+	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+	//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+	//     ")";
+	public OuterRequirementPatternInstanceElements getOuterRequirementPatternInstanceAccess() {
+		return pOuterRequirementPatternInstance;
+	}
+	
+	public ParserRule getOuterRequirementPatternInstanceRule() {
+		return getOuterRequirementPatternInstanceAccess().getRule();
+	}
+	
+	//OuterRequirementPattern:
+	//    DerivedRequirementPattern | PastRequirementPattern;
+	public OuterRequirementPatternElements getOuterRequirementPatternAccess() {
+		return pOuterRequirementPattern;
+	}
+	
+	public ParserRule getOuterRequirementPatternRule() {
+		return getOuterRequirementPatternAccess().getRule();
 	}
 	
 	///* ======================= Inner formulas ======================= */
@@ -4410,7 +4613,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//PrimaryInnerFormula:
-	//    atomic=NegationFormula | patternInst=RequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
+	//    atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
 	public PrimaryInnerFormulaElements getPrimaryInnerFormulaAccess() {
 		return pPrimaryInnerFormula;
 	}
@@ -4446,17 +4649,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getAtomicFormulaAccess().getRule();
 	}
 	
-	//RequirementPatternInstance:
-	//    pattern=[RequirementPattern] "("
+	//BasicRequirementPatternInstance:
+	//    pattern=[BasicRequirementPattern] "("
 	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 	//     ")";
-	public RequirementPatternInstanceElements getRequirementPatternInstanceAccess() {
-		return pRequirementPatternInstance;
+	public BasicRequirementPatternInstanceElements getBasicRequirementPatternInstanceAccess() {
+		return pBasicRequirementPatternInstance;
 	}
 	
-	public ParserRule getRequirementPatternInstanceRule() {
-		return getRequirementPatternInstanceAccess().getRule();
+	public ParserRule getBasicRequirementPatternInstanceRule() {
+		return getBasicRequirementPatternInstanceAccess().getRule();
 	}
 	
 	///* ======================= Pattern declarations ======================= */

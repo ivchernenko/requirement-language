@@ -18,6 +18,7 @@ import su.nsk.iae.rpl.rPL.AddTerm;
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
 import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
 import su.nsk.iae.rpl.rPL.AtomicFormula;
+import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.CompareTerm;
 import su.nsk.iae.rpl.rPL.Conjunction;
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
@@ -49,6 +50,7 @@ import su.nsk.iae.rpl.rPL.Model;
 import su.nsk.iae.rpl.rPL.MulTerm;
 import su.nsk.iae.rpl.rPL.NegationFormula;
 import su.nsk.iae.rpl.rPL.NegationTerm;
+import su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance;
 import su.nsk.iae.rpl.rPL.PastLemmas;
@@ -65,7 +67,6 @@ import su.nsk.iae.rpl.rPL.ProgramVariable;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RealLiteral;
 import su.nsk.iae.rpl.rPL.Requirement;
-import su.nsk.iae.rpl.rPL.RequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UnaryTerm;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -97,6 +98,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.ATOMIC_FORMULA:
 				sequence_AtomicFormula(context, (AtomicFormula) semanticObject); 
+				return; 
+			case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE:
+				sequence_BasicRequirementPatternInstance(context, (BasicRequirementPatternInstance) semanticObject); 
 				return; 
 			case RPLPackage.COMPARE_TERM:
 				sequence_CompareTerm(context, (CompareTerm) semanticObject); 
@@ -191,6 +195,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case RPLPackage.NEGATION_TERM:
 				sequence_NegationTerm(context, (NegationTerm) semanticObject); 
 				return; 
+			case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE:
+				sequence_OuterRequirementPatternInstance(context, (OuterRequirementPatternInstance) semanticObject); 
+				return; 
 			case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN:
 				sequence_PastExtraInvariantPattern(context, (PastExtraInvariantPattern) semanticObject); 
 				return; 
@@ -235,9 +242,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.REQUIREMENT:
 				sequence_Requirement(context, (Requirement) semanticObject); 
-				return; 
-			case RPLPackage.REQUIREMENT_PATTERN_INSTANCE:
-				sequence_RequirementPatternInstance(context, (RequirementPatternInstance) semanticObject); 
 				return; 
 			case RPLPackage.TERM:
 				sequence_Term(context, (Term) semanticObject); 
@@ -346,6 +350,25 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_AtomicFormula(ISerializationContext context, AtomicFormula semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     BasicRequirementPatternInstance returns BasicRequirementPatternInstance
+	 *
+	 * Constraint:
+	 *     (
+	 *         pattern=[BasicRequirementPattern|ID] 
+	 *         (cParams+=Term cParams+=Term*)? 
+	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
+	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_BasicRequirementPatternInstance(ISerializationContext context, BasicRequirementPatternInstance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -607,8 +630,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Element returns DerivedRequirementPattern
-	 *     RequirementPattern returns DerivedRequirementPattern
+	 *     BasicRequirementPattern returns DerivedRequirementPattern
 	 *     DerivedRequirementPattern returns DerivedRequirementPattern
+	 *     OuterRequirementPattern returns DerivedRequirementPattern
 	 *
 	 * Constraint:
 	 *     (
@@ -855,7 +879,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Element returns FutureRequirementPattern
-	 *     RequirementPattern returns FutureRequirementPattern
+	 *     BasicRequirementPattern returns FutureRequirementPattern
 	 *     FutureRequirementPattern returns FutureRequirementPattern
 	 *
 	 * Constraint:
@@ -1071,6 +1095,25 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     OuterRequirementPatternInstance returns OuterRequirementPatternInstance
+	 *
+	 * Constraint:
+	 *     (
+	 *         pattern=[OuterRequirementPattern|ID] 
+	 *         (cParams+=Term cParams+=Term*)? 
+	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
+	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
+	 *     )
+	 * </pre>
+	 */
+	protected void sequence_OuterRequirementPatternInstance(ISerializationContext context, OuterRequirementPatternInstance semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     PastExtraInvariantPatternInstance returns PastExtraInvariantPatternInstance
 	 *
 	 * Constraint:
@@ -1128,7 +1171,8 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * <pre>
 	 * Contexts:
 	 *     Element returns PastRequirementPattern
-	 *     RequirementPattern returns PastRequirementPattern
+	 *     BasicRequirementPattern returns PastRequirementPattern
+	 *     OuterRequirementPattern returns PastRequirementPattern
 	 *     PastRequirementPattern returns PastRequirementPattern
 	 *
 	 * Constraint:
@@ -1232,7 +1276,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryFormula returns PrimaryFormula
 	 *
 	 * Constraint:
-	 *     (patternInst=RequirementPatternInstance | nestedFormula=Formula)
+	 *     (patternInst=OuterRequirementPatternInstance | nestedFormula=Formula)
 	 * </pre>
 	 */
 	protected void sequence_PrimaryFormula(ISerializationContext context, PrimaryFormula semanticObject) {
@@ -1250,7 +1294,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryInnerFormula returns PrimaryInnerFormula
 	 *
 	 * Constraint:
-	 *     (atomic=NegationFormula | patternInst=RequirementPatternInstance | nestedFormula=InnerFormula)
+	 *     (atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | nestedFormula=InnerFormula)
 	 * </pre>
 	 */
 	protected void sequence_PrimaryInnerFormula(ISerializationContext context, PrimaryInnerFormula semanticObject) {
@@ -1357,25 +1401,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_RealLiteral(ISerializationContext context, RealLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
-	 *     RequirementPatternInstance returns RequirementPatternInstance
-	 *
-	 * Constraint:
-	 *     (
-	 *         pattern=[RequirementPattern|ID] 
-	 *         (cParams+=Term cParams+=Term*)? 
-	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
-	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
-	 *     )
-	 * </pre>
-	 */
-	protected void sequence_RequirementPatternInstance(ISerializationContext context, RequirementPatternInstance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

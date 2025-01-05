@@ -36,7 +36,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Import/importURI"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//Element"/>
-    <genClasses ecoreClass="RPL.ecore#//RequirementPattern"/>
+    <genClasses ecoreClass="RPL.ecore#//BasicRequirementPattern"/>
     <genClasses ecoreClass="RPL.ecore#//DerivedRequirementPattern">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//DerivedRequirementPattern/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/cParams"/>
@@ -72,6 +72,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryFormula/patternInst"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryFormula/nestedFormula"/>
     </genClasses>
+    <genClasses ecoreClass="RPL.ecore#//OuterRequirementPatternInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//OuterRequirementPatternInstance/pattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//OuterRequirementPatternInstance/cParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//OuterRequirementPatternInstance/fmParams"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//OuterRequirementPatternInstance/finState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//OuterRequirementPatternInstance/curState"/>
+    </genClasses>
+    <genClasses ecoreClass="RPL.ecore#//OuterRequirementPattern"/>
     <genClasses ecoreClass="RPL.ecore#//FormulaParameterValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FormulaParameterValue/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FormulaParameterValue/formula"/>
@@ -96,12 +104,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//AtomicFormula/fmParam"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//AtomicFormula/states"/>
     </genClasses>
-    <genClasses ecoreClass="RPL.ecore#//RequirementPatternInstance">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//RequirementPatternInstance/pattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//RequirementPatternInstance/cParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//RequirementPatternInstance/fmParams"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//RequirementPatternInstance/finState"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//RequirementPatternInstance/curState"/>
+    <genClasses ecoreClass="RPL.ecore#//BasicRequirementPatternInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//BasicRequirementPatternInstance/pattern"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//BasicRequirementPatternInstance/cParams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//BasicRequirementPatternInstance/fmParams"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//BasicRequirementPatternInstance/finState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//BasicRequirementPatternInstance/curState"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//FutureRequirementPattern">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//FutureRequirementPattern/name"/>

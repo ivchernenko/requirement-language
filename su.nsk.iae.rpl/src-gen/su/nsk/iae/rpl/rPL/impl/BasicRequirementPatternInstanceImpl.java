@@ -19,31 +19,31 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import su.nsk.iae.rpl.rPL.BasicRequirementPattern;
+import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.FormulaParameterValue;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.RequirementPattern;
-import su.nsk.iae.rpl.rPL.RequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Requirement Pattern Instance</b></em>'.
+ * An implementation of the model object '<em><b>Basic Requirement Pattern Instance</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.RequirementPatternInstanceImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.RequirementPatternInstanceImpl#getCParams <em>CParams</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.RequirementPatternInstanceImpl#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.RequirementPatternInstanceImpl#getFinState <em>Fin State</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.RequirementPatternInstanceImpl#getCurState <em>Cur State</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getCParams <em>CParams</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getFmParams <em>Fm Params</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getFinState <em>Fin State</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getCurState <em>Cur State</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container implements RequirementPatternInstance
+public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Container implements BasicRequirementPatternInstance
 {
   /**
    * The cached value of the '{@link #getPattern() <em>Pattern</em>}' reference.
@@ -53,7 +53,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
    * @generated
    * @ordered
    */
-  protected RequirementPattern pattern;
+  protected BasicRequirementPattern pattern;
 
   /**
    * The cached value of the '{@link #getCParams() <em>CParams</em>}' containment reference list.
@@ -100,7 +100,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RequirementPatternInstanceImpl()
+  protected BasicRequirementPatternInstanceImpl()
   {
     super();
   }
@@ -113,7 +113,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   @Override
   protected EClass eStaticClass()
   {
-    return RPLPackage.Literals.REQUIREMENT_PATTERN_INSTANCE;
+    return RPLPackage.Literals.BASIC_REQUIREMENT_PATTERN_INSTANCE;
   }
 
   /**
@@ -122,16 +122,16 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
    * @generated
    */
   @Override
-  public RequirementPattern getPattern()
+  public BasicRequirementPattern getPattern()
   {
     if (pattern != null && pattern.eIsProxy())
     {
       InternalEObject oldPattern = (InternalEObject)pattern;
-      pattern = (RequirementPattern)eResolveProxy(oldPattern);
+      pattern = (BasicRequirementPattern)eResolveProxy(oldPattern);
       if (pattern != oldPattern)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN, oldPattern, pattern));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN, oldPattern, pattern));
       }
     }
     return pattern;
@@ -142,7 +142,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequirementPattern basicGetPattern()
+  public BasicRequirementPattern basicGetPattern()
   {
     return pattern;
   }
@@ -153,12 +153,12 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
    * @generated
    */
   @Override
-  public void setPattern(RequirementPattern newPattern)
+  public void setPattern(BasicRequirementPattern newPattern)
   {
-    RequirementPattern oldPattern = pattern;
+    BasicRequirementPattern oldPattern = pattern;
     pattern = newPattern;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN, oldPattern, pattern));
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN, oldPattern, pattern));
   }
 
   /**
@@ -171,7 +171,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     if (cParams == null)
     {
-      cParams = new EObjectContainmentEList<Term>(Term.class, this, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS);
+      cParams = new EObjectContainmentEList<Term>(Term.class, this, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS);
     }
     return cParams;
   }
@@ -186,7 +186,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     if (fmParams == null)
     {
-      fmParams = new EObjectContainmentEList<FormulaParameterValue>(FormulaParameterValue.class, this, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS);
+      fmParams = new EObjectContainmentEList<FormulaParameterValue>(FormulaParameterValue.class, this, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS);
     }
     return fmParams;
   }
@@ -206,7 +206,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
       if (finState != oldFinState)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
       }
     }
     return finState;
@@ -233,7 +233,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
     UpdateStateVariable oldFinState = finState;
     finState = newFinState;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
   }
 
   /**
@@ -251,7 +251,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
       if (curState != oldCurState)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
       }
     }
     return curState;
@@ -278,7 +278,7 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
     UpdateStateVariable oldCurState = curState;
     curState = newCurState;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
   }
 
   /**
@@ -291,9 +291,9 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return ((InternalEList<?>)getCParams()).basicRemove(otherEnd, msgs);
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return ((InternalEList<?>)getFmParams()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -309,17 +309,17 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN:
         if (resolve) return getPattern();
         return basicGetPattern();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return getCParams();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return getFmParams();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
         if (resolve) return getFinState();
         return basicGetFinState();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
         if (resolve) return getCurState();
         return basicGetCurState();
     }
@@ -337,21 +337,21 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN:
-        setPattern((RequirementPattern)newValue);
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN:
+        setPattern((BasicRequirementPattern)newValue);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         getCParams().clear();
         getCParams().addAll((Collection<? extends Term>)newValue);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends FormulaParameterValue>)newValue);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
         setFinState((UpdateStateVariable)newValue);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
         setCurState((UpdateStateVariable)newValue);
         return;
     }
@@ -368,19 +368,19 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN:
-        setPattern((RequirementPattern)null);
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN:
+        setPattern((BasicRequirementPattern)null);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         getCParams().clear();
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
         setFinState((UpdateStateVariable)null);
         return;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
         setCurState((UpdateStateVariable)null);
         return;
     }
@@ -397,18 +397,18 @@ public class RequirementPatternInstanceImpl extends MinimalEObjectImpl.Container
   {
     switch (featureID)
     {
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__PATTERN:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN:
         return pattern != null;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return cParams != null && !cParams.isEmpty();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
         return finState != null;
-      case RPLPackage.REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
+      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
         return curState != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //RequirementPatternInstanceImpl
+} //BasicRequirementPatternInstanceImpl
