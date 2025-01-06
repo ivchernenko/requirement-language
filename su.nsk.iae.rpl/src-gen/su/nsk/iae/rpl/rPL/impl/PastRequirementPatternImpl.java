@@ -4,6 +4,7 @@
 package su.nsk.iae.rpl.rPL.impl;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,12 +19,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternInstanceFactory;
+import su.nsk.iae.rpl.invpatterngenerator.Formula;
+import su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue;
+import su.nsk.iae.rpl.invpatterngenerator.FunctionalParameterList;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastLemmas;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.Term;
 
 /**
  * <!-- begin-user-doc -->
@@ -479,5 +485,15 @@ public class PastRequirementPatternImpl extends ElementImpl implements PastRequi
     result.append(')');
     return result.toString();
   }
+
+@Override
+public Formula createOuterExtraInvPatternInstance(EList<Term> cParams,
+		List<FormulaParameterValue> extraInvariantFmParams,
+		FunctionalParameterList fnParamList) {
+	// TODO Auto-generated method stub
+	return ExtraInvariantPatternInstanceFactory.generatePatternInstance(
+			getExtraInvPattern(),
+			cParams, extraInvariantFmParams, fnParamList);
+}
 
 } //PastRequirementPatternImpl

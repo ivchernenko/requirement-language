@@ -6,22 +6,18 @@ import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class AtomicFormula extends Formula {
-	FormulaParameter fmParam;
-	List<UpdateStateVariable> states;
-	
-	public AtomicFormula(FormulaParameter fmParam, List<UpdateStateVariable> states) {
+	su.nsk.iae.rpl.rPL.AtomicFormula formula;
+
+	public AtomicFormula(su.nsk.iae.rpl.rPL.AtomicFormula formula) {
 		super();
-		this.fmParam = fmParam;
-		this.states = states;
+		this.formula = formula;
 	}
 
-	public FormulaParameter getFmParam() {
-		return fmParam;
+	public su.nsk.iae.rpl.rPL.AtomicFormula getFormula() {
+		return formula;
 	}
-
-	public List<UpdateStateVariable> getStates() {
-		return states;
-	}
+	
+	
 	
 	
 }

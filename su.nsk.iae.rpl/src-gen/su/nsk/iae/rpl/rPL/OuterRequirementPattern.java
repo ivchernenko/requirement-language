@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.Formula;
 import su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue;
+import su.nsk.iae.rpl.invpatterngenerator.FunctionalParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,4 +25,9 @@ import su.nsk.iae.rpl.invpatterngenerator.FormulaParameterValue;
  */
 public interface OuterRequirementPattern extends EObject
 {
+
+	Formula createOuterExtraInvPatternInstance(
+			EList<Term> cParams, 
+			List<FormulaParameterValue> extraInvariantFmParams,
+			FunctionalParameterList fnParamList);
 } // OuterRequirementPattern

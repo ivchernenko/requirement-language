@@ -37,31 +37,21 @@ public class ExtraInvariantPatternGenerator {
 		if (patternInst != null) { // pattern instance
 			var pattern = patternInst.getPattern();
 			List<FormulaParameterValue> extraInvariantFmParams = new ArrayList<>();
+			InnerFormulaGenerator generator = new InnerFormulaGenerator(fnParamList);
 			for (var fmParam : patternInst.getFmParams()) {
 				var states = fmParam.getStates();
 				Formula extraInvariantFmParam = fmParam
-						.getFormula().generateFormula(this);
+						.getFormula().generateFormula(generator);
 				FormulaParameterValue val = new 
 						FormulaParameterValue(states, extraInvariantFmParam);
 				extraInvariantFmParams.add(val);
 			}
-			Formula mainConj;
-			if (pattern instanceof DerivedRequirementPattern derPattern) {
-				mainConj = generatePatternInstance(
-						derPattern.getExtraInvPattern(),
-						patternInst.getCParams(),
-						extraInvariantFmParams);						
-			}
-			else {
-				PastRequirementPattern pastPattern = (PastRequirementPattern) 
-						pattern;
-				mainConj = generatePatternInstance(
-						pastPattern.getExtraInvPattern(),
-						patternInst.getCParams(),
-						extraInvariantFmParams
-						);
-						
-			}
+			Formula mainConj = pattern.createOuterExtraInvPatternInstance(
+					patternInst.getCParams(),
+					extraInvariantFmParams,
+					fnParamList
+					);
+					
 		}
 		else { // nested formula
 			return reqFormula.getNestedFormula().generateFormula(this);
