@@ -132,6 +132,15 @@ public interface RPLFactory extends EFactory
   SimpleFormulaParameter createSimpleFormulaParameter();
 
   /**
+   * Returns a new object of class '<em>Regular Formula Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Regular Formula Parameter</em>'.
+   * @generated
+   */
+  RegularFormulaParameter createRegularFormulaParameter();
+
+  /**
    * Returns a new object of class '<em>Functional Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

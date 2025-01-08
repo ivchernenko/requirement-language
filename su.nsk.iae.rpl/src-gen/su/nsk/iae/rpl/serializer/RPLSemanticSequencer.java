@@ -34,7 +34,6 @@ import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.EqTerm;
 import su.nsk.iae.rpl.rPL.ExtraInvariant;
 import su.nsk.iae.rpl.rPL.Formula;
-import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FormulaParameterValue;
 import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
@@ -66,6 +65,7 @@ import su.nsk.iae.rpl.rPL.PrimaryTerm;
 import su.nsk.iae.rpl.rPL.ProgramVariable;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RealLiteral;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.Requirement;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.Term;
@@ -147,9 +147,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.FORMULA:
 				sequence_Formula(context, (Formula) semanticObject); 
-				return; 
-			case RPLPackage.FORMULA_PARAMETER:
-				sequence_FormulaParameter(context, (FormulaParameter) semanticObject); 
 				return; 
 			case RPLPackage.FORMULA_PARAMETER_VALUE:
 				sequence_FormulaParameterValue(context, (FormulaParameterValue) semanticObject); 
@@ -240,6 +237,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.REAL_LITERAL:
 				sequence_RealLiteral(context, (RealLiteral) semanticObject); 
+				return; 
+			case RPLPackage.REGULAR_FORMULA_PARAMETER:
+				sequence_RegularFormulaParameter(context, (RegularFormulaParameter) semanticObject); 
 				return; 
 			case RPLPackage.REQUIREMENT:
 				sequence_Requirement(context, (Requirement) semanticObject); 
@@ -367,7 +367,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         pattern=[BasicRequirementPattern|ID] 
 	 *         (cParams+=Term cParams+=Term*)? 
-	 *         (simpleFmParams+=PatternFreeFormula simpleFmParams+=PatternFreeFormula*)? 
 	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
 	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
 	 *     )
@@ -590,7 +589,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
 	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         file=FilePath? 
 	 *         lemmas=DerivedLemmas?
 	 *     )
@@ -628,7 +627,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         (definition=Formula | (file=FilePath extraInvPattern=[DerivedExtraInvariantPattern|ID])) 
 	 *         lemmas=DerivedLemmas?
 	 *     )
@@ -728,26 +727,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     FormulaParameter returns FormulaParameter
-	 *
-	 * Constraint:
-	 *     name=ID
-	 * </pre>
-	 */
-	protected void sequence_FormulaParameter(ISerializationContext context, FormulaParameter semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.FORMULA_PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.FORMULA_PARAMETER__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFormulaParameterAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     Formula returns Formula
 	 *     Formula.Formula_1_0 returns Formula
 	 *
@@ -823,7 +802,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         file=FilePath? 
 	 *         lemmas=FutureLemmas?
 	 *     )
@@ -859,7 +838,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         file=FilePath 
 	 *         extraInvPattern=[FutureExtraInvariantPattern|ID] 
 	 *         lessas=FutureLemmas?
@@ -962,8 +941,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         (name=ID (cVars+=ConstantParameter cVars+=ConstantParameter*)?) | 
 	 *         (fnVars+=FunctionalParameter fnVars+=FunctionalParameter*) | 
-	 *         (ifmVars+=FormulaParameter ifmVars+=FormulaParameter*) | 
-	 *         (rfmVars+=FormulaParameter rfmVars+=FormulaParameter*) | 
+	 *         (simpleFmVars+=SimpleFormulaParameter simpleFmVars+=SimpleFormulaParameter*) | 
+	 *         (ifmVars+=RegularFormulaParameter ifmVars+=RegularFormulaParameter*) | 
+	 *         (rfmVars+=RegularFormulaParameter rfmVars+=RegularFormulaParameter*) | 
 	 *         initState=UpdateStateVariable | 
 	 *         finalState=UpdateStateVariable | 
 	 *         prem=LemmaPremiseFormula
@@ -1074,8 +1054,8 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         pattern=[OuterRequirementPattern|ID] 
 	 *         (cParams+=Term cParams+=Term*)? 
-	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
-	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
+	 *         (simpleFmParams+=PatternFreeFormulaParameterValue simpleFmParams+=PatternFreeFormulaParameterValue*)? 
+	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)?
 	 *     )
 	 * </pre>
 	 */
@@ -1094,7 +1074,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         pattern=[PastExtraInvariantPattern|ID] 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         state=[UpdateStateVariable|ID]
 	 *     )
 	 * </pre>
@@ -1115,7 +1095,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         file=FilePath? 
 	 *         lemmas=PastLemmas?
 	 *     )
@@ -1152,7 +1132,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
-	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
+	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
 	 *         file=FilePath 
 	 *         extraInvPattern=[PastExtraInvariantPattern|ID] 
 	 *         lemmas=PastLemmas?
@@ -1381,6 +1361,27 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     FormulaParameter returns RegularFormulaParameter
+	 *     RegularFormulaParameter returns RegularFormulaParameter
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_RegularFormulaParameter(ISerializationContext context, RegularFormulaParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.FORMULA_PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.FORMULA_PARAMETER__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRegularFormulaParameterAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Element returns Requirement
 	 *     Requirement returns Requirement
 	 *
@@ -1406,6 +1407,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     FormulaParameter returns SimpleFormulaParameter
 	 *     SimpleFormulaParameter returns SimpleFormulaParameter
 	 *
 	 * Constraint:

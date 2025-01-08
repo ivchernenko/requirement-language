@@ -1,15 +1,15 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class NegationFormula extends OuterExtraInvariantFormula {
-	AtomicFormula atomic;
+public class NegationFormula extends FutureBoundIndependentFormula  {
+	FutureBoundIndependentFormula formula;
 
-	public AtomicFormula getAtomic() {
-		return atomic;
+	public FutureBoundIndependentFormula getAtomic() {
+		return formula;
 	}
 
-	public NegationFormula(AtomicFormula atomic) {
+	public NegationFormula(FutureBoundIndependentFormula formula) {
 		super();
-		this.atomic = atomic;
+		this.formula = formula;
 	}
 
 }

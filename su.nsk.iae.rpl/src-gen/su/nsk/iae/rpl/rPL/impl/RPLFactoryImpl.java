@@ -78,6 +78,7 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.CONSTANT_PARAMETER: return createConstantParameter();
       case RPLPackage.FORMULA_PARAMETER: return createFormulaParameter();
       case RPLPackage.SIMPLE_FORMULA_PARAMETER: return createSimpleFormulaParameter();
+      case RPLPackage.REGULAR_FORMULA_PARAMETER: return createRegularFormulaParameter();
       case RPLPackage.FUNCTIONAL_PARAMETER: return createFunctionalParameter();
       case RPLPackage.FORMULA: return createFormula();
       case RPLPackage.CONJUNCTION_FORMULA: return createConjunctionFormula();
@@ -326,6 +327,18 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
   {
     SimpleFormulaParameterImpl simpleFormulaParameter = new SimpleFormulaParameterImpl();
     return simpleFormulaParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RegularFormulaParameter createRegularFormulaParameter()
+  {
+    RegularFormulaParameterImpl regularFormulaParameter = new RegularFormulaParameterImpl();
+    return regularFormulaParameter;
   }
 
   /**

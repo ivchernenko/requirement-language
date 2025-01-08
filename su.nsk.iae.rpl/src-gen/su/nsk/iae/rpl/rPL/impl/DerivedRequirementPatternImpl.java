@@ -23,8 +23,8 @@ import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.DerivedLemmas;
 import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
 import su.nsk.iae.rpl.rPL.Formula;
-import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 
 /**
@@ -108,7 +108,7 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
    * @generated
    * @ordered
    */
-  protected EList<FormulaParameter> fmParams;
+  protected EList<RegularFormulaParameter> fmParams;
 
   /**
    * The cached value of the '{@link #getDefinition() <em>Definition</em>}' containment reference.
@@ -257,11 +257,11 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
    * @generated
    */
   @Override
-  public EList<FormulaParameter> getFmParams()
+  public EList<RegularFormulaParameter> getFmParams()
   {
     if (fmParams == null)
     {
-      fmParams = new EObjectContainmentEList<FormulaParameter>(FormulaParameter.class, this, RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS);
+      fmParams = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS);
     }
     return fmParams;
   }
@@ -523,7 +523,7 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         getFmParams().clear();
-        getFmParams().addAll((Collection<? extends FormulaParameter>)newValue);
+        getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
         setDefinition((Formula)newValue);

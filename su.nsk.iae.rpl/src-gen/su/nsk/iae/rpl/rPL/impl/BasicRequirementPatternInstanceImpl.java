@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import su.nsk.iae.rpl.rPL.BasicRequirementPattern;
 import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.FormulaParameterValue;
-import su.nsk.iae.rpl.rPL.PatternFreeFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -37,7 +36,6 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getCParams <em>CParams</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getSimpleFmParams <em>Simple Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getFmParams <em>Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getFinState <em>Fin State</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.BasicRequirementPatternInstanceImpl#getCurState <em>Cur State</em>}</li>
@@ -66,16 +64,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
    * @ordered
    */
   protected EList<Term> cParams;
-
-  /**
-   * The cached value of the '{@link #getSimpleFmParams() <em>Simple Fm Params</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSimpleFmParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<PatternFreeFormula> simpleFmParams;
 
   /**
    * The cached value of the '{@link #getFmParams() <em>Fm Params</em>}' containment reference list.
@@ -186,21 +174,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
       cParams = new EObjectContainmentEList<Term>(Term.class, this, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS);
     }
     return cParams;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<PatternFreeFormula> getSimpleFmParams()
-  {
-    if (simpleFmParams == null)
-    {
-      simpleFmParams = new EObjectContainmentEList<PatternFreeFormula>(PatternFreeFormula.class, this, RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS);
-    }
-    return simpleFmParams;
   }
 
   /**
@@ -320,8 +293,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
     {
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return ((InternalEList<?>)getCParams()).basicRemove(otherEnd, msgs);
-      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
-        return ((InternalEList<?>)getSimpleFmParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return ((InternalEList<?>)getFmParams()).basicRemove(otherEnd, msgs);
     }
@@ -343,8 +314,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
         return basicGetPattern();
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return getCParams();
-      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
-        return getSimpleFmParams();
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return getFmParams();
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
@@ -374,10 +343,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         getCParams().clear();
         getCParams().addAll((Collection<? extends Term>)newValue);
-        return;
-      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
-        getSimpleFmParams().clear();
-        getSimpleFmParams().addAll((Collection<? extends PatternFreeFormula>)newValue);
         return;
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
@@ -409,9 +374,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         getCParams().clear();
         return;
-      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
-        getSimpleFmParams().clear();
-        return;
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
         return;
@@ -439,8 +401,6 @@ public class BasicRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
         return pattern != null;
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return cParams != null && !cParams.isEmpty();
-      case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
-        return simpleFmParams != null && !simpleFmParams.isEmpty();
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
       case RPLPackage.BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:

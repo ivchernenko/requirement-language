@@ -3,7 +3,6 @@
  */
 package su.nsk.iae.rpl.rPL;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getArity <em>Arity</em>}</li>
  * </ul>
  *
@@ -22,30 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SimpleFormulaParameter extends EObject
+public interface SimpleFormulaParameter extends FormulaParameter
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getSimpleFormulaParameter_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Arity</b></em>' attribute.
    * <!-- begin-user-doc -->

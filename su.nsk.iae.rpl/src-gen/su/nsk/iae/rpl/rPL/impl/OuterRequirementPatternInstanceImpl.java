@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import su.nsk.iae.rpl.rPL.FormulaParameterValue;
 import su.nsk.iae.rpl.rPL.OuterRequirementPattern;
 import su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance;
+import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.Term;
-import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,9 +36,8 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getCParams <em>CParams</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getSimpleFmParams <em>Simple Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getFinState <em>Fin State</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.OuterRequirementPatternInstanceImpl#getCurState <em>Cur State</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +65,16 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
   protected EList<Term> cParams;
 
   /**
+   * The cached value of the '{@link #getSimpleFmParams() <em>Simple Fm Params</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSimpleFmParams()
+   * @generated
+   * @ordered
+   */
+  protected EList<PatternFreeFormulaParameterValue> simpleFmParams;
+
+  /**
    * The cached value of the '{@link #getFmParams() <em>Fm Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -74,26 +83,6 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
    * @ordered
    */
   protected EList<FormulaParameterValue> fmParams;
-
-  /**
-   * The cached value of the '{@link #getFinState() <em>Fin State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFinState()
-   * @generated
-   * @ordered
-   */
-  protected UpdateStateVariable finState;
-
-  /**
-   * The cached value of the '{@link #getCurState() <em>Cur State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCurState()
-   * @generated
-   * @ordered
-   */
-  protected UpdateStateVariable curState;
 
   /**
    * <!-- begin-user-doc -->
@@ -182,6 +171,21 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
    * @generated
    */
   @Override
+  public EList<PatternFreeFormulaParameterValue> getSimpleFmParams()
+  {
+    if (simpleFmParams == null)
+    {
+      simpleFmParams = new EObjectContainmentEList<PatternFreeFormulaParameterValue>(PatternFreeFormulaParameterValue.class, this, RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS);
+    }
+    return simpleFmParams;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<FormulaParameterValue> getFmParams()
   {
     if (fmParams == null)
@@ -197,102 +201,14 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
    * @generated
    */
   @Override
-  public UpdateStateVariable getFinState()
-  {
-    if (finState != null && finState.eIsProxy())
-    {
-      InternalEObject oldFinState = (InternalEObject)finState;
-      finState = (UpdateStateVariable)eResolveProxy(oldFinState);
-      if (finState != oldFinState)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
-      }
-    }
-    return finState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UpdateStateVariable basicGetFinState()
-  {
-    return finState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setFinState(UpdateStateVariable newFinState)
-  {
-    UpdateStateVariable oldFinState = finState;
-    finState = newFinState;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE, oldFinState, finState));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UpdateStateVariable getCurState()
-  {
-    if (curState != null && curState.eIsProxy())
-    {
-      InternalEObject oldCurState = (InternalEObject)curState;
-      curState = (UpdateStateVariable)eResolveProxy(oldCurState);
-      if (curState != oldCurState)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
-      }
-    }
-    return curState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UpdateStateVariable basicGetCurState()
-  {
-    return curState;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setCurState(UpdateStateVariable newCurState)
-  {
-    UpdateStateVariable oldCurState = curState;
-    curState = newCurState;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE, oldCurState, curState));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return ((InternalEList<?>)getCParams()).basicRemove(otherEnd, msgs);
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
+        return ((InternalEList<?>)getSimpleFmParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return ((InternalEList<?>)getFmParams()).basicRemove(otherEnd, msgs);
     }
@@ -314,14 +230,10 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
         return basicGetPattern();
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return getCParams();
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
+        return getSimpleFmParams();
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return getFmParams();
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
-        if (resolve) return getFinState();
-        return basicGetFinState();
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
-        if (resolve) return getCurState();
-        return basicGetCurState();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -344,15 +256,13 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
         getCParams().clear();
         getCParams().addAll((Collection<? extends Term>)newValue);
         return;
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
+        getSimpleFmParams().clear();
+        getSimpleFmParams().addAll((Collection<? extends PatternFreeFormulaParameterValue>)newValue);
+        return;
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends FormulaParameterValue>)newValue);
-        return;
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
-        setFinState((UpdateStateVariable)newValue);
-        return;
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
-        setCurState((UpdateStateVariable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -374,14 +284,11 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         getCParams().clear();
         return;
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
+        getSimpleFmParams().clear();
+        return;
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
-        return;
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
-        setFinState((UpdateStateVariable)null);
-        return;
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
-        setCurState((UpdateStateVariable)null);
         return;
     }
     super.eUnset(featureID);
@@ -401,12 +308,10 @@ public class OuterRequirementPatternInstanceImpl extends MinimalEObjectImpl.Cont
         return pattern != null;
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CPARAMS:
         return cParams != null && !cParams.isEmpty();
+      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS:
+        return simpleFmParams != null && !simpleFmParams.isEmpty();
       case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE:
-        return finState != null;
-      case RPLPackage.OUTER_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE:
-        return curState != null;
     }
     return super.eIsSet(featureID);
   }

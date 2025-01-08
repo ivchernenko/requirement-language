@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import su.nsk.iae.rpl.services.RPLGrammarAccess;
@@ -18,10 +21,12 @@ import su.nsk.iae.rpl.services.RPLGrammarAccess;
 public class RPLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RPLGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_PastExtraInvariantPatternInstance_CurrentKeyword_5_0_or_FinalKeyword_5_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RPLGrammarAccess) access;
+		match_PastExtraInvariantPatternInstance_CurrentKeyword_5_0_or_FinalKeyword_5_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPastExtraInvariantPatternInstanceAccess().getCurrentKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getPastExtraInvariantPatternInstanceAccess().getFinalKeyword_5_1()));
 	}
 	
 	@Override
@@ -95,8 +100,27 @@ public class RPLSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_PastExtraInvariantPatternInstance_CurrentKeyword_5_0_or_FinalKeyword_5_1.equals(syntax))
+				emit_PastExtraInvariantPatternInstance_CurrentKeyword_5_0_or_FinalKeyword_5_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'current' | 'final'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     cParams+=ConstantParameter (ambiguity) state=[UpdateStateVariable|ID]
+	 *     fmParams+=RegularFormulaParameter (ambiguity) state=[UpdateStateVariable|ID]
+	 *     fnParams+=FunctionalParameter (ambiguity) state=[UpdateStateVariable|ID]
+	 *     pattern=[PastExtraInvariantPattern|ID] '(' (ambiguity) state=[UpdateStateVariable|ID]
+	 
+	 * </pre>
+	 */
+	protected void emit_PastExtraInvariantPatternInstance_CurrentKeyword_5_0_or_FinalKeyword_5_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

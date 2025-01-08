@@ -160,6 +160,15 @@ public class RPLSwitch<T> extends Switch<T>
       {
         SimpleFormulaParameter simpleFormulaParameter = (SimpleFormulaParameter)theEObject;
         T result = caseSimpleFormulaParameter(simpleFormulaParameter);
+        if (result == null) result = caseFormulaParameter(simpleFormulaParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RPLPackage.REGULAR_FORMULA_PARAMETER:
+      {
+        RegularFormulaParameter regularFormulaParameter = (RegularFormulaParameter)theEObject;
+        T result = caseRegularFormulaParameter(regularFormulaParameter);
+        if (result == null) result = caseFormulaParameter(regularFormulaParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -786,6 +795,22 @@ public class RPLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSimpleFormulaParameter(SimpleFormulaParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Regular Formula Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Regular Formula Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRegularFormulaParameter(RegularFormulaParameter object)
   {
     return null;
   }

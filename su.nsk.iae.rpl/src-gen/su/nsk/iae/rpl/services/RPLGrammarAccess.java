@@ -186,11 +186,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Assignment cFmParamsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
 		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
 		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Alternatives cAlternatives_8 = (Alternatives)cGroup.eContents().get(8);
 		private final Group cGroup_8_0 = (Group)cAlternatives_8.eContents().get(0);
@@ -214,7 +214,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    'derivedreq' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
 		//   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
 		//   (lemmas=DerivedLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -222,7 +222,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		// 'derivedreq' 'pattern' name=ID '('
 		// ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		// ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-		// ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
+		// ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
 		//("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
 		//(lemmas=DerivedLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -299,7 +299,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SimpleFormulaParameter
 		public RuleCall getSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0() { return cSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//"formulas"
@@ -308,23 +308,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_2() { return cFmParamsAssignment_6_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_2_0() { return cFmParamsFormulaParameterParserRuleCall_6_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
 		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_3_1() { return cFmParamsAssignment_6_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_6_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
@@ -488,18 +488,22 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class FormulaParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FormulaParameter");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSimpleFormulaParameterParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRegularFormulaParameterParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//FormulaParameter:
-		//    name=ID;
+		//    SimpleFormulaParameter | RegularFormulaParameter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		//SimpleFormulaParameter | RegularFormulaParameter
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		//SimpleFormulaParameter
+		public RuleCall getSimpleFormulaParameterParserRuleCall_0() { return cSimpleFormulaParameterParserRuleCall_0; }
+		
+		//RegularFormulaParameter
+		public RuleCall getRegularFormulaParameterParserRuleCall_1() { return cRegularFormulaParameterParserRuleCall_1; }
 	}
 	public class SimpleFormulaParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
@@ -539,6 +543,21 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+	}
+	public class RegularFormulaParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.RegularFormulaParameter");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//RegularFormulaParameter:
+		//    name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class FunctionalParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FunctionalParameter");
@@ -682,38 +701,42 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cCParamsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
 		private final RuleCall cCParamsTermParserRuleCall_2_3_1_0 = (RuleCall)cCParamsAssignment_2_3_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cFormulasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cFmParamsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_2_0 = (RuleCall)cFmParamsAssignment_3_2.eContents().get(0);
-		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
-		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
-		private final Assignment cFmParamsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0 = (RuleCall)cFmParamsAssignment_3_3_1.eContents().get(0);
+		private final Keyword cSimpleKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cFormulasKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cColonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cSimpleFmParamsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_3_0 = (RuleCall)cSimpleFmParamsAssignment_3_3.eContents().get(0);
+		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
+		private final Keyword cCommaKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
+		private final Assignment cSimpleFmParamsAssignment_3_4_1 = (Assignment)cGroup_3_4.eContents().get(1);
+		private final RuleCall cSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_4_1_0 = (RuleCall)cSimpleFmParamsAssignment_3_4_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cFinalKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cFormulasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cFinStateAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final CrossReference cFinStateUpdateStateVariableCrossReference_4_2_0 = (CrossReference)cFinStateAssignment_4_2.eContents().get(0);
-		private final RuleCall cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1 = (RuleCall)cFinStateUpdateStateVariableCrossReference_4_2_0.eContents().get(1);
+		private final Assignment cFmParamsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_4_2_0 = (RuleCall)cFmParamsAssignment_4_2.eContents().get(0);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCurrentKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Keyword cColonKeyword_4_3_1 = (Keyword)cGroup_4_3.eContents().get(1);
-		private final Assignment cCurStateAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
-		private final CrossReference cCurStateUpdateStateVariableCrossReference_4_3_2_0 = (CrossReference)cCurStateAssignment_4_3_2.eContents().get(0);
-		private final RuleCall cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1 = (RuleCall)cCurStateUpdateStateVariableCrossReference_4_3_2_0.eContents().get(1);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cFmParamsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_4_3_1_0 = (RuleCall)cFmParamsAssignment_4_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//OuterRequirementPatternInstance:
 		//    pattern=[OuterRequirementPattern] "("
-		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
-		//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
+		//    ("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormulaParameterValue
+		//        ("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+		//    )?
+		//     ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		//     ")";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//pattern=[OuterRequirementPattern] "("
-		//("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
-		//  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		//("const" ":" cParams+=Term ("," cParams+=Term)*)?
+		//("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormulaParameterValue
+		//    ("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+		//)?
+		// ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		// ")"
 		public Group getGroup() { return cGroup; }
 		
@@ -756,68 +779,64 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//Term
 		public RuleCall getCParamsTermParserRuleCall_2_3_1_0() { return cCParamsTermParserRuleCall_2_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+		//("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormulaParameterValue
+		//    ("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+		//)?
 		public Group getGroup_3() { return cGroup_3; }
 		
+		//"simple"
+		public Keyword getSimpleKeyword_3_0() { return cSimpleKeyword_3_0; }
+		
 		//"formulas"
-		public Keyword getFormulasKeyword_3_0() { return cFormulasKeyword_3_0; }
+		public Keyword getFormulasKeyword_3_1() { return cFormulasKeyword_3_1; }
 		
 		//":"
-		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
+		public Keyword getColonKeyword_3_2() { return cColonKeyword_3_2; }
 		
-		//fmParams+=FormulaParameterValue
-		public Assignment getFmParamsAssignment_3_2() { return cFmParamsAssignment_3_2; }
+		//simpleFmParams+=PatternFreeFormulaParameterValue
+		public Assignment getSimpleFmParamsAssignment_3_3() { return cSimpleFmParamsAssignment_3_3; }
 		
-		//FormulaParameterValue
-		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_2_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_2_0; }
+		//PatternFreeFormulaParameterValue
+		public RuleCall getSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_3_0() { return cSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_3_0; }
 		
-		//("," fmParams+=FormulaParameterValue)*
-		public Group getGroup_3_3() { return cGroup_3_3; }
+		//("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+		public Group getGroup_3_4() { return cGroup_3_4; }
 		
 		//","
-		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
+		public Keyword getCommaKeyword_3_4_0() { return cCommaKeyword_3_4_0; }
 		
-		//fmParams+=FormulaParameterValue
-		public Assignment getFmParamsAssignment_3_3_1() { return cFmParamsAssignment_3_3_1; }
+		//simpleFmParams+=PatternFreeFormulaParameterValue
+		public Assignment getSimpleFmParamsAssignment_3_4_1() { return cSimpleFmParamsAssignment_3_4_1; }
 		
-		//FormulaParameterValue
-		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_3_1_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0; }
+		//PatternFreeFormulaParameterValue
+		public RuleCall getSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_4_1_0() { return cSimpleFmParamsPatternFreeFormulaParameterValueParserRuleCall_3_4_1_0; }
 		
-		//("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+		//("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//"final"
-		public Keyword getFinalKeyword_4_0() { return cFinalKeyword_4_0; }
+		//"formulas"
+		public Keyword getFormulasKeyword_4_0() { return cFormulasKeyword_4_0; }
 		
 		//":"
 		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
 		
-		//finState=[UpdateStateVariable]
-		public Assignment getFinStateAssignment_4_2() { return cFinStateAssignment_4_2; }
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_4_2() { return cFmParamsAssignment_4_2; }
 		
-		//[UpdateStateVariable]
-		public CrossReference getFinStateUpdateStateVariableCrossReference_4_2_0() { return cFinStateUpdateStateVariableCrossReference_4_2_0; }
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_4_2_0() { return cFmParamsFormulaParameterValueParserRuleCall_4_2_0; }
 		
-		//ID
-		public RuleCall getFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1() { return cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1; }
-		
-		//("current" ":" curState=[UpdateStateVariable])?
+		//("," fmParams+=FormulaParameterValue)*
 		public Group getGroup_4_3() { return cGroup_4_3; }
 		
-		//"current"
-		public Keyword getCurrentKeyword_4_3_0() { return cCurrentKeyword_4_3_0; }
+		//","
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 		
-		//":"
-		public Keyword getColonKeyword_4_3_1() { return cColonKeyword_4_3_1; }
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_4_3_1() { return cFmParamsAssignment_4_3_1; }
 		
-		//curState=[UpdateStateVariable]
-		public Assignment getCurStateAssignment_4_3_2() { return cCurStateAssignment_4_3_2; }
-		
-		//[UpdateStateVariable]
-		public CrossReference getCurStateUpdateStateVariableCrossReference_4_3_2_0() { return cCurStateUpdateStateVariableCrossReference_4_3_2_0; }
-		
-		//ID
-		public RuleCall getCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1() { return cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1; }
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_4_3_1_0() { return cFmParamsFormulaParameterValueParserRuleCall_4_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -1147,42 +1166,31 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cCParamsAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
 		private final RuleCall cCParamsTermParserRuleCall_2_3_1_0 = (RuleCall)cCParamsAssignment_2_3_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cSimpleKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cFormulasKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cColonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cSimpleFmParamsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cSimpleFmParamsPatternFreeFormulaParserRuleCall_3_3_0 = (RuleCall)cSimpleFmParamsAssignment_3_3.eContents().get(0);
-		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
-		private final Keyword cCommaKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
-		private final Assignment cSimpleFmParamsAssignment_3_4_1 = (Assignment)cGroup_3_4.eContents().get(1);
-		private final RuleCall cSimpleFmParamsPatternFreeFormulaParserRuleCall_3_4_1_0 = (RuleCall)cSimpleFmParamsAssignment_3_4_1.eContents().get(0);
+		private final Keyword cFormulasKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cFmParamsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_2_0 = (RuleCall)cFmParamsAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cFmParamsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0 = (RuleCall)cFmParamsAssignment_3_3_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cFormulasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cFinalKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cFmParamsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_4_2_0 = (RuleCall)cFmParamsAssignment_4_2.eContents().get(0);
+		private final Assignment cFinStateAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final CrossReference cFinStateUpdateStateVariableCrossReference_4_2_0 = (CrossReference)cFinStateAssignment_4_2.eContents().get(0);
+		private final RuleCall cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1 = (RuleCall)cFinStateUpdateStateVariableCrossReference_4_2_0.eContents().get(1);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cFmParamsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterValueParserRuleCall_4_3_1_0 = (RuleCall)cFmParamsAssignment_4_3_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cFinalKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cFinStateAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final CrossReference cFinStateUpdateStateVariableCrossReference_5_2_0 = (CrossReference)cFinStateAssignment_5_2.eContents().get(0);
-		private final RuleCall cFinStateUpdateStateVariableIDTerminalRuleCall_5_2_0_1 = (RuleCall)cFinStateUpdateStateVariableCrossReference_5_2_0.eContents().get(1);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCurrentKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Keyword cColonKeyword_5_3_1 = (Keyword)cGroup_5_3.eContents().get(1);
-		private final Assignment cCurStateAssignment_5_3_2 = (Assignment)cGroup_5_3.eContents().get(2);
-		private final CrossReference cCurStateUpdateStateVariableCrossReference_5_3_2_0 = (CrossReference)cCurStateAssignment_5_3_2.eContents().get(0);
-		private final RuleCall cCurStateUpdateStateVariableIDTerminalRuleCall_5_3_2_0_1 = (RuleCall)cCurStateUpdateStateVariableCrossReference_5_3_2_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cCurrentKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Keyword cColonKeyword_4_3_1 = (Keyword)cGroup_4_3.eContents().get(1);
+		private final Assignment cCurStateAssignment_4_3_2 = (Assignment)cGroup_4_3.eContents().get(2);
+		private final CrossReference cCurStateUpdateStateVariableCrossReference_4_3_2_0 = (CrossReference)cCurStateAssignment_4_3_2.eContents().get(0);
+		private final RuleCall cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1 = (RuleCall)cCurStateUpdateStateVariableCrossReference_4_3_2_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BasicRequirementPatternInstance:
 		//    pattern=[BasicRequirementPattern] "("
 		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//    ("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
 		//     ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 		//     ")";
@@ -1190,7 +1198,6 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//pattern=[BasicRequirementPattern] "("
 		//("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
 		// ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		//  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 		// ")"
@@ -1235,101 +1242,71 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//Term
 		public RuleCall getCParamsTermParserRuleCall_2_3_1_0() { return cCParamsTermParserRuleCall_2_3_1_0; }
 		
-		//("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
+		//("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//"simple"
-		public Keyword getSimpleKeyword_3_0() { return cSimpleKeyword_3_0; }
-		
 		//"formulas"
-		public Keyword getFormulasKeyword_3_1() { return cFormulasKeyword_3_1; }
+		public Keyword getFormulasKeyword_3_0() { return cFormulasKeyword_3_0; }
 		
 		//":"
-		public Keyword getColonKeyword_3_2() { return cColonKeyword_3_2; }
+		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
 		
-		//simpleFmParams+=PatternFreeFormula
-		public Assignment getSimpleFmParamsAssignment_3_3() { return cSimpleFmParamsAssignment_3_3; }
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_3_2() { return cFmParamsAssignment_3_2; }
 		
-		//PatternFreeFormula
-		public RuleCall getSimpleFmParamsPatternFreeFormulaParserRuleCall_3_3_0() { return cSimpleFmParamsPatternFreeFormulaParserRuleCall_3_3_0; }
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_2_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_2_0; }
 		
-		//("," simpleFmParams+=PatternFreeFormula)*
-		public Group getGroup_3_4() { return cGroup_3_4; }
+		//("," fmParams+=FormulaParameterValue)*
+		public Group getGroup_3_3() { return cGroup_3_3; }
 		
 		//","
-		public Keyword getCommaKeyword_3_4_0() { return cCommaKeyword_3_4_0; }
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
-		//simpleFmParams+=PatternFreeFormula
-		public Assignment getSimpleFmParamsAssignment_3_4_1() { return cSimpleFmParamsAssignment_3_4_1; }
+		//fmParams+=FormulaParameterValue
+		public Assignment getFmParamsAssignment_3_3_1() { return cFmParamsAssignment_3_3_1; }
 		
-		//PatternFreeFormula
-		public RuleCall getSimpleFmParamsPatternFreeFormulaParserRuleCall_3_4_1_0() { return cSimpleFmParamsPatternFreeFormulaParserRuleCall_3_4_1_0; }
+		//FormulaParameterValue
+		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_3_3_1_0() { return cFmParamsFormulaParameterValueParserRuleCall_3_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+		//("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//"formulas"
-		public Keyword getFormulasKeyword_4_0() { return cFormulasKeyword_4_0; }
+		//"final"
+		public Keyword getFinalKeyword_4_0() { return cFinalKeyword_4_0; }
 		
 		//":"
 		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
 		
-		//fmParams+=FormulaParameterValue
-		public Assignment getFmParamsAssignment_4_2() { return cFmParamsAssignment_4_2; }
-		
-		//FormulaParameterValue
-		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_4_2_0() { return cFmParamsFormulaParameterValueParserRuleCall_4_2_0; }
-		
-		//("," fmParams+=FormulaParameterValue)*
-		public Group getGroup_4_3() { return cGroup_4_3; }
-		
-		//","
-		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
-		
-		//fmParams+=FormulaParameterValue
-		public Assignment getFmParamsAssignment_4_3_1() { return cFmParamsAssignment_4_3_1; }
-		
-		//FormulaParameterValue
-		public RuleCall getFmParamsFormulaParameterValueParserRuleCall_4_3_1_0() { return cFmParamsFormulaParameterValueParserRuleCall_4_3_1_0; }
-		
-		//("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//"final"
-		public Keyword getFinalKeyword_5_0() { return cFinalKeyword_5_0; }
-		
-		//":"
-		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
-		
 		//finState=[UpdateStateVariable]
-		public Assignment getFinStateAssignment_5_2() { return cFinStateAssignment_5_2; }
+		public Assignment getFinStateAssignment_4_2() { return cFinStateAssignment_4_2; }
 		
 		//[UpdateStateVariable]
-		public CrossReference getFinStateUpdateStateVariableCrossReference_5_2_0() { return cFinStateUpdateStateVariableCrossReference_5_2_0; }
+		public CrossReference getFinStateUpdateStateVariableCrossReference_4_2_0() { return cFinStateUpdateStateVariableCrossReference_4_2_0; }
 		
 		//ID
-		public RuleCall getFinStateUpdateStateVariableIDTerminalRuleCall_5_2_0_1() { return cFinStateUpdateStateVariableIDTerminalRuleCall_5_2_0_1; }
+		public RuleCall getFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1() { return cFinStateUpdateStateVariableIDTerminalRuleCall_4_2_0_1; }
 		
 		//("current" ":" curState=[UpdateStateVariable])?
-		public Group getGroup_5_3() { return cGroup_5_3; }
+		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//"current"
-		public Keyword getCurrentKeyword_5_3_0() { return cCurrentKeyword_5_3_0; }
+		public Keyword getCurrentKeyword_4_3_0() { return cCurrentKeyword_4_3_0; }
 		
 		//":"
-		public Keyword getColonKeyword_5_3_1() { return cColonKeyword_5_3_1; }
+		public Keyword getColonKeyword_4_3_1() { return cColonKeyword_4_3_1; }
 		
 		//curState=[UpdateStateVariable]
-		public Assignment getCurStateAssignment_5_3_2() { return cCurStateAssignment_5_3_2; }
+		public Assignment getCurStateAssignment_4_3_2() { return cCurStateAssignment_4_3_2; }
 		
 		//[UpdateStateVariable]
-		public CrossReference getCurStateUpdateStateVariableCrossReference_5_3_2_0() { return cCurStateUpdateStateVariableCrossReference_5_3_2_0; }
+		public CrossReference getCurStateUpdateStateVariableCrossReference_4_3_2_0() { return cCurStateUpdateStateVariableCrossReference_4_3_2_0; }
 		
 		//ID
-		public RuleCall getCurStateUpdateStateVariableIDTerminalRuleCall_5_3_2_0_1() { return cCurStateUpdateStateVariableIDTerminalRuleCall_5_3_2_0_1; }
+		public RuleCall getCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1() { return cCurStateUpdateStateVariableIDTerminalRuleCall_4_3_2_0_1; }
 		
 		//")"
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 	public class FutureRequirementPatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FutureRequirementPattern");
@@ -1352,11 +1329,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Assignment cFmParamsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_5_2_0 = (RuleCall)cFmParamsAssignment_5_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_2_0 = (RuleCall)cFmParamsAssignment_5_2.eContents().get(0);
 		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
 		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cFromKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cFileAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -1373,14 +1350,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FutureRequirementPattern:
 		//    'futurereq' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//     ")"
 		//     "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'futurereq' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		// ")"
 		// "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -1427,7 +1404,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ConstantParameter
 		public RuleCall getCParamsConstantParameterParserRuleCall_4_3_1_0() { return cCParamsConstantParameterParserRuleCall_4_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//"formulas"
@@ -1436,23 +1413,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_5_2() { return cFmParamsAssignment_5_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_5_2_0() { return cFmParamsFormulaParameterParserRuleCall_5_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_5_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_5_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_5_3() { return cGroup_5_3; }
 		
 		//","
 		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_5_3_1() { return cFmParamsAssignment_5_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_5_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_5_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
@@ -1508,11 +1485,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cColonKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Assignment cFmParamsAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_5_2_0 = (RuleCall)cFmParamsAssignment_5_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_2_0 = (RuleCall)cFmParamsAssignment_5_2.eContents().get(0);
 		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
 		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cFromKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cFileAssignment_8 = (Assignment)cGroup.eContents().get(8);
@@ -1528,14 +1505,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//PastRequirementPattern:
 		//    'pastreq' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
 		//    "from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'pastreq' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
 		//"from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -1582,7 +1559,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ConstantParameter
 		public RuleCall getCParamsConstantParameterParserRuleCall_4_3_1_0() { return cCParamsConstantParameterParserRuleCall_4_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//"formulas"
@@ -1591,23 +1568,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_5_1() { return cColonKeyword_5_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_5_2() { return cFmParamsAssignment_5_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_5_2_0() { return cFmParamsFormulaParameterParserRuleCall_5_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_5_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_5_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_5_3() { return cGroup_5_3; }
 		
 		//","
 		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_5_3_1() { return cFmParamsAssignment_5_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_5_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_5_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
@@ -1672,11 +1649,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Assignment cFmParamsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
 		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
 		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cFromKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
@@ -1690,7 +1667,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    'futureeinv' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
 		//    ("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -1698,7 +1675,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'futureeinv' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
 		//("from" file=FilePath)? (lemmas=FutureLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -1772,7 +1749,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FunctionalParameter
 		public RuleCall getFnParamsFunctionalParameterParserRuleCall_5_3_1_0() { return cFnParamsFunctionalParameterParserRuleCall_5_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//"formulas"
@@ -1781,23 +1758,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_2() { return cFmParamsAssignment_6_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_2_0() { return cFmParamsFormulaParameterParserRuleCall_6_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
 		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_3_1() { return cFmParamsAssignment_6_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_6_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
@@ -1853,11 +1830,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Assignment cFmParamsAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_2_0 = (RuleCall)cFmParamsAssignment_6_2.eContents().get(0);
 		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
 		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cFromKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
@@ -1871,7 +1848,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    'pasteinv' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
 		//    ("from" file=FilePath)? (lemmas=PastLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -1879,7 +1856,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'pasteinv' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
 		//("from" file=FilePath)? (lemmas=PastLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -1953,7 +1930,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FunctionalParameter
 		public RuleCall getFnParamsFunctionalParameterParserRuleCall_5_3_1_0() { return cFnParamsFunctionalParameterParserRuleCall_5_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//"formulas"
@@ -1962,23 +1939,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_2() { return cFmParamsAssignment_6_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_2_0() { return cFmParamsFormulaParameterParserRuleCall_6_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_6_3() { return cGroup_6_3; }
 		
 		//","
 		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_6_3_1() { return cFmParamsAssignment_6_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_6_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
@@ -2044,11 +2021,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cColonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
 		private final Assignment cFmParamsAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_7_2_0 = (RuleCall)cFmParamsAssignment_7_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_7_2_0 = (RuleCall)cFmParamsAssignment_7_2.eContents().get(0);
 		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
 		private final Keyword cCommaKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_7_3_1_0 = (RuleCall)cFmParamsAssignment_7_3_1.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_7_3_1_0 = (RuleCall)cFmParamsAssignment_7_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cFromKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
@@ -2063,7 +2040,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
 		//    ("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
@@ -2072,7 +2049,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
 		//("from" file=FilePath)? (lemmas=DerivedLemmas)? ";"
 		public Group getGroup() { return cGroup; }
@@ -2176,7 +2153,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SimpleFormulaParameter
 		public RuleCall getSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0() { return cSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//"formulas"
@@ -2185,23 +2162,23 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_7_1() { return cColonKeyword_7_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_7_2() { return cFmParamsAssignment_7_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_7_2_0() { return cFmParamsFormulaParameterParserRuleCall_7_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_7_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_7_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_7_3() { return cGroup_7_3; }
 		
 		//","
 		public Keyword getCommaKeyword_7_3_0() { return cCommaKeyword_7_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_7_3_1() { return cFmParamsAssignment_7_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_7_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_7_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_7_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_7_3_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -3544,51 +3521,62 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFnVarsAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
 		private final RuleCall cFnVarsFunctionalParameterParserRuleCall_1_3_1_0 = (RuleCall)cFnVarsAssignment_1_3_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cUnorderedGroup.eContents().get(2);
-		private final Keyword cExtraKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cInvariantKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cFormulasKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Keyword cColonKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cIfmVarsAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
-		private final RuleCall cIfmVarsFormulaParameterParserRuleCall_2_4_0 = (RuleCall)cIfmVarsAssignment_2_4.eContents().get(0);
-		private final Group cGroup_2_5 = (Group)cGroup_2.eContents().get(5);
-		private final Keyword cCommaKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
-		private final Assignment cIfmVarsAssignment_2_5_1 = (Assignment)cGroup_2_5.eContents().get(1);
-		private final RuleCall cIfmVarsFormulaParameterParserRuleCall_2_5_1_0 = (RuleCall)cIfmVarsAssignment_2_5_1.eContents().get(0);
+		private final Keyword cSimpleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cFormulasKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cColonKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cSimpleFmVarsAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0 = (RuleCall)cSimpleFmVarsAssignment_2_3.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cGroup_2.eContents().get(4);
+		private final Keyword cCommaKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Assignment cSimpleFmVarsAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0 = (RuleCall)cSimpleFmVarsAssignment_2_4_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cUnorderedGroup.eContents().get(3);
-		private final Keyword cRequirementKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cFormulasKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cColonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cRfmVarsAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cRfmVarsFormulaParameterParserRuleCall_3_3_0 = (RuleCall)cRfmVarsAssignment_3_3.eContents().get(0);
-		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
-		private final Keyword cCommaKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
-		private final Assignment cRfmVarsAssignment_3_4_1 = (Assignment)cGroup_3_4.eContents().get(1);
-		private final RuleCall cRfmVarsFormulaParameterParserRuleCall_3_4_1_0 = (RuleCall)cRfmVarsAssignment_3_4_1.eContents().get(0);
+		private final Keyword cExtraKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cInvariantKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cFormulasKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cColonKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Assignment cIfmVarsAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
+		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_3_4_0 = (RuleCall)cIfmVarsAssignment_3_4.eContents().get(0);
+		private final Group cGroup_3_5 = (Group)cGroup_3.eContents().get(5);
+		private final Keyword cCommaKeyword_3_5_0 = (Keyword)cGroup_3_5.eContents().get(0);
+		private final Assignment cIfmVarsAssignment_3_5_1 = (Assignment)cGroup_3_5.eContents().get(1);
+		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0 = (RuleCall)cIfmVarsAssignment_3_5_1.eContents().get(0);
 		private final Group cGroup_4 = (Group)cUnorderedGroup.eContents().get(4);
-		private final Keyword cInitKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cStateKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Keyword cRequirementKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cFormulasKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Keyword cColonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cInitStateAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final RuleCall cInitStateUpdateStateVariableParserRuleCall_4_3_0 = (RuleCall)cInitStateAssignment_4_3.eContents().get(0);
+		private final Assignment cRfmVarsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_4_3_0 = (RuleCall)cRfmVarsAssignment_4_3.eContents().get(0);
+		private final Group cGroup_4_4 = (Group)cGroup_4.eContents().get(4);
+		private final Keyword cCommaKeyword_4_4_0 = (Keyword)cGroup_4_4.eContents().get(0);
+		private final Assignment cRfmVarsAssignment_4_4_1 = (Assignment)cGroup_4_4.eContents().get(1);
+		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0 = (RuleCall)cRfmVarsAssignment_4_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cUnorderedGroup.eContents().get(5);
-		private final Keyword cFinalKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cInitKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Keyword cStateKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Keyword cColonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Assignment cFinalStateAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
-		private final RuleCall cFinalStateUpdateStateVariableParserRuleCall_5_3_0 = (RuleCall)cFinalStateAssignment_5_3.eContents().get(0);
+		private final Assignment cInitStateAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cInitStateUpdateStateVariableParserRuleCall_5_3_0 = (RuleCall)cInitStateAssignment_5_3.eContents().get(0);
 		private final Group cGroup_6 = (Group)cUnorderedGroup.eContents().get(6);
-		private final Keyword cPremiseKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cPremAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cPremLemmaPremiseFormulaParserRuleCall_6_1_0 = (RuleCall)cPremAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cSemicolonKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Keyword cFinalKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cStateKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cColonKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Assignment cFinalStateAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cFinalStateUpdateStateVariableParserRuleCall_6_3_0 = (RuleCall)cFinalStateAssignment_6_3.eContents().get(0);
+		private final Group cGroup_7 = (Group)cUnorderedGroup.eContents().get(7);
+		private final Keyword cPremiseKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cPremAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cPremLemmaPremiseFormulaParserRuleCall_7_1_0 = (RuleCall)cPremAssignment_7_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Keyword cSemicolonKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
 		
 		//Lemma:
 		//    "lemma" name=ID "{"
 		//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 		//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-		//   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
-		//   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
+		//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
+		//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
+		//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
 		//   ("init" "state" ":" initState=UpdateStateVariable)? &
 		//   "final" "state" ":" finalState=UpdateStateVariable &
 		//   "premise" prem=LemmaPremiseFormula "}" ";";
@@ -3597,8 +3585,9 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		// "lemma" name=ID "{"
 		// ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 		// ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-		//("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
-		//("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
+		// ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
+		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
+		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
 		//("init" "state" ":" initState=UpdateStateVariable)? &
 		//"final" "state" ":" finalState=UpdateStateVariable &
 		//"premise" prem=LemmaPremiseFormula "}" ";"
@@ -3674,92 +3663,104 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FunctionalParameter
 		public RuleCall getFnVarsFunctionalParameterParserRuleCall_1_3_1_0() { return cFnVarsFunctionalParameterParserRuleCall_1_3_1_0; }
 		
-		//("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)?
+		//("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//"extra"
-		public Keyword getExtraKeyword_2_0() { return cExtraKeyword_2_0; }
-		
-		//"invariant"
-		public Keyword getInvariantKeyword_2_1() { return cInvariantKeyword_2_1; }
+		//"simple"
+		public Keyword getSimpleKeyword_2_0() { return cSimpleKeyword_2_0; }
 		
 		//"formulas"
-		public Keyword getFormulasKeyword_2_2() { return cFormulasKeyword_2_2; }
+		public Keyword getFormulasKeyword_2_1() { return cFormulasKeyword_2_1; }
 		
 		//":"
-		public Keyword getColonKeyword_2_3() { return cColonKeyword_2_3; }
+		public Keyword getColonKeyword_2_2() { return cColonKeyword_2_2; }
 		
-		//ifmVars+=FormulaParameter
-		public Assignment getIfmVarsAssignment_2_4() { return cIfmVarsAssignment_2_4; }
+		//simpleFmVars+=SimpleFormulaParameter
+		public Assignment getSimpleFmVarsAssignment_2_3() { return cSimpleFmVarsAssignment_2_3; }
 		
-		//FormulaParameter
-		public RuleCall getIfmVarsFormulaParameterParserRuleCall_2_4_0() { return cIfmVarsFormulaParameterParserRuleCall_2_4_0; }
+		//SimpleFormulaParameter
+		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0; }
 		
-		//("," ifmVars+=FormulaParameter)*
-		public Group getGroup_2_5() { return cGroup_2_5; }
+		//("," simpleFmVars+=SimpleFormulaParameter)*
+		public Group getGroup_2_4() { return cGroup_2_4; }
 		
 		//","
-		public Keyword getCommaKeyword_2_5_0() { return cCommaKeyword_2_5_0; }
+		public Keyword getCommaKeyword_2_4_0() { return cCommaKeyword_2_4_0; }
 		
-		//ifmVars+=FormulaParameter
-		public Assignment getIfmVarsAssignment_2_5_1() { return cIfmVarsAssignment_2_5_1; }
+		//simpleFmVars+=SimpleFormulaParameter
+		public Assignment getSimpleFmVarsAssignment_2_4_1() { return cSimpleFmVarsAssignment_2_4_1; }
 		
-		//FormulaParameter
-		public RuleCall getIfmVarsFormulaParameterParserRuleCall_2_5_1_0() { return cIfmVarsFormulaParameterParserRuleCall_2_5_1_0; }
+		//SimpleFormulaParameter
+		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0; }
 		
-		//("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)?
+		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//"requirement"
-		public Keyword getRequirementKeyword_3_0() { return cRequirementKeyword_3_0; }
+		//"extra"
+		public Keyword getExtraKeyword_3_0() { return cExtraKeyword_3_0; }
+		
+		//"invariant"
+		public Keyword getInvariantKeyword_3_1() { return cInvariantKeyword_3_1; }
 		
 		//"formulas"
-		public Keyword getFormulasKeyword_3_1() { return cFormulasKeyword_3_1; }
+		public Keyword getFormulasKeyword_3_2() { return cFormulasKeyword_3_2; }
 		
 		//":"
-		public Keyword getColonKeyword_3_2() { return cColonKeyword_3_2; }
+		public Keyword getColonKeyword_3_3() { return cColonKeyword_3_3; }
 		
-		//rfmVars+=FormulaParameter
-		public Assignment getRfmVarsAssignment_3_3() { return cRfmVarsAssignment_3_3; }
+		//ifmVars+=RegularFormulaParameter
+		public Assignment getIfmVarsAssignment_3_4() { return cIfmVarsAssignment_3_4; }
 		
-		//FormulaParameter
-		public RuleCall getRfmVarsFormulaParameterParserRuleCall_3_3_0() { return cRfmVarsFormulaParameterParserRuleCall_3_3_0; }
+		//RegularFormulaParameter
+		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_3_4_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_3_4_0; }
 		
-		//("," rfmVars+=FormulaParameter)*
-		public Group getGroup_3_4() { return cGroup_3_4; }
+		//("," ifmVars+=RegularFormulaParameter)*
+		public Group getGroup_3_5() { return cGroup_3_5; }
 		
 		//","
-		public Keyword getCommaKeyword_3_4_0() { return cCommaKeyword_3_4_0; }
+		public Keyword getCommaKeyword_3_5_0() { return cCommaKeyword_3_5_0; }
 		
-		//rfmVars+=FormulaParameter
-		public Assignment getRfmVarsAssignment_3_4_1() { return cRfmVarsAssignment_3_4_1; }
+		//ifmVars+=RegularFormulaParameter
+		public Assignment getIfmVarsAssignment_3_5_1() { return cIfmVarsAssignment_3_5_1; }
 		
-		//FormulaParameter
-		public RuleCall getRfmVarsFormulaParameterParserRuleCall_3_4_1_0() { return cRfmVarsFormulaParameterParserRuleCall_3_4_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0; }
 		
-		//("init" "state" ":" initState=UpdateStateVariable)?
+		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//"init"
-		public Keyword getInitKeyword_4_0() { return cInitKeyword_4_0; }
+		//"requirement"
+		public Keyword getRequirementKeyword_4_0() { return cRequirementKeyword_4_0; }
 		
-		//"state"
-		public Keyword getStateKeyword_4_1() { return cStateKeyword_4_1; }
+		//"formulas"
+		public Keyword getFormulasKeyword_4_1() { return cFormulasKeyword_4_1; }
 		
 		//":"
 		public Keyword getColonKeyword_4_2() { return cColonKeyword_4_2; }
 		
-		//initState=UpdateStateVariable
-		public Assignment getInitStateAssignment_4_3() { return cInitStateAssignment_4_3; }
+		//rfmVars+=RegularFormulaParameter
+		public Assignment getRfmVarsAssignment_4_3() { return cRfmVarsAssignment_4_3; }
 		
-		//UpdateStateVariable
-		public RuleCall getInitStateUpdateStateVariableParserRuleCall_4_3_0() { return cInitStateUpdateStateVariableParserRuleCall_4_3_0; }
+		//RegularFormulaParameter
+		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_4_3_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_4_3_0; }
 		
-		//"final" "state" ":" finalState=UpdateStateVariable
+		//("," rfmVars+=RegularFormulaParameter)*
+		public Group getGroup_4_4() { return cGroup_4_4; }
+		
+		//","
+		public Keyword getCommaKeyword_4_4_0() { return cCommaKeyword_4_4_0; }
+		
+		//rfmVars+=RegularFormulaParameter
+		public Assignment getRfmVarsAssignment_4_4_1() { return cRfmVarsAssignment_4_4_1; }
+		
+		//RegularFormulaParameter
+		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0; }
+		
+		//("init" "state" ":" initState=UpdateStateVariable)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//"final"
-		public Keyword getFinalKeyword_5_0() { return cFinalKeyword_5_0; }
+		//"init"
+		public Keyword getInitKeyword_5_0() { return cInitKeyword_5_0; }
 		
 		//"state"
 		public Keyword getStateKeyword_5_1() { return cStateKeyword_5_1; }
@@ -3767,29 +3768,47 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_5_2() { return cColonKeyword_5_2; }
 		
-		//finalState=UpdateStateVariable
-		public Assignment getFinalStateAssignment_5_3() { return cFinalStateAssignment_5_3; }
+		//initState=UpdateStateVariable
+		public Assignment getInitStateAssignment_5_3() { return cInitStateAssignment_5_3; }
 		
 		//UpdateStateVariable
-		public RuleCall getFinalStateUpdateStateVariableParserRuleCall_5_3_0() { return cFinalStateUpdateStateVariableParserRuleCall_5_3_0; }
+		public RuleCall getInitStateUpdateStateVariableParserRuleCall_5_3_0() { return cInitStateUpdateStateVariableParserRuleCall_5_3_0; }
 		
-		//"premise" prem=LemmaPremiseFormula "}" ";"
+		//"final" "state" ":" finalState=UpdateStateVariable
 		public Group getGroup_6() { return cGroup_6; }
 		
+		//"final"
+		public Keyword getFinalKeyword_6_0() { return cFinalKeyword_6_0; }
+		
+		//"state"
+		public Keyword getStateKeyword_6_1() { return cStateKeyword_6_1; }
+		
+		//":"
+		public Keyword getColonKeyword_6_2() { return cColonKeyword_6_2; }
+		
+		//finalState=UpdateStateVariable
+		public Assignment getFinalStateAssignment_6_3() { return cFinalStateAssignment_6_3; }
+		
+		//UpdateStateVariable
+		public RuleCall getFinalStateUpdateStateVariableParserRuleCall_6_3_0() { return cFinalStateUpdateStateVariableParserRuleCall_6_3_0; }
+		
+		//"premise" prem=LemmaPremiseFormula "}" ";"
+		public Group getGroup_7() { return cGroup_7; }
+		
 		//"premise"
-		public Keyword getPremiseKeyword_6_0() { return cPremiseKeyword_6_0; }
+		public Keyword getPremiseKeyword_7_0() { return cPremiseKeyword_7_0; }
 		
 		//prem=LemmaPremiseFormula
-		public Assignment getPremAssignment_6_1() { return cPremAssignment_6_1; }
+		public Assignment getPremAssignment_7_1() { return cPremAssignment_7_1; }
 		
 		//LemmaPremiseFormula
-		public RuleCall getPremLemmaPremiseFormulaParserRuleCall_6_1_0() { return cPremLemmaPremiseFormulaParserRuleCall_6_1_0; }
+		public RuleCall getPremLemmaPremiseFormulaParserRuleCall_7_1_0() { return cPremLemmaPremiseFormulaParserRuleCall_7_1_0; }
 		
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6_2() { return cRightCurlyBracketKeyword_6_2; }
+		public Keyword getRightCurlyBracketKeyword_7_2() { return cRightCurlyBracketKeyword_7_2; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_6_3() { return cSemicolonKeyword_6_3; }
+		public Keyword getSemicolonKeyword_7_3() { return cSemicolonKeyword_7_3; }
 	}
 	public class LemmaPremiseFormulaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
@@ -4085,12 +4104,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cFormulasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		private final Assignment cFmParamsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_4_2_0 = (RuleCall)cFmParamsAssignment_4_2.eContents().get(0);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_4_2_0 = (RuleCall)cFmParamsAssignment_4_2.eContents().get(0);
 		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
 		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
 		private final Assignment cFmParamsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final RuleCall cFmParamsFormulaParameterParserRuleCall_4_3_1_0 = (RuleCall)cFmParamsAssignment_4_3_1.eContents().get(0);
-		private final Keyword cCurrentKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_4_3_1_0 = (RuleCall)cFmParamsAssignment_4_3_1.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Keyword cCurrentKeyword_5_0 = (Keyword)cAlternatives_5.eContents().get(0);
+		private final Keyword cFinalKeyword_5_1 = (Keyword)cAlternatives_5.eContents().get(1);
 		private final Assignment cStateAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final CrossReference cStateUpdateStateVariableCrossReference_6_0 = (CrossReference)cStateAssignment_6.eContents().get(0);
 		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_6_0_1 = (RuleCall)cStateUpdateStateVariableCrossReference_6_0.eContents().get(1);
@@ -4100,16 +4121,16 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    pattern=[PastExtraInvariantPattern] "("
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
-		//    "current" state=[UpdateStateVariable]
+		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
+		//    ("current" | "final") state=[UpdateStateVariable]
 		//     ")";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//pattern=[PastExtraInvariantPattern] "("
 		//("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
-		//"current" state=[UpdateStateVariable]
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
+		//("current" | "final") state=[UpdateStateVariable]
 		// ")"
 		public Group getGroup() { return cGroup; }
 		
@@ -4179,7 +4200,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FunctionalParameter
 		public RuleCall getFnParamsFunctionalParameterParserRuleCall_3_3_1_0() { return cFnParamsFunctionalParameterParserRuleCall_3_3_1_0; }
 		
-		//("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//"formulas"
@@ -4188,26 +4209,32 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//":"
 		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_4_2() { return cFmParamsAssignment_4_2; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_4_2_0() { return cFmParamsFormulaParameterParserRuleCall_4_2_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_4_2_0() { return cFmParamsRegularFormulaParameterParserRuleCall_4_2_0; }
 		
-		//("," fmParams+=FormulaParameter)*
+		//("," fmParams+=RegularFormulaParameter)*
 		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//","
 		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 		
-		//fmParams+=FormulaParameter
+		//fmParams+=RegularFormulaParameter
 		public Assignment getFmParamsAssignment_4_3_1() { return cFmParamsAssignment_4_3_1; }
 		
-		//FormulaParameter
-		public RuleCall getFmParamsFormulaParameterParserRuleCall_4_3_1_0() { return cFmParamsFormulaParameterParserRuleCall_4_3_1_0; }
+		//RegularFormulaParameter
+		public RuleCall getFmParamsRegularFormulaParameterParserRuleCall_4_3_1_0() { return cFmParamsRegularFormulaParameterParserRuleCall_4_3_1_0; }
+		
+		//("current" | "final")
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 		
 		//"current"
-		public Keyword getCurrentKeyword_5() { return cCurrentKeyword_5; }
+		public Keyword getCurrentKeyword_5_0() { return cCurrentKeyword_5_0; }
+		
+		//"final"
+		public Keyword getFinalKeyword_5_1() { return cFinalKeyword_5_1; }
 		
 		//state=[UpdateStateVariable]
 		public Assignment getStateAssignment_6() { return cStateAssignment_6; }
@@ -4382,6 +4409,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final ConstantParameterElements pConstantParameter;
 	private final FormulaParameterElements pFormulaParameter;
 	private final SimpleFormulaParameterElements pSimpleFormulaParameter;
+	private final RegularFormulaParameterElements pRegularFormulaParameter;
 	private final FunctionalParameterElements pFunctionalParameter;
 	private final FormulaElements pFormula;
 	private final TerminalRule tDISJUNCTION;
@@ -4470,6 +4498,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pConstantParameter = new ConstantParameterElements();
 		this.pFormulaParameter = new FormulaParameterElements();
 		this.pSimpleFormulaParameter = new SimpleFormulaParameterElements();
+		this.pRegularFormulaParameter = new RegularFormulaParameterElements();
 		this.pFunctionalParameter = new FunctionalParameterElements();
 		this.pFormula = new FormulaElements();
 		this.tDISJUNCTION = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.DISJUNCTION");
@@ -4612,7 +4641,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'derivedreq' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
 	//   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
 	//   (lemmas=DerivedLemmas)? ";";
 	public DerivedRequirementPatternElements getDerivedRequirementPatternAccess() {
@@ -4676,7 +4705,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//FormulaParameter:
-	//    name=ID;
+	//    SimpleFormulaParameter | RegularFormulaParameter;
 	public FormulaParameterElements getFormulaParameterAccess() {
 		return pFormulaParameter;
 	}
@@ -4693,6 +4722,16 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getSimpleFormulaParameterRule() {
 		return getSimpleFormulaParameterAccess().getRule();
+	}
+	
+	//RegularFormulaParameter:
+	//    name=ID;
+	public RegularFormulaParameterElements getRegularFormulaParameterAccess() {
+		return pRegularFormulaParameter;
+	}
+	
+	public ParserRule getRegularFormulaParameterRule() {
+		return getRegularFormulaParameterAccess().getRule();
 	}
 	
 	//FunctionalParameter:
@@ -4750,8 +4789,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//OuterRequirementPatternInstance:
 	//    pattern=[OuterRequirementPattern] "("
-	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
-	//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
+	//    ("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormulaParameterValue
+	//        ("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+	//    )?
+	//     ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	//     ")";
 	public OuterRequirementPatternInstanceElements getOuterRequirementPatternInstanceAccess() {
 		return pOuterRequirementPatternInstance;
@@ -4842,7 +4884,6 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//BasicRequirementPatternInstance:
 	//    pattern=[BasicRequirementPattern] "("
 	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-	//    ("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
 	//     ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	//      ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 	//     ")";
@@ -4858,7 +4899,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//FutureRequirementPattern:
 	//    'futurereq' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//     ")"
 	//     "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 	public FutureRequirementPatternElements getFutureRequirementPatternAccess() {
@@ -4872,7 +4913,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//PastRequirementPattern:
 	//    'pastreq' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
 	//    "from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
 	public PastRequirementPatternElements getPastRequirementPatternAccess() {
@@ -4887,7 +4928,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'futureeinv' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
 	//    ("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
 	public FutureExtraInvariantPatternElements getFutureExtraInvariantPatternAccess() {
@@ -4902,7 +4943,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'pasteinv' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
 	//    ("from" file=FilePath)? (lemmas=PastLemmas)? ";";
 	public PastExtraInvariantPatternElements getPastExtraInvariantPatternAccess() {
@@ -4918,7 +4959,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
 	//    ("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
 	public DerivedExtraInvariantPatternElements getDerivedExtraInvariantPatternAccess() {
@@ -5284,8 +5325,9 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    "lemma" name=ID "{"
 	//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 	//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-	//   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
-	//   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
+	//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
+	//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
+	//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
 	//   ("init" "state" ":" initState=UpdateStateVariable)? &
 	//   "final" "state" ":" finalState=UpdateStateVariable &
 	//   "premise" prem=LemmaPremiseFormula "}" ";";
@@ -5369,8 +5411,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    pattern=[PastExtraInvariantPattern] "("
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	//    ("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
-	//    "current" state=[UpdateStateVariable]
+	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
+	//    ("current" | "final") state=[UpdateStateVariable]
 	//     ")";
 	public PastExtraInvariantPatternInstanceElements getPastExtraInvariantPatternInstanceAccess() {
 		return pPastExtraInvariantPatternInstance;

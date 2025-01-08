@@ -40,7 +40,7 @@ public class ExtraInvariantPatternGenerator {
 			InnerFormulaGenerator generator = new InnerFormulaGenerator(fnParamList);
 			for (var fmParam : patternInst.getFmParams()) {
 				var states = fmParam.getStates();
-				OuterExtraInvariantFormula extraInvariantFmParam = fmParam
+				Formula extraInvariantFmParam = fmParam
 						.getFormula().generateFormula(generator);
 				FormulaParameterValue val = new 
 						FormulaParameterValue(states, extraInvariantFmParam);

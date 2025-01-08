@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="simpleFmParam" upperBound="-1"
         eType="#//SimpleFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//Formula"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -44,10 +44,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="FormulaParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleFormulaParameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleFormulaParameter" eSuperTypes="#//FormulaParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RegularFormulaParameter" eSuperTypes="#//FormulaParameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionalParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -68,10 +68,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//OuterRequirementPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//Term" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleFmParams" upperBound="-1"
+        eType="#//PatternFreeFormulaParameterValue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
         eType="#//FormulaParameterValue" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//UpdateStateVariable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="curState" eType="#//UpdateStateVariable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OuterRequirementPattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="FormulaParameterValue">
@@ -112,8 +112,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//BasicRequirementPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//Term" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleFmParams" upperBound="-1"
-        eType="#//PatternFreeFormula" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
         eType="#//FormulaParameterValue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//UpdateStateVariable"/>
@@ -124,7 +122,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//ConstantParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extraInvPattern" eType="#//FutureExtraInvariantPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lessas" eType="#//FutureLemmas"
@@ -135,7 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cParams" upperBound="-1"
         eType="#//ConstantParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extraInvPattern" eType="#//PastExtraInvariantPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//PastLemmas"
@@ -148,7 +146,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
         eType="#//FunctionalParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//FutureLemmas"
         containment="true"/>
@@ -160,7 +158,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
         eType="#//FunctionalParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//PastLemmas"
         containment="true"/>
@@ -176,7 +174,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="simpleFmParam" upperBound="-1"
         eType="#//SimpleFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lemmas" eType="#//DerivedLemmas"
         containment="true"/>
@@ -306,10 +304,12 @@
         eType="#//ConstantParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fnVars" upperBound="-1"
         eType="#//FunctionalParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleFmVars" upperBound="-1"
+        eType="#//SimpleFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifmVars" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rfmVars" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initState" eType="#//UpdateStateVariable"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="finalState" eType="#//UpdateStateVariable"
@@ -355,7 +355,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="fnParams" upperBound="-1"
         eType="#//FunctionalParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fmParams" upperBound="-1"
-        eType="#//FormulaParameter" containment="true"/>
+        eType="#//RegularFormulaParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" eType="#//UpdateStateVariable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//ConjunctionFormula"/>

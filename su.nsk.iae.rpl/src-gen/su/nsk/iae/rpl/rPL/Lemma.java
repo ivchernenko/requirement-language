@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getCVars <em>CVars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getFnVars <em>Fn Vars</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getSimpleFmVars <em>Simple Fm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getIfmVars <em>Ifm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getRfmVars <em>Rfm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Lemma#getInitState <em>Init State</em>}</li>
@@ -79,8 +80,20 @@ public interface Lemma extends EObject
   EList<FunctionalParameter> getFnVars();
 
   /**
+   * Returns the value of the '<em><b>Simple Fm Vars</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Fm Vars</em>' containment reference list.
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getLemma_SimpleFmVars()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SimpleFormulaParameter> getSimpleFmVars();
+
+  /**
    * Returns the value of the '<em><b>Ifm Vars</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.FormulaParameter}.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.RegularFormulaParameter}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ifm Vars</em>' containment reference list.
@@ -88,11 +101,11 @@ public interface Lemma extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<FormulaParameter> getIfmVars();
+  EList<RegularFormulaParameter> getIfmVars();
 
   /**
    * Returns the value of the '<em><b>Rfm Vars</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.FormulaParameter}.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.RegularFormulaParameter}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Rfm Vars</em>' containment reference list.
@@ -100,7 +113,7 @@ public interface Lemma extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<FormulaParameter> getRfmVars();
+  EList<RegularFormulaParameter> getRfmVars();
 
   /**
    * Returns the value of the '<em><b>Init State</b></em>' containment reference.

@@ -4,7 +4,7 @@
 '+'=78
 ','=27
 '-'=50
-'.'=38
+'.'=36
 '..'=47
 '/'=46
 ':'=26
@@ -28,14 +28,14 @@
 ']'=49
 'alwaysimp'=71
 'const'=25
-'current'=36
+'current'=39
 'derivedeinv'=45
 'derivedreq'=22
 'extra'=52
-'final'=35
+'final'=38
 'for'=54
 'formulas'=29
-'frm'=39
+'frm'=37
 'from'=32
 'fun'=43
 'futureeinv'=42
@@ -43,7 +43,7 @@
 'import'=20
 'init'=68
 'invariant'=53
-'lambda'=37
+'lambda'=35
 'lemma'=67
 'lemmas'=55
 'mod'=80

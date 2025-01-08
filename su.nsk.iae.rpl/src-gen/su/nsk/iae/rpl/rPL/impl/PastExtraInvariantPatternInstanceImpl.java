@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
-import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 /**
@@ -84,7 +84,7 @@ public class PastExtraInvariantPatternInstanceImpl extends MinimalEObjectImpl.Co
    * @generated
    * @ordered
    */
-  protected EList<FormulaParameter> fmParams;
+  protected EList<RegularFormulaParameter> fmParams;
 
   /**
    * The cached value of the '{@link #getState() <em>State</em>}' reference.
@@ -198,11 +198,11 @@ public class PastExtraInvariantPatternInstanceImpl extends MinimalEObjectImpl.Co
    * @generated
    */
   @Override
-  public EList<FormulaParameter> getFmParams()
+  public EList<RegularFormulaParameter> getFmParams()
   {
     if (fmParams == null)
     {
-      fmParams = new EObjectContainmentEList<FormulaParameter>(FormulaParameter.class, this, RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__FM_PARAMS);
+      fmParams = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__FM_PARAMS);
     }
     return fmParams;
   }
@@ -322,7 +322,7 @@ public class PastExtraInvariantPatternInstanceImpl extends MinimalEObjectImpl.Co
         return;
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__FM_PARAMS:
         getFmParams().clear();
-        getFmParams().addAll((Collection<? extends FormulaParameter>)newValue);
+        getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE__STATE:
         setState((UpdateStateVariable)newValue);

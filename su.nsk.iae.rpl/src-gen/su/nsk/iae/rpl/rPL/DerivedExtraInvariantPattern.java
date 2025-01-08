@@ -102,7 +102,7 @@ public interface DerivedExtraInvariantPattern extends Element
 
   /**
    * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.FormulaParameter}.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.RegularFormulaParameter}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fm Params</em>' containment reference list.
@@ -110,7 +110,7 @@ public interface DerivedExtraInvariantPattern extends Element
    * @model containment="true"
    * @generated
    */
-  EList<FormulaParameter> getFmParams();
+  EList<RegularFormulaParameter> getFmParams();
 
   /**
    * Returns the value of the '<em><b>File</b></em>' attribute.

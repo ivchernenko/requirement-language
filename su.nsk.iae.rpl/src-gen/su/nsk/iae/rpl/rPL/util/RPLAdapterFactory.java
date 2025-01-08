@@ -136,6 +136,11 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createSimpleFormulaParameterAdapter();
       }
       @Override
+      public Adapter caseRegularFormulaParameter(RegularFormulaParameter object)
+      {
+        return createRegularFormulaParameterAdapter();
+      }
+      @Override
       public Adapter caseFunctionalParameter(FunctionalParameter object)
       {
         return createFunctionalParameterAdapter();
@@ -588,6 +593,21 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSimpleFormulaParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.RegularFormulaParameter <em>Regular Formula Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see su.nsk.iae.rpl.rPL.RegularFormulaParameter
+   * @generated
+   */
+  public Adapter createRegularFormulaParameterAdapter()
   {
     return null;
   }

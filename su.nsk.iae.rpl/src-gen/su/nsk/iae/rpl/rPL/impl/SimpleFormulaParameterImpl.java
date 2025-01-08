@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
@@ -21,34 +20,13 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl#getArity <em>Arity</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container implements SimpleFormulaParameter
+public class SimpleFormulaParameterImpl extends FormulaParameterImpl implements SimpleFormulaParameter
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getArity() <em>Arity</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -96,31 +74,6 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
    * @generated
    */
   @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.SIMPLE_FORMULA_PARAMETER__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String getArity()
   {
     return arity;
@@ -150,8 +103,6 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case RPLPackage.SIMPLE_FORMULA_PARAMETER__NAME:
-        return getName();
       case RPLPackage.SIMPLE_FORMULA_PARAMETER__ARITY:
         return getArity();
     }
@@ -168,9 +119,6 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case RPLPackage.SIMPLE_FORMULA_PARAMETER__NAME:
-        setName((String)newValue);
-        return;
       case RPLPackage.SIMPLE_FORMULA_PARAMETER__ARITY:
         setArity((String)newValue);
         return;
@@ -188,9 +136,6 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case RPLPackage.SIMPLE_FORMULA_PARAMETER__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case RPLPackage.SIMPLE_FORMULA_PARAMETER__ARITY:
         setArity(ARITY_EDEFAULT);
         return;
@@ -208,8 +153,6 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case RPLPackage.SIMPLE_FORMULA_PARAMETER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RPLPackage.SIMPLE_FORMULA_PARAMETER__ARITY:
         return ARITY_EDEFAULT == null ? arity != null : !ARITY_EDEFAULT.equals(arity);
     }
@@ -227,9 +170,7 @@ public class SimpleFormulaParameterImpl extends MinimalEObjectImpl.Container imp
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", arity: ");
+    result.append(" (arity: ");
     result.append(arity);
     result.append(')');
     return result.toString();

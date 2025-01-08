@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 import su.nsk.iae.rpl.rPL.Formula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -265,5 +267,11 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
     }
     return super.eIsSet(featureID);
   }
+
+@Override
+public OuterExtraInvariantFormula generateFormula(ExtraInvariantPatternGenerator generator) {
+
+	return generator.generateFormula(this);
+}
 
 } //FormulaImpl

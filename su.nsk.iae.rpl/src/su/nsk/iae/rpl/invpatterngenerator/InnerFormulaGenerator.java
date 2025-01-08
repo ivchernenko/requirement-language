@@ -12,6 +12,7 @@ import su.nsk.iae.rpl.rPL.NegationFormula;
 import su.nsk.iae.rpl.rPL.PrimaryInnerFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public class InnerFormulaGenerator {
@@ -38,8 +39,16 @@ public class InnerFormulaGenerator {
 			return new FutureBoundIndependentBooleanFormula(
 					BooleanOperator.DISJUNCTION,
 					fbiLeft,
-					fbiRight);
+					fbiRight);	
+			}
+		else if (left instanceof NonTemporalFormula ntLeft) {
+			NonTemporalFormula ntRight = (NonTemporalFormula) right;
+			return new NonTemporalBooleanFormula(
+					BooleanOperator.DISJUNCTION,
+					ntLeft,
+					ntRight);
 		}
+		else throw new InvalidTypeException();
 	}
 	
 	public Formula generateInnerFormula(ConjunctionInnerFormula reqFormula) {
@@ -60,30 +69,46 @@ public class InnerFormulaGenerator {
 					fbiLeft,
 					fbiRight);
 		}
+		else if (left instanceof NonTemporalFormula ntLeft) {
+			NonTemporalFormula ntRight =  (NonTemporalFormula) right;
+			return new NonTemporalBooleanFormula(
+					BooleanOperator.CONJUNCTION,
+					ntLeft,
+					ntRight);
+		}
+		else throw new InvalidTypeException();
 	}
 	
-	public InnerExtraInvariantFormula generateInnerFormula(PrimaryInnerFormula reqFormula) {
+	public Formula generateInnerFormula(PrimaryInnerFormula reqFormula) {
 		if (reqFormula.getAtomic() != null) { // atomic formula or its negation
 			NegationFormula negFormula = reqFormula.getAtomic();
 			boolean neg = negFormula.isNeg();
 			su.nsk.iae.rpl.rPL.AtomicFormula atomic = negFormula.getRight();
-			if (! neg && atomic.getFmParam() != null) {
-				FormulaParameter original = atomic.getFmParam();
-				RPLFactory factory = RPLFactoryImpl.init();
-				FormulaParameter renamed = factory.createFormulaParameter();
-				renamed.setName(original.getName() + "'");
-				su.nsk.iae.rpl.rPL.AtomicFormula renamedAtomic = factory.createAtomicFormula();
-				renamedAtomic.setFmParam(renamed);
-				renamedAtomic.getStates().clear();
-				renamedAtomic.getStates().addAll(atomic.getStates());
-				atomic = renamedAtomic;
+			FormulaParameter fmParam = atomic.getFmParam();
+			if (fmParam != null) {
+				if (fmParam instanceof RegularFormulaParameter original) {
+					RPLFactory factory = RPLFactoryImpl.init();
+					RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
+					renamed.setName(original.getName() + "'");
+					ExtraInvariantFormulaParameter A = 
+							new ExtraInvariantFormulaParameter(renamed, original);
+					Formula atomicFormula = A;
+					if (atomic.getStates().size() > 0) {
+						FutureBoundedFormula As = new FutureBoundedFormula(
+								A,
+								atomic.getStates().get(0));
+						atomicFormula = As;
+						if (atomic.getStates().size() > 1) {
+							FormulaApplicationToCurrent Ass1 = 
+									new FormulaApplicationToCurrent(
+											As,
+											atomic.getStates().get(1));
+							atomicFormula = Ass1;
+						}
+					}
+					return atomicFormula;
+				}
 			}
-			AtomicFormula atomicFormula = new AtomicFormula(atomic);
-			if (neg)
-				return new su.nsk.iae.rpl.invpatterngenerator
-						.NegationFormula(atomicFormula);
-			else
-				return atomicFormula;
 		}
 		else if (reqFormula.getPatternInst() != null) { // pattern instance
 			BasicRequirementPatternInstance patternInst = reqFormula.getPatternInst();

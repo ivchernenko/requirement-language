@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getPattern <em>Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getCParams <em>CParams</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getSimpleFmParams <em>Simple Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getFmParams <em>Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getFinState <em>Fin State</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getCurState <em>Cur State</em>}</li>
@@ -63,18 +62,6 @@ public interface BasicRequirementPatternInstance extends EObject
    * @generated
    */
   EList<Term> getCParams();
-
-  /**
-   * Returns the value of the '<em><b>Simple Fm Params</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.PatternFreeFormula}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Simple Fm Params</em>' containment reference list.
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getBasicRequirementPatternInstance_SimpleFmParams()
-   * @model containment="true"
-   * @generated
-   */
-  EList<PatternFreeFormula> getSimpleFmParams();
 
   /**
    * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.

@@ -18,9 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getPattern <em>Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getCParams <em>CParams</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getSimpleFmParams <em>Simple Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getFinState <em>Fin State</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getCurState <em>Cur State</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.rpl.rPL.RPLPackage#getOuterRequirementPatternInstance()
@@ -64,6 +63,18 @@ public interface OuterRequirementPatternInstance extends EObject
   EList<Term> getCParams();
 
   /**
+   * Returns the value of the '<em><b>Simple Fm Params</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Fm Params</em>' containment reference list.
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getOuterRequirementPatternInstance_SimpleFmParams()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PatternFreeFormulaParameterValue> getSimpleFmParams();
+
+  /**
    * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.
    * The list contents are of type {@link su.nsk.iae.rpl.rPL.FormulaParameterValue}.
    * <!-- begin-user-doc -->
@@ -74,49 +85,5 @@ public interface OuterRequirementPatternInstance extends EObject
    * @generated
    */
   EList<FormulaParameterValue> getFmParams();
-
-  /**
-   * Returns the value of the '<em><b>Fin State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fin State</em>' reference.
-   * @see #setFinState(UpdateStateVariable)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getOuterRequirementPatternInstance_FinState()
-   * @model
-   * @generated
-   */
-  UpdateStateVariable getFinState();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getFinState <em>Fin State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fin State</em>' reference.
-   * @see #getFinState()
-   * @generated
-   */
-  void setFinState(UpdateStateVariable value);
-
-  /**
-   * Returns the value of the '<em><b>Cur State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Cur State</em>' reference.
-   * @see #setCurState(UpdateStateVariable)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getOuterRequirementPatternInstance_CurState()
-   * @model
-   * @generated
-   */
-  UpdateStateVariable getCurState();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance#getCurState <em>Cur State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cur State</em>' reference.
-   * @see #getCurState()
-   * @generated
-   */
-  void setCurState(UpdateStateVariable value);
 
 } // OuterRequirementPatternInstance

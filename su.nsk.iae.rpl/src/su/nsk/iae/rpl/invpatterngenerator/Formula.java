@@ -1,5 +1,8 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class Formula {
+public abstract class Formula {
+	int arity;
+	
+	abstract FormulaFactory createFactory();
 
 }

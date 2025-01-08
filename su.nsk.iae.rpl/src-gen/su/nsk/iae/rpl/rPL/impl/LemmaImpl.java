@@ -20,11 +20,12 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
-import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
+import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 /**
@@ -38,6 +39,7 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getCVars <em>CVars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getFnVars <em>Fn Vars</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getSimpleFmVars <em>Simple Fm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getIfmVars <em>Ifm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getRfmVars <em>Rfm Vars</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.LemmaImpl#getInitState <em>Init State</em>}</li>
@@ -90,6 +92,16 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
   protected EList<FunctionalParameter> fnVars;
 
   /**
+   * The cached value of the '{@link #getSimpleFmVars() <em>Simple Fm Vars</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSimpleFmVars()
+   * @generated
+   * @ordered
+   */
+  protected EList<SimpleFormulaParameter> simpleFmVars;
+
+  /**
    * The cached value of the '{@link #getIfmVars() <em>Ifm Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -97,7 +109,7 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
    * @generated
    * @ordered
    */
-  protected EList<FormulaParameter> ifmVars;
+  protected EList<RegularFormulaParameter> ifmVars;
 
   /**
    * The cached value of the '{@link #getRfmVars() <em>Rfm Vars</em>}' containment reference list.
@@ -107,7 +119,7 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
    * @generated
    * @ordered
    */
-  protected EList<FormulaParameter> rfmVars;
+  protected EList<RegularFormulaParameter> rfmVars;
 
   /**
    * The cached value of the '{@link #getInitState() <em>Init State</em>}' containment reference.
@@ -221,11 +233,26 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
    * @generated
    */
   @Override
-  public EList<FormulaParameter> getIfmVars()
+  public EList<SimpleFormulaParameter> getSimpleFmVars()
+  {
+    if (simpleFmVars == null)
+    {
+      simpleFmVars = new EObjectContainmentEList<SimpleFormulaParameter>(SimpleFormulaParameter.class, this, RPLPackage.LEMMA__SIMPLE_FM_VARS);
+    }
+    return simpleFmVars;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<RegularFormulaParameter> getIfmVars()
   {
     if (ifmVars == null)
     {
-      ifmVars = new EObjectContainmentEList<FormulaParameter>(FormulaParameter.class, this, RPLPackage.LEMMA__IFM_VARS);
+      ifmVars = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.LEMMA__IFM_VARS);
     }
     return ifmVars;
   }
@@ -236,11 +263,11 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
    * @generated
    */
   @Override
-  public EList<FormulaParameter> getRfmVars()
+  public EList<RegularFormulaParameter> getRfmVars()
   {
     if (rfmVars == null)
     {
-      rfmVars = new EObjectContainmentEList<FormulaParameter>(FormulaParameter.class, this, RPLPackage.LEMMA__RFM_VARS);
+      rfmVars = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.LEMMA__RFM_VARS);
     }
     return rfmVars;
   }
@@ -409,6 +436,8 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
         return ((InternalEList<?>)getCVars()).basicRemove(otherEnd, msgs);
       case RPLPackage.LEMMA__FN_VARS:
         return ((InternalEList<?>)getFnVars()).basicRemove(otherEnd, msgs);
+      case RPLPackage.LEMMA__SIMPLE_FM_VARS:
+        return ((InternalEList<?>)getSimpleFmVars()).basicRemove(otherEnd, msgs);
       case RPLPackage.LEMMA__IFM_VARS:
         return ((InternalEList<?>)getIfmVars()).basicRemove(otherEnd, msgs);
       case RPLPackage.LEMMA__RFM_VARS:
@@ -439,6 +468,8 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
         return getCVars();
       case RPLPackage.LEMMA__FN_VARS:
         return getFnVars();
+      case RPLPackage.LEMMA__SIMPLE_FM_VARS:
+        return getSimpleFmVars();
       case RPLPackage.LEMMA__IFM_VARS:
         return getIfmVars();
       case RPLPackage.LEMMA__RFM_VARS:
@@ -475,13 +506,17 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
         getFnVars().clear();
         getFnVars().addAll((Collection<? extends FunctionalParameter>)newValue);
         return;
+      case RPLPackage.LEMMA__SIMPLE_FM_VARS:
+        getSimpleFmVars().clear();
+        getSimpleFmVars().addAll((Collection<? extends SimpleFormulaParameter>)newValue);
+        return;
       case RPLPackage.LEMMA__IFM_VARS:
         getIfmVars().clear();
-        getIfmVars().addAll((Collection<? extends FormulaParameter>)newValue);
+        getIfmVars().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.LEMMA__RFM_VARS:
         getRfmVars().clear();
-        getRfmVars().addAll((Collection<? extends FormulaParameter>)newValue);
+        getRfmVars().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.LEMMA__INIT_STATE:
         setInitState((UpdateStateVariable)newValue);
@@ -514,6 +549,9 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
         return;
       case RPLPackage.LEMMA__FN_VARS:
         getFnVars().clear();
+        return;
+      case RPLPackage.LEMMA__SIMPLE_FM_VARS:
+        getSimpleFmVars().clear();
         return;
       case RPLPackage.LEMMA__IFM_VARS:
         getIfmVars().clear();
@@ -550,6 +588,8 @@ public class LemmaImpl extends MinimalEObjectImpl.Container implements Lemma
         return cVars != null && !cVars.isEmpty();
       case RPLPackage.LEMMA__FN_VARS:
         return fnVars != null && !fnVars.isEmpty();
+      case RPLPackage.LEMMA__SIMPLE_FM_VARS:
+        return simpleFmVars != null && !simpleFmVars.isEmpty();
       case RPLPackage.LEMMA__IFM_VARS:
         return ifmVars != null && !ifmVars.isEmpty();
       case RPLPackage.LEMMA__RFM_VARS:

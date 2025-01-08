@@ -22,7 +22,7 @@ DerivedRequirementPattern:
 	'derivedreq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
    ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
    (lemmas=DerivedLemmas)? ";";
    
@@ -50,7 +50,6 @@ SimpleFormulaParameter:
 	
 RegularFormulaParameter:
 	name=ID;
-;
            	
 FunctionalParameter:
 	name=ID;
@@ -74,8 +73,11 @@ terminal CONJUNCTION:
 	
 OuterRequirementPatternInstance:
 	pattern=[OuterRequirementPattern] "("
-	("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
-	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
+	("const" ":" cParams+=Term ("," cParams+=Term)*)?
+	("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormulaParameterValue
+		("," simpleFmParams+=PatternFreeFormulaParameterValue)*
+	)?
+	 ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	 ")";
 	 
 OuterRequirementPattern:
@@ -108,7 +110,6 @@ AtomicFormula:
 BasicRequirementPatternInstance:
 	pattern=[BasicRequirementPattern] "("
 	("const" ":" cParams+=Term ("," cParams+=Term)*)?
-	("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
 	 ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 	 ")";
@@ -117,14 +118,14 @@ BasicRequirementPatternInstance:
 FutureRequirementPattern:
 	'futurereq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	 ")"
 	 "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 	 
 PastRequirementPattern:
 	'pastreq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
 	"from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
                        	
@@ -132,7 +133,7 @@ FutureExtraInvariantPattern:
 	'futureeinv' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
 	("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
            	
@@ -140,7 +141,7 @@ PastExtraInvariantPattern:
 	'pasteinv' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
 	("from" file=FilePath)? (lemmas=PastLemmas)? ";";
                           	
@@ -149,7 +150,7 @@ DerivedExtraInvariantPattern:
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
 	("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
 	
@@ -275,8 +276,9 @@ Lemma:
 	"lemma" name=ID "{"
 	("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
 	("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-   ("extra" "invariant" "formulas" ":" ifmVars+=FormulaParameter ("," ifmVars+=FormulaParameter)*)? &
-   ("requirement" "formulas" ":" rfmVars+=FormulaParameter ("," rfmVars+=FormulaParameter)*)? &
+	("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
+   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
+   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
    ("init" "state" ":" initState=UpdateStateVariable)? &
    "final" "state" ":" finalState=UpdateStateVariable &
    "premise" prem=LemmaPremiseFormula "}" ";";
@@ -304,6 +306,6 @@ PastExtraInvariantPatternInstance:
 	pattern=[PastExtraInvariantPattern] "("
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
-	"current" state=[UpdateStateVariable]
+	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
+	("current" | "final") state=[UpdateStateVariable]
 	 ")";

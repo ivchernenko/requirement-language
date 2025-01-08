@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
-import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastLemmas;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +83,7 @@ public class PastRequirementPatternImpl extends ElementImpl implements PastRequi
    * @generated
    * @ordered
    */
-  protected EList<FormulaParameter> fmParams;
+  protected EList<RegularFormulaParameter> fmParams;
 
   /**
    * The default value of the '{@link #getFile() <em>File</em>}' attribute.
@@ -192,11 +192,11 @@ public class PastRequirementPatternImpl extends ElementImpl implements PastRequi
    * @generated
    */
   @Override
-  public EList<FormulaParameter> getFmParams()
+  public EList<RegularFormulaParameter> getFmParams()
   {
     if (fmParams == null)
     {
-      fmParams = new EObjectContainmentEList<FormulaParameter>(FormulaParameter.class, this, RPLPackage.PAST_REQUIREMENT_PATTERN__FM_PARAMS);
+      fmParams = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.PAST_REQUIREMENT_PATTERN__FM_PARAMS);
     }
     return fmParams;
   }
@@ -388,7 +388,7 @@ public class PastRequirementPatternImpl extends ElementImpl implements PastRequi
         return;
       case RPLPackage.PAST_REQUIREMENT_PATTERN__FM_PARAMS:
         getFmParams().clear();
-        getFmParams().addAll((Collection<? extends FormulaParameter>)newValue);
+        getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.PAST_REQUIREMENT_PATTERN__FILE:
         setFile((String)newValue);
