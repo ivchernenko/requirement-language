@@ -123,6 +123,15 @@ public interface RPLFactory extends EFactory
   FormulaParameter createFormulaParameter();
 
   /**
+   * Returns a new object of class '<em>Simple Formula Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Formula Parameter</em>'.
+   * @generated
+   */
+  SimpleFormulaParameter createSimpleFormulaParameter();
+
+  /**
    * Returns a new object of class '<em>Functional Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -580,15 +589,6 @@ public interface RPLFactory extends EFactory
    * @generated
    */
   Conjunction createConjunction();
-
-  /**
-   * Returns a new object of class '<em>Connunction Inner Formula</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Connunction Inner Formula</em>'.
-   * @generated
-   */
-  ConnunctionInnerFormula createConnunctionInnerFormula();
 
   /**
    * Returns the package supported by this factory.

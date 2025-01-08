@@ -21,10 +21,10 @@ import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.CompareTerm;
 import su.nsk.iae.rpl.rPL.Conjunction;
+import su.nsk.iae.rpl.rPL.ConjunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionPatternFreeFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionTerm;
-import su.nsk.iae.rpl.rPL.ConnunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
@@ -67,6 +67,7 @@ import su.nsk.iae.rpl.rPL.ProgramVariable;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RealLiteral;
 import su.nsk.iae.rpl.rPL.Requirement;
+import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UnaryTerm;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -108,6 +109,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case RPLPackage.CONJUNCTION:
 				sequence_ConjunctionFormula(context, (Conjunction) semanticObject); 
 				return; 
+			case RPLPackage.CONJUNCTION_INNER_FORMULA:
+				sequence_ConjunctionInnerFormula(context, (ConjunctionInnerFormula) semanticObject); 
+				return; 
 			case RPLPackage.CONJUNCTION_LEMMA_PREMISE_FORMULA:
 				sequence_ConjunctionLemmaPremiseFormula(context, (ConjunctionLemmaPremiseFormula) semanticObject); 
 				return; 
@@ -116,9 +120,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case RPLPackage.CONJUNCTION_TERM:
 				sequence_ConjunctionTerm(context, (ConjunctionTerm) semanticObject); 
-				return; 
-			case RPLPackage.CONNUNCTION_INNER_FORMULA:
-				sequence_ConjunctionInnerFormula(context, (ConnunctionInnerFormula) semanticObject); 
 				return; 
 			case RPLPackage.CONSTANT:
 				sequence_Constant(context, (Constant) semanticObject); 
@@ -243,6 +244,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case RPLPackage.REQUIREMENT:
 				sequence_Requirement(context, (Requirement) semanticObject); 
 				return; 
+			case RPLPackage.SIMPLE_FORMULA_PARAMETER:
+				sequence_SimpleFormulaParameter(context, (SimpleFormulaParameter) semanticObject); 
+				return; 
 			case RPLPackage.TERM:
 				sequence_Term(context, (Term) semanticObject); 
 				return; 
@@ -363,6 +367,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         pattern=[BasicRequirementPattern|ID] 
 	 *         (cParams+=Term cParams+=Term*)? 
+	 *         (simpleFmParams+=PatternFreeFormula simpleFmParams+=PatternFreeFormula*)? 
 	 *         (fmParams+=FormulaParameterValue fmParams+=FormulaParameterValue*)? 
 	 *         (finState=[UpdateStateVariable|ID] curState=[UpdateStateVariable|ID]?)?
 	 *     )
@@ -436,16 +441,16 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     InnerFormula returns ConnunctionInnerFormula
-	 *     InnerFormula.InnerFormula_1_0 returns ConnunctionInnerFormula
-	 *     ConjunctionInnerFormula returns ConnunctionInnerFormula
-	 *     ConjunctionInnerFormula.ConnunctionInnerFormula_1_0 returns ConnunctionInnerFormula
+	 *     InnerFormula returns ConjunctionInnerFormula
+	 *     InnerFormula.InnerFormula_1_0 returns ConjunctionInnerFormula
+	 *     ConjunctionInnerFormula returns ConjunctionInnerFormula
+	 *     ConjunctionInnerFormula.ConjunctionInnerFormula_1_0 returns ConjunctionInnerFormula
 	 *
 	 * Constraint:
-	 *     (left=ConjunctionInnerFormula_ConnunctionInnerFormula_1_0 right=ConjunctionInnerFormula)
+	 *     (left=ConjunctionInnerFormula_ConjunctionInnerFormula_1_0 right=ConjunctionInnerFormula)
 	 * </pre>
 	 */
-	protected void sequence_ConjunctionInnerFormula(ISerializationContext context, ConnunctionInnerFormula semanticObject) {
+	protected void sequence_ConjunctionInnerFormula(ISerializationContext context, ConjunctionInnerFormula semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.INNER_FORMULA__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.INNER_FORMULA__LEFT));
@@ -453,7 +458,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.INNER_FORMULA__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConjunctionInnerFormulaAccess().getConnunctionInnerFormulaLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getConjunctionInnerFormulaAccess().getConjunctionInnerFormulaLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getConjunctionInnerFormulaAccess().getRightConjunctionInnerFormulaParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -562,23 +567,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Term returns Constant
-	 *     Term.Term_1_0 returns Constant
-	 *     ConjunctionTerm returns Constant
-	 *     ConjunctionTerm.ConjunctionTerm_1_0 returns Constant
-	 *     NegationTerm returns Constant
-	 *     EqTerm returns Constant
-	 *     EqTerm.EqTerm_1_0 returns Constant
-	 *     CompareTerm returns Constant
-	 *     CompareTerm.CompareTerm_1_0 returns Constant
-	 *     AddTerm returns Constant
-	 *     AddTerm.AddTerm_1_0 returns Constant
-	 *     MulTerm returns Constant
-	 *     MulTerm.MulTerm_1_0 returns Constant
-	 *     PowerTerm returns Constant
-	 *     PowerTerm.PowerTerm_1_0 returns Constant
-	 *     UnaryTerm returns Constant
-	 *     PrimaryTerm returns Constant
 	 *     Constant returns Constant
 	 *
 	 * Constraint:
@@ -601,6 +589,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
+	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
 	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
 	 *         file=FilePath? 
 	 *         lemmas=DerivedLemmas?
@@ -638,6 +627,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
+	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
 	 *         (fmParams+=FormulaParameter fmParams+=FormulaParameter*)? 
 	 *         (definition=Formula | (file=FilePath extraInvPattern=[DerivedExtraInvariantPattern|ID])) 
 	 *         lemmas=DerivedLemmas?
@@ -782,23 +772,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     Term returns FunApplication
-	 *     Term.Term_1_0 returns FunApplication
-	 *     ConjunctionTerm returns FunApplication
-	 *     ConjunctionTerm.ConjunctionTerm_1_0 returns FunApplication
-	 *     NegationTerm returns FunApplication
-	 *     EqTerm returns FunApplication
-	 *     EqTerm.EqTerm_1_0 returns FunApplication
-	 *     CompareTerm returns FunApplication
-	 *     CompareTerm.CompareTerm_1_0 returns FunApplication
-	 *     AddTerm returns FunApplication
-	 *     AddTerm.AddTerm_1_0 returns FunApplication
-	 *     MulTerm returns FunApplication
-	 *     MulTerm.MulTerm_1_0 returns FunApplication
-	 *     PowerTerm returns FunApplication
-	 *     PowerTerm.PowerTerm_1_0 returns FunApplication
-	 *     UnaryTerm returns FunApplication
-	 *     PrimaryTerm returns FunApplication
 	 *     FunApplication returns FunApplication
 	 *
 	 * Constraint:
@@ -809,12 +782,12 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.FUN_APPLICATION__FN_PARAM) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.FUN_APPLICATION__FN_PARAM));
-			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.PRIMARY_TERM__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.PRIMARY_TERM__STATE));
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.FUN_APPLICATION__STATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.FUN_APPLICATION__STATE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFunApplicationAccess().getFnParamFunctionalParameterIDTerminalRuleCall_0_0_1(), semanticObject.eGet(RPLPackage.Literals.FUN_APPLICATION__FN_PARAM, false));
-		feeder.accept(grammarAccess.getFunApplicationAccess().getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RPLPackage.Literals.PRIMARY_TERM__STATE, false));
+		feeder.accept(grammarAccess.getFunApplicationAccess().getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RPLPackage.Literals.FUN_APPLICATION__STATE, false));
 		feeder.finish();
 	}
 	
@@ -1290,7 +1263,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     InnerFormula returns PrimaryInnerFormula
 	 *     InnerFormula.InnerFormula_1_0 returns PrimaryInnerFormula
 	 *     ConjunctionInnerFormula returns PrimaryInnerFormula
-	 *     ConjunctionInnerFormula.ConnunctionInnerFormula_1_0 returns PrimaryInnerFormula
+	 *     ConjunctionInnerFormula.ConjunctionInnerFormula_1_0 returns PrimaryInnerFormula
 	 *     PrimaryInnerFormula returns PrimaryInnerFormula
 	 *
 	 * Constraint:
@@ -1361,7 +1334,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryTerm returns PrimaryTerm
 	 *
 	 * Constraint:
-	 *     (variable=[Variable|ID] | (state=[UpdateStateVariable|ID] variable=[ProgramVariable|ID]) | nestedTerm=Term)
+	 *     (const=Constant | variable=[Variable|ID] | (state=[UpdateStateVariable|ID] variable=[ProgramVariable|ID]) | funApp=FunApplication | nestedTerm=Term)
 	 * </pre>
 	 */
 	protected void sequence_PrimaryTerm(ISerializationContext context, PrimaryTerm semanticObject) {
@@ -1426,6 +1399,20 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * </pre>
 	 */
 	protected void sequence_Requirement(ISerializationContext context, Requirement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SimpleFormulaParameter returns SimpleFormulaParameter
+	 *
+	 * Constraint:
+	 *     (name=ID arity=INTEGER?)
+	 * </pre>
+	 */
+	protected void sequence_SimpleFormulaParameter(ISerializationContext context, SimpleFormulaParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

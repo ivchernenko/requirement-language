@@ -3,7 +3,7 @@ package su.nsk.iae.rpl.invpatterngenerator;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class FunctionApplication extends Formula {
+public class FunctionApplication extends OuterExtraInvariantFormula {
 	FunctionalParameter fnParam;
 	UpdateStateVariable state;
 	

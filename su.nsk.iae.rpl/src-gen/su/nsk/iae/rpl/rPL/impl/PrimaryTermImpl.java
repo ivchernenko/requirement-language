@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.rPL.Constant;
+import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.PrimaryTerm;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.Term;
@@ -25,8 +27,10 @@ import su.nsk.iae.rpl.rPL.Variable;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getConst <em>Const</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getState <em>State</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getFunApp <em>Fun App</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getNestedTerm <em>Nested Term</em>}</li>
  * </ul>
  *
@@ -34,6 +38,16 @@ import su.nsk.iae.rpl.rPL.Variable;
  */
 public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
 {
+  /**
+   * The cached value of the '{@link #getConst() <em>Const</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConst()
+   * @generated
+   * @ordered
+   */
+  protected Constant const_;
+
   /**
    * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
    * <!-- begin-user-doc -->
@@ -53,6 +67,16 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
    * @ordered
    */
   protected UpdateStateVariable state;
+
+  /**
+   * The cached value of the '{@link #getFunApp() <em>Fun App</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFunApp()
+   * @generated
+   * @ordered
+   */
+  protected FunApplication funApp;
 
   /**
    * The cached value of the '{@link #getNestedTerm() <em>Nested Term</em>}' containment reference.
@@ -83,6 +107,56 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   protected EClass eStaticClass()
   {
     return RPLPackage.Literals.PRIMARY_TERM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Constant getConst()
+  {
+    return const_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConst(Constant newConst, NotificationChain msgs)
+  {
+    Constant oldConst = const_;
+    const_ = newConst;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RPLPackage.PRIMARY_TERM__CONST, oldConst, newConst);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConst(Constant newConst)
+  {
+    if (newConst != const_)
+    {
+      NotificationChain msgs = null;
+      if (const_ != null)
+        msgs = ((InternalEObject)const_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RPLPackage.PRIMARY_TERM__CONST, null, msgs);
+      if (newConst != null)
+        msgs = ((InternalEObject)newConst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RPLPackage.PRIMARY_TERM__CONST, null, msgs);
+      msgs = basicSetConst(newConst, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.PRIMARY_TERM__CONST, newConst, newConst));
   }
 
   /**
@@ -181,6 +255,56 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
    * @generated
    */
   @Override
+  public FunApplication getFunApp()
+  {
+    return funApp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFunApp(FunApplication newFunApp, NotificationChain msgs)
+  {
+    FunApplication oldFunApp = funApp;
+    funApp = newFunApp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RPLPackage.PRIMARY_TERM__FUN_APP, oldFunApp, newFunApp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFunApp(FunApplication newFunApp)
+  {
+    if (newFunApp != funApp)
+    {
+      NotificationChain msgs = null;
+      if (funApp != null)
+        msgs = ((InternalEObject)funApp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RPLPackage.PRIMARY_TERM__FUN_APP, null, msgs);
+      if (newFunApp != null)
+        msgs = ((InternalEObject)newFunApp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RPLPackage.PRIMARY_TERM__FUN_APP, null, msgs);
+      msgs = basicSetFunApp(newFunApp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.PRIMARY_TERM__FUN_APP, newFunApp, newFunApp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Term getNestedTerm()
   {
     return nestedTerm;
@@ -235,6 +359,10 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   {
     switch (featureID)
     {
+      case RPLPackage.PRIMARY_TERM__CONST:
+        return basicSetConst(null, msgs);
+      case RPLPackage.PRIMARY_TERM__FUN_APP:
+        return basicSetFunApp(null, msgs);
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
         return basicSetNestedTerm(null, msgs);
     }
@@ -251,12 +379,16 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   {
     switch (featureID)
     {
+      case RPLPackage.PRIMARY_TERM__CONST:
+        return getConst();
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         if (resolve) return getVariable();
         return basicGetVariable();
       case RPLPackage.PRIMARY_TERM__STATE:
         if (resolve) return getState();
         return basicGetState();
+      case RPLPackage.PRIMARY_TERM__FUN_APP:
+        return getFunApp();
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
         return getNestedTerm();
     }
@@ -273,11 +405,17 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   {
     switch (featureID)
     {
+      case RPLPackage.PRIMARY_TERM__CONST:
+        setConst((Constant)newValue);
+        return;
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         setVariable((Variable)newValue);
         return;
       case RPLPackage.PRIMARY_TERM__STATE:
         setState((UpdateStateVariable)newValue);
+        return;
+      case RPLPackage.PRIMARY_TERM__FUN_APP:
+        setFunApp((FunApplication)newValue);
         return;
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
         setNestedTerm((Term)newValue);
@@ -296,11 +434,17 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   {
     switch (featureID)
     {
+      case RPLPackage.PRIMARY_TERM__CONST:
+        setConst((Constant)null);
+        return;
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         setVariable((Variable)null);
         return;
       case RPLPackage.PRIMARY_TERM__STATE:
         setState((UpdateStateVariable)null);
+        return;
+      case RPLPackage.PRIMARY_TERM__FUN_APP:
+        setFunApp((FunApplication)null);
         return;
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
         setNestedTerm((Term)null);
@@ -319,10 +463,14 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
   {
     switch (featureID)
     {
+      case RPLPackage.PRIMARY_TERM__CONST:
+        return const_ != null;
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         return variable != null;
       case RPLPackage.PRIMARY_TERM__STATE:
         return state != null;
+      case RPLPackage.PRIMARY_TERM__FUN_APP:
+        return funApp != null;
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
         return nestedTerm != null;
     }

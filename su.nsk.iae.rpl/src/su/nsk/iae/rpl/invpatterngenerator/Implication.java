@@ -1,9 +1,9 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class Implication extends Formula {
+public class Implication extends OuterExtraInvariantFormula {
 	FunctionApplication left;
-	Formula right;
-	public Implication(FunctionApplication left, Formula right) {
+	OuterExtraInvariantFormula right;
+	public Implication(FunctionApplication left, OuterExtraInvariantFormula right) {
 		super();
 		this.left = left;
 		this.right = right;
@@ -11,7 +11,7 @@ public class Implication extends Formula {
 	public FunctionApplication getLeft() {
 		return left;
 	}
-	public Formula getRight() {
+	public OuterExtraInvariantFormula getRight() {
 		return right;
 	}
 	

@@ -77,6 +77,7 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.UPDATE_STATE_VARIABLE: return createUpdateStateVariable();
       case RPLPackage.CONSTANT_PARAMETER: return createConstantParameter();
       case RPLPackage.FORMULA_PARAMETER: return createFormulaParameter();
+      case RPLPackage.SIMPLE_FORMULA_PARAMETER: return createSimpleFormulaParameter();
       case RPLPackage.FUNCTIONAL_PARAMETER: return createFunctionalParameter();
       case RPLPackage.FORMULA: return createFormula();
       case RPLPackage.CONJUNCTION_FORMULA: return createConjunctionFormula();
@@ -128,7 +129,6 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
       case RPLPackage.ALWAYS_IMPLICATION_PARAMETER_VALUE: return createAlwaysImplicationParameterValue();
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN_INSTANCE: return createPastExtraInvariantPatternInstance();
       case RPLPackage.CONJUNCTION: return createConjunction();
-      case RPLPackage.CONNUNCTION_INNER_FORMULA: return createConnunctionInnerFormula();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -314,6 +314,18 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
   {
     FormulaParameterImpl formulaParameter = new FormulaParameterImpl();
     return formulaParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SimpleFormulaParameter createSimpleFormulaParameter()
+  {
+    SimpleFormulaParameterImpl simpleFormulaParameter = new SimpleFormulaParameterImpl();
+    return simpleFormulaParameter;
   }
 
   /**
@@ -926,18 +938,6 @@ public class RPLFactoryImpl extends EFactoryImpl implements RPLFactory
   {
     ConjunctionImpl conjunction = new ConjunctionImpl();
     return conjunction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ConnunctionInnerFormula createConnunctionInnerFormula()
-  {
-    ConnunctionInnerFormulaImpl connunctionInnerFormula = new ConnunctionInnerFormulaImpl();
-    return connunctionInnerFormula;
   }
 
   /**

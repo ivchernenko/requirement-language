@@ -6,7 +6,7 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.Term;
 
-public class FutureExtraInvariantPatternInstance extends Formula {
+public class FutureExtraInvariantPatternInstance extends InnerExtraInvariantFormula {
 	private FutureExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;

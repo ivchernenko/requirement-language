@@ -190,13 +190,31 @@ public interface RPLPackage extends EPackage
   int DERIVED_REQUIREMENT_PATTERN__CPARAMS = ELEMENT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Simple Fm Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS = ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Simple Fm Param</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM = ELEMENT_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 2;
+  int DERIVED_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Definition</b></em>' containment reference.
@@ -205,7 +223,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__DEFINITION = ELEMENT_FEATURE_COUNT + 3;
+  int DERIVED_REQUIREMENT_PATTERN__DEFINITION = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -214,7 +232,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 4;
+  int DERIVED_REQUIREMENT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Extra Inv Pattern</b></em>' reference.
@@ -223,7 +241,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 5;
+  int DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
@@ -232,7 +250,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 6;
+  int DERIVED_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>Derived Requirement Pattern</em>' class.
@@ -241,7 +259,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 7;
+  int DERIVED_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.VariableImpl <em>Variable</em>}' class.
@@ -412,6 +430,43 @@ public interface RPLPackage extends EPackage
   int FORMULA_PARAMETER_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl <em>Simple Formula Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl
+   * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getSimpleFormulaParameter()
+   * @generated
+   */
+  int SIMPLE_FORMULA_PARAMETER = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FORMULA_PARAMETER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Arity</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FORMULA_PARAMETER__ARITY = 1;
+
+  /**
+   * The number of structural features of the '<em>Simple Formula Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FORMULA_PARAMETER_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.FunctionalParameterImpl <em>Functional Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -419,7 +474,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFunctionalParameter()
    * @generated
    */
-  int FUNCTIONAL_PARAMETER = 11;
+  int FUNCTIONAL_PARAMETER = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -447,7 +502,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFormula()
    * @generated
    */
-  int FORMULA = 12;
+  int FORMULA = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -484,7 +539,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunctionFormula()
    * @generated
    */
-  int CONJUNCTION_FORMULA = 13;
+  int CONJUNCTION_FORMULA = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -521,7 +576,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPrimaryFormula()
    * @generated
    */
-  int PRIMARY_FORMULA = 14;
+  int PRIMARY_FORMULA = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -576,7 +631,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getOuterRequirementPatternInstance()
    * @generated
    */
-  int OUTER_REQUIREMENT_PATTERN_INSTANCE = 15;
+  int OUTER_REQUIREMENT_PATTERN_INSTANCE = 16;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' reference.
@@ -640,7 +695,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getOuterRequirementPattern()
    * @generated
    */
-  int OUTER_REQUIREMENT_PATTERN = 16;
+  int OUTER_REQUIREMENT_PATTERN = 17;
 
   /**
    * The number of structural features of the '<em>Outer Requirement Pattern</em>' class.
@@ -659,7 +714,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFormulaParameterValue()
    * @generated
    */
-  int FORMULA_PARAMETER_VALUE = 17;
+  int FORMULA_PARAMETER_VALUE = 18;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -696,7 +751,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getInnerFormula()
    * @generated
    */
-  int INNER_FORMULA = 18;
+  int INNER_FORMULA = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -733,7 +788,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunctionInnerFormula()
    * @generated
    */
-  int CONJUNCTION_INNER_FORMULA = 19;
+  int CONJUNCTION_INNER_FORMULA = 20;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -770,7 +825,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPrimaryInnerFormula()
    * @generated
    */
-  int PRIMARY_INNER_FORMULA = 20;
+  int PRIMARY_INNER_FORMULA = 21;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -834,7 +889,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getNegationFormula()
    * @generated
    */
-  int NEGATION_FORMULA = 21;
+  int NEGATION_FORMULA = 22;
 
   /**
    * The feature id for the '<em><b>Neg</b></em>' attribute.
@@ -871,7 +926,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAtomicFormula()
    * @generated
    */
-  int ATOMIC_FORMULA = 22;
+  int ATOMIC_FORMULA = 23;
 
   /**
    * The feature id for the '<em><b>Bool Literal</b></em>' attribute.
@@ -926,7 +981,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getBasicRequirementPatternInstance()
    * @generated
    */
-  int BASIC_REQUIREMENT_PATTERN_INSTANCE = 23;
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE = 24;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' reference.
@@ -947,13 +1002,22 @@ public interface RPLPackage extends EPackage
   int BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS = 1;
 
   /**
+   * The feature id for the '<em><b>Simple Fm Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS = 2;
+
+  /**
    * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS = 2;
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS = 3;
 
   /**
    * The feature id for the '<em><b>Fin State</b></em>' reference.
@@ -962,7 +1026,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE = 3;
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE = 4;
 
   /**
    * The feature id for the '<em><b>Cur State</b></em>' reference.
@@ -971,7 +1035,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE = 4;
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE = 5;
 
   /**
    * The number of structural features of the '<em>Basic Requirement Pattern Instance</em>' class.
@@ -980,7 +1044,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BASIC_REQUIREMENT_PATTERN_INSTANCE_FEATURE_COUNT = 5;
+  int BASIC_REQUIREMENT_PATTERN_INSTANCE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl <em>Future Requirement Pattern</em>}' class.
@@ -990,7 +1054,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFutureRequirementPattern()
    * @generated
    */
-  int FUTURE_REQUIREMENT_PATTERN = 24;
+  int FUTURE_REQUIREMENT_PATTERN = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1063,7 +1127,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPastRequirementPattern()
    * @generated
    */
-  int PAST_REQUIREMENT_PATTERN = 25;
+  int PAST_REQUIREMENT_PATTERN = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1136,7 +1200,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFutureExtraInvariantPattern()
    * @generated
    */
-  int FUTURE_EXTRA_INVARIANT_PATTERN = 26;
+  int FUTURE_EXTRA_INVARIANT_PATTERN = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1209,7 +1273,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPastExtraInvariantPattern()
    * @generated
    */
-  int PAST_EXTRA_INVARIANT_PATTERN = 27;
+  int PAST_EXTRA_INVARIANT_PATTERN = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1282,7 +1346,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getDerivedExtraInvariantPattern()
    * @generated
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN = 28;
+  int DERIVED_EXTRA_INVARIANT_PATTERN = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1312,13 +1376,31 @@ public interface RPLPackage extends EPackage
   int DERIVED_EXTRA_INVARIANT_PATTERN__FN_PARAMS = ELEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Simple Fm Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Simple Fm Param</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM = ELEMENT_FEATURE_COUNT + 4;
+
+  /**
    * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
+  int DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>File</b></em>' attribute.
@@ -1327,7 +1409,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 4;
+  int DERIVED_EXTRA_INVARIANT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
@@ -1336,7 +1418,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 5;
+  int DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The number of structural features of the '<em>Derived Extra Invariant Pattern</em>' class.
@@ -1345,7 +1427,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+  int DERIVED_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.TermImpl <em>Term</em>}' class.
@@ -1355,7 +1437,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getTerm()
    * @generated
    */
-  int TERM = 29;
+  int TERM = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1392,7 +1474,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunctionTerm()
    * @generated
    */
-  int CONJUNCTION_TERM = 30;
+  int CONJUNCTION_TERM = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1429,7 +1511,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getNegationTerm()
    * @generated
    */
-  int NEGATION_TERM = 31;
+  int NEGATION_TERM = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1466,7 +1548,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getEqTerm()
    * @generated
    */
-  int EQ_TERM = 32;
+  int EQ_TERM = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1512,7 +1594,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getCompareTerm()
    * @generated
    */
-  int COMPARE_TERM = 33;
+  int COMPARE_TERM = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1567,7 +1649,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAddTerm()
    * @generated
    */
-  int ADD_TERM = 34;
+  int ADD_TERM = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1631,7 +1713,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getMulTerm()
    * @generated
    */
-  int MUL_TERM = 35;
+  int MUL_TERM = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1704,7 +1786,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPowerTerm()
    * @generated
    */
-  int POWER_TERM = 36;
+  int POWER_TERM = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1777,7 +1859,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getUnaryTerm()
    * @generated
    */
-  int UNARY_TERM = 37;
+  int UNARY_TERM = 38;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1859,7 +1941,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPrimaryTerm()
    * @generated
    */
-  int PRIMARY_TERM = 38;
+  int PRIMARY_TERM = 39;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1925,13 +2007,22 @@ public interface RPLPackage extends EPackage
   int PRIMARY_TERM__UN_OP = UNARY_TERM__UN_OP;
 
   /**
+   * The feature id for the '<em><b>Const</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TERM__CONST = UNARY_TERM_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM__VARIABLE = UNARY_TERM_FEATURE_COUNT + 0;
+  int PRIMARY_TERM__VARIABLE = UNARY_TERM_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>State</b></em>' reference.
@@ -1940,7 +2031,16 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM__STATE = UNARY_TERM_FEATURE_COUNT + 1;
+  int PRIMARY_TERM__STATE = UNARY_TERM_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fun App</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_TERM__FUN_APP = UNARY_TERM_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Nested Term</b></em>' containment reference.
@@ -1949,7 +2049,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM__NESTED_TERM = UNARY_TERM_FEATURE_COUNT + 2;
+  int PRIMARY_TERM__NESTED_TERM = UNARY_TERM_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Primary Term</em>' class.
@@ -1958,7 +2058,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM_FEATURE_COUNT = UNARY_TERM_FEATURE_COUNT + 3;
+  int PRIMARY_TERM_FEATURE_COUNT = UNARY_TERM_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.FunApplicationImpl <em>Fun Application</em>}' class.
@@ -1968,97 +2068,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFunApplication()
    * @generated
    */
-  int FUN_APPLICATION = 39;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__LEFT = PRIMARY_TERM__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__RIGHT = PRIMARY_TERM__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Eq Pred</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__EQ_PRED = PRIMARY_TERM__EQ_PRED;
-
-  /**
-   * The feature id for the '<em><b>Comp Pred</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__COMP_PRED = PRIMARY_TERM__COMP_PRED;
-
-  /**
-   * The feature id for the '<em><b>Add Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__ADD_OP = PRIMARY_TERM__ADD_OP;
-
-  /**
-   * The feature id for the '<em><b>Mul Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__MUL_OP = PRIMARY_TERM__MUL_OP;
-
-  /**
-   * The feature id for the '<em><b>Un Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__UN_OP = PRIMARY_TERM__UN_OP;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__VARIABLE = PRIMARY_TERM__VARIABLE;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__STATE = PRIMARY_TERM__STATE;
-
-  /**
-   * The feature id for the '<em><b>Nested Term</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUN_APPLICATION__NESTED_TERM = PRIMARY_TERM__NESTED_TERM;
+  int FUN_APPLICATION = 40;
 
   /**
    * The feature id for the '<em><b>Fn Param</b></em>' reference.
@@ -2067,7 +2077,16 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_APPLICATION__FN_PARAM = PRIMARY_TERM_FEATURE_COUNT + 0;
+  int FUN_APPLICATION__FN_PARAM = 0;
+
+  /**
+   * The feature id for the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUN_APPLICATION__STATE = 1;
 
   /**
    * The number of structural features of the '<em>Fun Application</em>' class.
@@ -2076,7 +2095,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUN_APPLICATION_FEATURE_COUNT = PRIMARY_TERM_FEATURE_COUNT + 1;
+  int FUN_APPLICATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.ConstantImpl <em>Constant</em>}' class.
@@ -2086,97 +2105,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 40;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__LEFT = PRIMARY_TERM__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__RIGHT = PRIMARY_TERM__RIGHT;
-
-  /**
-   * The feature id for the '<em><b>Eq Pred</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__EQ_PRED = PRIMARY_TERM__EQ_PRED;
-
-  /**
-   * The feature id for the '<em><b>Comp Pred</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__COMP_PRED = PRIMARY_TERM__COMP_PRED;
-
-  /**
-   * The feature id for the '<em><b>Add Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__ADD_OP = PRIMARY_TERM__ADD_OP;
-
-  /**
-   * The feature id for the '<em><b>Mul Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__MUL_OP = PRIMARY_TERM__MUL_OP;
-
-  /**
-   * The feature id for the '<em><b>Un Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__UN_OP = PRIMARY_TERM__UN_OP;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__VARIABLE = PRIMARY_TERM__VARIABLE;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__STATE = PRIMARY_TERM__STATE;
-
-  /**
-   * The feature id for the '<em><b>Nested Term</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTANT__NESTED_TERM = PRIMARY_TERM__NESTED_TERM;
+  int CONSTANT = 41;
 
   /**
    * The feature id for the '<em><b>Num</b></em>' containment reference.
@@ -2185,7 +2114,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTANT__NUM = PRIMARY_TERM_FEATURE_COUNT + 0;
+  int CONSTANT__NUM = 0;
 
   /**
    * The feature id for the '<em><b>Bool</b></em>' attribute.
@@ -2194,7 +2123,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTANT__BOOL = PRIMARY_TERM_FEATURE_COUNT + 1;
+  int CONSTANT__BOOL = 1;
 
   /**
    * The number of structural features of the '<em>Constant</em>' class.
@@ -2203,7 +2132,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTANT_FEATURE_COUNT = PRIMARY_TERM_FEATURE_COUNT + 2;
+  int CONSTANT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
@@ -2213,7 +2142,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getNumericLiteral()
    * @generated
    */
-  int NUMERIC_LITERAL = 41;
+  int NUMERIC_LITERAL = 42;
 
   /**
    * The feature id for the '<em><b>Sig</b></em>' attribute.
@@ -2250,7 +2179,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getIntegerLiteral()
    * @generated
    */
-  int INTEGER_LITERAL = 42;
+  int INTEGER_LITERAL = 43;
 
   /**
    * The feature id for the '<em><b>Sig</b></em>' attribute.
@@ -2287,7 +2216,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getRealLiteral()
    * @generated
    */
-  int REAL_LITERAL = 43;
+  int REAL_LITERAL = 44;
 
   /**
    * The feature id for the '<em><b>Sig</b></em>' attribute.
@@ -2324,7 +2253,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPatternFreeFormula()
    * @generated
    */
-  int PATTERN_FREE_FORMULA = 44;
+  int PATTERN_FREE_FORMULA = 45;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2361,7 +2290,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunctionPatternFreeFormula()
    * @generated
    */
-  int CONJUNCTION_PATTERN_FREE_FORMULA = 45;
+  int CONJUNCTION_PATTERN_FREE_FORMULA = 46;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2398,7 +2327,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPrimaryPatternFreeFormula()
    * @generated
    */
-  int PRIMARY_PATTERN_FREE_FORMULA = 46;
+  int PRIMARY_PATTERN_FREE_FORMULA = 47;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2453,7 +2382,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getRequirement()
    * @generated
    */
-  int REQUIREMENT = 47;
+  int REQUIREMENT = 48;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2517,7 +2446,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getExtraInvariant()
    * @generated
    */
-  int EXTRA_INVARIANT = 48;
+  int EXTRA_INVARIANT = 49;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2572,7 +2501,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPatternFreeFormulaParameterValue()
    * @generated
    */
-  int PATTERN_FREE_FORMULA_PARAMETER_VALUE = 49;
+  int PATTERN_FREE_FORMULA_PARAMETER_VALUE = 50;
 
   /**
    * The feature id for the '<em><b>States</b></em>' containment reference list.
@@ -2609,7 +2538,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getFutureLemmas()
    * @generated
    */
-  int FUTURE_LEMMAS = 50;
+  int FUTURE_LEMMAS = 51;
 
   /**
    * The feature id for the '<em><b>L1</b></em>' containment reference.
@@ -2655,7 +2584,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPastLemmas()
    * @generated
    */
-  int PAST_LEMMAS = 51;
+  int PAST_LEMMAS = 52;
 
   /**
    * The feature id for the '<em><b>L4</b></em>' containment reference.
@@ -2710,7 +2639,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getDerivedLemmas()
    * @generated
    */
-  int DERIVED_LEMMAS = 52;
+  int DERIVED_LEMMAS = 53;
 
   /**
    * The feature id for the '<em><b>L8</b></em>' containment reference.
@@ -2747,7 +2676,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getLemma()
    * @generated
    */
-  int LEMMA = 53;
+  int LEMMA = 54;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2838,7 +2767,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getLemmaPremiseFormula()
    * @generated
    */
-  int LEMMA_PREMISE_FORMULA = 54;
+  int LEMMA_PREMISE_FORMULA = 55;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2875,7 +2804,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getDisjunctionLemmaPremiseFormula()
    * @generated
    */
-  int DISJUNCTION_LEMMA_PREMISE_FORMULA = 55;
+  int DISJUNCTION_LEMMA_PREMISE_FORMULA = 56;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2912,7 +2841,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunctionLemmaPremiseFormula()
    * @generated
    */
-  int CONJUNCTION_LEMMA_PREMISE_FORMULA = 56;
+  int CONJUNCTION_LEMMA_PREMISE_FORMULA = 57;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2949,7 +2878,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPrimaryLemmaPremiseFormula()
    * @generated
    */
-  int PRIMARY_LEMMA_PREMISE_FORMULA = 57;
+  int PRIMARY_LEMMA_PREMISE_FORMULA = 58;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3022,7 +2951,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAlwaysImplication()
    * @generated
    */
-  int ALWAYS_IMPLICATION = 58;
+  int ALWAYS_IMPLICATION = 59;
 
   /**
    * The feature id for the '<em><b>State</b></em>' reference.
@@ -3068,7 +2997,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getAlwaysImplicationParameterValue()
    * @generated
    */
-  int ALWAYS_IMPLICATION_PARAMETER_VALUE = 59;
+  int ALWAYS_IMPLICATION_PARAMETER_VALUE = 60;
 
   /**
    * The feature id for the '<em><b>State</b></em>' containment reference.
@@ -3105,7 +3034,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getPastExtraInvariantPatternInstance()
    * @generated
    */
-  int PAST_EXTRA_INVARIANT_PATTERN_INSTANCE = 60;
+  int PAST_EXTRA_INVARIANT_PATTERN_INSTANCE = 61;
 
   /**
    * The feature id for the '<em><b>Pattern</b></em>' reference.
@@ -3169,7 +3098,7 @@ public interface RPLPackage extends EPackage
    * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConjunction()
    * @generated
    */
-  int CONJUNCTION = 61;
+  int CONJUNCTION = 62;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3197,43 +3126,6 @@ public interface RPLPackage extends EPackage
    * @ordered
    */
   int CONJUNCTION_FEATURE_COUNT = CONJUNCTION_FORMULA_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.ConnunctionInnerFormulaImpl <em>Connunction Inner Formula</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see su.nsk.iae.rpl.rPL.impl.ConnunctionInnerFormulaImpl
-   * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConnunctionInnerFormula()
-   * @generated
-   */
-  int CONNUNCTION_INNER_FORMULA = 62;
-
-  /**
-   * The feature id for the '<em><b>Left</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONNUNCTION_INNER_FORMULA__LEFT = CONJUNCTION_INNER_FORMULA__LEFT;
-
-  /**
-   * The feature id for the '<em><b>Right</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONNUNCTION_INNER_FORMULA__RIGHT = CONJUNCTION_INNER_FORMULA__RIGHT;
-
-  /**
-   * The number of structural features of the '<em>Connunction Inner Formula</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONNUNCTION_INNER_FORMULA_FEATURE_COUNT = CONJUNCTION_INNER_FORMULA_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.EqPredicate <em>Eq Predicate</em>}' enum.
@@ -3390,6 +3282,28 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getDerivedRequirementPattern_CParams();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParams <em>Simple Fm Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Fm Params</em>'.
+   * @see su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParams()
+   * @see #getDerivedRequirementPattern()
+   * @generated
+   */
+  EReference getDerivedRequirementPattern_SimpleFmParams();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParam <em>Simple Fm Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Fm Param</em>'.
+   * @see su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParam()
+   * @see #getDerivedRequirementPattern()
+   * @generated
+   */
+  EReference getDerivedRequirementPattern_SimpleFmParam();
 
   /**
    * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFmParams <em>Fm Params</em>}'.
@@ -3549,6 +3463,38 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EAttribute getFormulaParameter_Name();
+
+  /**
+   * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter <em>Simple Formula Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Formula Parameter</em>'.
+   * @see su.nsk.iae.rpl.rPL.SimpleFormulaParameter
+   * @generated
+   */
+  EClass getSimpleFormulaParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getName()
+   * @see #getSimpleFormulaParameter()
+   * @generated
+   */
+  EAttribute getSimpleFormulaParameter_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getArity <em>Arity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Arity</em>'.
+   * @see su.nsk.iae.rpl.rPL.SimpleFormulaParameter#getArity()
+   * @see #getSimpleFormulaParameter()
+   * @generated
+   */
+  EAttribute getSimpleFormulaParameter_Arity();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.FunctionalParameter <em>Functional Parameter</em>}'.
@@ -3956,6 +3902,17 @@ public interface RPLPackage extends EPackage
   EReference getBasicRequirementPatternInstance_CParams();
 
   /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getSimpleFmParams <em>Simple Fm Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Fm Params</em>'.
+   * @see su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getSimpleFmParams()
+   * @see #getBasicRequirementPatternInstance()
+   * @generated
+   */
+  EReference getBasicRequirementPatternInstance_SimpleFmParams();
+
+  /**
    * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance#getFmParams <em>Fm Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4336,6 +4293,28 @@ public interface RPLPackage extends EPackage
   EReference getDerivedExtraInvariantPattern_FnParams();
 
   /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParams <em>Simple Fm Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Fm Params</em>'.
+   * @see su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParams()
+   * @see #getDerivedExtraInvariantPattern()
+   * @generated
+   */
+  EReference getDerivedExtraInvariantPattern_SimpleFmParams();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParam <em>Simple Fm Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Fm Param</em>'.
+   * @see su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParam()
+   * @see #getDerivedExtraInvariantPattern()
+   * @generated
+   */
+  EReference getDerivedExtraInvariantPattern_SimpleFmParam();
+
+  /**
    * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFmParams <em>Fm Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4546,6 +4525,17 @@ public interface RPLPackage extends EPackage
   EClass getPrimaryTerm();
 
   /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getConst <em>Const</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Const</em>'.
+   * @see su.nsk.iae.rpl.rPL.PrimaryTerm#getConst()
+   * @see #getPrimaryTerm()
+   * @generated
+   */
+  EReference getPrimaryTerm_Const();
+
+  /**
    * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4566,6 +4556,17 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getPrimaryTerm_State();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp <em>Fun App</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fun App</em>'.
+   * @see su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp()
+   * @see #getPrimaryTerm()
+   * @generated
+   */
+  EReference getPrimaryTerm_FunApp();
 
   /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getNestedTerm <em>Nested Term</em>}'.
@@ -4598,6 +4599,17 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getFunApplication_FnParam();
+
+  /**
+   * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.FunApplication#getState <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>State</em>'.
+   * @see su.nsk.iae.rpl.rPL.FunApplication#getState()
+   * @see #getFunApplication()
+   * @generated
+   */
+  EReference getFunApplication_State();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.Constant <em>Constant</em>}'.
@@ -5392,16 +5404,6 @@ public interface RPLPackage extends EPackage
   EClass getConjunction();
 
   /**
-   * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.ConnunctionInnerFormula <em>Connunction Inner Formula</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Connunction Inner Formula</em>'.
-   * @see su.nsk.iae.rpl.rPL.ConnunctionInnerFormula
-   * @generated
-   */
-  EClass getConnunctionInnerFormula();
-
-  /**
    * Returns the meta object for enum '{@link su.nsk.iae.rpl.rPL.EqPredicate <em>Eq Predicate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5565,6 +5567,22 @@ public interface RPLPackage extends EPackage
     EReference DERIVED_REQUIREMENT_PATTERN__CPARAMS = eINSTANCE.getDerivedRequirementPattern_CParams();
 
     /**
+     * The meta object literal for the '<em><b>Simple Fm Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS = eINSTANCE.getDerivedRequirementPattern_SimpleFmParams();
+
+    /**
+     * The meta object literal for the '<em><b>Simple Fm Param</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM = eINSTANCE.getDerivedRequirementPattern_SimpleFmParam();
+
+    /**
      * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5695,6 +5713,32 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EAttribute FORMULA_PARAMETER__NAME = eINSTANCE.getFormulaParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl <em>Simple Formula Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see su.nsk.iae.rpl.rPL.impl.SimpleFormulaParameterImpl
+     * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getSimpleFormulaParameter()
+     * @generated
+     */
+    EClass SIMPLE_FORMULA_PARAMETER = eINSTANCE.getSimpleFormulaParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FORMULA_PARAMETER__NAME = eINSTANCE.getSimpleFormulaParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Arity</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FORMULA_PARAMETER__ARITY = eINSTANCE.getSimpleFormulaParameter_Arity();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.FunctionalParameterImpl <em>Functional Parameter</em>}' class.
@@ -6027,6 +6071,14 @@ public interface RPLPackage extends EPackage
     EReference BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS = eINSTANCE.getBasicRequirementPatternInstance_CParams();
 
     /**
+     * The meta object literal for the '<em><b>Simple Fm Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS = eINSTANCE.getBasicRequirementPatternInstance_SimpleFmParams();
+
+    /**
      * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6317,6 +6369,22 @@ public interface RPLPackage extends EPackage
     EReference DERIVED_EXTRA_INVARIANT_PATTERN__FN_PARAMS = eINSTANCE.getDerivedExtraInvariantPattern_FnParams();
 
     /**
+     * The meta object literal for the '<em><b>Simple Fm Params</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS = eINSTANCE.getDerivedExtraInvariantPattern_SimpleFmParams();
+
+    /**
+     * The meta object literal for the '<em><b>Simple Fm Param</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM = eINSTANCE.getDerivedExtraInvariantPattern_SimpleFmParam();
+
+    /**
      * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6497,6 +6565,14 @@ public interface RPLPackage extends EPackage
     EClass PRIMARY_TERM = eINSTANCE.getPrimaryTerm();
 
     /**
+     * The meta object literal for the '<em><b>Const</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TERM__CONST = eINSTANCE.getPrimaryTerm_Const();
+
+    /**
      * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6511,6 +6587,14 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_TERM__STATE = eINSTANCE.getPrimaryTerm_State();
+
+    /**
+     * The meta object literal for the '<em><b>Fun App</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_TERM__FUN_APP = eINSTANCE.getPrimaryTerm_FunApp();
 
     /**
      * The meta object literal for the '<em><b>Nested Term</b></em>' containment reference feature.
@@ -6537,6 +6621,14 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference FUN_APPLICATION__FN_PARAM = eINSTANCE.getFunApplication_FnParam();
+
+    /**
+     * The meta object literal for the '<em><b>State</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUN_APPLICATION__STATE = eINSTANCE.getFunApplication_State();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.ConstantImpl <em>Constant</em>}' class.
@@ -7173,16 +7265,6 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EClass CONJUNCTION = eINSTANCE.getConjunction();
-
-    /**
-     * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.ConnunctionInnerFormulaImpl <em>Connunction Inner Formula</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see su.nsk.iae.rpl.rPL.impl.ConnunctionInnerFormulaImpl
-     * @see su.nsk.iae.rpl.rPL.impl.RPLPackageImpl#getConnunctionInnerFormula()
-     * @generated
-     */
-    EClass CONNUNCTION_INNER_FORMULA = eINSTANCE.getConnunctionInnerFormula();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.EqPredicate <em>Eq Predicate</em>}' enum.

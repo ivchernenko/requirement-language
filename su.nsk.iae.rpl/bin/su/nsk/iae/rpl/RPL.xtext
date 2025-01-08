@@ -21,6 +21,7 @@ BasicRequirementPattern:
 DerivedRequirementPattern:
 	'derivedreq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
+	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
 	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)? ")"
    ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
    (lemmas=DerivedLemmas)? ";";
@@ -42,7 +43,14 @@ ConstantParameter:
 	name=ID;
            	
 FormulaParameter:
+	SimpleFormulaParameter | RegularFormulaParameter;
+	
+SimpleFormulaParameter:
+	name=ID ("(" arity=INTEGER ")")?;
+	
+RegularFormulaParameter:
 	name=ID;
+;
            	
 FunctionalParameter:
 	name=ID;
@@ -82,7 +90,7 @@ InnerFormula:
 	ConjunctionInnerFormula ({InnerFormula.left=current} DISJUNCTION right=InnerFormula)*;
            	
 ConjunctionInnerFormula:
-	PrimaryInnerFormula ({ConnunctionInnerFormula.left=current} CONJUNCTION right=ConjunctionInnerFormula)*;
+	PrimaryInnerFormula ({ConjunctionInnerFormula.left=current} CONJUNCTION right=ConjunctionInnerFormula)*;
            	
 PrimaryInnerFormula:
 	atomic=NegationFormula | patternInst=BasicRequirementPatternInstance | "(" nestedFormula=InnerFormula ")";
@@ -99,7 +107,9 @@ AtomicFormula:
 	
 BasicRequirementPatternInstance:
 	pattern=[BasicRequirementPattern] "("
-	("const" ":" cParams+=Term ("," cParams+=Term)*)? ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
+	("const" ":" cParams+=Term ("," cParams+=Term)*)?
+	("simple" "formulas"  ":" simpleFmParams+=PatternFreeFormula ("," simpleFmParams+=PatternFreeFormula)*)?
+	 ("formulas" ":" fmParams+=FormulaParameterValue ("," fmParams+=FormulaParameterValue)*)?
 	  ("final" ":" finState=[UpdateStateVariable] ("current" ":" curState=[UpdateStateVariable])?)?
 	 ")";
 	
@@ -138,6 +148,7 @@ DerivedExtraInvariantPattern:
 	'derivedeinv' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
+	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
 	("formulas" ":" fmParams+=FormulaParameter ("," fmParams+=FormulaParameter)*)?
 	")"
 	("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
@@ -193,7 +204,8 @@ enum UnMinus:
 	UNMINUS="-";
            	
 PrimaryTerm:
-	Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" | FunApplication |
+	const=Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" |
+	 funApp=FunApplication |
 	"(" nestedTerm=Term ")";
            	 
 FunApplication:

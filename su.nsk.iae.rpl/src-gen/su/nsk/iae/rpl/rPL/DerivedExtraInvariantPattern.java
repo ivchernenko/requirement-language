@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFnParams <em>Fn Params</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParams <em>Simple Fm Params</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParam <em>Simple Fm Param</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFmParams <em>Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getLemmas <em>Lemmas</em>}</li>
@@ -73,6 +75,30 @@ public interface DerivedExtraInvariantPattern extends Element
    * @generated
    */
   EList<FunctionalParameter> getFnParams();
+
+  /**
+   * Returns the value of the '<em><b>Simple Fm Params</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Fm Params</em>' containment reference list.
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getDerivedExtraInvariantPattern_SimpleFmParams()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SimpleFormulaParameter> getSimpleFmParams();
+
+  /**
+   * Returns the value of the '<em><b>Simple Fm Param</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Simple Fm Param</em>' containment reference list.
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getDerivedExtraInvariantPattern_SimpleFmParam()
+   * @model containment="true"
+   * @generated
+   */
+  EList<SimpleFormulaParameter> getSimpleFmParam();
 
   /**
    * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.

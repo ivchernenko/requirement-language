@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
 import su.nsk.iae.rpl.rPL.Formula;
 import su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.PrimaryFormula;
@@ -33,13 +32,7 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
  */
 public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements PrimaryFormula
 {
-  @Override
-	public su.nsk.iae.rpl.invpatterngenerator.Formula generateFormula(ExtraInvariantPatternGenerator generator) {
-		// TODO Auto-generated method stub
-		return generator.generateFormula(this);
-	}
-
-/**
+  /**
    * The cached value of the '{@link #getPatternInst() <em>Pattern Inst</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

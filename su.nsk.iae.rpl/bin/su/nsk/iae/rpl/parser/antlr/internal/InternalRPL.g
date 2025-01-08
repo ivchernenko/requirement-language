@@ -363,20 +363,78 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_9='formulas'
+			otherlv_9='simple'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getDerivedRequirementPatternAccess().getFormulasKeyword_5_0());
+				newLeafNode(otherlv_9, grammarAccess.getDerivedRequirementPatternAccess().getSimpleKeyword_5_0());
 			}
-			otherlv_10=':'
+			otherlv_10='formulas'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getDerivedRequirementPatternAccess().getColonKeyword_5_1());
+				newLeafNode(otherlv_10, grammarAccess.getDerivedRequirementPatternAccess().getFormulasKeyword_5_1());
+			}
+			otherlv_11=':'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getDerivedRequirementPatternAccess().getColonKeyword_5_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFmParamsFormulaParameterParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_3_0());
 					}
-					lv_fmParams_11_0=ruleFormulaParameter
+					lv_simpleFmParams_12_0=ruleSimpleFormulaParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
+						}
+						add(
+							$current,
+							"simpleFmParams",
+							lv_simpleFmParams_12_0,
+							"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_13=','
+				{
+					newLeafNode(otherlv_13, grammarAccess.getDerivedRequirementPatternAccess().getCommaKeyword_5_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0());
+						}
+						lv_simpleFmParam_14_0=ruleSimpleFormulaParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
+							}
+							add(
+								$current,
+								"simpleFmParam",
+								lv_simpleFmParam_14_0,
+								"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_15='formulas'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getDerivedRequirementPatternAccess().getFormulasKeyword_6_0());
+			}
+			otherlv_16=':'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getDerivedRequirementPatternAccess().getColonKeyword_6_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFmParamsFormulaParameterParserRuleCall_6_2_0());
+					}
+					lv_fmParams_17_0=ruleFormulaParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -384,23 +442,23 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 						add(
 							$current,
 							"fmParams",
-							lv_fmParams_11_0,
+							lv_fmParams_17_0,
 							"su.nsk.iae.rpl.RPL.FormulaParameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_12=','
+				otherlv_18=','
 				{
-					newLeafNode(otherlv_12, grammarAccess.getDerivedRequirementPatternAccess().getCommaKeyword_5_3_0());
+					newLeafNode(otherlv_18, grammarAccess.getDerivedRequirementPatternAccess().getCommaKeyword_6_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFmParamsFormulaParameterParserRuleCall_5_3_1_0());
+							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFmParamsFormulaParameterParserRuleCall_6_3_1_0());
 						}
-						lv_fmParams_13_0=ruleFormulaParameter
+						lv_fmParams_19_0=ruleFormulaParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -408,7 +466,7 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 							add(
 								$current,
 								"fmParams",
-								lv_fmParams_13_0,
+								lv_fmParams_19_0,
 								"su.nsk.iae.rpl.RPL.FormulaParameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -416,22 +474,22 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_14=')'
+		otherlv_20=')'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getDerivedRequirementPatternAccess().getRightParenthesisKeyword_6());
+			newLeafNode(otherlv_20, grammarAccess.getDerivedRequirementPatternAccess().getRightParenthesisKeyword_7());
 		}
 		(
 			(
-				otherlv_15='='
+				otherlv_21='='
 				{
-					newLeafNode(otherlv_15, grammarAccess.getDerivedRequirementPatternAccess().getEqualsSignKeyword_7_0_0());
+					newLeafNode(otherlv_21, grammarAccess.getDerivedRequirementPatternAccess().getEqualsSignKeyword_8_0_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getDefinitionFormulaParserRuleCall_7_0_1_0());
+							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getDefinitionFormulaParserRuleCall_8_0_1_0());
 						}
-						lv_definition_16_0=ruleFormula
+						lv_definition_22_0=ruleFormula
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -439,7 +497,7 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 							set(
 								$current,
 								"definition",
-								lv_definition_16_0,
+								lv_definition_22_0,
 								"su.nsk.iae.rpl.RPL.Formula");
 							afterParserOrEnumRuleCall();
 						}
@@ -448,16 +506,16 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_17='from'
+				otherlv_23='from'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getDerivedRequirementPatternAccess().getFromKeyword_7_1_0());
+					newLeafNode(otherlv_23, grammarAccess.getDerivedRequirementPatternAccess().getFromKeyword_8_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFileFilePathParserRuleCall_7_1_1_0());
+							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFileFilePathParserRuleCall_8_1_1_0());
 						}
-						lv_file_18_0=ruleFilePath
+						lv_file_24_0=ruleFilePath
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -465,15 +523,15 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 							set(
 								$current,
 								"file",
-								lv_file_18_0,
+								lv_file_24_0,
 								"su.nsk.iae.rpl.RPL.FilePath");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-				otherlv_19='with'
+				otherlv_25='with'
 				{
-					newLeafNode(otherlv_19, grammarAccess.getDerivedRequirementPatternAccess().getWithKeyword_7_1_2());
+					newLeafNode(otherlv_25, grammarAccess.getDerivedRequirementPatternAccess().getWithKeyword_8_1_2());
 				}
 				(
 					(
@@ -482,9 +540,9 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getDerivedRequirementPatternRule());
 							}
 						}
-						otherlv_20=RULE_ID
+						otherlv_26=RULE_ID
 						{
-							newLeafNode(otherlv_20, grammarAccess.getDerivedRequirementPatternAccess().getExtraInvPatternDerivedExtraInvariantPatternCrossReference_7_1_3_0());
+							newLeafNode(otherlv_26, grammarAccess.getDerivedRequirementPatternAccess().getExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0());
 						}
 					)
 				)
@@ -493,9 +551,9 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getLemmasDerivedLemmasParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getLemmasDerivedLemmasParserRuleCall_9_0());
 				}
-				lv_lemmas_21_0=ruleDerivedLemmas
+				lv_lemmas_27_0=ruleDerivedLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -503,15 +561,15 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_21_0,
+						lv_lemmas_27_0,
 						"su.nsk.iae.rpl.RPL.DerivedLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_22=';'
+		otherlv_28=';'
 		{
-			newLeafNode(otherlv_22, grammarAccess.getDerivedRequirementPatternAccess().getSemicolonKeyword_9());
+			newLeafNode(otherlv_28, grammarAccess.getDerivedRequirementPatternAccess().getSemicolonKeyword_10());
 		}
 	)
 ;
@@ -724,6 +782,71 @@ ruleFormulaParameter returns [EObject current=null]
 					"org.eclipse.xtext.common.Terminals.ID");
 			}
 		)
+	)
+;
+
+// Entry rule entryRuleSimpleFormulaParameter
+entryRuleSimpleFormulaParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSimpleFormulaParameterRule()); }
+	iv_ruleSimpleFormulaParameter=ruleSimpleFormulaParameter
+	{ $current=$iv_ruleSimpleFormulaParameter.current; }
+	EOF;
+
+// Rule SimpleFormulaParameter
+ruleSimpleFormulaParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_name_0_0=RULE_ID
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getSimpleFormulaParameterAccess().getNameIDTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSimpleFormulaParameterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		(
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getSimpleFormulaParameterAccess().getLeftParenthesisKeyword_1_0());
+			}
+			(
+				(
+					lv_arity_2_0=RULE_INTEGER
+					{
+						newLeafNode(lv_arity_2_0, grammarAccess.getSimpleFormulaParameterAccess().getArityINTEGERTerminalRuleCall_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSimpleFormulaParameterRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"arity",
+							lv_arity_2_0,
+							"su.nsk.iae.rpl.RPL.INTEGER");
+					}
+				)
+			)
+			otherlv_3=')'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getSimpleFormulaParameterAccess().getRightParenthesisKeyword_1_2());
+			}
+		)?
 	)
 ;
 
@@ -1296,7 +1419,7 @@ ruleConjunctionInnerFormula returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElementAndSet(
-						grammarAccess.getConjunctionInnerFormulaAccess().getConnunctionInnerFormulaLeftAction_1_0(),
+						grammarAccess.getConjunctionInnerFormulaAccess().getConjunctionInnerFormulaLeftAction_1_0(),
 						$current);
 				}
 			)
@@ -1688,20 +1811,78 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_7='formulas'
+			otherlv_7='simple'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getBasicRequirementPatternInstanceAccess().getFormulasKeyword_3_0());
+				newLeafNode(otherlv_7, grammarAccess.getBasicRequirementPatternInstanceAccess().getSimpleKeyword_3_0());
 			}
-			otherlv_8=':'
+			otherlv_8='formulas'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_3_1());
+				newLeafNode(otherlv_8, grammarAccess.getBasicRequirementPatternInstanceAccess().getFormulasKeyword_3_1());
+			}
+			otherlv_9=':'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_3_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getFmParamsFormulaParameterValueParserRuleCall_3_2_0());
+						newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getSimpleFmParamsPatternFreeFormulaParserRuleCall_3_3_0());
 					}
-					lv_fmParams_9_0=ruleFormulaParameterValue
+					lv_simpleFmParams_10_0=rulePatternFreeFormula
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBasicRequirementPatternInstanceRule());
+						}
+						add(
+							$current,
+							"simpleFmParams",
+							lv_simpleFmParams_10_0,
+							"su.nsk.iae.rpl.RPL.PatternFreeFormula");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_11=','
+				{
+					newLeafNode(otherlv_11, grammarAccess.getBasicRequirementPatternInstanceAccess().getCommaKeyword_3_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getSimpleFmParamsPatternFreeFormulaParserRuleCall_3_4_1_0());
+						}
+						lv_simpleFmParams_12_0=rulePatternFreeFormula
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getBasicRequirementPatternInstanceRule());
+							}
+							add(
+								$current,
+								"simpleFmParams",
+								lv_simpleFmParams_12_0,
+								"su.nsk.iae.rpl.RPL.PatternFreeFormula");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_13='formulas'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getBasicRequirementPatternInstanceAccess().getFormulasKeyword_4_0());
+			}
+			otherlv_14=':'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getFmParamsFormulaParameterValueParserRuleCall_4_2_0());
+					}
+					lv_fmParams_15_0=ruleFormulaParameterValue
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBasicRequirementPatternInstanceRule());
@@ -1709,23 +1890,23 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 						add(
 							$current,
 							"fmParams",
-							lv_fmParams_9_0,
+							lv_fmParams_15_0,
 							"su.nsk.iae.rpl.RPL.FormulaParameterValue");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_10=','
+				otherlv_16=','
 				{
-					newLeafNode(otherlv_10, grammarAccess.getBasicRequirementPatternInstanceAccess().getCommaKeyword_3_3_0());
+					newLeafNode(otherlv_16, grammarAccess.getBasicRequirementPatternInstanceAccess().getCommaKeyword_4_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getFmParamsFormulaParameterValueParserRuleCall_3_3_1_0());
+							newCompositeNode(grammarAccess.getBasicRequirementPatternInstanceAccess().getFmParamsFormulaParameterValueParserRuleCall_4_3_1_0());
 						}
-						lv_fmParams_11_0=ruleFormulaParameterValue
+						lv_fmParams_17_0=ruleFormulaParameterValue
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getBasicRequirementPatternInstanceRule());
@@ -1733,7 +1914,7 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 							add(
 								$current,
 								"fmParams",
-								lv_fmParams_11_0,
+								lv_fmParams_17_0,
 								"su.nsk.iae.rpl.RPL.FormulaParameterValue");
 							afterParserOrEnumRuleCall();
 						}
@@ -1742,13 +1923,13 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_12='final'
+			otherlv_18='final'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getBasicRequirementPatternInstanceAccess().getFinalKeyword_4_0());
+				newLeafNode(otherlv_18, grammarAccess.getBasicRequirementPatternInstanceAccess().getFinalKeyword_5_0());
 			}
-			otherlv_13=':'
+			otherlv_19=':'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_4_1());
+				newLeafNode(otherlv_19, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_5_1());
 			}
 			(
 				(
@@ -1757,20 +1938,20 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getBasicRequirementPatternInstanceRule());
 						}
 					}
-					otherlv_14=RULE_ID
+					otherlv_20=RULE_ID
 					{
-						newLeafNode(otherlv_14, grammarAccess.getBasicRequirementPatternInstanceAccess().getFinStateUpdateStateVariableCrossReference_4_2_0());
+						newLeafNode(otherlv_20, grammarAccess.getBasicRequirementPatternInstanceAccess().getFinStateUpdateStateVariableCrossReference_5_2_0());
 					}
 				)
 			)
 			(
-				otherlv_15='current'
+				otherlv_21='current'
 				{
-					newLeafNode(otherlv_15, grammarAccess.getBasicRequirementPatternInstanceAccess().getCurrentKeyword_4_3_0());
+					newLeafNode(otherlv_21, grammarAccess.getBasicRequirementPatternInstanceAccess().getCurrentKeyword_5_3_0());
 				}
-				otherlv_16=':'
+				otherlv_22=':'
 				{
-					newLeafNode(otherlv_16, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_4_3_1());
+					newLeafNode(otherlv_22, grammarAccess.getBasicRequirementPatternInstanceAccess().getColonKeyword_5_3_1());
 				}
 				(
 					(
@@ -1779,17 +1960,17 @@ ruleBasicRequirementPatternInstance returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getBasicRequirementPatternInstanceRule());
 							}
 						}
-						otherlv_17=RULE_ID
+						otherlv_23=RULE_ID
 						{
-							newLeafNode(otherlv_17, grammarAccess.getBasicRequirementPatternInstanceAccess().getCurStateUpdateStateVariableCrossReference_4_3_2_0());
+							newLeafNode(otherlv_23, grammarAccess.getBasicRequirementPatternInstanceAccess().getCurStateUpdateStateVariableCrossReference_5_3_2_0());
 						}
 					)
 				)
 			)?
 		)?
-		otherlv_18=')'
+		otherlv_24=')'
 		{
-			newLeafNode(otherlv_18, grammarAccess.getBasicRequirementPatternInstanceAccess().getRightParenthesisKeyword_5());
+			newLeafNode(otherlv_24, grammarAccess.getBasicRequirementPatternInstanceAccess().getRightParenthesisKeyword_6());
 		}
 	)
 ;
@@ -2923,20 +3104,78 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 			)*
 		)?
 		(
-			otherlv_14='formulas'
+			otherlv_14='simple'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getDerivedExtraInvariantPatternAccess().getFormulasKeyword_6_0());
+				newLeafNode(otherlv_14, grammarAccess.getDerivedExtraInvariantPatternAccess().getSimpleKeyword_6_0());
 			}
-			otherlv_15=':'
+			otherlv_15='formulas'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getDerivedExtraInvariantPatternAccess().getColonKeyword_6_1());
+				newLeafNode(otherlv_15, grammarAccess.getDerivedExtraInvariantPatternAccess().getFormulasKeyword_6_1());
+			}
+			otherlv_16=':'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getDerivedExtraInvariantPatternAccess().getColonKeyword_6_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFmParamsFormulaParameterParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_3_0());
 					}
-					lv_fmParams_16_0=ruleFormulaParameter
+					lv_simpleFmParams_17_0=ruleSimpleFormulaParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
+						}
+						add(
+							$current,
+							"simpleFmParams",
+							lv_simpleFmParams_17_0,
+							"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_18=','
+				{
+					newLeafNode(otherlv_18, grammarAccess.getDerivedExtraInvariantPatternAccess().getCommaKeyword_6_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0());
+						}
+						lv_simpleFmParam_19_0=ruleSimpleFormulaParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
+							}
+							add(
+								$current,
+								"simpleFmParam",
+								lv_simpleFmParam_19_0,
+								"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_20='formulas'
+			{
+				newLeafNode(otherlv_20, grammarAccess.getDerivedExtraInvariantPatternAccess().getFormulasKeyword_7_0());
+			}
+			otherlv_21=':'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getDerivedExtraInvariantPatternAccess().getColonKeyword_7_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFmParamsFormulaParameterParserRuleCall_7_2_0());
+					}
+					lv_fmParams_22_0=ruleFormulaParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
@@ -2944,23 +3183,23 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 						add(
 							$current,
 							"fmParams",
-							lv_fmParams_16_0,
+							lv_fmParams_22_0,
 							"su.nsk.iae.rpl.RPL.FormulaParameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_17=','
+				otherlv_23=','
 				{
-					newLeafNode(otherlv_17, grammarAccess.getDerivedExtraInvariantPatternAccess().getCommaKeyword_6_3_0());
+					newLeafNode(otherlv_23, grammarAccess.getDerivedExtraInvariantPatternAccess().getCommaKeyword_7_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFmParamsFormulaParameterParserRuleCall_6_3_1_0());
+							newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFmParamsFormulaParameterParserRuleCall_7_3_1_0());
 						}
-						lv_fmParams_18_0=ruleFormulaParameter
+						lv_fmParams_24_0=ruleFormulaParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
@@ -2968,7 +3207,7 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 							add(
 								$current,
 								"fmParams",
-								lv_fmParams_18_0,
+								lv_fmParams_24_0,
 								"su.nsk.iae.rpl.RPL.FormulaParameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -2976,21 +3215,21 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 				)
 			)*
 		)?
-		otherlv_19=')'
+		otherlv_25=')'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getDerivedExtraInvariantPatternAccess().getRightParenthesisKeyword_7());
+			newLeafNode(otherlv_25, grammarAccess.getDerivedExtraInvariantPatternAccess().getRightParenthesisKeyword_8());
 		}
 		(
-			otherlv_20='from'
+			otherlv_26='from'
 			{
-				newLeafNode(otherlv_20, grammarAccess.getDerivedExtraInvariantPatternAccess().getFromKeyword_8_0());
+				newLeafNode(otherlv_26, grammarAccess.getDerivedExtraInvariantPatternAccess().getFromKeyword_9_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFileFilePathParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFileFilePathParserRuleCall_9_1_0());
 					}
-					lv_file_21_0=ruleFilePath
+					lv_file_27_0=ruleFilePath
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
@@ -2998,7 +3237,7 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 						set(
 							$current,
 							"file",
-							lv_file_21_0,
+							lv_file_27_0,
 							"su.nsk.iae.rpl.RPL.FilePath");
 						afterParserOrEnumRuleCall();
 					}
@@ -3008,9 +3247,9 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getLemmasDerivedLemmasParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getLemmasDerivedLemmasParserRuleCall_10_0());
 				}
-				lv_lemmas_22_0=ruleDerivedLemmas
+				lv_lemmas_28_0=ruleDerivedLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
@@ -3018,15 +3257,15 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_22_0,
+						lv_lemmas_28_0,
 						"su.nsk.iae.rpl.RPL.DerivedLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_23=';'
+		otherlv_29=';'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getDerivedExtraInvariantPatternAccess().getSemicolonKeyword_10());
+			newLeafNode(otherlv_29, grammarAccess.getDerivedExtraInvariantPatternAccess().getSemicolonKeyword_11());
 		}
 	)
 ;
@@ -3729,14 +3968,25 @@ rulePrimaryTerm returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getPrimaryTermAccess().getConstantParserRuleCall_0());
-		}
-		this_Constant_0=ruleConstant
-		{
-			$current = $this_Constant_0.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPrimaryTermAccess().getConstConstantParserRuleCall_0_0());
+				}
+				lv_const_0_0=ruleConstant
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPrimaryTermRule());
+					}
+					set(
+						$current,
+						"const",
+						lv_const_0_0,
+						"su.nsk.iae.rpl.RPL.Constant");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
 		(
 			(
@@ -3789,14 +4039,25 @@ rulePrimaryTerm returns [EObject current=null]
 			}
 		)
 		    |
-		{
-			newCompositeNode(grammarAccess.getPrimaryTermAccess().getFunApplicationParserRuleCall_3());
-		}
-		this_FunApplication_6=ruleFunApplication
-		{
-			$current = $this_FunApplication_6.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPrimaryTermAccess().getFunAppFunApplicationParserRuleCall_3_0());
+				}
+				lv_funApp_6_0=ruleFunApplication
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPrimaryTermRule());
+					}
+					set(
+						$current,
+						"funApp",
+						lv_funApp_6_0,
+						"su.nsk.iae.rpl.RPL.FunApplication");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 		    |
 		(
 			otherlv_7='('

@@ -6,7 +6,7 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
 import su.nsk.iae.rpl.rPL.Term;
 
-public class PastRequirementPatternInstance extends Formula {
+public class PastRequirementPatternInstance extends InnerExtraInvariantFormula {
 	private PastRequirementPattern pattern;
 	private List<Term> cParams;
 	private List<FormulaParameterValue> fmParams;

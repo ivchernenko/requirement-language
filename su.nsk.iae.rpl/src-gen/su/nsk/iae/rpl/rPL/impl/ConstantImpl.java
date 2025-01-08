@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.NumericLiteral;
@@ -29,7 +30,7 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
  *
  * @generated
  */
-public class ConstantImpl extends PrimaryTermImpl implements Constant
+public class ConstantImpl extends MinimalEObjectImpl.Container implements Constant
 {
   /**
    * The cached value of the '{@link #getNum() <em>Num</em>}' containment reference.

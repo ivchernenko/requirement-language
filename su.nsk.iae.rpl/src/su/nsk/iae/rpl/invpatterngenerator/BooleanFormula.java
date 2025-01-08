@@ -1,22 +1,24 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class BooleanFormula extends Formula {
+import java.util.List;
+
+public class BooleanFormula extends OuterExtraInvariantFormula  {
 	private BooleanOperator operator;
-	private Formula left;
-	private Formula right;
+	private OuterExtraInvariantFormula left;
+	private OuterExtraInvariantFormula right;
 	
-	public BooleanFormula(BooleanOperator operator, Formula left, Formula right) {
+	public BooleanFormula(BooleanOperator operator, OuterExtraInvariantFormula left, OuterExtraInvariantFormula right) {
 		super();
 		this.operator = operator;
 		this.left = left;
 		this.right = right;
 	}
 	
-	public Formula getLeft() {
+	public OuterExtraInvariantFormula getLeft() {
 		return left;
 	}
 	
-	public Formula getRight() {
+	public OuterExtraInvariantFormula getRight() {
 		return right;
 	}
 	

@@ -1,6 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class NegationFormula extends Formula {
+public class NegationFormula extends OuterExtraInvariantFormula {
 	AtomicFormula atomic;
 
 	public AtomicFormula getAtomic() {

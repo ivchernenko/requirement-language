@@ -20,19 +20,19 @@ import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 public class ExtraInvariantPatternGenerator {
 	private FunctionalParameterList fnParamList = new FunctionalParameterList();
 	
-	public Formula generateFormula(su.nsk.iae.rpl.rPL.Formula reqFormula) {
-		Formula left = reqFormula.getLeft().generateFormula(this);
-		Formula right = reqFormula.getRight().generateFormula(this);
+	public OuterExtraInvariantFormula generateFormula(su.nsk.iae.rpl.rPL.Formula reqFormula) {
+		OuterExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
+		OuterExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
 		return new BooleanFormula(BooleanOperator.DISJUNCTION, left, right);
 	}
 	
-	public Formula generateFormula(ConjunctionFormula reqFormula) {
-		Formula left = reqFormula.getLeft().generateFormula(this);
-		Formula right = reqFormula.getRight().generateFormula(this);
+	public OuterExtraInvariantFormula generateFormula(ConjunctionFormula reqFormula) {
+		OuterExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
+		OuterExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
 		return new BooleanFormula(BooleanOperator.CONJUNCTION, left, right);
 	}
 	
-	public Formula generateFormula(PrimaryFormula reqFormula) {
+	public OuterExtraInvariantFormula generateFormula(PrimaryFormula reqFormula) {
 		var patternInst = reqFormula.getPatternInst();
 		if (patternInst != null) { // pattern instance
 			var pattern = patternInst.getPattern();
@@ -40,13 +40,13 @@ public class ExtraInvariantPatternGenerator {
 			InnerFormulaGenerator generator = new InnerFormulaGenerator(fnParamList);
 			for (var fmParam : patternInst.getFmParams()) {
 				var states = fmParam.getStates();
-				Formula extraInvariantFmParam = fmParam
+				OuterExtraInvariantFormula extraInvariantFmParam = fmParam
 						.getFormula().generateFormula(generator);
 				FormulaParameterValue val = new 
 						FormulaParameterValue(states, extraInvariantFmParam);
 				extraInvariantFmParams.add(val);
 			}
-			Formula mainConj = pattern.createOuterExtraInvPatternInstance(
+			OuterExtraInvariantFormula mainConj = pattern.createOuterExtraInvPatternInstance(
 					patternInst.getCParams(),
 					extraInvariantFmParams,
 					fnParamList

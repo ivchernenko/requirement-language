@@ -5,8 +5,6 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import su.nsk.iae.rpl.invpatterngenerator.Formula;
-import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.ConjunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -29,13 +27,7 @@ public class ConjunctionInnerFormulaImpl extends InnerFormulaImpl implements Con
     super();
   }
 
-  @Override
-public Formula generateFormula(InnerFormulaGenerator generator) {
-	// TODO Auto-generated method stub
-	return generator.generateInnerFormula(this);
-}
-
-/**
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

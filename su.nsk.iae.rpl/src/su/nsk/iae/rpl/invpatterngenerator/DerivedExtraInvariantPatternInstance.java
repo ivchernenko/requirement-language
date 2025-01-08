@@ -6,7 +6,7 @@ import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Term;
 
-public class DerivedExtraInvariantPatternInstance extends Formula {
+public class DerivedExtraInvariantPatternInstance extends OuterExtraInvariantFormula {
 	private DerivedExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;

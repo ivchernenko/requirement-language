@@ -13,8 +13,10 @@ package su.nsk.iae.rpl.rPL;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getConst <em>Const</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getVariable <em>Variable</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getState <em>State</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp <em>Fun App</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getNestedTerm <em>Nested Term</em>}</li>
  * </ul>
  *
@@ -24,6 +26,28 @@ package su.nsk.iae.rpl.rPL;
  */
 public interface PrimaryTerm extends UnaryTerm
 {
+  /**
+   * Returns the value of the '<em><b>Const</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Const</em>' containment reference.
+   * @see #setConst(Constant)
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getPrimaryTerm_Const()
+   * @model containment="true"
+   * @generated
+   */
+  Constant getConst();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getConst <em>Const</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Const</em>' containment reference.
+   * @see #getConst()
+   * @generated
+   */
+  void setConst(Constant value);
+
   /**
    * Returns the value of the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
@@ -67,6 +91,28 @@ public interface PrimaryTerm extends UnaryTerm
    * @generated
    */
   void setState(UpdateStateVariable value);
+
+  /**
+   * Returns the value of the '<em><b>Fun App</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fun App</em>' containment reference.
+   * @see #setFunApp(FunApplication)
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getPrimaryTerm_FunApp()
+   * @model containment="true"
+   * @generated
+   */
+  FunApplication getFunApp();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp <em>Fun App</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fun App</em>' containment reference.
+   * @see #getFunApp()
+   * @generated
+   */
+  void setFunApp(FunApplication value);
 
   /**
    * Returns the value of the '<em><b>Nested Term</b></em>' containment reference.

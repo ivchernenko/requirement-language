@@ -9,7 +9,7 @@ import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.Term;
 
 public class ExtraInvariantPatternInstanceFactory {
-	public static Formula generatePatternInstance(
+	public static OuterExtraInvariantFormula generatePatternInstance(
 			DerivedExtraInvariantPattern pattern, 
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,
@@ -24,7 +24,7 @@ public class ExtraInvariantPatternInstanceFactory {
 				fmParams);		
 	}
 	
-	public static Formula generatePatternInstance(
+	public static OuterExtraInvariantFormula generatePatternInstance(
 			FutureExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,
@@ -40,7 +40,7 @@ public class ExtraInvariantPatternInstanceFactory {
 				fmParams);	
 	}
 	
-	public static Formula generatePatternInstance(
+	public static OuterExtraInvariantFormula generatePatternInstance(
 			PastExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,

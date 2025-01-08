@@ -156,6 +156,13 @@ public class RPLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RPLPackage.SIMPLE_FORMULA_PARAMETER:
+      {
+        SimpleFormulaParameter simpleFormulaParameter = (SimpleFormulaParameter)theEObject;
+        T result = caseSimpleFormulaParameter(simpleFormulaParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RPLPackage.FUNCTIONAL_PARAMETER:
       {
         FunctionalParameter functionalParameter = (FunctionalParameter)theEObject;
@@ -415,16 +422,6 @@ public class RPLSwitch<T> extends Switch<T>
       {
         FunApplication funApplication = (FunApplication)theEObject;
         T result = caseFunApplication(funApplication);
-        if (result == null) result = casePrimaryTerm(funApplication);
-        if (result == null) result = caseUnaryTerm(funApplication);
-        if (result == null) result = casePowerTerm(funApplication);
-        if (result == null) result = caseMulTerm(funApplication);
-        if (result == null) result = caseAddTerm(funApplication);
-        if (result == null) result = caseCompareTerm(funApplication);
-        if (result == null) result = caseEqTerm(funApplication);
-        if (result == null) result = caseNegationTerm(funApplication);
-        if (result == null) result = caseConjunctionTerm(funApplication);
-        if (result == null) result = caseTerm(funApplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -432,16 +429,6 @@ public class RPLSwitch<T> extends Switch<T>
       {
         Constant constant = (Constant)theEObject;
         T result = caseConstant(constant);
-        if (result == null) result = casePrimaryTerm(constant);
-        if (result == null) result = caseUnaryTerm(constant);
-        if (result == null) result = casePowerTerm(constant);
-        if (result == null) result = caseMulTerm(constant);
-        if (result == null) result = caseAddTerm(constant);
-        if (result == null) result = caseCompareTerm(constant);
-        if (result == null) result = caseEqTerm(constant);
-        if (result == null) result = caseNegationTerm(constant);
-        if (result == null) result = caseConjunctionTerm(constant);
-        if (result == null) result = caseTerm(constant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -604,15 +591,6 @@ public class RPLSwitch<T> extends Switch<T>
         T result = caseConjunction(conjunction);
         if (result == null) result = caseConjunctionFormula(conjunction);
         if (result == null) result = caseFormula(conjunction);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RPLPackage.CONNUNCTION_INNER_FORMULA:
-      {
-        ConnunctionInnerFormula connunctionInnerFormula = (ConnunctionInnerFormula)theEObject;
-        T result = caseConnunctionInnerFormula(connunctionInnerFormula);
-        if (result == null) result = caseConjunctionInnerFormula(connunctionInnerFormula);
-        if (result == null) result = caseInnerFormula(connunctionInnerFormula);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -792,6 +770,22 @@ public class RPLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFormulaParameter(FormulaParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Formula Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Formula Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleFormulaParameter(SimpleFormulaParameter object)
   {
     return null;
   }
@@ -1608,22 +1602,6 @@ public class RPLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConjunction(Conjunction object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Connunction Inner Formula</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Connunction Inner Formula</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConnunctionInnerFormula(ConnunctionInnerFormula object)
   {
     return null;
   }

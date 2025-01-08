@@ -3,6 +3,7 @@
  */
 package su.nsk.iae.rpl.rPL;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package su.nsk.iae.rpl.rPL;
  * @model
  * @generated
  */
-public interface Constant extends PrimaryTerm
+public interface Constant extends EObject
 {
   /**
    * Returns the value of the '<em><b>Num</b></em>' containment reference.

@@ -3,6 +3,7 @@
  */
 package su.nsk.iae.rpl.rPL;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,13 +15,14 @@ package su.nsk.iae.rpl.rPL;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.FunApplication#getFnParam <em>Fn Param</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.FunApplication#getState <em>State</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.rpl.rPL.RPLPackage#getFunApplication()
  * @model
  * @generated
  */
-public interface FunApplication extends PrimaryTerm
+public interface FunApplication extends EObject
 {
   /**
    * Returns the value of the '<em><b>Fn Param</b></em>' reference.
@@ -43,5 +45,27 @@ public interface FunApplication extends PrimaryTerm
    * @generated
    */
   void setFnParam(FunctionalParameter value);
+
+  /**
+   * Returns the value of the '<em><b>State</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>State</em>' reference.
+   * @see #setState(UpdateStateVariable)
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getFunApplication_State()
+   * @model
+   * @generated
+   */
+  UpdateStateVariable getState();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.FunApplication#getState <em>State</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>State</em>' reference.
+   * @see #getState()
+   * @generated
+   */
+  void setState(UpdateStateVariable value);
 
 } // FunApplication

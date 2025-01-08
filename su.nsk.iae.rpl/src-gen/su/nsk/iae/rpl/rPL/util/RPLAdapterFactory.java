@@ -131,6 +131,11 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createFormulaParameterAdapter();
       }
       @Override
+      public Adapter caseSimpleFormulaParameter(SimpleFormulaParameter object)
+      {
+        return createSimpleFormulaParameterAdapter();
+      }
+      @Override
       public Adapter caseFunctionalParameter(FunctionalParameter object)
       {
         return createFunctionalParameterAdapter();
@@ -386,11 +391,6 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
         return createConjunctionAdapter();
       }
       @Override
-      public Adapter caseConnunctionInnerFormula(ConnunctionInnerFormula object)
-      {
-        return createConnunctionInnerFormulaAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -573,6 +573,21 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFormulaParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter <em>Simple Formula Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see su.nsk.iae.rpl.rPL.SimpleFormulaParameter
+   * @generated
+   */
+  public Adapter createSimpleFormulaParameterAdapter()
   {
     return null;
   }
@@ -1338,21 +1353,6 @@ public class RPLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConjunctionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link su.nsk.iae.rpl.rPL.ConnunctionInnerFormula <em>Connunction Inner Formula</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see su.nsk.iae.rpl.rPL.ConnunctionInnerFormula
-   * @generated
-   */
-  public Adapter createConnunctionInnerFormulaAdapter()
   {
     return null;
   }

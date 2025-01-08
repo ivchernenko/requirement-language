@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import su.nsk.iae.rpl.invpatterngenerator.Formula;
-import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.InnerFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -267,10 +265,5 @@ public class InnerFormulaImpl extends MinimalEObjectImpl.Container implements In
     }
     return super.eIsSet(featureID);
   }
-
-@Override
-public Formula generateFormula(InnerFormulaGenerator generator) {
-	return generator.generateInnerFormula(this);
-}
 
 } //InnerFormulaImpl

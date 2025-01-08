@@ -9,10 +9,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.RPLPackage;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,11 +25,12 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FunApplicationImpl#getFnParam <em>Fn Param</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.FunApplicationImpl#getState <em>State</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FunApplicationImpl extends PrimaryTermImpl implements FunApplication
+public class FunApplicationImpl extends MinimalEObjectImpl.Container implements FunApplication
 {
   /**
    * The cached value of the '{@link #getFnParam() <em>Fn Param</em>}' reference.
@@ -38,6 +41,16 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
    * @ordered
    */
   protected FunctionalParameter fnParam;
+
+  /**
+   * The cached value of the '{@link #getState() <em>State</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getState()
+   * @generated
+   * @ordered
+   */
+  protected UpdateStateVariable state;
 
   /**
    * <!-- begin-user-doc -->
@@ -111,6 +124,51 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
    * @generated
    */
   @Override
+  public UpdateStateVariable getState()
+  {
+    if (state != null && state.eIsProxy())
+    {
+      InternalEObject oldState = (InternalEObject)state;
+      state = (UpdateStateVariable)eResolveProxy(oldState);
+      if (state != oldState)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.FUN_APPLICATION__STATE, oldState, state));
+      }
+    }
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UpdateStateVariable basicGetState()
+  {
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setState(UpdateStateVariable newState)
+  {
+    UpdateStateVariable oldState = state;
+    state = newState;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.FUN_APPLICATION__STATE, oldState, state));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -118,6 +176,9 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
       case RPLPackage.FUN_APPLICATION__FN_PARAM:
         if (resolve) return getFnParam();
         return basicGetFnParam();
+      case RPLPackage.FUN_APPLICATION__STATE:
+        if (resolve) return getState();
+        return basicGetState();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -134,6 +195,9 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
     {
       case RPLPackage.FUN_APPLICATION__FN_PARAM:
         setFnParam((FunctionalParameter)newValue);
+        return;
+      case RPLPackage.FUN_APPLICATION__STATE:
+        setState((UpdateStateVariable)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -152,6 +216,9 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
       case RPLPackage.FUN_APPLICATION__FN_PARAM:
         setFnParam((FunctionalParameter)null);
         return;
+      case RPLPackage.FUN_APPLICATION__STATE:
+        setState((UpdateStateVariable)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -168,6 +235,8 @@ public class FunApplicationImpl extends PrimaryTermImpl implements FunApplicatio
     {
       case RPLPackage.FUN_APPLICATION__FN_PARAM:
         return fnParam != null;
+      case RPLPackage.FUN_APPLICATION__STATE:
+        return state != null;
     }
     return super.eIsSet(featureID);
   }

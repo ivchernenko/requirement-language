@@ -26,7 +26,6 @@ import su.nsk.iae.rpl.rPL.ConjunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionPatternFreeFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionTerm;
-import su.nsk.iae.rpl.rPL.ConnunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
@@ -75,6 +74,7 @@ import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RealLiteral;
 import su.nsk.iae.rpl.rPL.Requirement;
+import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UnMinus;
 import su.nsk.iae.rpl.rPL.UnaryTerm;
@@ -166,6 +166,13 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   private EClass formulaParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleFormulaParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -529,13 +536,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass connunctionInnerFormulaEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum eqPredicateEEnum = null;
 
   /**
@@ -744,7 +744,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getDerivedRequirementPattern_FmParams()
+  public EReference getDerivedRequirementPattern_SimpleFmParams()
   {
     return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(2);
   }
@@ -755,7 +755,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getDerivedRequirementPattern_Definition()
+  public EReference getDerivedRequirementPattern_SimpleFmParam()
   {
     return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(3);
   }
@@ -766,9 +766,9 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EAttribute getDerivedRequirementPattern_File()
+  public EReference getDerivedRequirementPattern_FmParams()
   {
-    return (EAttribute)derivedRequirementPatternEClass.getEStructuralFeatures().get(4);
+    return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -777,7 +777,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getDerivedRequirementPattern_ExtraInvPattern()
+  public EReference getDerivedRequirementPattern_Definition()
   {
     return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(5);
   }
@@ -788,9 +788,31 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
+  public EAttribute getDerivedRequirementPattern_File()
+  {
+    return (EAttribute)derivedRequirementPatternEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDerivedRequirementPattern_ExtraInvPattern()
+  {
+    return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getDerivedRequirementPattern_Lemmas()
   {
-    return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(6);
+    return (EReference)derivedRequirementPatternEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -901,6 +923,39 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
   public EAttribute getFormulaParameter_Name()
   {
     return (EAttribute)formulaParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSimpleFormulaParameter()
+  {
+    return simpleFormulaParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSimpleFormulaParameter_Name()
+  {
+    return (EAttribute)simpleFormulaParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSimpleFormulaParameter_Arity()
+  {
+    return (EAttribute)simpleFormulaParameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1327,7 +1382,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getBasicRequirementPatternInstance_FmParams()
+  public EReference getBasicRequirementPatternInstance_SimpleFmParams()
   {
     return (EReference)basicRequirementPatternInstanceEClass.getEStructuralFeatures().get(2);
   }
@@ -1338,7 +1393,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getBasicRequirementPatternInstance_FinState()
+  public EReference getBasicRequirementPatternInstance_FmParams()
   {
     return (EReference)basicRequirementPatternInstanceEClass.getEStructuralFeatures().get(3);
   }
@@ -1349,9 +1404,20 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getBasicRequirementPatternInstance_CurState()
+  public EReference getBasicRequirementPatternInstance_FinState()
   {
     return (EReference)basicRequirementPatternInstanceEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBasicRequirementPatternInstance_CurState()
+  {
+    return (EReference)basicRequirementPatternInstanceEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1712,7 +1778,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getDerivedExtraInvariantPattern_FmParams()
+  public EReference getDerivedExtraInvariantPattern_SimpleFmParams()
   {
     return (EReference)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(3);
   }
@@ -1723,9 +1789,31 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
+  public EReference getDerivedExtraInvariantPattern_SimpleFmParam()
+  {
+    return (EReference)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDerivedExtraInvariantPattern_FmParams()
+  {
+    return (EReference)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getDerivedExtraInvariantPattern_File()
   {
-    return (EAttribute)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1736,7 +1824,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
   @Override
   public EReference getDerivedExtraInvariantPattern_Lemmas()
   {
-    return (EReference)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(5);
+    return (EReference)derivedExtraInvariantPatternEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1932,7 +2020,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryTerm_Variable()
+  public EReference getPrimaryTerm_Const()
   {
     return (EReference)primaryTermEClass.getEStructuralFeatures().get(0);
   }
@@ -1943,7 +2031,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryTerm_State()
+  public EReference getPrimaryTerm_Variable()
   {
     return (EReference)primaryTermEClass.getEStructuralFeatures().get(1);
   }
@@ -1954,9 +2042,31 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryTerm_NestedTerm()
+  public EReference getPrimaryTerm_State()
   {
     return (EReference)primaryTermEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPrimaryTerm_FunApp()
+  {
+    return (EReference)primaryTermEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPrimaryTerm_NestedTerm()
+  {
+    return (EReference)primaryTermEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1979,6 +2089,17 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
   public EReference getFunApplication_FnParam()
   {
     return (EReference)funApplicationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFunApplication_State()
+  {
+    return (EReference)funApplicationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2801,17 +2922,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EClass getConnunctionInnerFormula()
-  {
-    return connunctionInnerFormulaEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EEnum getEqPredicate()
   {
     return eqPredicateEEnum;
@@ -2906,6 +3016,8 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     derivedRequirementPatternEClass = createEClass(DERIVED_REQUIREMENT_PATTERN);
     createEAttribute(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__NAME);
     createEReference(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__CPARAMS);
+    createEReference(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS);
+    createEReference(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM);
     createEReference(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__FM_PARAMS);
     createEReference(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__DEFINITION);
     createEAttribute(derivedRequirementPatternEClass, DERIVED_REQUIREMENT_PATTERN__FILE);
@@ -2927,6 +3039,10 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     formulaParameterEClass = createEClass(FORMULA_PARAMETER);
     createEAttribute(formulaParameterEClass, FORMULA_PARAMETER__NAME);
+
+    simpleFormulaParameterEClass = createEClass(SIMPLE_FORMULA_PARAMETER);
+    createEAttribute(simpleFormulaParameterEClass, SIMPLE_FORMULA_PARAMETER__NAME);
+    createEAttribute(simpleFormulaParameterEClass, SIMPLE_FORMULA_PARAMETER__ARITY);
 
     functionalParameterEClass = createEClass(FUNCTIONAL_PARAMETER);
     createEAttribute(functionalParameterEClass, FUNCTIONAL_PARAMETER__NAME);
@@ -2978,6 +3094,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     basicRequirementPatternInstanceEClass = createEClass(BASIC_REQUIREMENT_PATTERN_INSTANCE);
     createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__PATTERN);
     createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__CPARAMS);
+    createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__SIMPLE_FM_PARAMS);
     createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__FM_PARAMS);
     createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__FIN_STATE);
     createEReference(basicRequirementPatternInstanceEClass, BASIC_REQUIREMENT_PATTERN_INSTANCE__CUR_STATE);
@@ -3018,6 +3135,8 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     createEAttribute(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__NAME);
     createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__CPARAMS);
     createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__FN_PARAMS);
+    createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS);
+    createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM);
     createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS);
     createEAttribute(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__FILE);
     createEReference(derivedExtraInvariantPatternEClass, DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS);
@@ -3048,12 +3167,15 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     createEAttribute(unaryTermEClass, UNARY_TERM__UN_OP);
 
     primaryTermEClass = createEClass(PRIMARY_TERM);
+    createEReference(primaryTermEClass, PRIMARY_TERM__CONST);
     createEReference(primaryTermEClass, PRIMARY_TERM__VARIABLE);
     createEReference(primaryTermEClass, PRIMARY_TERM__STATE);
+    createEReference(primaryTermEClass, PRIMARY_TERM__FUN_APP);
     createEReference(primaryTermEClass, PRIMARY_TERM__NESTED_TERM);
 
     funApplicationEClass = createEClass(FUN_APPLICATION);
     createEReference(funApplicationEClass, FUN_APPLICATION__FN_PARAM);
+    createEReference(funApplicationEClass, FUN_APPLICATION__STATE);
 
     constantEClass = createEClass(CONSTANT);
     createEReference(constantEClass, CONSTANT__NUM);
@@ -3151,8 +3273,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     conjunctionEClass = createEClass(CONJUNCTION);
 
-    connunctionInnerFormulaEClass = createEClass(CONNUNCTION_INNER_FORMULA);
-
     // Create enums
     eqPredicateEEnum = createEEnum(EQ_PREDICATE);
     compPredicateEEnum = createEEnum(COMP_PREDICATE);
@@ -3217,8 +3337,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     powerTermEClass.getESuperTypes().add(this.getMulTerm());
     unaryTermEClass.getESuperTypes().add(this.getPowerTerm());
     primaryTermEClass.getESuperTypes().add(this.getUnaryTerm());
-    funApplicationEClass.getESuperTypes().add(this.getPrimaryTerm());
-    constantEClass.getESuperTypes().add(this.getPrimaryTerm());
     integerLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
     realLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
     conjunctionPatternFreeFormulaEClass.getESuperTypes().add(this.getPatternFreeFormula());
@@ -3229,7 +3347,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     conjunctionLemmaPremiseFormulaEClass.getESuperTypes().add(this.getDisjunctionLemmaPremiseFormula());
     primaryLemmaPremiseFormulaEClass.getESuperTypes().add(this.getConjunctionLemmaPremiseFormula());
     conjunctionEClass.getESuperTypes().add(this.getConjunctionFormula());
-    connunctionInnerFormulaEClass.getESuperTypes().add(this.getConjunctionInnerFormula());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3246,6 +3363,8 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEClass(derivedRequirementPatternEClass, DerivedRequirementPattern.class, "DerivedRequirementPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDerivedRequirementPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedRequirementPattern_CParams(), this.getConstantParameter(), null, "cParams", null, 0, -1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivedRequirementPattern_SimpleFmParams(), this.getSimpleFormulaParameter(), null, "simpleFmParams", null, 0, -1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivedRequirementPattern_SimpleFmParam(), this.getSimpleFormulaParameter(), null, "simpleFmParam", null, 0, -1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedRequirementPattern_FmParams(), this.getFormulaParameter(), null, "fmParams", null, 0, -1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedRequirementPattern_Definition(), this.getFormula(), null, "definition", null, 0, 1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDerivedRequirementPattern_File(), ecorePackage.getEString(), "file", null, 0, 1, DerivedRequirementPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3267,6 +3386,10 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     initEClass(formulaParameterEClass, FormulaParameter.class, "FormulaParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFormulaParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, FormulaParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleFormulaParameterEClass, SimpleFormulaParameter.class, "SimpleFormulaParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleFormulaParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, SimpleFormulaParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSimpleFormulaParameter_Arity(), ecorePackage.getEString(), "arity", null, 0, 1, SimpleFormulaParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionalParameterEClass, FunctionalParameter.class, "FunctionalParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunctionalParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionalParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3318,6 +3441,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEClass(basicRequirementPatternInstanceEClass, BasicRequirementPatternInstance.class, "BasicRequirementPatternInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBasicRequirementPatternInstance_Pattern(), this.getBasicRequirementPattern(), null, "pattern", null, 0, 1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasicRequirementPatternInstance_CParams(), this.getTerm(), null, "cParams", null, 0, -1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBasicRequirementPatternInstance_SimpleFmParams(), this.getPatternFreeFormula(), null, "simpleFmParams", null, 0, -1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasicRequirementPatternInstance_FmParams(), this.getFormulaParameterValue(), null, "fmParams", null, 0, -1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasicRequirementPatternInstance_FinState(), this.getUpdateStateVariable(), null, "finState", null, 0, 1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBasicRequirementPatternInstance_CurState(), this.getUpdateStateVariable(), null, "curState", null, 0, 1, BasicRequirementPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3358,6 +3482,8 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEAttribute(getDerivedExtraInvariantPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedExtraInvariantPattern_CParams(), this.getConstantParameter(), null, "cParams", null, 0, -1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedExtraInvariantPattern_FnParams(), this.getFunctionalParameter(), null, "fnParams", null, 0, -1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivedExtraInvariantPattern_SimpleFmParams(), this.getSimpleFormulaParameter(), null, "simpleFmParams", null, 0, -1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDerivedExtraInvariantPattern_SimpleFmParam(), this.getSimpleFormulaParameter(), null, "simpleFmParam", null, 0, -1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedExtraInvariantPattern_FmParams(), this.getFormulaParameter(), null, "fmParams", null, 0, -1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDerivedExtraInvariantPattern_File(), ecorePackage.getEString(), "file", null, 0, 1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDerivedExtraInvariantPattern_Lemmas(), this.getDerivedLemmas(), null, "lemmas", null, 0, 1, DerivedExtraInvariantPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3388,12 +3514,15 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEAttribute(getUnaryTerm_UnOp(), this.getUnMinus(), "unOp", null, 0, 1, UnaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(primaryTermEClass, PrimaryTerm.class, "PrimaryTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPrimaryTerm_Const(), this.getConstant(), null, "const", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_Variable(), this.getVariable(), null, "variable", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryTerm_FunApp(), this.getFunApplication(), null, "funApp", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_NestedTerm(), this.getTerm(), null, "nestedTerm", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(funApplicationEClass, FunApplication.class, "FunApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFunApplication_FnParam(), this.getFunctionalParameter(), null, "fnParam", null, 0, 1, FunApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunApplication_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, FunApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstant_Num(), this.getNumericLiteral(), null, "num", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3490,8 +3619,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEReference(getPastExtraInvariantPatternInstance_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, PastExtraInvariantPatternInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conjunctionEClass, Conjunction.class, "Conjunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(connunctionInnerFormulaEClass, ConnunctionInnerFormula.class, "ConnunctionInnerFormula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
     initEEnum(eqPredicateEEnum, EqPredicate.class, "EqPredicate");
