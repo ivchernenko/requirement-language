@@ -48,10 +48,11 @@ public class ExtraInvariantPatternInstanceFactory {
 				curState);	
 	}
 	
-	public static OuterExtraInvariantFormula generatePatternInstance(
+	public static PastExtraInvariantPatternInstance generatePatternInstance(
 			PastExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,
+			FunctionalParameter boolParam,
 			FunctionalParameterList fnParamList
 			) {
 		List<FunctionalParameter> original = pattern.getFnParams();
@@ -60,7 +61,8 @@ public class ExtraInvariantPatternInstanceFactory {
 		return new PastExtraInvariantPatternInstance(
 				pattern, 
 				cParams, 
-				fnParams, 
+				fnParams,
+				boolParam,
 				fmParams);	
 	}
 }

@@ -14,12 +14,13 @@ public class PastExtraInvariantPatternInstance extends OuterExtraInvariantFormul
 	private FunctionalParameter boolParam;
 	
 	public PastExtraInvariantPatternInstance(PastExtraInvariantPattern pattern, List<Term> cParams,
-			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams) {
+			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams, FunctionalParameter boolParam) {
 		super();
 		this.pattern = pattern;
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.fmParams = fmParams;
+		this.boolParam = boolParam;
 	}
 	
 	public FunctionalParameter getBoolParam() {

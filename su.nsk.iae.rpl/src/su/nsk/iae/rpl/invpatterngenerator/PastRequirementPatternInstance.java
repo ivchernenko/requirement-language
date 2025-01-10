@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
@@ -51,6 +52,19 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		this.boolParam = boolParam;
 		this.finState = finState;
 		this.curState = curState;
+	}
+
+	@Override
+	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+		List<OuterExtraInvariantFormula> extraConjList = new ArrayList<>();
+		PastExtraInvariantPatternInstance pastEinv = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
+				pattern.getExtraInvPattern(),
+				cParams, fmParams, boolParam, fnParamList);
+		Implication extraConj = new Implication(boolParam, pastEinv);
+		extraConjList.add(extraConj);
+		for (var fmParamValue: fmParams)
+			extraConjList.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
+		return extraConjList;
 	}
 	
 	

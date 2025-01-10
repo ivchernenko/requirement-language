@@ -59,9 +59,13 @@ public class ExtraInvariantPatternGenerator {
 						pastPattern.getExtraInvPattern(), 
 						patternInst.getCParams(),
 						transformedFmParams,
+						null,
 						fnParamList);
 			}
-					
+			List<OuterExtraInvariantFormula> extraConjs = new ArrayList<>();
+			for (var fmParamValue: transformedFmParams)
+				extraConjs.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
+			return new ExtendedInvariant(mainConj, extraConjs);		
 		}
 		else { // nested formula
 			return reqFormula.getNestedFormula().generateFormula(this);

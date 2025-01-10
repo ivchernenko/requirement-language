@@ -23,9 +23,9 @@ public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 		return right;
 	}
 	@Override
-	public List<OuterExtraInvariantFormula> generateExtraConjuncts() {
-		List<OuterExtraInvariantFormula> extraConjs = left.generateExtraConjuncts();
-		extraConjs.addAll(right.generateExtraConjuncts());
+	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+		List<OuterExtraInvariantFormula> extraConjs = left.generateExtraConjuncts(fnParamList);
+		extraConjs.addAll(right.generateExtraConjuncts(fnParamList));
 		return extraConjs;
 	}
 	

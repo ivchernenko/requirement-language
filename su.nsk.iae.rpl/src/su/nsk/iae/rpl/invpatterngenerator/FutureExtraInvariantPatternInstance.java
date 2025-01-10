@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
@@ -52,10 +53,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public List<OuterExtraInvariantFormula> generateExtraConjuncts() {
+	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
 		List<OuterExtraInvariantFormula> extraConjs = new ArrayList<>();
 		for (FormulaParameterValue fmParamValue: fmParams)
-			extraConjs.addAll(fmParamValue.getFormula().generateExtraConjuncts());
+			extraConjs.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
 		return extraConjs;
 	}
 	

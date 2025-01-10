@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface InnerExtraInvariantFormula {
-	default List<OuterExtraInvariantFormula> generateExtraConjuncts() {
+	default List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
 		return new ArrayList<>();
 	}
 
