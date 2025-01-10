@@ -1,14 +1,25 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
+import java.util.List;
 
-public class ExtraInvariantFormulaParameter extends InnerExtraInvariantFormula {
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+
+public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormula {
 	private final RegularFormulaParameter renamed;
 	private final RegularFormulaParameter original;
-	public ExtraInvariantFormulaParameter(RegularFormulaParameter renamed, RegularFormulaParameter original) {
+	private final List<UpdateStateVariable> states;
+	public List<UpdateStateVariable> getStates() {
+		return states;
+	}
+	public ExtraInvariantFormulaParameter(
+			RegularFormulaParameter renamed,
+			RegularFormulaParameter original,
+			List<UpdateStateVariable> states) {
 		super();
 		this.renamed = renamed;
 		this.original = original;
+		this.states = states;
 	}
 	public RegularFormulaParameter getRenamed() {
 		return renamed;

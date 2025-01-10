@@ -1,14 +1,11 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class InnerExtraInvariantFormula extends Formula {
-	
-	public InnerExtraInvariantFormula() {
-		arity = 2;
-	}
+import java.util.ArrayList;
+import java.util.List;
 
-	@Override
-	FormulaFactory createFactory() {
-		return new InnerFormulaFactory();
+public interface InnerExtraInvariantFormula {
+	default List<OuterExtraInvariantFormula> generateExtraConjuncts() {
+		return new ArrayList<>();
 	}
 
 }

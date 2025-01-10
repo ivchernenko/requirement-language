@@ -1,14 +1,5 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class FutureBoundIndependentFormula extends Formula {
+public interface FutureBoundIndependentFormula {
 	
-	FutureBoundIndependentFormula() {
-		arity = 1;
-	}
-
-	@Override
-	FormulaFactory createFactory() {
-		return new FutureBoundIndependentFormulaFactory();
-	}
-
 }

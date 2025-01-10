@@ -6,13 +6,16 @@ import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.Term;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ExtraInvariantPatternInstanceFactory {
 	public static OuterExtraInvariantFormula generatePatternInstance(
 			DerivedExtraInvariantPattern pattern, 
 			List<Term> cParams,
-			List<FormulaParameterValue> fmParams,
+			List<PatternFreeFormulaParameterValue> simpleFmParams,
+			List<FormulaParameterValue> regFmParams,
 			FunctionalParameterList fnParamList) {
 		List<FunctionalParameter> original = pattern.getFnParams();
 		List<FunctionalParameter> fnParams = fnParamList
@@ -21,13 +24,16 @@ public class ExtraInvariantPatternInstanceFactory {
 				pattern, 
 				cParams, 
 				fnParams, 
-				fmParams);		
+				simpleFmParams,
+				regFmParams);		
 	}
 	
-	public static OuterExtraInvariantFormula generatePatternInstance(
+	public static InnerExtraInvariantFormula generatePatternInstance(
 			FutureExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,
+			UpdateStateVariable finState,
+			UpdateStateVariable curState,
 			FunctionalParameterList fnParamList
 			) {
 		List<FunctionalParameter> original = pattern.getFnParams();
@@ -37,7 +43,9 @@ public class ExtraInvariantPatternInstanceFactory {
 				pattern, 
 				cParams, 
 				fnParams, 
-				fmParams);	
+				fmParams,
+				finState,
+				curState);	
 	}
 	
 	public static OuterExtraInvariantFormula generatePatternInstance(

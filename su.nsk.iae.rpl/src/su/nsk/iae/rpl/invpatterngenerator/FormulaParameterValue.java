@@ -17,7 +17,7 @@ public class FormulaParameterValue {
 	public List<UpdateStateVariable> getStates() {
 		return states;
 	}
-	public OuterExtraInvariantFormula getFormula() {
+	public InnerExtraInvariantFormula getFormula() {
 		return formula;
 	}
 }

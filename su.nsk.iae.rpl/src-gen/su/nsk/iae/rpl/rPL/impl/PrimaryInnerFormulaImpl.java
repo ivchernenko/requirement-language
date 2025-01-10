@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import su.nsk.iae.rpl.invpatterngenerator.Formula;
+import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.InnerFormula;
@@ -77,7 +77,7 @@ public class PrimaryInnerFormulaImpl extends ConjunctionInnerFormulaImpl impleme
   }
 
   @Override
-public Formula generateFormula(InnerFormulaGenerator generator) {
+public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
 	return generator.generateInnerFormula(this);
 }
 

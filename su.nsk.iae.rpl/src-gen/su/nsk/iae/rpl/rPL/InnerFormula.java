@@ -5,7 +5,7 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
-import su.nsk.iae.rpl.invpatterngenerator.Formula;
+import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 
 /**
@@ -71,6 +71,6 @@ public interface InnerFormula extends EObject
    */
   void setRight(InnerFormula value);
 
-Formula generateFormula(InnerFormulaGenerator generator);
+InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator);
 
 } // InnerFormula

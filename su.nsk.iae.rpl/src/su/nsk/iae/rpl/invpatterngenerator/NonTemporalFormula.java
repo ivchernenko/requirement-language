@@ -1,6 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class NonTemporalFormula extends Formula {
+public abstract class NonTemporalFormula extends Formula {
 	NonTemporalFormula() {
 		arity =0;
 	}

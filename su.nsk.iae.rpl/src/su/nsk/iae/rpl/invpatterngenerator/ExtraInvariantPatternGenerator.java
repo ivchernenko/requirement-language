@@ -1,6 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,21 +37,30 @@ public class ExtraInvariantPatternGenerator {
 		var patternInst = reqFormula.getPatternInst();
 		if (patternInst != null) { // pattern instance
 			var pattern = patternInst.getPattern();
-			List<FormulaParameterValue> extraInvariantFmParams = new ArrayList<>();
+			List<FormulaParameterValue> transformedFmParams = new ArrayList<>();
 			InnerFormulaGenerator generator = new InnerFormulaGenerator(fnParamList);
 			for (var fmParam : patternInst.getFmParams()) {
-				var states = fmParam.getStates();
-				Formula extraInvariantFmParam = fmParam
+				InnerExtraInvariantFormula extraInvFmParam = fmParam
 						.getFormula().generateFormula(generator);
-				FormulaParameterValue val = new 
-						FormulaParameterValue(states, extraInvariantFmParam);
-				extraInvariantFmParams.add(val);
+				FormulaParameterValue val = new FormulaParameterValue(fmParam.getStates(), extraInvFmParam);
+				transformedFmParams.add(val);
 			}
-			OuterExtraInvariantFormula mainConj = pattern.createOuterExtraInvPatternInstance(
-					patternInst.getCParams(),
-					extraInvariantFmParams,
-					fnParamList
-					);
+			OuterExtraInvariantFormula mainConj;
+			if (pattern instanceof DerivedRequirementPattern derivedPattern)
+				mainConj = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
+						derivedPattern.getExtraInvPattern(), 
+						patternInst.getCParams(),
+						patternInst.getSimpleFmParams(),
+						transformedFmParams,
+						fnParamList);
+			else {
+				PastRequirementPattern pastPattern = (PastRequirementPattern) pattern;
+				mainConj = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
+						pastPattern.getExtraInvPattern(), 
+						patternInst.getCParams(),
+						transformedFmParams,
+						fnParamList);
+			}
 					
 		}
 		else { // nested formula

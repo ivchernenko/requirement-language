@@ -16,5 +16,9 @@ public class FormulaApplicationToCurrent extends NonTemporalFormula {
 	public UpdateStateVariable getState() {
 		return state;
 	}
+	@Override
+	Formula lambdaAbstract(UpdateStateVariable variable, boolean finalState) {
+		return new CurrentStateLambdaAbstraction(this, variable);
+	}
 
 }

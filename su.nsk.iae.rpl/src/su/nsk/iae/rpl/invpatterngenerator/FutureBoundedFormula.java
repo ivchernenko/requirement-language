@@ -16,5 +16,14 @@ public class FutureBoundedFormula extends FutureBoundIndependentFormula {
 	public UpdateStateVariable getState() {
 		return state;
 	}
+	@Override
+	Formula lambdaAbstract(UpdateStateVariable variable, boolean finalState) {
+		if (state.equals(variable))
+			return formula; // eta conversion
+		else if (finalState)
+			return new FinalStateLambdaAbstraction(this, variable);
+		else
+			return new StateLambdaAbstraction(this, List.of(variable));
+	}
 
 }

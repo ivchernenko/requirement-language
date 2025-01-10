@@ -1,6 +1,8 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class InnerBooleanFormula extends InnerExtraInvariantFormula {
+import java.util.List;
+
+public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 	private final BooleanOperator operator;
 	private final InnerExtraInvariantFormula left;
 	private final InnerExtraInvariantFormula right;
@@ -19,6 +21,12 @@ public class InnerBooleanFormula extends InnerExtraInvariantFormula {
 	}
 	public InnerExtraInvariantFormula getRight() {
 		return right;
+	}
+	@Override
+	public List<OuterExtraInvariantFormula> generateExtraConjuncts() {
+		List<OuterExtraInvariantFormula> extraConjs = left.generateExtraConjuncts();
+		extraConjs.addAll(right.generateExtraConjuncts());
+		return extraConjs;
 	}
 	
 

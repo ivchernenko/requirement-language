@@ -1,5 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+
 public class NonTemporalBooleanFormula extends NonTemporalFormula {
 	private final BooleanOperator operator;
 	private final NonTemporalFormula  left;
@@ -18,6 +20,13 @@ public class NonTemporalBooleanFormula extends NonTemporalFormula {
 	}
 	public NonTemporalFormula getRight() {
 		return right;
+	}
+	@Override
+	Formula lambdaAbstract(UpdateStateVariable variable, boolean finalState) {
+		FutureBoundIndependentFormula aLeft = (FutureBoundIndependentFormula) 
+				left.lambdaAbstract(variable, finalState);
+		FutureBoundIndependentFormula aRight = (FutureBoundIndependentFormula) right.lambdaAbstract(variable, finalState);
+		return new FutureBoundIndependentBooleanFormula(operator, aLeft, aRight);
 	}
 	
 }
