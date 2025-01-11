@@ -5,6 +5,8 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import su.nsk.iae.rpl.invpatterngenerator.Term;
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.PowerTerm;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -27,7 +29,12 @@ public class PowerTermImpl extends MulTermImpl implements PowerTerm
     super();
   }
 
-  /**
+  @Override
+public Term convert(TermConverter converter) {
+	  return converter.convertTerm(this);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

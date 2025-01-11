@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.Term;
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.MulOperator;
 import su.nsk.iae.rpl.rPL.MulTerm;
 import su.nsk.iae.rpl.rPL.RPLPackage;
@@ -58,7 +60,12 @@ public class MulTermImpl extends AddTermImpl implements MulTerm
     super();
   }
 
-  /**
+  @Override
+public Term convert(TermConverter converter) {
+	  return converter.convertTerm(this);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

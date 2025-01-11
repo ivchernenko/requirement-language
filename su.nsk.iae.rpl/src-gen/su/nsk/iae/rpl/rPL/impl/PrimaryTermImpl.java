@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.PrimaryTerm;
@@ -98,7 +99,12 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
     super();
   }
 
-  /**
+  @Override
+public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) {
+	  return converter.convertTerm(this);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

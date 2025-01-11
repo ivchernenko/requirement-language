@@ -5,6 +5,8 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Term</b></em>'.
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Term extends EObject
 {
+	su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->

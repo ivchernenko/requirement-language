@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.Term;
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.EqPredicate;
 import su.nsk.iae.rpl.rPL.EqTerm;
 import su.nsk.iae.rpl.rPL.RPLPackage;
@@ -58,7 +60,12 @@ public class EqTermImpl extends NegationTermImpl implements EqTerm
     super();
   }
 
-  /**
+  @Override
+public Term convert(TermConverter converter) {
+	  return converter.convertTerm(this);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

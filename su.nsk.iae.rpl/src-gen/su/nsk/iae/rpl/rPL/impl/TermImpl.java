@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.Term;
 
@@ -61,7 +62,12 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
     super();
   }
 
-  /**
+  @Override
+public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) {
+	return converter.convertTerm(this);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

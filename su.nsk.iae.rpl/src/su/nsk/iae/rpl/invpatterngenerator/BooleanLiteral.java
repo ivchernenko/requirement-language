@@ -1,6 +1,9 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class BooleanLiteral implements InnerExtraInvariantFormula, FutureBoundIndependentFormula {
+import su.nsk.iae.rpl.rPL.ConstantParameter;
+import su.nsk.iae.rpl.rPL.FunctionalParameter;
+
+public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
@@ -15,4 +18,14 @@ public class BooleanLiteral implements InnerExtraInvariantFormula, FutureBoundIn
 		 if (isTrue) return TRUE;
 		 else return FALSE;
 	 }
+
+	@Override
+	public Term substrituteCParam(ConstantParameter param, Term value) {
+		return this;
+	}
+
+	@Override
+	public Term substituteFunctionalParameter(FunctionalParameter param, FunctionalParameter value) {
+		return this;
+	}
 }
