@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Map;
 import java.util.Objects;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
@@ -18,11 +19,12 @@ public class ConstParameter extends Term {
 	}
 
 	@Override
-	public Term substrituteCParam(ConstantParameter param, Term value) {
-		if (this.param.equals(param))
-			return value;
-		else 
-			return this;
+	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+		for (var paramValuePair: values.entrySet()) {
+			if (param.equals(paramValuePair.getKey()))
+				return paramValuePair.getValue();
+		}
+		return this;
 	}
 	
 	@Override
@@ -40,7 +42,7 @@ public class ConstParameter extends Term {
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(FunctionalParameter param, FunctionalParameter value) {
+	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return this;
 	}
 

@@ -1,5 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Map;
+
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 
@@ -23,16 +25,16 @@ public class CompoundTerm extends Term {
 		return right;
 	}
 	@Override
-	public Term substrituteCParam(ConstantParameter param, Term value) {
-		return new CompoundTerm(operator, left.substrituteCParam(param, value), right.substrituteCParam(param, value));
+	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+		return new CompoundTerm(operator, left.substrituteCParam(values), right.substrituteCParam(values));
 	}
 	@Override
-	public Term substituteFunctionalParameter(FunctionalParameter param, FunctionalParameter value) {
+	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return new CompoundTerm(
 				operator,
-				left.substituteFunctionalParameter(param, value),
-				right.substituteFunctionalParameter(param, value));
+				left.substituteFunctionalParameter(values),
+				right.substituteFunctionalParameter(values));
 	}
-	
+
 
 }

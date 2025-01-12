@@ -1,6 +1,9 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.List;
+import java.util.Map;
+
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 	private final BooleanOperator operator;
@@ -28,6 +31,19 @@ public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 		extraConjs.addAll(right.generateExtraConjuncts(fnParamList));
 		return extraConjs;
 	}
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		InnerExtraInvariantFormula rLeft = left.replaceStates(substitution);
+		InnerExtraInvariantFormula rRight = right.replaceStates(substitution);
+		return new InnerBooleanFormula(operator, rLeft, rRight);
+	}
+	@Override
+	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+		InnerExtraInvariantFormula aLeft = left.applyToStates(states);
+		InnerExtraInvariantFormula aRight = right.applyToStates(states);
+		return new InnerBooleanFormula(operator, aLeft, aRight);
+	}
+	
 	
 
 }

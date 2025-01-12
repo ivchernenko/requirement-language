@@ -2,6 +2,7 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.List;
 
-public class OuterExtraInvariantFormula {
+public abstract class OuterExtraInvariantFormula {
+	public abstract LS8LemmaPremise generateL8();
 	
 }

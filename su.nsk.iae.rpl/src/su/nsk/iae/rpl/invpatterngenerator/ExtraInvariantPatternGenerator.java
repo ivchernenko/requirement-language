@@ -24,13 +24,13 @@ public class ExtraInvariantPatternGenerator {
 	public OuterExtraInvariantFormula generateFormula(su.nsk.iae.rpl.rPL.Formula reqFormula) {
 		OuterExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
 		OuterExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
-		return new BooleanFormula(BooleanOperator.DISJUNCTION, left, right);
+		return new OuterBooleanFormula(BooleanOperator.DISJUNCTION, left, right);
 	}
 	
 	public OuterExtraInvariantFormula generateFormula(ConjunctionFormula reqFormula) {
 		OuterExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
 		OuterExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
-		return new BooleanFormula(BooleanOperator.CONJUNCTION, left, right);
+		return new OuterBooleanFormula(BooleanOperator.CONJUNCTION, left, right);
 	}
 	
 	public OuterExtraInvariantFormula generateFormula(PrimaryFormula reqFormula) {

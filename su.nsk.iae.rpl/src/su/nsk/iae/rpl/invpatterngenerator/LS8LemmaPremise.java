@@ -1,7 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public abstract class NonTemporalFormula extends Formula {
-	NonTemporalFormula() {
+public abstract class LS8LemmaPremise extends Formula {
+	LS8LemmaPremise() {
 		arity =0;
 	}
 

@@ -1,9 +1,13 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.List;
+import java.util.Map;
+
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula {
+public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula, LemmaPremise {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
@@ -20,12 +24,36 @@ public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, 
 	 }
 
 	@Override
-	public Term substrituteCParam(ConstantParameter param, Term value) {
+	public Term substrituteCParam(Map<ConstantParameter, Term> value) {
 		return this;
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(FunctionalParameter param, FunctionalParameter value) {
+	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return this;
+	}
+
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		return this;
+	}
+
+	@Override
+	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+		return this;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o==this) return true;
+		if (o == null) return false;
+		if (o.getClass() != this.getClass()) return false;
+		BooleanLiteral other = (BooleanLiteral) o;
+		return this.value == other.value;
+	}
+	
+	@Override
+	public int hashCode() {
+		return value ? 1 : 0;
 	}
 }

@@ -2,7 +2,7 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class FormulaApplicationToCurrent extends NonTemporalFormula {
+public class FormulaApplicationToCurrent extends LS8LemmaPremise {
 	private final FutureBoundIndependentFormula formula;
 	private final UpdateStateVariable state;
 	public FormulaApplicationToCurrent(FutureBoundIndependentFormula formula, UpdateStateVariable state) {

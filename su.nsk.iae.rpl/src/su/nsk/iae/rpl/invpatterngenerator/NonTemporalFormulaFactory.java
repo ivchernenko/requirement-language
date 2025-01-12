@@ -4,23 +4,23 @@ public class NonTemporalFormulaFactory implements FormulaFactory {
 
 	@Override
 	public Formula createDisjunction(Formula left, Formula right) {
-		NonTemporalFormula fbiLeft = (NonTemporalFormula) left;
-		NonTemporalFormula fbiRight = (NonTemporalFormula) right;
-		return new NonTemporalBooleanFormula(BooleanOperator.DISJUNCTION, fbiLeft, fbiRight);
+		LS8LemmaPremise fbiLeft = (LS8LemmaPremise) left;
+		LS8LemmaPremise fbiRight = (LS8LemmaPremise) right;
+		return new BooleanLemmaPremise(BooleanOperator.DISJUNCTION, fbiLeft, fbiRight);
 	}
 
 	@Override
 	public Formula createConjunction(Formula left, Formula right) {
-		NonTemporalFormula fbiLeft = (NonTemporalFormula) left;
-		NonTemporalFormula fbiRight = (NonTemporalFormula) right;
-		return new NonTemporalBooleanFormula(BooleanOperator.CONJUNCTION, fbiLeft, fbiRight);
+		LS8LemmaPremise fbiLeft = (LS8LemmaPremise) left;
+		LS8LemmaPremise fbiRight = (LS8LemmaPremise) right;
+		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, fbiLeft, fbiRight);
 
 	}
 
 	@Override
 	public Formula createNegation(Formula formula) {
-		NonTemporalFormula ntFormula = (NonTemporalFormula) formula;
-		return new NonTemporalNegationFormula(ntFormula);
+		LS8LemmaPremise ntFormula = (LS8LemmaPremise) formula;
+		return new NegationLemmaPremise(ntFormula);
 	}
 
 }
