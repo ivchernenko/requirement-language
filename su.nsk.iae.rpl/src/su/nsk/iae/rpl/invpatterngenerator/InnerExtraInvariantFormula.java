@@ -6,7 +6,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public interface InnerExtraInvariantFormula extends LemmaPremise {
+public interface InnerExtraInvariantFormula extends LS8LemmaPremise {
 	default List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
 		return new ArrayList<>();
 	}

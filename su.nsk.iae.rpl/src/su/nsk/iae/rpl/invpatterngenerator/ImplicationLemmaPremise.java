@@ -1,9 +1,9 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public class ImplicationLemmaPremise extends LemmaPremise {
+public class ImplicationLemmaPremise implements LS8LemmaPremise {
 	private final FunctionApplication left;
-	private final LemmaPremise right;
-	public ImplicationLemmaPremise(FunctionApplication left, LemmaPremise right) {
+	private final LS8LemmaPremise right;
+	public ImplicationLemmaPremise(FunctionApplication left, LS8LemmaPremise right) {
 		super();
 		this.left = left;
 		this.right = right;
@@ -11,7 +11,7 @@ public class ImplicationLemmaPremise extends LemmaPremise {
 	public FunctionApplication getLeft() {
 		return left;
 	}
-	public LemmaPremise getRight() {
+	public LS8LemmaPremise getRight() {
 		return right;
 	}
 }

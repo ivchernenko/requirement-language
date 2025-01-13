@@ -1,12 +1,10 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-import su.nsk.iae.rpl.rPL.UpdateStateVariable;
-
-public class BooleanLemmaPremise implements LemmaPremise {
+public class LS8BooleanLemmaPremise implements LS8LemmaPremise {
 	private final BooleanOperator operator;
-	private final LemmaPremise  left;
-	private final LemmaPremise right;
-	public BooleanLemmaPremise(BooleanOperator operator, LemmaPremise left, LemmaPremise right) {
+	private final LS8LemmaPremise  left;
+	private final LS8LemmaPremise right;
+	public LS8BooleanLemmaPremise(BooleanOperator operator, LS8LemmaPremise left, LS8LemmaPremise right) {
 		super();
 		this.operator = operator;
 		this.left = left;

@@ -5,8 +5,9 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
-import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
-import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
+import su.nsk.iae.rpl.invpatterngenerator.*;
+import su.nsk.iae.rpl.invpatterngenerator.LS8LemmaPremise;
+import su.nsk.iae.rpl.invpatterngenerator.LS8LemmaPremise;
 import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
 
 /**
@@ -28,7 +29,7 @@ import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
  */
 public interface LemmaPremiseFormula extends EObject
 {
-	public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, ParameterValueMap params);
+	public <T> T substitiuteParams(LemmaPremiseInstanceCreator<T> instCreator, ParameterValueMap params);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->

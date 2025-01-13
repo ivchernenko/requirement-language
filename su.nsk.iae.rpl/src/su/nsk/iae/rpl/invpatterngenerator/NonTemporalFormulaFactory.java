@@ -6,14 +6,14 @@ public class NonTemporalFormulaFactory implements FormulaFactory {
 	public Formula createDisjunction(Formula left, Formula right) {
 		LS8LemmaPremise fbiLeft = (LS8LemmaPremise) left;
 		LS8LemmaPremise fbiRight = (LS8LemmaPremise) right;
-		return new BooleanLemmaPremise(BooleanOperator.DISJUNCTION, fbiLeft, fbiRight);
+		return new LS8BooleanLemmaPremise(BooleanOperator.DISJUNCTION, fbiLeft, fbiRight);
 	}
 
 	@Override
 	public Formula createConjunction(Formula left, Formula right) {
 		LS8LemmaPremise fbiLeft = (LS8LemmaPremise) left;
 		LS8LemmaPremise fbiRight = (LS8LemmaPremise) right;
-		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, fbiLeft, fbiRight);
+		return new LS8BooleanLemmaPremise(BooleanOperator.CONJUNCTION, fbiLeft, fbiRight);
 
 	}
 

@@ -7,7 +7,7 @@ import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula, LemmaPremise {
+public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula, LS8LemmaPremise {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
