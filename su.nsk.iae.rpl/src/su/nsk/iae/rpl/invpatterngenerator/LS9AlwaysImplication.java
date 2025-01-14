@@ -2,10 +2,10 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class AlwaysImplication implements LS8LemmaPremise {
+public class LS9AlwaysImplication implements LS9LemmaPremise {
 	private final UpdateStateVariable state;
 	private final InnerExtraInvariantFormula left;
-	public AlwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left) {
+	public LS9AlwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left) {
 		super();
 		this.state = state;
 		this.left = left;
@@ -16,6 +16,4 @@ public class AlwaysImplication implements LS8LemmaPremise {
 	public InnerExtraInvariantFormula getLeft() {
 		return left;
 	}
-	
-
 }

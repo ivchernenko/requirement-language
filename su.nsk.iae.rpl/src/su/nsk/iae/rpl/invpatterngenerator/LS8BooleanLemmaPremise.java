@@ -19,5 +19,11 @@ public class LS8BooleanLemmaPremise implements LS8LemmaPremise {
 	public LS8LemmaPremise getRight() {
 		return right;
 	}
+	@Override
+	public LS8LemmaPremise replacePatterns() {
+		LS8LemmaPremise transformedLeft = left.replacePatterns();
+		LS8LemmaPremise transformedRight = right.replacePatterns();
+		return new LS8BooleanLemmaPremise(operator, transformedLeft, transformedRight);
+	}
 	
 }

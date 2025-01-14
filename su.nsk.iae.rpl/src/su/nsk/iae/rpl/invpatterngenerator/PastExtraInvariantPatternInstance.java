@@ -34,6 +34,10 @@ public class PastExtraInvariantPatternInstance implements LS8LemmaPremise {
 		this.state = state;
 	}
 	
+	PastExtraInvariantPatternInstance setState(UpdateStateVariable state) {
+		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, boolParam, state);
+	}
+	
 	public FunctionalParameter getBoolParam() {
 		return boolParam;
 	}

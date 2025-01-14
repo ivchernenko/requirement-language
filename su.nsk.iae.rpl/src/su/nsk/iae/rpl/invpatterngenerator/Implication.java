@@ -4,8 +4,8 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 
 public class Implication extends OuterExtraInvariantFormula {
 	FunctionalParameter left;
-	OuterExtraInvariantFormula right;
-	public Implication(FunctionalParameter left, OuterExtraInvariantFormula right) {
+	PastExtraInvariantPatternInstance right;
+	public Implication(FunctionalParameter left, PastExtraInvariantPatternInstance right) {
 		super();
 		this.left = left;
 		this.right = right;
@@ -13,7 +13,7 @@ public class Implication extends OuterExtraInvariantFormula {
 	public FunctionalParameter getLeft() {
 		return left;
 	}
-	public OuterExtraInvariantFormula getRight() {
+	public PastExtraInvariantPatternInstance getRight() {
 		return right;
 	}
 	

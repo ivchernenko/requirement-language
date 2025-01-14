@@ -5,7 +5,6 @@ import java.util.List;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
-import su.nsk.iae.rpl.rPL.Term;
 
 public class DerivedExtraInvariantPatternInstance extends OuterExtraInvariantFormula {
 	private final DerivedExtraInvariantPattern pattern;

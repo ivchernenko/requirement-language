@@ -6,6 +6,8 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -88,6 +90,14 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		else
 			newCurState = states.get(0);
 		return new FutureExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, newFinState, newCurState);
+	}
+
+	@Override
+	public LS8LemmaPremise replacePatterns() {
+		Lemma L = pattern.getLemmas().getL2();
+		LemmaPremiseFormula premise = L.getPrem();
+		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+		
 	}
 	
 	
