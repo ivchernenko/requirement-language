@@ -44,6 +44,17 @@ public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 		return new InnerBooleanFormula(operator, aLeft, aRight);
 	}
 	
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		LemmaPremise transformedLeft = left.replacePatternsForImplication(LS);
+		LemmaPremise transformedRight = right.replacePatternsForImplication(LS);
+		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
+	}
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return left.equalsToRequirementFormula() && right.equalsToRequirementFormula();
+	}
+	
 	
 
 }

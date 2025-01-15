@@ -2,7 +2,7 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class LS8AlwaysImplication implements LS8LemmaPremise {
+public class LS8AlwaysImplication implements LemmaPremise {
 	private final UpdateStateVariable state;
 	private final InnerExtraInvariantFormula left;
 	public LS8AlwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left) {
@@ -17,9 +17,7 @@ public class LS8AlwaysImplication implements LS8LemmaPremise {
 		return left;
 	}
 	@Override
-	public LS8LemmaPremise replacePatterns() {
-		return left.replacePatternsForImplicationL8();
+	public LemmaPremise replacePatterns() {
+		return left.replacePatternsForImplication();
 	}
-	
-
 }

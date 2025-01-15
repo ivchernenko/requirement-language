@@ -29,53 +29,43 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 		return extraConjs;
 	}
 	@Override
-	public LS8LemmaPremise generateL8() {
+	public LemmaPremise generateL8() {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L8 = pattern.getLemmas().getL8();
 		LemmaPremiseFormula premise = L8.getPrem();
 		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
-		ParameterValueMap params = createParameterMap(mainConj, L8);
-		LS8LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		ParameterValueMap params = new ParameterValueMap(
+				L8,
+				mainConj.getcParams(),
+				mainConj.getFnParams(),
+				mainConj.getSimpleFmParams(),
+				mainConj.getRegFmParams(),
+				null);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		UpdateStateVariable finalState = L8.getFinalState();
 		for (var conjunct: extraConjs) {
 			FunctionApplication left = new FunctionApplication(conjunct.getLeft(), finalState);
 			PastExtraInvariantPatternInstance right = conjunct.getRight().setState(finalState);
-			LS8ImplicationLemmaPremise extraConj = new LS8ImplicationLemmaPremise(left, right);
-			premiseInstance = new LS8BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
+			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
+			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
 		}
 		return premiseInstance.replacePatterns();
 	}
 
-	static ParameterValueMap createParameterMap(DerivedExtraInvariantPatternInstance mainConj, Lemma lemma) {
-		List<Term> cParamValues = mainConj.getcParams();
-		List<FunctionalParameter> fnParamValues = mainConj.getFnParams();
-		List<PatternFreeFormulaParameterValue> simpleFmParamValues = mainConj.getSimpleFmParams();
-		List<FormulaParameterValue> regFmParamValues = mainConj.getRegFmParams();
-		List<ConstantParameter> cVars = lemma.getCVars();
-		List<FunctionalParameter> fnVars = lemma.getFnVars();
-		List<SimpleFormulaParameter> simpleFmVars = lemma.getSimpleFmVars();
-		List<RegularFormulaParameter> regFmVars = lemma.getIfmVars();
-		Map<ConstantParameter, Term> cParams = new HashMap<>();
-		for (int i = 0; i < cVars.size(); i++)
-			cParams.put(cVars.get(i), cParamValues.get(i));
-		Map<FunctionalParameter, FunctionalParameter> fnParams = new HashMap<>();
-		for (int i = 0; i < fnVars.size(); i++)
-			fnParams.put(fnVars.get(i), fnParamValues.get(i));
-		Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams = new HashMap<>();
-		for (int i = 0; i< simpleFmVars.size(); i++)
-			simpleFmParams.put(simpleFmVars.get(i), simpleFmParamValues.get(i));
-		Map<RegularFormulaParameter, FormulaParameterValue> regFmParams = new HashMap<>();
-		for (int i = 0; i < regFmVars.size(); i++)
-			regFmParams.put(regFmVars.get(i), regFmParamValues.get(i));
-		return new ParameterValueMap(cParams, fnParams, simpleFmParams, regFmParams, null);
-	}
+
 	@Override
 	public LS9LemmaPremise generateL9() {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L9 = pattern.getLemmas().getL9();
 		LemmaPremiseFormula premise = L9.getPrem();
 		LS9LemmaPremiseInstanceCreator instCreator = new LS9LemmaPremiseInstanceCreator();
-		ParameterValueMap params = createParameterMap(mainConj, L9);
+		ParameterValueMap params = new ParameterValueMap(
+				L9,
+				mainConj.getcParams(),
+				mainConj.getFnParams(),
+				mainConj.getSimpleFmParams(),
+				mainConj.getRegFmParams(),
+				null);
 		LS9LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		return premiseInstance.replacePatterns();
 	}

@@ -7,7 +7,6 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
-import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ExtraInvariantPatternInstanceFactory {
@@ -62,7 +61,9 @@ public class ExtraInvariantPatternInstanceFactory {
 				pattern, 
 				cParams, 
 				fnParams,
+				fmParams,
 				boolParam,
-				fmParams);	
+				null,
+				false);	
 	}
 }

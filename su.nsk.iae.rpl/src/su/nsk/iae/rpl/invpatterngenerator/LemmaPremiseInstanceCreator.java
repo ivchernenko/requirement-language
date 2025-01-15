@@ -13,13 +13,15 @@ import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.NegationFormula;
+import su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public abstract class LemmaPremiseInstanceCreator<T> {
-	public T substituteParams(LemmaPremiseFormula premise, ParameterValueMap params) {
+public class LemmaPremiseInstanceCreator {
+	public LemmaPremise substituteParams(LemmaPremiseFormula premise, DerivedLemmaScheme LS,  ParameterValueMap params) {
 		FunApplication funApp = (FunApplication) premise.getLeft();
 		Map<FunctionalParameter, FunctionalParameter> fnParams = params.getFnParams();
 		FunctionalParameter fn = funApp.getFnParam();
@@ -27,23 +29,23 @@ public abstract class LemmaPremiseInstanceCreator<T> {
 			fn = fnParams.getOrDefault(fn, fn);
 		}
 		FunctionApplication left = new FunctionApplication(fn, funApp.getState());
-		T right = premise.getRight().substitiuteParams(this, params);
-		return implication(left, right);
+		LemmaPremise right = premise.getRight().substitiuteParams(this, LS,  params);
+		return new ImplicationLemmaPremise(left, right);
 	}
 	
-	public T substituteParams(DisjunctionLemmaPremiseFormula premise, ParameterValueMap params) {
-		T left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, params);
-		T right = premise.getRight().substitiuteParams(this, params);
-		return booleanLemmaPremise(BooleanOperator.DISJUNCTION, left, right);
+	public LemmaPremise substituteParams(DisjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
+		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
+		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
+		return new BooleanLemmaPremise(BooleanOperator.DISJUNCTION, left, right);
 	}
 	
-	public T substituteParams(ConjunctionLemmaPremiseFormula premise, ParameterValueMap params) {
-		T left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, params);
-		T right = premise.getRight().substitiuteParams(this, params);
-		return booleanLemmaPremise(BooleanOperator.CONJUNCTION, left, right);
+	public LemmaPremise substituteParams(ConjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
+		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
+		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
+		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, left, right);
 	}
 	
-	public T substituteParams(PrimaryLemmaPremiseFormula premise, ParameterValueMap params) {
+	public LemmaPremise substituteParams(PrimaryLemmaPremiseFormula premise, DerivedLemmaScheme LS,  ParameterValueMap params) {
 		if (premise.getAtomic() != null) {
 			su.nsk.iae.rpl.rPL.NegationFormula negFormula = premise.getAtomic();
 			return negation(negFormula, params);
@@ -52,14 +54,17 @@ public abstract class LemmaPremiseInstanceCreator<T> {
 			su.nsk.iae.rpl.rPL.AlwaysImplication alwaysImp = premise.getAlwaysImp();
 			AtomicFormula originalLeft = alwaysImp.getLeft().getFormula().getRight();
 			InnerExtraInvariantFormula instantiatedLeft = substituteParams(originalLeft, params);
-			return alwaysImplication(alwaysImp.getState(), instantiatedLeft);
+			if (LS == DerivedLemmaScheme.LS8)
+				return new LS8AlwaysImplication(alwaysImp.getState(), instantiatedLeft);
+			else
+				return new LS9AlwaysImplication(alwaysImp.getState(), instantiatedLeft);
 		}
 		else if (premise.getInst() != null) {
 			su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst = premise.getInst();
 			return pastExtraInvariantPatternInstance(patternInst, params);
 		}
 		else // nested formula
-			return premise.getNestedFormula().substitiuteParams(this, params);
+			return premise.getNestedFormula().substitiuteParams(this, LS, params);
 		
 	}
 	
@@ -108,11 +113,44 @@ public abstract class LemmaPremiseInstanceCreator<T> {
 		return null;
 	}
 	
-	abstract T booleanLemmaPremise(BooleanOperator operator, T left, T right);
-	abstract T implication(FunctionApplication left, T right);
-	abstract T negation(su.nsk.iae.rpl.rPL.NegationFormula formula, ParameterValueMap params);
-	abstract T alwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left);
-	abstract T pastExtraInvariantPatternInstance(su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst, ParameterValueMap params);
+	LemmaPremise negation(NegationFormula formula, ParameterValueMap params) {
+		AtomicFormula atomic = formula.getRight();
+		InnerExtraInvariantFormula atomicPremise = substituteParams(atomic, params);
+		if (formula.isNeg())
+			return new su.nsk.iae.rpl.invpatterngenerator.NegationFormula(atomicPremise);
+		else 
+			return atomicPremise;
+	}
 	
+	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
+			ParameterValueMap params) {
+		List<Term> cParams = new ArrayList<>();
+		Map<ConstantParameter, Term> cParamValues = params.getcParams();
+		for (ConstantParameter cParam: patternInst.getCParams()) {
+			Term value = cParamValues.get(cParam);
+			cParams.add(value);
+		}
+		List<FunctionalParameter> fnParams = new ArrayList<>();
+		Map<FunctionalParameter, FunctionalParameter> fnParamValues = params.getFnParams();
+		for (FunctionalParameter fnParam: patternInst.getFnParams()) {
+			FunctionalParameter value = fnParamValues.get(fnParam);
+			fnParams.add(value);
+		}
+		List<FormulaParameterValue> fmParams = new ArrayList<>();
+		Map<RegularFormulaParameter, FormulaParameterValue> fmParamValues = params.getRegFmParams();
+		for (RegularFormulaParameter fmParam: patternInst.getFmParams()) {
+			FormulaParameterValue value = fmParamValues.get(fmParam);
+			fmParams.add(value);
+		}
+		FunctionalParameter boolParam = params.getBoolParam();
+		return new su.nsk.iae.rpl.invpatterngenerator.PastExtraInvariantPatternInstance(
+				patternInst.getPattern(),
+				cParams,
+				fnParams,
+				fmParams,
+				boolParam,
+				patternInst.getState(),
+				false);
+	}	
 	
 }

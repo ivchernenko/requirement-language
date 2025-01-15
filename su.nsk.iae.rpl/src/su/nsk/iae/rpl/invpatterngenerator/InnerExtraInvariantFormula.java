@@ -6,12 +6,22 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public interface InnerExtraInvariantFormula extends LS8LemmaPremise {
+public interface InnerExtraInvariantFormula extends LemmaPremise {
 	default List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
 		return new ArrayList<>();
 	}
 
 	InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
 	InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states);
+
+	default LemmaPremise replacePatternsForImplication(DerivedLemmaScheme LS) {
+		if (this.equalsToRequirementFormula())
+			return BooleanLiteral.TRUE;
+		else return replacePatternsForNotIdenticallyTrueImplication(LS);
+	}
+
+	LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS);
+
+	boolean equalsToRequirementFormula();
 
 }

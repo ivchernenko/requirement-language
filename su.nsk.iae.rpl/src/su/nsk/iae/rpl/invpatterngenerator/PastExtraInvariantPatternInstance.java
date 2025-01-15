@@ -1,18 +1,22 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class PastExtraInvariantPatternInstance implements LS8LemmaPremise {
+public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	private PastExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;
 	private List<FormulaParameterValue> fmParams;
 	private FunctionalParameter boolParam;
 	private final UpdateStateVariable state;
+	private final boolean finState;
 	
 	public UpdateStateVariable getState() {
 		return state;
@@ -20,22 +24,23 @@ public class PastExtraInvariantPatternInstance implements LS8LemmaPremise {
 
 	public PastExtraInvariantPatternInstance(PastExtraInvariantPattern pattern, List<Term> cParams,
 			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams, FunctionalParameter boolParam) {
-		this(pattern, cParams, fnParams, fmParams, boolParam, null);
+		this(pattern, cParams, fnParams, fmParams, boolParam, null, false);
 	}
 	
 	public PastExtraInvariantPatternInstance(PastExtraInvariantPattern pattern, List<Term> cParams,
 			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams, FunctionalParameter boolParam,
-			UpdateStateVariable state) {
+			UpdateStateVariable state, boolean finState) {
 		this.pattern = pattern;
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.fmParams = fmParams;
 		this.boolParam = boolParam;
 		this.state = state;
+		this.finState = finState;
 	}
 	
-	PastExtraInvariantPatternInstance setState(UpdateStateVariable state) {
-		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, boolParam, state);
+	PastExtraInvariantPatternInstance setState(UpdateStateVariable state, boolean finState) {
+		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, boolParam, state, finState);
 	}
 	
 	public FunctionalParameter getBoolParam() {
@@ -61,6 +66,24 @@ public class PastExtraInvariantPatternInstance implements LS8LemmaPremise {
 	}
 	public List<FormulaParameterValue> getFmParams() {
 		return fmParams;
+	}
+	
+	public boolean isFinal() {
+		return finState;
+	}
+
+	@Override
+	public LemmaPremise replacePatterns() {
+		if (finState) {
+			Lemma L = pattern.getLemmas().getL6();
+			LemmaPremiseFormula premise = L.getPrem();
+			LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+			ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, boolParam);
+			LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+			return premiseInstance.replacePatterns();
+		}
+		else
+			return new FunctionApplication(boolParam, state);
 	}
 	
 }

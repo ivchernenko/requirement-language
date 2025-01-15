@@ -1,9 +1,13 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 
@@ -25,6 +29,34 @@ public class ParameterValueMap {
 		this.regFmParams = regFmParams;
 		this.boolParam = boolParam;
 	}
+	
+	 ParameterValueMap(
+			Lemma lemma,
+			List<Term> cParamValues,
+			List<FunctionalParameter> fnParamValues,
+			List<PatternFreeFormulaParameterValue> simpleFmParamValues,
+			List<FormulaParameterValue> regFmParamValues,
+			FunctionalParameter boolParam) {
+		List<ConstantParameter> cVars = lemma.getCVars();
+		List<FunctionalParameter> fnVars = lemma.getFnVars();
+		List<SimpleFormulaParameter> simpleFmVars = lemma.getSimpleFmVars();
+		List<RegularFormulaParameter> regFmVars = lemma.getIfmVars();
+		cParams = new HashMap<>();
+		for (int i = 0; i < cVars.size(); i++)
+			cParams.put(cVars.get(i), cParamValues.get(i));
+		fnParams = new HashMap<>();
+		for (int i = 0; i < fnVars.size(); i++)
+			fnParams.put(fnVars.get(i), fnParamValues.get(i));
+		simpleFmParams = new HashMap<>();
+		for (int i = 0; i< simpleFmVars.size(); i++)
+			simpleFmParams.put(simpleFmVars.get(i), simpleFmParamValues.get(i));
+		regFmParams = new HashMap<>();
+		for (int i = 0; i < regFmVars.size(); i++)
+			regFmParams.put(regFmVars.get(i), regFmParamValues.get(i));
+		this.boolParam = boolParam;
+	}
+	
+	
 	public Map<ConstantParameter, Term> getcParams() {
 		return cParams;
 	}

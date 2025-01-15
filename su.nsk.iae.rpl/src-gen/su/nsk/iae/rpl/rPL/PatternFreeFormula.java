@@ -5,6 +5,9 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
+import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
+import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern Free Formula</b></em>'.
@@ -67,5 +70,7 @@ public interface PatternFreeFormula extends EObject
    * @generated
    */
   void setRight(PatternFreeFormula value);
+
+InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator);
 
 } // PatternFreeFormula

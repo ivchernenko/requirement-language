@@ -13,6 +13,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.DerivedLemmaScheme;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
+import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -266,5 +270,11 @@ public class LemmaPremiseFormulaImpl extends MinimalEObjectImpl.Container implem
     }
     return super.eIsSet(featureID);
   }
+
+@Override
+public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, DerivedLemmaScheme scheme,
+		ParameterValueMap params) {
+	return instCreator.substituteParams(this, scheme, params);
+}
 
 } //LemmaPremiseFormulaImpl

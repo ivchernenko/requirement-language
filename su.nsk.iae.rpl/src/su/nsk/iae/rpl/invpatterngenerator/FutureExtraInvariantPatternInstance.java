@@ -8,7 +8,6 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
-import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantFormula {
@@ -93,11 +92,32 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LS8LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns() {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
 		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
-		
+		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns();
+	}
+
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
+		Lemma L;
+		if (LS == DerivedLemmaScheme.LS8)
+			L = pattern.getLemmas().getL1();
+		else
+			L =pattern.getLemmas().getL3();
+		LemmaPremiseFormula premise = L.getPrem();
+		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
+		return premiseInstance.replacePatterns();
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return false;
 	}
 	
 	

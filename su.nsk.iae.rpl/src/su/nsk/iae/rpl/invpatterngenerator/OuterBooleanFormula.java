@@ -25,10 +25,10 @@ public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
 	}
 
 	@Override
-	public LS8LemmaPremise generateL8() {
-		LS8LemmaPremise lpLeft = left.generateL8();
-		LS8LemmaPremise lpRight = right.generateL8();
-		return new LS8BooleanLemmaPremise(operator, lpLeft, lpRight);
+	public LemmaPremise generateL8() {
+		LemmaPremise lpLeft = left.generateL8();
+		LemmaPremise lpRight = right.generateL8();
+		return new BooleanLemmaPremise(operator, lpLeft, lpRight);
 	}
 
 	@Override

@@ -20,20 +20,20 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class LS8LemmaPremiseInstanceCreator extends LemmaPremiseInstanceCreator<LS8LemmaPremise> {
+public class LS8LemmaPremiseInstanceCreator extends LemmaPremiseInstanceCreator<LemmaPremise> {
 
 	@Override
-	LS8LemmaPremise booleanLemmaPremise(BooleanOperator operator, LS8LemmaPremise left, LS8LemmaPremise right) {
-		return new LS8BooleanLemmaPremise(operator, left, right);
+	LemmaPremise booleanLemmaPremise(BooleanOperator operator, LemmaPremise left, LemmaPremise right) {
+		return new BooleanLemmaPremise(operator, left, right);
 	}
 
 	@Override
-	LS8LemmaPremise implication(FunctionApplication left, LS8LemmaPremise right) {
-		return new LS8ImplicationLemmaPremise(left, right);
+	LemmaPremise implication(FunctionApplication left, LemmaPremise right) {
+		return new ImplicationLemmaPremise(left, right);
 	}
 
 	@Override
-	LS8LemmaPremise negation(NegationFormula formula, ParameterValueMap params) {
+	LemmaPremise negation(NegationFormula formula, ParameterValueMap params) {
 		AtomicFormula atomic = formula.getRight();
 		InnerExtraInvariantFormula atomicPremise = substituteParams(atomic, params);
 		if (formula.isNeg())
@@ -43,12 +43,12 @@ public class LS8LemmaPremiseInstanceCreator extends LemmaPremiseInstanceCreator<
 	}
 
 	@Override
-	LS8LemmaPremise alwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left) {
+	LemmaPremise alwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left) {
 		return new su.nsk.iae.rpl.invpatterngenerator.LS8AlwaysImplication(state, left);
 	}
 
 	@Override
-	LS8LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
+	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
 			ParameterValueMap params) {
 		List<Term> cParams = new ArrayList<>();
 		Map<ConstantParameter, Term> cParamValues = params.getcParams();

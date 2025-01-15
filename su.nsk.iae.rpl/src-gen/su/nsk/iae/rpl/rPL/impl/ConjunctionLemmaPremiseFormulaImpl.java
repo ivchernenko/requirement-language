@@ -5,6 +5,10 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import su.nsk.iae.rpl.invpatterngenerator.DerivedLemmaScheme;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
+import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -27,7 +31,13 @@ public class ConjunctionLemmaPremiseFormulaImpl extends DisjunctionLemmaPremiseF
     super();
   }
 
-  /**
+  @Override
+public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, DerivedLemmaScheme scheme,
+		ParameterValueMap params) {
+	return instCreator.substituteParams(this, scheme, params);
+}
+
+/**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

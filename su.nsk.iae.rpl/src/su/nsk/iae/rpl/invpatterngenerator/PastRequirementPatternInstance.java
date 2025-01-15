@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
-import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class PastRequirementPatternInstance implements InnerExtraInvariantFormula {
@@ -54,6 +55,11 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		this.finState = finState;
 		this.curState = curState;
 	}
+	
+	public PastRequirementPatternInstance(PastRequirementPattern pattern, List<Term> cParams,
+			List<FormulaParameterValue> fmParams, FunctionalParameter boolParam) {
+		this(pattern, cParams, fmParams, boolParam, null, null);
+	}
 
 	@Override
 	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
@@ -95,6 +101,40 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		else
 			newCurState = states.get(0);
 		return new PastRequirementPatternInstance(pattern, cParams, fmParams, boolParam, newFinState, newCurState);
+	}
+
+	@Override
+	public LemmaPremise replacePatterns() {
+		Lemma L = pattern.getLemmas().getL7();
+		LemmaPremiseFormula premise = L.getPrem();
+		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, boolParam);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns();		
+	}
+
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		Lemma L;
+		if (LS == DerivedLemmaScheme.LS8)
+			L = pattern.getLemmas().getL4();
+		else
+			L = pattern.getLemmas().getL5();
+		LemmaPremiseFormula premise = L.getPrem();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
+		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, boolParam);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
+		return premiseInstance.replacePatterns();
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		boolean equal = true;
+		for (FormulaParameterValue fmParam: fmParams) {
+			InnerExtraInvariantFormula formula = fmParam.getFormula();
+			equal = equal && formula.equalsToRequirementFormula();
+		}
+		return equal;
 	}
 	
 	

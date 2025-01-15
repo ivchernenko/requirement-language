@@ -19,5 +19,11 @@ public class LS9BooleanLemmaPremise implements LS9LemmaPremise {
 	public LS9LemmaPremise getRight() {
 		return right;
 	}
+	@Override
+	public LS9LemmaPremise replacePatterns() {
+		LS9LemmaPremise transformedLeft = left.replacePatterns();
+		LS9LemmaPremise transformedRight = right.replacePatterns();
+		return new LS9BooleanLemmaPremise(operator, transformedLeft, transformedRight);
+	}
 
 }
