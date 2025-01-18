@@ -20,10 +20,17 @@ public class BooleanLemmaPremise implements LemmaPremise {
 		return right;
 	}
 	@Override
-	public LemmaPremise replacePatterns() {
-		LemmaPremise transformedLeft = left.replacePatterns();
-		LemmaPremise transformedRight = right.replacePatterns();
+	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
+		LemmaPremise transformedLeft = left.replacePatterns(LS);
+		LemmaPremise transformedRight = right.replacePatterns(LS);
 		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right).append(')')
+				.toString();
 	}
 	
 }

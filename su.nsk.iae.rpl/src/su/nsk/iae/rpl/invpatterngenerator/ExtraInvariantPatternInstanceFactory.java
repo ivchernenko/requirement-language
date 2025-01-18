@@ -10,10 +10,10 @@ import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ExtraInvariantPatternInstanceFactory {
-	public static OuterExtraInvariantFormula generatePatternInstance(
+	public static DerivedExtraInvariantPatternInstance generatePatternInstance(
 			DerivedExtraInvariantPattern pattern, 
 			List<Term> cParams,
-			List<PatternFreeFormulaParameterValue> simpleFmParams,
+			List<FormulaParameterValue> simpleFmParams,
 			List<FormulaParameterValue> regFmParams,
 			FunctionalParameterList fnParamList) {
 		List<FunctionalParameter> original = pattern.getFnParams();

@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +27,8 @@ public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 		return right;
 	}
 	@Override
-	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<OuterExtraInvariantFormula> extraConjs = left.generateExtraConjuncts(fnParamList);
+	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+		List<Implication> extraConjs = left.generateExtraConjuncts(fnParamList);
 		extraConjs.addAll(right.generateExtraConjuncts(fnParamList));
 		return extraConjs;
 	}
@@ -54,7 +55,18 @@ public class InnerBooleanFormula implements InnerExtraInvariantFormula {
 	public boolean equalsToRequirementFormula() {
 		return left.equalsToRequirementFormula() && right.equalsToRequirementFormula();
 	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = left.getUsedPatternNames();
+		usedPatterns.addAll(right.getUsedPatternNames());
+		return usedPatterns;
+	}
 	
-	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right).append(')')
+				.toString();
+	}
 
 }

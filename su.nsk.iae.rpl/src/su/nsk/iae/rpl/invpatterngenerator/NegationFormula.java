@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,28 @@ public class NegationFormula implements InnerExtraInvariantFormula  {
 	@Override
 	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
 		return new NegationFormula(formula.applyToStates(states));
+	}
+
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		return this;
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return true;
+	}
+
+	@Override
+	public List<String> getUsedPatternNames() {
+		return new ArrayList<>();
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append("(\\<not> ").append(formula).append(')')
+				.toString();
 	}
 
 }

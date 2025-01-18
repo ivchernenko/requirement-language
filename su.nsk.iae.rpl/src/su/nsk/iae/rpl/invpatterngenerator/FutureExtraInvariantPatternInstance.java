@@ -55,8 +55,8 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<OuterExtraInvariantFormula> extraConjs = new ArrayList<>();
+	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+		List<Implication> extraConjs = new ArrayList<>();
 		for (FormulaParameterValue fmParamValue: fmParams)
 			extraConjs.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
 		return extraConjs;
@@ -92,13 +92,13 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
-		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
+		return premiseInstance.replacePatterns(LS);
 	}
 
 	@Override
@@ -112,12 +112,41 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		LemmaPremiseFormula premise = L.getPrem();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(LS);
 	}
 
 	@Override
 	public boolean equalsToRequirementFormula() {
 		return false;
+	}
+
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue param: fmParams) {
+			InnerExtraInvariantFormula formula = param.getFormula();
+			usedPatterns.addAll(formula.getUsedPatternNames());
+		}
+		return usedPatterns;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append('(').append(pattern.getName());
+		for (Term cParam: cParams)
+			stringBuilder.append(' ').append(cParam);
+		for (FunctionalParameter fnParam: fnParams)
+			stringBuilder.append(' ').append(fnParam.getName());
+		for (FormulaParameterValue fmParam: fmParams)
+			stringBuilder.append(' ').append(fmParam);
+		if (finState != null)
+			stringBuilder.append(' ').append(finState.getName());
+		if (curState != null)
+			stringBuilder.append(' ').append(curState.getName());
+		stringBuilder.append(')');
+		return stringBuilder.toString();
 	}
 	
 	

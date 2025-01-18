@@ -4,6 +4,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class NumericConstant extends Term {
 	private final Number number;
@@ -25,6 +26,16 @@ public class NumericConstant extends Term {
 	@Override
 	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return this;
+	}
+
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		return this;
+	}
+	
+	@Override
+	public String toString() {
+		return number.toString();
 	}
 
 	

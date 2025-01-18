@@ -5,7 +5,7 @@ package su.nsk.iae.rpl.rPL;
 
 import org.eclipse.emf.ecore.EObject;
 
-import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.OuterFormulaGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 
 /**
@@ -71,6 +71,6 @@ public interface Formula extends EObject
    */
   void setRight(Formula value);
 
-OuterExtraInvariantFormula generateFormula(ExtraInvariantPatternGenerator generator);
+OuterExtraInvariantFormula generateFormula(OuterFormulaGenerator generator);
 
 } // Formula

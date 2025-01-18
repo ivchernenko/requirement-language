@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ConstParameter extends Term {
 	private final ConstantParameter param;
@@ -44,6 +45,16 @@ public class ConstParameter extends Term {
 	@Override
 	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return this;
+	}
+
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		return this;
+	}
+	
+	@Override
+	public String toString() {
+		return param.getName();
 	}
 
 }

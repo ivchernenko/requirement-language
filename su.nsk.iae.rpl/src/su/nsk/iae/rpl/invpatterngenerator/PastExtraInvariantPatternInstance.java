@@ -1,6 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
@@ -73,17 +74,43 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
 		if (finState) {
 			Lemma L = pattern.getLemmas().getL6();
 			LemmaPremiseFormula premise = L.getPrem();
-			LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+			LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 			ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, boolParam);
-			LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-			return premiseInstance.replacePatterns();
+			LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
+			return premiseInstance.replacePatterns(LS);
 		}
 		else
 			return new FunctionApplication(boolParam, state);
+	}
+
+	public Collection<? extends String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue param: fmParams) {
+			InnerExtraInvariantFormula formula = param.getFormula();
+			usedPatterns.addAll(formula.getUsedPatternNames());
+		}
+		return usedPatterns;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append('(').append(pattern.getName());
+		for (Term cParam: cParams)
+			stringBuilder.append(' ').append(cParam);
+		for (FunctionalParameter fnParam: fnParams)
+			stringBuilder.append(' ').append(fnParam);
+		for (FormulaParameterValue fmParam: fmParams)
+			stringBuilder.append(' ').append(fmParam);
+		if (state != null)
+			stringBuilder.append(' ').append(state.getName());
+		stringBuilder.append(')');
+		return stringBuilder.toString();
 	}
 	
 }

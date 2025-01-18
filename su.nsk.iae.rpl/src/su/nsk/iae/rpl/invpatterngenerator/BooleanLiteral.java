@@ -7,7 +7,7 @@ import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, FutureBoundIndependentFormula, LemmaPremise {
+public class BooleanLiteral extends Term implements InnerExtraInvariantFormula {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
@@ -55,5 +55,20 @@ public class BooleanLiteral extends Term implements InnerExtraInvariantFormula, 
 	@Override
 	public int hashCode() {
 		return value ? 1 : 0;
+	}
+
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		return this;
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return value ? "True" : "False";
 	}
 }

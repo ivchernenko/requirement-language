@@ -20,4 +20,19 @@ public class FormulaParameterValue {
 	public InnerExtraInvariantFormula getFormula() {
 		return formula;
 	}
+	
+	@Override
+	public String toString() {
+		if (states == null || states.isEmpty())
+			return formula.toString();
+		else {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append("(\\<lambda> ");
+			for (UpdateStateVariable state: states)
+				stringBuilder.append(state.getName()).append(' ');
+			stringBuilder.append(". ");
+			stringBuilder.append(formula);
+			return stringBuilder.toString();
+		}
+	}
 }

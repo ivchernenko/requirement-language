@@ -1,5 +1,9 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.List;
+
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+
 public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
 	private BooleanOperator operator;
 	private OuterExtraInvariantFormula left;
@@ -32,13 +36,50 @@ public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
 	}
 
 	@Override
-	public LS9LemmaPremise generateL9() {
-		LS9LemmaPremise lpLeft = left.generateL9();
-		LS9LemmaPremise lpRight = right.generateL9();
-		return new LS9BooleanLemmaPremise(operator, lpLeft, lpRight);
+	public LemmaPremise generateL9() {
+		LemmaPremise lpLeft = left.generateL9();
+		LemmaPremise lpRight = right.generateL9();
+		return new BooleanLemmaPremise(operator, lpLeft, lpRight);
+	}
+
+	@Override
+	protected List<String> getUsedPatternNames() {
+		List<String> usedPatterns = left.getUsedPatternNames();
+		usedPatterns.addAll(right.getUsedPatternNames());
+		return usedPatterns;		
 	}
 	
-	
+
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder("(");
+		String operatorRep = null;
+		switch (operator) {
+		case DISJUNCTION: operatorRep = "\\<or>"; break;
+		case CONJUNCTION: operatorRep = "\\<and>"; break;
+		}
+		return stringBuilder
+		.append(left.toString())
+		.append(" " + operatorRep + " ")
+		.append(right.toString())
+		.append(")")
+		.toString();
+	}
+
+	@Override
+	public String convertToString(UpdateStateVariable finalState) {
+		StringBuilder stringBuilder = new StringBuilder("(");
+		String operatorRep = null;
+		switch (operator) {
+		case DISJUNCTION: operatorRep = "\\<or>"; break;
+		case CONJUNCTION: operatorRep = "\\<and>"; break;
+		}
+		return stringBuilder
+		.append(left.convertToString(finalState))
+		.append(" " + operatorRep + " ")
+		.append(right.convertToString(finalState))
+		.append(")")
+		.toString();
+	}
 	
 
 }

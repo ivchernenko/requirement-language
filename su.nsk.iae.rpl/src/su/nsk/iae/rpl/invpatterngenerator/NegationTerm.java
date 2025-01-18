@@ -4,6 +4,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class NegationTerm extends Term {
 	private final Term term;
@@ -25,6 +26,19 @@ public class NegationTerm extends Term {
 	@Override
 	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
 		return new NegationTerm(term.substituteFunctionalParameter(values));
+	}
+
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		Term newTerm = (Term) term.replaceStates(substitution);
+		return new NegationTerm(newTerm);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append("(\\<not> ").append(term).append(')')
+				.toString();
 	}
 	
 }

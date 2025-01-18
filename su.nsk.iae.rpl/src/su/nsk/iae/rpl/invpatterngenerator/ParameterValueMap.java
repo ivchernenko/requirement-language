@@ -34,7 +34,7 @@ public class ParameterValueMap {
 			Lemma lemma,
 			List<Term> cParamValues,
 			List<FunctionalParameter> fnParamValues,
-			List<PatternFreeFormulaParameterValue> simpleFmParamValues,
+			List<FormulaParameterValue> simpleFmParamValues,
 			List<FormulaParameterValue> regFmParamValues,
 			FunctionalParameter boolParam) {
 		List<ConstantParameter> cVars = lemma.getCVars();
@@ -56,7 +56,6 @@ public class ParameterValueMap {
 		this.boolParam = boolParam;
 	}
 	
-	
 	public Map<ConstantParameter, Term> getcParams() {
 		return cParams;
 	}
@@ -72,7 +71,4 @@ public class ParameterValueMap {
 	public FunctionalParameter getBoolParam() {
 		return boolParam;
 	}
-	
-	
-
 }

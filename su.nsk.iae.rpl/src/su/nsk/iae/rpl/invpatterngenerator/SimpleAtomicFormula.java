@@ -46,4 +46,33 @@ public class SimpleAtomicFormula implements InnerExtraInvariantFormula {
 		newStates.addAll(states);
 		return new SimpleAtomicFormula(fmParam, newStates);
 	}
+
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		return this;
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return true;
+	}
+
+	@Override
+	public List<String> getUsedPatternNames() {
+		return new ArrayList<>();
+	}
+	
+	@Override
+	public String toString() {
+		if (states == null || states.isEmpty())
+			return fmParam.getName();
+		else {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append('(').append(fmParam.getName());
+			for (UpdateStateVariable state: states)
+				stringBuilder.append(' ').append(state);
+			stringBuilder.append(')');
+			return stringBuilder.toString();
+		}
+	}
 }

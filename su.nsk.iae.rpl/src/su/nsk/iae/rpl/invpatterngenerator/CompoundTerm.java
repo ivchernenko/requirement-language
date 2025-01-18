@@ -1,9 +1,11 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.List;
 import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class CompoundTerm extends Term {
 	private final Operator operator;
@@ -35,6 +37,17 @@ public class CompoundTerm extends Term {
 				left.substituteFunctionalParameter(values),
 				right.substituteFunctionalParameter(values));
 	}
-
-
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		Term newLeft = (Term) left.replaceStates(substitution);
+		Term newRight = (Term) right.replaceStates(substitution);
+		return new CompoundTerm(operator, newLeft, newRight);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right).append(')')
+				.toString();
+	}
 }

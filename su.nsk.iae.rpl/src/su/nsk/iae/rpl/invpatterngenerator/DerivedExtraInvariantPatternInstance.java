@@ -1,23 +1,25 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class DerivedExtraInvariantPatternInstance extends OuterExtraInvariantFormula {
+public class DerivedExtraInvariantPatternInstance {
 	private final DerivedExtraInvariantPattern pattern;
 	private final List<Term> cParams;
 	private final List<FunctionalParameter> fnParams;
-	private final List<PatternFreeFormulaParameterValue> simpleFmParams;
+	private final List<FormulaParameterValue> simpleFmParams;
 	private List<FormulaParameterValue> regFmParams;
 	
 	public DerivedExtraInvariantPatternInstance(
 			DerivedExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FunctionalParameter> fnParams,
-			List<PatternFreeFormulaParameterValue> simpleFmParams,
+			List<FormulaParameterValue> simpleFmParams,
 			List<FormulaParameterValue> fmParams) {
 		super();
 		this.pattern = pattern;
@@ -47,8 +49,33 @@ public class DerivedExtraInvariantPatternInstance extends OuterExtraInvariantFor
 		return fnParams;
 	}
 
-	public List<PatternFreeFormulaParameterValue> getSimpleFmParams() {
+	public List<FormulaParameterValue> getSimpleFmParams() {
 		return simpleFmParams;
+	}
+
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue param: regFmParams) {
+			InnerExtraInvariantFormula formula = param.getFormula();
+			usedPatterns.addAll(formula.getUsedPatternNames());
+		}
+		return usedPatterns;
+	}
+
+	public String convertToString(UpdateStateVariable finalState) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append('(').append(pattern.getName());
+		for (Term cParam: cParams)
+			stringBuilder.append(' ').append(cParam);
+		for (FunctionalParameter fnParam: fnParams)
+			stringBuilder.append(' ').append(fnParam);
+		for (FormulaParameterValue fmParam: simpleFmParams)
+			stringBuilder.append(' ').append(fmParam.toString());
+		for (FormulaParameterValue fmParam: regFmParams)
+			stringBuilder.append(' ').append(fmParam.toString());
+		stringBuilder.append(' ').append(finalState.getName());
+		return stringBuilder.toString();
 	}
 	
 

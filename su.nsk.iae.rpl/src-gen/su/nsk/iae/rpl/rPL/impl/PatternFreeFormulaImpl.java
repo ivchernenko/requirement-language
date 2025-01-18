@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
+import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.PatternFreeFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -265,5 +267,10 @@ public class PatternFreeFormulaImpl extends MinimalEObjectImpl.Container impleme
     }
     return super.eIsSet(featureID);
   }
+
+@Override
+public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
+	return generator.generatePatternFreeFormula(this);
+}
 
 } //PatternFreeFormulaImpl

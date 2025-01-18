@@ -54,8 +54,11 @@ public class LemmaPremiseInstanceCreator {
 			su.nsk.iae.rpl.rPL.AlwaysImplication alwaysImp = premise.getAlwaysImp();
 			AtomicFormula originalLeft = alwaysImp.getLeft().getFormula().getRight();
 			InnerExtraInvariantFormula instantiatedLeft = substituteParams(originalLeft, params);
-			if (LS == DerivedLemmaScheme.LS8)
-				return new LS8AlwaysImplication(alwaysImp.getState(), instantiatedLeft);
+			if (LS == DerivedLemmaScheme.LS8) {
+				AtomicFormula originalRight = alwaysImp.getRight().getFormula().getRight();
+				InnerExtraInvariantFormula instantiatedRight = substituteParams(originalRight, params);
+				return new LS8AlwaysImplication(alwaysImp.getState(), instantiatedLeft, instantiatedRight);
+			}
 			else
 				return new LS9AlwaysImplication(alwaysImp.getState(), instantiatedLeft);
 		}

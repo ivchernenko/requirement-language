@@ -2,6 +2,7 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.BasicRequirementPattern;
@@ -24,10 +25,13 @@ import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public class InnerFormulaGenerator {
 	FunctionalParameterList fnParamList;
+	Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParamMapping;
 
-	public InnerFormulaGenerator(FunctionalParameterList fnParamList) {
+	public InnerFormulaGenerator(FunctionalParameterList fnParamList,
+			Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParams) {
 		super();
 		this.fnParamList = fnParamList;
+		regParamMapping = regParams;
 	}
 
 	public InnerExtraInvariantFormula generateInnerFormula(InnerFormula reqFormula) {
@@ -93,19 +97,19 @@ public class InnerFormulaGenerator {
 			return reqFormula.getNestedFormula().generateFormula(this);
 	}
 	
-	InnerExtraInvariantFormula generatePatternFreeFormula(PatternFreeFormula reqFormula) {
+	public InnerExtraInvariantFormula generatePatternFreeFormula(PatternFreeFormula reqFormula) {
 		InnerExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
 		InnerExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
 		return new InnerBooleanFormula(BooleanOperator.DISJUNCTION, left, right);
 	}
 	
-	InnerExtraInvariantFormula generatePatternFreeFormula(ConjunctionPatternFreeFormula reqFormula) {
+	public InnerExtraInvariantFormula generatePatternFreeFormula(ConjunctionPatternFreeFormula reqFormula) {
 		InnerExtraInvariantFormula left = reqFormula.getLeft().generateFormula(this);
 		InnerExtraInvariantFormula right = reqFormula.getRight().generateFormula(this);
 		return new InnerBooleanFormula(BooleanOperator.CONJUNCTION, left, right);
 	}
 	
-	InnerExtraInvariantFormula generatePatternFreeFormula(PrimaryPatternFreeFormula reqFormula) {
+	public InnerExtraInvariantFormula generatePatternFreeFormula(PrimaryPatternFreeFormula reqFormula) {
 		su.nsk.iae.rpl.rPL.NegationFormula negFormula = reqFormula.getAtomic();
 		if (negFormula != null) {
 			InnerExtraInvariantFormula atomicFormula = generateNonNegativeAtomicFormula(negFormula.getRight());
@@ -125,7 +129,7 @@ public class InnerFormulaGenerator {
 				RPLFactory factory = RPLFactoryImpl.init();
 				RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
 				renamed.setName(original.getName() + "'");
-				return new ExtraInvariantFormulaParameter(renamed, original, atomic.getStates());
+				return regParamMapping.get(original).applyToStates(atomic.getStates());
 			} else {
 				SimpleFormulaParameter simpleFmParam = (SimpleFormulaParameter) fmParam;
 				SimpleAtomicFormula A = new SimpleAtomicFormula(simpleFmParam, atomic.getStates());

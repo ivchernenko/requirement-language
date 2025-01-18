@@ -1,6 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,11 +63,24 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	@Override
-	public List<OuterExtraInvariantFormula> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<OuterExtraInvariantFormula> extraConjList = new ArrayList<>();
+	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+		List<Implication> extraConjList = new ArrayList<>();
+		List<FormulaParameterValue> extraConjFmParams;
+		if (curState != null) {
+			extraConjFmParams = new ArrayList<>();
+			for (FormulaParameterValue fmParam: fmParams) {
+				InnerExtraInvariantFormula formula = fmParam.getFormula();
+				Map<UpdateStateVariable, UpdateStateVariable> substitution = new HashMap<>();
+				substitution.put(curState, finState);
+				InnerExtraInvariantFormula extraConjFormula = formula.replaceStates(substitution);
+				extraConjFmParams.add(new FormulaParameterValue(fmParam.getStates(), extraConjFormula));
+			}
+		}
+		else
+			extraConjFmParams = fmParams;
 		PastExtraInvariantPatternInstance pastEinv = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
 				pattern.getExtraInvPattern(),
-				cParams, fmParams, boolParam, fnParamList);
+				cParams, extraConjFmParams, boolParam, fnParamList);
 		Implication extraConj = new Implication(boolParam, pastEinv);
 		extraConjList.add(extraConj);
 		for (var fmParamValue: fmParams)
@@ -104,13 +118,13 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
 		Lemma L = pattern.getLemmas().getL7();
 		LemmaPremiseFormula premise = L.getPrem();
-		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, boolParam);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();		
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
+		return premiseInstance.replacePatterns(LS);		
 	}
 
 	@Override
@@ -124,7 +138,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, boolParam);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(LS);
 	}
 
 	@Override
@@ -136,6 +150,31 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		}
 		return equal;
 	}
+
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue param: fmParams) {
+			InnerExtraInvariantFormula formula = param.getFormula();
+			usedPatterns.addAll(formula.getUsedPatternNames());
+		}
+		return usedPatterns;
+	}
 	
-	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append('(').append(pattern.getName());
+		for (Term cParam: cParams)
+			stringBuilder.append(' ').append(cParam);
+		for (FormulaParameterValue fmParam: fmParams)
+			stringBuilder.append(' ').append(fmParam);
+		if (finState != null)
+			stringBuilder.append(' ').append(finState.getName());
+		if (curState != null)
+			stringBuilder.append(' ').append(curState.getName());
+		stringBuilder.append(')');
+		return stringBuilder.toString();
+	}
 }

@@ -23,6 +23,16 @@ public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormul
 		this.original = original;
 		this.states = states;
 	}
+	
+	public ExtraInvariantFormulaParameter(
+			RegularFormulaParameter renamed,
+			RegularFormulaParameter original) {
+		super();
+		this.renamed = renamed;
+		this.original = original;
+		this.states = new ArrayList<>();
+	}
+	
 	public RegularFormulaParameter getRenamed() {
 		return renamed;
 	}
@@ -52,6 +62,32 @@ public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormul
 		List<UpdateStateVariable> newStates = new ArrayList<>(this.states);
 		newStates.addAll(states);
 		return new ExtraInvariantFormulaParameter(renamed, original, newStates);
+	}
+	@Override
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+		return this;
+	}
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return false;
+	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		return new ArrayList<>();
+	}
+	
+	@Override
+	public String toString() {
+		if (states == null || states.isEmpty())
+			return renamed.getName();
+		else {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append('(').append(renamed.getName());
+			for (UpdateStateVariable state: states)
+				stringBuilder.append(' ').append(state.getName());
+			stringBuilder.append(')');
+			return stringBuilder.toString();
+		}
 	}
 
 }

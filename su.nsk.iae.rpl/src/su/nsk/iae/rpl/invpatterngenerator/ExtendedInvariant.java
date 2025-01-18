@@ -1,17 +1,11 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
-import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
-import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
-import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ExtendedInvariant extends OuterExtraInvariantFormula {
@@ -22,10 +16,10 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 		this.mainConj = mainConj;
 		this.extraConjs = extraConjs;
 	}
-	public OuterExtraInvariantFormula getMainConj() {
+	public DerivedExtraInvariantPatternInstance getMainConj() {
 		return mainConj;
 	}
-	public List<OuterExtraInvariantFormula> getExtraConjs() {
+	public List<Implication> getExtraConjs() {
 		return extraConjs;
 	}
 	@Override
@@ -33,7 +27,7 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L8 = pattern.getLemmas().getL8();
 		LemmaPremiseFormula premise = L8.getPrem();
-		LS8LemmaPremiseInstanceCreator instCreator = new LS8LemmaPremiseInstanceCreator();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(
 				L8,
 				mainConj.getcParams(),
@@ -41,24 +35,24 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
 				null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, DerivedLemmaScheme.LS8, params);
 		UpdateStateVariable finalState = L8.getFinalState();
 		for (var conjunct: extraConjs) {
 			FunctionApplication left = new FunctionApplication(conjunct.getLeft(), finalState);
-			PastExtraInvariantPatternInstance right = conjunct.getRight().setState(finalState);
+			PastExtraInvariantPatternInstance right = conjunct.getRight().setState(finalState, true);
 			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
 			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
 		}
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(DerivedLemmaScheme.LS8);
 	}
 
 
 	@Override
-	public LS9LemmaPremise generateL9() {
+	public LemmaPremise generateL9() {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L9 = pattern.getLemmas().getL9();
 		LemmaPremiseFormula premise = L9.getPrem();
-		LS9LemmaPremiseInstanceCreator instCreator = new LS9LemmaPremiseInstanceCreator();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(
 				L9,
 				mainConj.getcParams(),
@@ -66,7 +60,41 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
 				null);
-		LS9LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, DerivedLemmaScheme.LS9, params);
+		return premiseInstance.replacePatterns(DerivedLemmaScheme.LS9);
+	}
+	@Override
+	protected List<String> getUsedPatternNames() {
+		List<String> usedPatterns = mainConj.getUsedPatternNames();
+		for (Implication extraConj: extraConjs) {
+			usedPatterns.addAll(extraConj.getRight().getUsedPatternNames());
+		}
+		return usedPatterns;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < extraConjs.size(); i++)
+			stringBuilder.append("(");
+		stringBuilder.append(mainConj.toString());
+		for (Implication extraConj: extraConjs) {
+			stringBuilder.append(" " + BooleanOperator.CONJUNCTION.toString() + " ")
+			.append(extraConj.toString())
+			.append(")");
+		}
+		return stringBuilder.toString();
+	}
+	@Override
+	public String convertToString(UpdateStateVariable finalState) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < extraConjs.size(); i++)
+			stringBuilder.append('(');
+		stringBuilder.append(mainConj.convertToString(finalState));
+		for (Implication extraConj: extraConjs) 
+			stringBuilder.append(" " + BooleanOperator.CONJUNCTION.toString() + " ")
+			.append(extraConj.convertToString(finalState))
+			.append(')');
+		return stringBuilder.toString();
 	}
 }

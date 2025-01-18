@@ -36,4 +36,17 @@ public class FunctionApplication extends Term {
 				return new FunctionApplication(paramValuePair.getValue(), state);
 		return this;
 	}
+
+	@Override
+	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+		UpdateStateVariable newState = substitution.getOrDefault(state, state);
+		return new FunctionApplication(fnParam, newState);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		return stringBuilder.append('(').append(fnParam.getName()).append(' ').append(state.getName()).append(')')
+				.toString();
+	}
 }
