@@ -92,7 +92,7 @@ public class TermConverter {
 		return new UnMinusTerm(term.getRight().convert(this));
 	}
 
-	public Term convert(PrimaryTerm term) {
+	public Term convertTerm(PrimaryTerm term) {
 		if (term.getConst() != null) {
 			Constant c = term.getConst();
 			if (c.getBool() != null)

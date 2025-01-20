@@ -102,7 +102,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		Lemma L;
 		if (LS == DerivedLemmaScheme.LS8)

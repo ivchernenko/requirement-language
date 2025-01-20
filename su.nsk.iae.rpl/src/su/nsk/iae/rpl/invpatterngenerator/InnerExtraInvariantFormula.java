@@ -15,13 +15,13 @@ public interface InnerExtraInvariantFormula extends LemmaPremise {
 	InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
 	InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states);
 
-	default LemmaPremise replacePatternsForImplication(DerivedLemmaScheme LS) {
+	default LemmaPremise replacePatternsForImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
 		if (this.equalsToRequirementFormula())
 			return BooleanLiteral.TRUE;
-		else return replacePatternsForNotIdenticallyTrueImplication(LS);
+		else return replacePatternsForNotIdenticallyTrueImplication(LS, lambdaBound);
 	}
 
-	LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS);
+	LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound);
 
 	boolean equalsToRequirementFormula();
 

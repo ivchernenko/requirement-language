@@ -31,6 +31,10 @@ public class ExtraInvariantPattern {
 		state = factory.createUpdateStateVariable();
 		state.setName("s");
 	}
+	
+	public String getName() {
+		return name;
+	}
 	public List<ConstantParameter> getcParams() {
 		return cParams;
 	}

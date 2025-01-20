@@ -64,7 +64,7 @@ public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormul
 		return new ExtraInvariantFormulaParameter(renamed, original, newStates);
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
 		return this;
 	}
 	@Override

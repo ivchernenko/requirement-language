@@ -16,7 +16,9 @@ import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 public class ExtraInvariantPatternGenerator {
 	public static ExtraInvariantPattern generateExtraInvariantPattern(DerivedRequirementPattern reqPattern) {
 		List<ConstantParameter> cParams = reqPattern.getCParams();
-		List<SimpleFormulaParameter> simpleFmParams = reqPattern.getSimpleFmParam();
+		List<SimpleFormulaParameter> simpleFmParams = new ArrayList<>();
+		simpleFmParams.addAll(reqPattern.getSimpleFmParams());
+		simpleFmParams.addAll(reqPattern.getSimpleFmParam());
 		List<RegularFormulaParameter> regFmParams = new ArrayList<>();
 		Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParamMapping = new HashMap<>();
 		for (RegularFormulaParameter original: reqPattern.getFmParams()) {
@@ -30,6 +32,6 @@ public class ExtraInvariantPatternGenerator {
 		OuterFormulaGenerator generator = new OuterFormulaGenerator(regParamMapping);
 		OuterExtraInvariantFormula definition = reqPattern.getDefinition().generateFormula(generator);
 		List<FunctionalParameter> fnParams = generator.getFnParamList().params;
-		return new ExtraInvariantPattern(cParams, fnParams, simpleFmParams, regFmParams, definition);
+		return new ExtraInvariantPattern(reqPattern.getName(), cParams, fnParams, simpleFmParams, regFmParams, definition);
 	}
 }

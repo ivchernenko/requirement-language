@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
+import su.nsk.iae.rpl.invpatterngenerator.OuterFormulaGenerator;
 import su.nsk.iae.rpl.rPL.Formula;
 import su.nsk.iae.rpl.rPL.OuterRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.PrimaryFormula;
@@ -65,7 +66,7 @@ public class PrimaryFormulaImpl extends ConjunctionFormulaImpl implements Primar
   }
 
   @Override
-public OuterExtraInvariantFormula generateFormula(ExtraInvariantPatternGenerator generator) {
+public OuterExtraInvariantFormula generateFormula(OuterFormulaGenerator generator) {
 
 	return generator.generateFormula(this);
 }

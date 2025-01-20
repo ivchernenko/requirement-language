@@ -11,7 +11,7 @@ import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public class FunctionalParameterList {
 		Map<String, Integer> paramNameCounter = new HashMap<>();
-		List<FunctionalParameter> params;
+		List<FunctionalParameter> params = new ArrayList<>();
 		
 		FunctionalParameter renemeAndAddFnParam(FunctionalParameter fnParam) {
 			String name = fnParam.getName();

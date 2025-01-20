@@ -4,9 +4,9 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class LS8AlwaysImplication implements LemmaPremise {
 	private final UpdateStateVariable state;
-	private final InnerExtraInvariantFormula left;
-	private final InnerExtraInvariantFormula right;
-	public LS8AlwaysImplication(UpdateStateVariable state, InnerExtraInvariantFormula left, InnerExtraInvariantFormula right) {
+	private final FormulaParameterValue left;
+	private final FormulaParameterValue right;
+	public LS8AlwaysImplication(UpdateStateVariable state, FormulaParameterValue left, FormulaParameterValue right) {
 		super();
 		this.state = state;
 		this.left = left;
@@ -15,12 +15,12 @@ public class LS8AlwaysImplication implements LemmaPremise {
 	public UpdateStateVariable getState() {
 		return state;
 	}
-	public InnerExtraInvariantFormula getLeft() {
+	public FormulaParameterValue getLeft() {
 		return left;
 	}
 	@Override
 	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
-		return left.replacePatternsForImplication(LS);
+		return left.getFormula().replacePatternsForImplication(LS, left.getStates());
 	}
 	
 	@Override

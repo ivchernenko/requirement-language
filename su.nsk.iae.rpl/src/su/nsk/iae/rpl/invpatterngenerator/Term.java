@@ -17,7 +17,7 @@ public abstract class Term implements InnerExtraInvariantFormula {
 		return this;
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
 		return this;
 	}
 	@Override

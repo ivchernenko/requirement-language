@@ -128,7 +128,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
 		Lemma L;
 		if (LS == DerivedLemmaScheme.LS8)
 			L = pattern.getLemmas().getL4();

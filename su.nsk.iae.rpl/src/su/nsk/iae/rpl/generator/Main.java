@@ -16,8 +16,13 @@ import com.google.inject.Provider;
 import su.nsk.iae.rpl.RPLStandaloneSetup;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPattern;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.LS8Lemma;
+import su.nsk.iae.rpl.invpatterngenerator.LS9Lemma;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
+import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 import su.nsk.iae.rpl.rPL.*;
 import su.nsk.iae.rpl.rPL.impl.InnerFormulaImpl;
+import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public class Main {
 	
@@ -62,7 +67,10 @@ public class Main {
 		try {
 			Model model = (Model) resource.getContents().get(0);
 			List<Element> elements = model.getElements();
-			String name = (fileName.split("."))[0];
+			System.out.println(fileName);
+			String[] nameExt = fileName.split(".");
+			int index = fileName.indexOf('.');
+			String name = fileName.substring(0, index);
 			String outputFileName = name + "_Patterns";
 			FileWriter writer = new FileWriter(outputFileName + ".thy");
 			writer.write("theory " + outputFileName + " imports Patterns\n begin\n");
@@ -70,6 +78,45 @@ public class Main {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
 					ExtraInvariantPattern einvPattern = ExtraInvariantPatternGenerator.generateExtraInvariantPattern(pattern);
 					writer.write(einvPattern.toString() + "\n");
+					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
+					LemmaPremise L8Premise = einvDef.generateL8();
+					RPLFactory factory = RPLFactoryImpl.init();
+					UpdateStateVariable s = factory.createUpdateStateVariable();
+					s.setName("s0");
+					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
+					sPrimed.setName("s");
+					System.out.println("generate L8");
+					LS8Lemma L8 = new LS8Lemma(
+							einvPattern.getName(),
+							einvPattern.getcParams(),
+							einvPattern.getFnParams(),
+							einvPattern.getSimpleFmParams(),
+							einvPattern.getRegFmParams(),
+							s,
+							sPrimed,
+							L8Premise);
+					System.out.println("generate L9");
+					LemmaPremise L9Premise = einvDef.generateL9();
+					LS9Lemma L9 = new LS9Lemma(
+							einvPattern.getName(),
+							pattern.getName(),
+							einvPattern.getcParams(),
+							einvPattern.getFnParams(),
+							einvPattern.getSimpleFmParams(),
+							einvPattern.getRegFmParams(),
+							pattern.getFmParams(),
+							s,
+							L9Premise);
+					writer.write("\n\n");
+					writer.write(L8.toString());
+					writer.write("\n\n");
+					writer.write(L9.toString());
+					writer.write("\n\n");
+					writer.write("lemmas " + einvPattern.getName() + "_used_patterns = ");
+					List<String> usedPatterns = einvPattern.getUsedPatternNames();
+					for (String usedPattern: usedPatterns)
+						writer.write(usedPattern + ' ');
+					writer.write("\n\n");
 				}
 			}
 			writer.write("end\n");
@@ -107,12 +154,6 @@ public class Main {
 			e.printStackTrace();
 			 System.out.println(resource.getErrors());
 		}
-		
-		
-		// Validate the resource
-		
-
-		// Configure and start the generator
 
 		System.out.println("Code generation finished.");
 	}
@@ -135,7 +176,7 @@ public class Main {
 
 	private void generateInitVcProof(FileWriter writer, String name) throws IOException {
 		writer.write("theorem extra1: \"VC1 " + name + " s0\"");
-		writer.write("unfolding VC1_def " + name + "_def " + name + "-used_patterns\n");
+		writer.write("unfolding VC1_def " + name + "_def " + name + "_used_patterns\n");
 		writer.write("apply auto\n\n");
 	}
 	

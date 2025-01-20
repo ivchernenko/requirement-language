@@ -31,7 +31,7 @@ public class FormulaParameterValue {
 			for (UpdateStateVariable state: states)
 				stringBuilder.append(state.getName()).append(' ');
 			stringBuilder.append(". ");
-			stringBuilder.append(formula);
+			stringBuilder.append(formula).append(')');
 			return stringBuilder.toString();
 		}
 	}

@@ -25,7 +25,7 @@ public class LS8Lemma extends DerivedLemma {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("lemma ").append(extraInvPattern).append("_saving : \"\n")
 		.append(generateExtraInvPatternInstance(initState)).append(" \\<Longrightarrow>\n")
-		.append("consecutive ").append(initState).append(' ').append(finalState).append('\n')
+		.append("consecutive ").append(initState.getName()).append(' ').append(finalState.getName()).append('\n')
 		.append(premise).append('\n')
 		.append(generateExtraInvPatternInstance(finalState)).append("\"");
 		return stringBuilder.toString();
