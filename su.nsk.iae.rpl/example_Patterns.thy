@@ -6,7 +6,7 @@ definition P1_inv where "P1_inv t t1_0 A1 A2' A3' s \<equiv> (always_inv (\<lamb
 lemma P1_inv_saving : "
 P1_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
 consecutive s0 s
-((True \<or> ((A2' s0) \<and> ((A3' s0) \<and> ((t1_0 s0) \<or> (((A3' s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2' s s) \<and> ((t1_0 s0) < (t1_0 s)))))))) \<and> ((\<not> (A1 s)) \<or> (constrained_until_inv t t1_0 A2' A3' s s)))
+((True \<or> ((A2' s0) \<and> ((A3' s0) \<and> (((t1_0 s0) = 0) \<or> (((A3' s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2' s s) \<and> ((t1_0 s0) < (t1_0 s)))))))) \<and> ((\<not> (A1 s)) \<or> ((A3' s s) \<or> (((t1_0 s) > 0) \<and> (A2' s)))))
 P1_inv t t1_0 A1 A2' A3' s"
 
 lemma P1_inv_saving : "

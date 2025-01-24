@@ -58,7 +58,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
 		List<Implication> extraConjs = new ArrayList<>();
 		for (FormulaParameterValue fmParamValue: fmParams)
-			extraConjs.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
+			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
 		return extraConjs;
 	}
 
@@ -68,7 +68,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		UpdateStateVariable newCurState = substitution.getOrDefault(curState, curState);
 		List<FormulaParameterValue> newFmParams = new ArrayList<>();
 		for (FormulaParameterValue fm: fmParams) {
-			InnerExtraInvariantFormula formula = fm.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fm.getFormula();
 			InnerExtraInvariantFormula newFormula = formula.replaceStates(substitution);
 			newFmParams.add(new FormulaParameterValue(fm.getStates(), newFormula));
 		}
@@ -125,7 +125,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		List<String> usedPatterns = new ArrayList<>();
 		usedPatterns.add(pattern.getName());
 		for (FormulaParameterValue param: fmParams) {
-			InnerExtraInvariantFormula formula = param.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) param.getFormula();
 			usedPatterns.addAll(formula.getUsedPatternNames());
 		}
 		return usedPatterns;
@@ -148,6 +148,4 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
-	
-	
 }

@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EObject;
 
 import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.PatternFreeInnerFormula;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,6 +73,6 @@ public interface PatternFreeFormula extends EObject
    */
   void setRight(PatternFreeFormula value);
 
-InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator);
+PatternFreeInnerFormula generateFormula(InnerFormulaGenerator<?> generator);
 
 } // PatternFreeFormula

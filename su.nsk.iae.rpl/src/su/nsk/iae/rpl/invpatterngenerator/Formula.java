@@ -1,5 +1,12 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-public abstract class Formula {
+import java.util.List;
+import java.util.Map;
+
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+
+public interface Formula {
+	Formula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
+	Formula applyToStates(List<UpdateStateVariable> states);
 	
 }

@@ -32,26 +32,26 @@ public class LemmaPremiseInstanceCreator {
 		LemmaPremise right = premise.getRight().substitiuteParams(this, LS,  params);
 		return new ImplicationLemmaPremise(left, right);
 	}
-	
+
 	public LemmaPremise substituteParams(DisjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
 		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
 		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
 		return new BooleanLemmaPremise(BooleanOperator.DISJUNCTION, left, right);
 	}
-	
+
 	public LemmaPremise substituteParams(ConjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
 		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
 		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
 		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, left, right);
 	}
-	
+
 	public LemmaPremise substituteParams(PrimaryLemmaPremiseFormula premise, DerivedLemmaScheme LS,  ParameterValueMap params) {
 		if (premise.getAtomic() != null) {
 			su.nsk.iae.rpl.rPL.NegationFormula negFormula = premise.getAtomic();
 			FormulaParameterValue atomicPremise = negation(negFormula, params);
 			List<UpdateStateVariable> lambdaBound = atomicPremise.getStates();
 			if (lambdaBound == null || lambdaBound.isEmpty())
-				return atomicPremise.getFormula();
+				return (InnerExtraInvariantFormula) atomicPremise.getFormula();
 			else
 				throw new InvalidTypeException();
 		}
@@ -59,13 +59,9 @@ public class LemmaPremiseInstanceCreator {
 			su.nsk.iae.rpl.rPL.AlwaysImplication alwaysImp = premise.getAlwaysImp();
 			AtomicFormula originalLeft = alwaysImp.getLeft().getFormula().getRight();
 			FormulaParameterValue instantiatedLeft = substituteParams(originalLeft, params);
-			if (LS == DerivedLemmaScheme.LS8) {
-				AtomicFormula originalRight = alwaysImp.getRight().getFormula().getRight();
-				FormulaParameterValue instantiatedRight = substituteParams(originalRight, params);
-				return new LS8AlwaysImplication(alwaysImp.getState(), instantiatedLeft, instantiatedRight);
-			}
-			else
-				return new LS9AlwaysImplication(alwaysImp.getState(), instantiatedLeft);
+			AtomicFormula originalRight = alwaysImp.getRight().getFormula().getRight();
+			FormulaParameterValue instantiatedRight = substituteParams(originalRight, params);
+			return new GeneralizedAlwaysImplication(alwaysImp.getState(), instantiatedLeft, instantiatedRight);
 		}
 		else if (premise.getInst() != null) {
 			su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst = premise.getInst();
@@ -73,11 +69,11 @@ public class LemmaPremiseInstanceCreator {
 		}
 		else // nested formula
 			return premise.getNestedFormula().substitiuteParams(this, LS, params);
-		
+
 	}
-	
+
 	FormulaParameterValue substituteParams(AtomicFormula atomic, ParameterValueMap params) {
-		InnerExtraInvariantFormula atomicFormula;
+		Formula atomicFormula;
 		List<UpdateStateVariable> resultLambdaBound = new ArrayList<>();
 		if (atomic.getFmParam() != null) { // formula parameter
 			FormulaParameter fmParam = atomic.getFmParam();
@@ -93,14 +89,14 @@ public class LemmaPremiseInstanceCreator {
 			}
 			List<UpdateStateVariable> lambdaBound = value.getStates();
 			List<UpdateStateVariable> args = atomic.getStates();
-			InnerExtraInvariantFormula formula = value.getFormula();
+			Formula formula = value.getFormula();
 			int i;
 			Map<UpdateStateVariable, UpdateStateVariable> substitution = new HashMap<>();
 			for (i = 0; i < lambdaBound.size(); i++) {
 				if (i >= args.size())
 					resultLambdaBound.add(lambdaBound.get(i));
 				else substitution.put(lambdaBound.get(i), args.get(i));
-				
+
 			}
 			formula = formula.replaceStates(substitution);
 			if (i <= args.size())
@@ -112,7 +108,7 @@ public class LemmaPremiseInstanceCreator {
 			atomicFormula = substituteParamsToConstantFormula(atomic, params);
 		return new FormulaParameterValue(resultLambdaBound, atomicFormula);
 	}
-	
+
 	Term substituteParamsToConstantFormula(AtomicFormula atomic, ParameterValueMap params) {
 		if (atomic.getBoolLiteral() != null)
 			return BooleanLiteral.valueOf(atomic.getBoolLiteral());
@@ -124,12 +120,12 @@ public class LemmaPremiseInstanceCreator {
 		}
 		return null;
 	}
-	
+
 	FormulaParameterValue negation(NegationFormula formula, ParameterValueMap params) {
 		AtomicFormula atomic = formula.getRight();
 		FormulaParameterValue atomicPremise = substituteParams(atomic, params);
-		InnerExtraInvariantFormula nonNegativeFormula = atomicPremise.getFormula();
-		InnerExtraInvariantFormula resultFormula;
+		Formula nonNegativeFormula = atomicPremise.getFormula();
+		Formula resultFormula;
 		if (formula.isNeg()) {
 			resultFormula = new su.nsk.iae.rpl.invpatterngenerator.NegationFormula(nonNegativeFormula);
 			return new FormulaParameterValue(atomicPremise.getStates(), resultFormula);
@@ -137,7 +133,7 @@ public class LemmaPremiseInstanceCreator {
 		else 
 			return atomicPremise;
 	}
-	
+
 	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
 			ParameterValueMap params) {
 		List<Term> cParams = new ArrayList<>();
@@ -168,5 +164,5 @@ public class LemmaPremiseInstanceCreator {
 				patternInst.getState(),
 				false);
 	}	
-	
+
 }

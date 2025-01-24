@@ -7,7 +7,7 @@ import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanLiteral extends Term implements InnerExtraInvariantFormula {
+public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
@@ -34,12 +34,12 @@ public class BooleanLiteral extends Term implements InnerExtraInvariantFormula {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
 		return this;
 	}
 
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		return this;
 	}
 	

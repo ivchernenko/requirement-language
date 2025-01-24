@@ -11,7 +11,7 @@ import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class PastRequirementPatternInstance implements InnerExtraInvariantFormula {
+public class PastRequirementPatternInstance implements InnerExtraInvariantFormula, InnerRequirementFormula {
 	private PastRequirementPattern pattern;
 	private List<Term> cParams;
 	private List<FormulaParameterValue> fmParams;
@@ -69,7 +69,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		if (curState != null) {
 			extraConjFmParams = new ArrayList<>();
 			for (FormulaParameterValue fmParam: fmParams) {
-				InnerExtraInvariantFormula formula = fmParam.getFormula();
+				InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
 				Map<UpdateStateVariable, UpdateStateVariable> substitution = new HashMap<>();
 				substitution.put(curState, finState);
 				InnerExtraInvariantFormula extraConjFormula = formula.replaceStates(substitution);
@@ -84,17 +84,17 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		Implication extraConj = new Implication(boolParam, pastEinv);
 		extraConjList.add(extraConj);
 		for (var fmParamValue: fmParams)
-			extraConjList.addAll(fmParamValue.getFormula().generateExtraConjuncts(fnParamList));
+			extraConjList.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
 		return extraConjList;
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PastRequirementPatternInstance replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
 		UpdateStateVariable newFinState = substitution.getOrDefault(finState, finState);
 		UpdateStateVariable newCurState = substitution.getOrDefault(curState, curState);
 		List<FormulaParameterValue> newFmParams = new ArrayList<>();
 		for (FormulaParameterValue fm: fmParams) {
-			InnerExtraInvariantFormula formula = fm.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fm.getFormula();
 			InnerExtraInvariantFormula newFormula = formula.replaceStates(substitution);
 			newFmParams.add(new FormulaParameterValue(fm.getStates(), newFormula));
 		}
@@ -102,7 +102,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public PastRequirementPatternInstance applyToStates(List<UpdateStateVariable> states) {
 		UpdateStateVariable newFinState = finState;
 		UpdateStateVariable newCurState = curState;
 		if (states.size() == 0)
@@ -145,7 +145,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	public boolean equalsToRequirementFormula() {
 		boolean equal = true;
 		for (FormulaParameterValue fmParam: fmParams) {
-			InnerExtraInvariantFormula formula = fmParam.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
 			equal = equal && formula.equalsToRequirementFormula();
 		}
 		return equal;
@@ -156,7 +156,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		List<String> usedPatterns = new ArrayList<>();
 		usedPatterns.add(pattern.getName());
 		for (FormulaParameterValue param: fmParams) {
-			InnerExtraInvariantFormula formula = param.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) param.getFormula();
 			usedPatterns.addAll(formula.getUsedPatternNames());
 		}
 		return usedPatterns;

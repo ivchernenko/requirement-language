@@ -7,7 +7,7 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class SimpleAtomicFormula implements InnerExtraInvariantFormula {
+public class SimpleAtomicFormula implements PatternFreeInnerFormula {
 	private final SimpleFormulaParameter fmParam;
 	private final List<UpdateStateVariable> states;
 	
@@ -30,7 +30,7 @@ public class SimpleAtomicFormula implements InnerExtraInvariantFormula {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
 		List<UpdateStateVariable> newStates = new ArrayList<>();
 		for (int i = 0; i < states.size(); i++) {
 			UpdateStateVariable s = states.get(i);
@@ -41,7 +41,7 @@ public class SimpleAtomicFormula implements InnerExtraInvariantFormula {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		List<UpdateStateVariable> newStates = new ArrayList<>(this.states);
 		newStates.addAll(states);
 		return new SimpleAtomicFormula(fmParam, newStates);

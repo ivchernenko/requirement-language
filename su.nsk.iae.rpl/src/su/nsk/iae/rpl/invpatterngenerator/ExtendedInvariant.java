@@ -43,6 +43,8 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
 			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
 		}
+		System.out.println("generate L8");
+		System.out.println(premiseInstance);
 		return premiseInstance.replacePatterns(DerivedLemmaScheme.LS8);
 	}
 

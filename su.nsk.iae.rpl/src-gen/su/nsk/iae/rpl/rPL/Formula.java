@@ -71,6 +71,6 @@ public interface Formula extends EObject
    */
   void setRight(Formula value);
 
-OuterExtraInvariantFormula generateFormula(OuterFormulaGenerator generator);
+<T> T generateFormula(OuterFormulaGenerator<T> generator);
 
 } // Formula

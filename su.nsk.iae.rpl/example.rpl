@@ -28,7 +28,7 @@ futureeinv pattern constrained_until_inv(const : t fun : t1 formulas : A1, A2) l
 	extra invariant formulas : A1, A2
 	init state : s0
 	final state : s
-	premise alwaysimp(s0, A1(s0), A1(s)) /\ alwaysimp(s0, A2(s0), A2(s)) /\ (frm(t1(s0)) \/ A2(s, s) /\ frm(t1(s0) <= t) \/ A1(s, s) 
+	premise alwaysimp(s0, A1(s0), A1(s)) /\ alwaysimp(s0, A2(s0), A2(s)) /\ (frm(t1(s0) == 0) \/ A2(s, s) /\ frm(t1(s0) <= t) \/ A1(s, s) 
 		/\ frm(t1(s0) < t1(s))
 	)
 	};

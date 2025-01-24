@@ -6,10 +6,10 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class FormulaParameterValue {
 	List<UpdateStateVariable> states;
-	InnerExtraInvariantFormula formula;
+	Formula formula;
 	public FormulaParameterValue(
 			List<UpdateStateVariable> states,
-			InnerExtraInvariantFormula formula) {
+			Formula formula) {
 		super();
 		this.states = states;
 		this.formula = formula;
@@ -17,7 +17,7 @@ public class FormulaParameterValue {
 	public List<UpdateStateVariable> getStates() {
 		return states;
 	}
-	public InnerExtraInvariantFormula getFormula() {
+	public Formula getFormula() {
 		return formula;
 	}
 	

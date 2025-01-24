@@ -6,25 +6,25 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class NegationFormula implements InnerExtraInvariantFormula  {
-	InnerExtraInvariantFormula formula;
+public class NegationFormula implements PatternFreeInnerFormula  {
+	PatternFreeInnerFormula formula;
 
-	public InnerExtraInvariantFormula getAtomic() {
+	public PatternFreeInnerFormula getAtomic() {
 		return formula;
 	}
 
-	public NegationFormula(InnerExtraInvariantFormula formula) {
+	public NegationFormula(PatternFreeInnerFormula formula) {
 		super();
 		this.formula = formula;
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public NegationFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
 		return new NegationFormula(formula.replaceStates(substitution));
 	}
 
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public NegationFormula applyToStates(List<UpdateStateVariable> states) {
 		return new NegationFormula(formula.applyToStates(states));
 	}
 

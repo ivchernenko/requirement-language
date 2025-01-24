@@ -91,7 +91,7 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		List<String> usedPatterns = new ArrayList<>();
 		usedPatterns.add(pattern.getName());
 		for (FormulaParameterValue param: fmParams) {
-			InnerExtraInvariantFormula formula = param.getFormula();
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) param.getFormula();
 			usedPatterns.addAll(formula.getUsedPatternNames());
 		}
 		return usedPatterns;
@@ -112,5 +112,4 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
-	
 }

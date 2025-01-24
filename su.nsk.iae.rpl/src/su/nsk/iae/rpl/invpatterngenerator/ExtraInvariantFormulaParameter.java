@@ -7,7 +7,7 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormula {
+public class ExtraInvariantFormulaParameter implements PatternFreeInnerFormula {
 	private final RegularFormulaParameter renamed;
 	private final RegularFormulaParameter original;
 	private final List<UpdateStateVariable> states;
@@ -48,7 +48,7 @@ public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormul
 		return original.getName();
 	}
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
 		List<UpdateStateVariable> newStates = new ArrayList<>();
 		for (int i = 0; i < states.size(); i++) {
 			UpdateStateVariable s = states.get(i);
@@ -58,7 +58,7 @@ public class ExtraInvariantFormulaParameter implements InnerExtraInvariantFormul
 		return new ExtraInvariantFormulaParameter(renamed, original, newStates);
 	}
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		List<UpdateStateVariable> newStates = new ArrayList<>(this.states);
 		newStates.addAll(states);
 		return new ExtraInvariantFormulaParameter(renamed, original, newStates);

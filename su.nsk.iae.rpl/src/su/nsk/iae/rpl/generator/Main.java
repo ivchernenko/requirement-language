@@ -85,7 +85,6 @@ public class Main {
 					s.setName("s0");
 					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
-					System.out.println("generate L8");
 					LS8Lemma L8 = new LS8Lemma(
 							einvPattern.getName(),
 							einvPattern.getcParams(),
@@ -95,7 +94,6 @@ public class Main {
 							s,
 							sPrimed,
 							L8Premise);
-					System.out.println("generate L9");
 					LemmaPremise L9Premise = einvDef.generateL9();
 					LS9Lemma L9 = new LS9Lemma(
 							einvPattern.getName(),
