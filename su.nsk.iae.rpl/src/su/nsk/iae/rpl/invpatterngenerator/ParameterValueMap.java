@@ -35,12 +35,14 @@ public class ParameterValueMap {
 			List<Term> cParamValues,
 			List<FunctionalParameter> fnParamValues,
 			List<FormulaParameterValue> simpleFmParamValues,
-			List<FormulaParameterValue> regFmParamValues,
+			List<FormulaParameterValue> einvFmParamValues,
+			List<FormulaParameterValue> reqFmParamValues,
 			FunctionalParameter boolParam) {
 		List<ConstantParameter> cVars = lemma.getCVars();
 		List<FunctionalParameter> fnVars = lemma.getFnVars();
 		List<SimpleFormulaParameter> simpleFmVars = lemma.getSimpleFmVars();
-		List<RegularFormulaParameter> regFmVars = lemma.getIfmVars();
+		List<RegularFormulaParameter> einvFmVars = lemma.getIfmVars();
+		List<RegularFormulaParameter> reqFmVars = lemma.getRfmVars();
 		cParams = new HashMap<>();
 		for (int i = 0; i < cVars.size(); i++)
 			cParams.put(cVars.get(i), cParamValues.get(i));
@@ -51,8 +53,10 @@ public class ParameterValueMap {
 		for (int i = 0; i< simpleFmVars.size(); i++)
 			simpleFmParams.put(simpleFmVars.get(i), simpleFmParamValues.get(i));
 		regFmParams = new HashMap<>();
-		for (int i = 0; i < regFmVars.size(); i++)
-			regFmParams.put(regFmVars.get(i), regFmParamValues.get(i));
+		for (int i = 0; i < einvFmVars.size(); i++)
+			regFmParams.put(einvFmVars.get(i), einvFmParamValues.get(i));
+		for (int i = 0; i < reqFmVars.size(); i++)
+			regFmParams.put(reqFmVars.get(i), reqFmParamValues.get(i));
 		this.boolParam = boolParam;
 	}
 	

@@ -270,7 +270,7 @@ public class InnerFormulaImpl extends MinimalEObjectImpl.Container implements In
   }
 
 @Override
-public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
+public <T extends su.nsk.iae.rpl.invpatterngenerator.Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
 
 	return generator.generateInnerFormula(this);
 }

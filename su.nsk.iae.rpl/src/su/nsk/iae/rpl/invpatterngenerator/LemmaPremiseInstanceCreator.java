@@ -21,7 +21,7 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class LemmaPremiseInstanceCreator {
-	public LemmaPremise substituteParams(LemmaPremiseFormula premise, DerivedLemmaScheme LS,  ParameterValueMap params) {
+	public LemmaPremise substituteParams(LemmaPremiseFormula premise,  ParameterValueMap params) {
 		FunApplication funApp = (FunApplication) premise.getLeft();
 		Map<FunctionalParameter, FunctionalParameter> fnParams = params.getFnParams();
 		FunctionalParameter fn = funApp.getFnParam();
@@ -29,23 +29,23 @@ public class LemmaPremiseInstanceCreator {
 			fn = fnParams.getOrDefault(fn, fn);
 		}
 		FunctionApplication left = new FunctionApplication(fn, funApp.getState());
-		LemmaPremise right = premise.getRight().substitiuteParams(this, LS,  params);
+		LemmaPremise right = premise.getRight().substitiuteParams(this,  params);
 		return new ImplicationLemmaPremise(left, right);
 	}
 
-	public LemmaPremise substituteParams(DisjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
-		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
-		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
+	public LemmaPremise substituteParams(DisjunctionLemmaPremiseFormula premise, ParameterValueMap params) {
+		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, params);
+		LemmaPremise right = premise.getRight().substitiuteParams(this, params);
 		return new BooleanLemmaPremise(BooleanOperator.DISJUNCTION, left, right);
 	}
 
-	public LemmaPremise substituteParams(ConjunctionLemmaPremiseFormula premise, DerivedLemmaScheme LS, ParameterValueMap params) {
-		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, LS, params);
-		LemmaPremise right = premise.getRight().substitiuteParams(this, LS, params);
+	public LemmaPremise substituteParams(ConjunctionLemmaPremiseFormula premise, ParameterValueMap params) {
+		LemmaPremise left = ((LemmaPremiseFormula) premise.getLeft()).substitiuteParams(this, params);
+		LemmaPremise right = premise.getRight().substitiuteParams(this, params);
 		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, left, right);
 	}
 
-	public LemmaPremise substituteParams(PrimaryLemmaPremiseFormula premise, DerivedLemmaScheme LS,  ParameterValueMap params) {
+	public LemmaPremise substituteParams(PrimaryLemmaPremiseFormula premise,  ParameterValueMap params) {
 		if (premise.getAtomic() != null) {
 			su.nsk.iae.rpl.rPL.NegationFormula negFormula = premise.getAtomic();
 			FormulaParameterValue atomicPremise = negation(negFormula, params);
@@ -68,7 +68,7 @@ public class LemmaPremiseInstanceCreator {
 			return pastExtraInvariantPatternInstance(patternInst, params);
 		}
 		else // nested formula
-			return premise.getNestedFormula().substitiuteParams(this, LS, params);
+			return premise.getNestedFormula().substitiuteParams(this, params);
 
 	}
 
@@ -78,6 +78,7 @@ public class LemmaPremiseInstanceCreator {
 		if (atomic.getFmParam() != null) { // formula parameter
 			FormulaParameter fmParam = atomic.getFmParam();
 			FormulaParameterValue value;
+			System.out.println(fmParam);
 			if (fmParam instanceof SimpleFormulaParameter simpleParam) {
 				Map<SimpleFormulaParameter, FormulaParameterValue> fmParams = params.getSimpleFmParams();
 				value = fmParams.get(simpleParam);					
@@ -127,7 +128,8 @@ public class LemmaPremiseInstanceCreator {
 		Formula nonNegativeFormula = atomicPremise.getFormula();
 		Formula resultFormula;
 		if (formula.isNeg()) {
-			resultFormula = new su.nsk.iae.rpl.invpatterngenerator.NegationFormula(nonNegativeFormula);
+			PatternFreeInnerFormula pfNonNegativeFormula = (PatternFreeInnerFormula) nonNegativeFormula;
+			resultFormula = new su.nsk.iae.rpl.invpatterngenerator.NegationFormula(pfNonNegativeFormula);
 			return new FormulaParameterValue(atomicPremise.getStates(), resultFormula);
 		}
 		else 
@@ -164,5 +166,4 @@ public class LemmaPremiseInstanceCreator {
 				patternInst.getState(),
 				false);
 	}	
-
 }

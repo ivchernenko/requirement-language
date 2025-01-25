@@ -29,7 +29,7 @@ import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
  */
 public interface LemmaPremiseFormula extends EObject
 {
-	public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, DerivedLemmaScheme scheme,  ParameterValueMap params);
+	public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator,  ParameterValueMap params);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->

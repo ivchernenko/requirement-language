@@ -30,7 +30,7 @@ public class ConjunctionFormulaImpl extends FormulaImpl implements ConjunctionFo
   }
 
   @Override
-public OuterExtraInvariantFormula generateFormula(OuterFormulaGenerator generator) {
+public <T> T generateFormula(OuterFormulaGenerator<T> generator) {
 
 	return generator.generateFormula(this);
 }

@@ -8,7 +8,7 @@ import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class ExtendedInvariant extends OuterExtraInvariantFormula {
+public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	DerivedExtraInvariantPatternInstance mainConj;
 	List<Implication> extraConjs;
 	public ExtendedInvariant(DerivedExtraInvariantPatternInstance mainConj, List<Implication> extraConjs) {
@@ -34,8 +34,9 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 				mainConj.getFnParams(),
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
+				new ArrayList<>(),
 				null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, DerivedLemmaScheme.LS8, params);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		UpdateStateVariable finalState = L8.getFinalState();
 		for (var conjunct: extraConjs) {
 			FunctionApplication left = new FunctionApplication(conjunct.getLeft(), finalState);
@@ -43,14 +44,13 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
 			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
 		}
-		System.out.println("generate L8");
-		System.out.println(premiseInstance);
-		return premiseInstance.replacePatterns(DerivedLemmaScheme.LS8);
+		return premiseInstance.replacePatterns();
 	}
 
 
 	@Override
-	public LemmaPremise generateL9() {
+	public LemmaPremise generateL9(OuterRequirementFormula reqFormula) {
+		DerivedRequirementPatternInstance reqPatternInst = (DerivedRequirementPatternInstance) reqFormula;
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L9 = pattern.getLemmas().getL9();
 		LemmaPremiseFormula premise = L9.getPrem();
@@ -61,12 +61,13 @@ public class ExtendedInvariant extends OuterExtraInvariantFormula {
 				mainConj.getFnParams(),
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
+				reqPatternInst.getRegFmParams(),
 				null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, DerivedLemmaScheme.LS9, params);
-		return premiseInstance.replacePatterns(DerivedLemmaScheme.LS9);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns();
 	}
 	@Override
-	protected List<String> getUsedPatternNames() {
+	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = mainConj.getUsedPatternNames();
 		for (Implication extraConj: extraConjs) {
 			usedPatterns.addAll(extraConj.getRight().getUsedPatternNames());

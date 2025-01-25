@@ -30,7 +30,7 @@ public class ConjunctionInnerFormulaImpl extends InnerFormulaImpl implements Con
   }
 
   @Override
-public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
+public <T extends su.nsk.iae.rpl.invpatterngenerator.Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
 	return generator.generateInnerFormula(this);
 }
 

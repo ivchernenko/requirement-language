@@ -83,4 +83,12 @@ public class FutureRequirementPatternInstance implements InnerRequirementFormula
 		return new FutureRequirementPatternInstance(pattern, cParams, fmParams, newFinState, newCurState);
 	
 	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue fmParam: fmParams)
+			usedPatterns.addAll(fmParam.getFormula().getUsedPatternNames());
+		return usedPatterns;
+	}
 }

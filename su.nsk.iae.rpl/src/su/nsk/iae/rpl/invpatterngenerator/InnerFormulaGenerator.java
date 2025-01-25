@@ -25,15 +25,6 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public abstract class InnerFormulaGenerator<T extends Formula> {
-	FunctionalParameterList fnParamList;
-	Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParamMapping;
-
-	public InnerFormulaGenerator(FunctionalParameterList fnParamList,
-			Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParams) {
-		super();
-		this.fnParamList = fnParamList;
-		regParamMapping = regParams;
-	}
 
 	public T generateInnerFormula(InnerFormula reqFormula) {
 		T left = reqFormula.getLeft().generateFormula(this);
@@ -125,7 +116,7 @@ public abstract class InnerFormulaGenerator<T extends Formula> {
 				RPLFactory factory = RPLFactoryImpl.init();
 				RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
 				renamed.setName(original.getName() + "'");
-				return regParamMapping.get(original).applyToStates(atomic.getStates());
+				return new RegularAtomicFormula(getCorrespondingFormulaParameter(original), original, atomic.getStates());
 			} else {
 				SimpleFormulaParameter simpleFmParam = (SimpleFormulaParameter) fmParam;
 				SimpleAtomicFormula A = new SimpleAtomicFormula(simpleFmParam, atomic.getStates());
@@ -155,4 +146,6 @@ public abstract class InnerFormulaGenerator<T extends Formula> {
 			List<FormulaParameterValue> transformedFmParams,
 			UpdateStateVariable finState,
 			UpdateStateVariable curStae);
+	
+	abstract RegularFormulaParameter getCorrespondingFormulaParameter(RegularFormulaParameter original);
 }

@@ -27,9 +27,9 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 		return right;
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS,
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right,
 			List<UpdateStateVariable> lambdaBound) {
-		return this;
+		return BooleanLiteral.TRUE;
 	}
 	@Override
 	public boolean equalsToRequirementFormula() {

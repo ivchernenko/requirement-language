@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
@@ -42,6 +43,14 @@ public class DerivedRequirementPatternInstance implements OuterRequirementFormul
 			stringBuilder.append(' ').append(fmParam);
 		stringBuilder.append(' ').append(state.getName()).append(')');
 		return stringBuilder.toString();
+	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = new ArrayList<>();
+		usedPatterns.add(pattern.getName());
+		for (FormulaParameterValue fmParam: regFmParams)
+			usedPatterns.addAll(fmParam.getFormula().getUsedPatternNames());
+		return usedPatterns;
 	}
 	
 }

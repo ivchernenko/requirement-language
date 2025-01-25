@@ -13,23 +13,31 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
-public class ExtraInvariantPatternGenerator {
+public class PatternGenerator {
+	public static RequirementPattern generateRequirementPattern(DerivedRequirementPattern reqPattern) {
+		List<ConstantParameter> cParams = reqPattern.getCParams();
+		List<SimpleFormulaParameter> simpleFmParams = reqPattern.getSimpleFmParam();
+		List<RegularFormulaParameter> regFmParams = reqPattern.getFmParams();
+		OuterRequirementFormulaGenerator generator = new OuterRequirementFormulaGenerator();
+		OuterRequirementFormula definition = reqPattern.getDefinition().generateFormula(generator);
+		return new RequirementPattern(reqPattern.getName(), cParams, simpleFmParams, regFmParams, definition);
+	}
+	
 	public static ExtraInvariantPattern generateExtraInvariantPattern(DerivedRequirementPattern reqPattern) {
 		List<ConstantParameter> cParams = reqPattern.getCParams();
 		List<SimpleFormulaParameter> simpleFmParams = new ArrayList<>();
 		simpleFmParams.addAll(reqPattern.getSimpleFmParams());
 		simpleFmParams.addAll(reqPattern.getSimpleFmParam());
 		List<RegularFormulaParameter> regFmParams = new ArrayList<>();
-		Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParamMapping = new HashMap<>();
+		Map<RegularFormulaParameter, RegularFormulaParameter> regParamMapping = new HashMap<>();
 		for (RegularFormulaParameter original: reqPattern.getFmParams()) {
 			RPLFactory factory = RPLFactoryImpl.init();
 			RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
 			renamed.setName(original.getName() + "'");
-			ExtraInvariantFormulaParameter einvParam = new ExtraInvariantFormulaParameter(renamed, original);
-			regParamMapping.put(original, einvParam);
+			regParamMapping.put(original, renamed);
 			regFmParams.add(renamed);
 		}
-		OuterFormulaGenerator generator = new OuterFormulaGenerator(regParamMapping);
+		OuterExtraInvariantFormulaGenerator generator = new OuterExtraInvariantFormulaGenerator(regParamMapping);
 		OuterExtraInvariantFormula definition = reqPattern.getDefinition().generateFormula(generator);
 		List<FunctionalParameter> fnParams = generator.getFnParamList().params;
 		return new ExtraInvariantPattern(reqPattern.getName(), cParams, fnParams, simpleFmParams, regFmParams, definition);

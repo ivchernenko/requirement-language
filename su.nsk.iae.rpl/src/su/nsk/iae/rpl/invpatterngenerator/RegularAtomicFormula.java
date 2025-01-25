@@ -7,14 +7,14 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class ExtraInvariantFormulaParameter implements PatternFreeInnerFormula {
+public class RegularAtomicFormula implements PatternFreeInnerFormula {
 	private final RegularFormulaParameter renamed;
 	private final RegularFormulaParameter original;
 	private final List<UpdateStateVariable> states;
 	public List<UpdateStateVariable> getStates() {
 		return states;
 	}
-	public ExtraInvariantFormulaParameter(
+	public RegularAtomicFormula(
 			RegularFormulaParameter renamed,
 			RegularFormulaParameter original,
 			List<UpdateStateVariable> states) {
@@ -24,7 +24,7 @@ public class ExtraInvariantFormulaParameter implements PatternFreeInnerFormula {
 		this.states = states;
 	}
 	
-	public ExtraInvariantFormulaParameter(
+	public RegularAtomicFormula(
 			RegularFormulaParameter renamed,
 			RegularFormulaParameter original) {
 		super();
@@ -55,13 +55,13 @@ public class ExtraInvariantFormulaParameter implements PatternFreeInnerFormula {
 			s = substitution.getOrDefault(s,  s);
 			newStates.add(s);
 		}
-		return new ExtraInvariantFormulaParameter(renamed, original, newStates);
+		return new RegularAtomicFormula(renamed, original, newStates);
 	}
 	@Override
 	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		List<UpdateStateVariable> newStates = new ArrayList<>(this.states);
 		newStates.addAll(states);
-		return new ExtraInvariantFormulaParameter(renamed, original, newStates);
+		return new RegularAtomicFormula(renamed, original, newStates);
 	}
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {

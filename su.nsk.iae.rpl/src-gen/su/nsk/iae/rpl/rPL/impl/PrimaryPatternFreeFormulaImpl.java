@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.PatternFreeInnerFormula;
 import su.nsk.iae.rpl.rPL.NegationFormula;
 import su.nsk.iae.rpl.rPL.PatternFreeFormula;
 import su.nsk.iae.rpl.rPL.PrimaryPatternFreeFormula;
@@ -65,7 +66,7 @@ public class PrimaryPatternFreeFormulaImpl extends ConjunctionPatternFreeFormula
   }
 
   @Override
-public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
+public PatternFreeInnerFormula generateFormula(InnerFormulaGenerator<?> generator) {
 	return generator.generatePatternFreeFormula(this);
 }
 

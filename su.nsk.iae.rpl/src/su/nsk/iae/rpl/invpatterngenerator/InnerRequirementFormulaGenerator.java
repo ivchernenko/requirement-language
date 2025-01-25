@@ -1,9 +1,11 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.List;
+import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FutureRequirementPattern;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class InnerRequirementFormulaGenerator extends InnerFormulaGenerator<InnerRequirementFormula> {
@@ -21,9 +23,17 @@ public class InnerRequirementFormulaGenerator extends InnerFormulaGenerator<Inne
 	}
 
 	@Override
-	Formula createPastPatternInstance(PastRequirementPattern pattern, List cParams, List transformedFmParams,
+	InnerRequirementFormula createPastPatternInstance(
+			PastRequirementPattern pattern,
+			List<Term> cParams,
+			List<FormulaParameterValue> transformedFmParams,
 			UpdateStateVariable finState, UpdateStateVariable curState) {
 		return new PastRequirementPatternInstance(pattern, cParams, transformedFmParams, null, finState, curState);
+	}
+
+	@Override
+	RegularFormulaParameter getCorrespondingFormulaParameter(RegularFormulaParameter original) {
+		return original;
 	}
 
 }

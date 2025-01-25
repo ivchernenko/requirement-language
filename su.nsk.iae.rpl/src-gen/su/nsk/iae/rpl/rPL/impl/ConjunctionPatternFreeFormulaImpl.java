@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.PatternFreeInnerFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionPatternFreeFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -30,7 +31,7 @@ public class ConjunctionPatternFreeFormulaImpl extends PatternFreeFormulaImpl im
   }
 
   @Override
-public InnerExtraInvariantFormula generateFormula(InnerFormulaGenerator generator) {
+public PatternFreeInnerFormula generateFormula(InnerFormulaGenerator<?> generator) {
 	return generator.generatePatternFreeFormula(this);
 }
 

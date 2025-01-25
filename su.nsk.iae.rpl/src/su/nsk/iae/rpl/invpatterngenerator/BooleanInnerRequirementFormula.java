@@ -37,5 +37,11 @@ public class BooleanInnerRequirementFormula implements InnerRequirementFormula {
 		InnerRequirementFormula transformedRight = right.applyToStates(states);
 		return new BooleanInnerRequirementFormula(operator, transformedLeft, transformedRight);
 	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = left.getUsedPatternNames();
+		usedPatterns.addAll(right.getUsedPatternNames());
+		return usedPatterns;
+	}
 
 }

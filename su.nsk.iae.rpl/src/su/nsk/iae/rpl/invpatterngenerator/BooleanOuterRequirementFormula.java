@@ -1,5 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.List;
+
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanOuterRequirementFormula implements OuterRequirementFormula {
@@ -28,6 +30,12 @@ public class BooleanOuterRequirementFormula implements OuterRequirementFormula {
 		stringBuilder.append('(').append(left.convertToString(state)).append(' ').append(operator)
 		.append(right.convertToString(state)).append(')');
 		return stringBuilder.toString();
+	}
+	@Override
+	public List<String> getUsedPatternNames() {
+		List<String> usedPatterns = left.getUsedPatternNames();
+		usedPatterns.addAll(right.getUsedPatternNames());
+		return usedPatterns;
 	}
 	
 	

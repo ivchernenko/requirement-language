@@ -58,11 +58,6 @@ public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
-		return this;
-	}
-
-	@Override
 	public boolean equalsToRequirementFormula() {
 		return true;
 	}

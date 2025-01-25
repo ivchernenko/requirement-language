@@ -72,6 +72,6 @@ public interface InnerFormula extends EObject
    */
   void setRight(InnerFormula value);
 
-<T> T generateFormula(InnerFormulaGenerator<T> generator);
+<T extends su.nsk.iae.rpl.invpatterngenerator.Formula> T generateFormula(InnerFormulaGenerator<T> generator);
 
 } // InnerFormula

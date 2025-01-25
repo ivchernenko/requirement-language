@@ -25,17 +25,6 @@ import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public abstract class OuterFormulaGenerator<T> {
-	private FunctionalParameterList fnParamList = new FunctionalParameterList();
-	public FunctionalParameterList getFnParamList() {
-		return fnParamList;
-	}
-
-	private Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParamMapping;
-	
-	public OuterFormulaGenerator(Map<RegularFormulaParameter, ExtraInvariantFormulaParameter> regParams) {
-		regParamMapping = regParams;
-	}
-	
 	public T generateFormula(su.nsk.iae.rpl.rPL.Formula reqFormula) {
 		T left = reqFormula.getLeft().generateFormula(this);
 		T right = reqFormula.getRight().generateFormula(this);
@@ -74,13 +63,7 @@ public abstract class OuterFormulaGenerator<T> {
 						patternInst.getCParams().stream().map(t -> t.convert(converter)).collect(Collectors.toList()),
 						simpleFmParams,
 						transformedFmParams);
-			
-			/*
-			List<Implication> extraConjs = new ArrayList<>();
-			for (var fmParamValue: transformedFmParams)
-				extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
-			return new ExtendedInvariant(mainConj, extraConjs);	
-			*/	
+			else throw new UnsupportedOperationException("past requirement patterns are not supported on top level.");	
 		}
 		else { // nested formula
 			return reqFormula.getNestedFormula().generateFormula(this);
@@ -94,5 +77,4 @@ public abstract class OuterFormulaGenerator<T> {
 			List<su.nsk.iae.rpl.invpatterngenerator.Term> cParams,
 			List<FormulaParameterValue> simpleFmParams,
 			List<FormulaParameterValue> regFmParams);
-	
 }

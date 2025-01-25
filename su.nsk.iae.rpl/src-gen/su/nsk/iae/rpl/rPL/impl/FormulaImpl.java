@@ -269,7 +269,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
   }
 
 @Override
-public OuterExtraInvariantFormula generateFormula(OuterFormulaGenerator generator) {
+public <T> T generateFormula(OuterFormulaGenerator<T> generator) {
 
 	return generator.generateFormula(this);
 }

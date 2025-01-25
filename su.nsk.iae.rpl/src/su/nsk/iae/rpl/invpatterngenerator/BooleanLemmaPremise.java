@@ -20,9 +20,9 @@ public class BooleanLemmaPremise implements LemmaPremise {
 		return right;
 	}
 	@Override
-	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
-		LemmaPremise transformedLeft = left.replacePatterns(LS);
-		LemmaPremise transformedRight = right.replacePatterns(LS);
+	public LemmaPremise replacePatterns() {
+		LemmaPremise transformedLeft = left.replacePatterns();
+		LemmaPremise transformedRight = right.replacePatterns();
 		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
 	}
 	

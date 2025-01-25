@@ -92,27 +92,34 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
+	public LemmaPremise replacePatterns() {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
-		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
-		return premiseInstance.replacePatterns(LS);
+		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams,
+				new ArrayList<>(), null);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns();
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		Lemma L;
-		if (LS == DerivedLemmaScheme.LS8)
+		ParameterValueMap params;
+		if (right instanceof FutureExtraInvariantPatternInstance) {
 			L = pattern.getLemmas().getL1();
-		else
-			L =pattern.getLemmas().getL3();
-		LemmaPremiseFormula premise = L.getPrem();
-		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, null);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
-		return premiseInstance.replacePatterns(LS);
+			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(), null);
+		}
+		else {
+			L = pattern.getLemmas().getL3();
+			FutureRequirementPatternInstance frRight = (FutureRequirementPatternInstance) right;
+			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, frRight.getFmParams(), 
+					null);
+		}
+		LemmaPremiseFormula premise = L.getPrem();	
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns();
 	}
 
 	@Override

@@ -15,11 +15,14 @@ import com.google.inject.Provider;
 
 import su.nsk.iae.rpl.RPLStandaloneSetup;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPattern;
-import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.PatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.RequirementPattern;
 import su.nsk.iae.rpl.invpatterngenerator.LS8Lemma;
 import su.nsk.iae.rpl.invpatterngenerator.LS9Lemma;
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
 import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
+import su.nsk.iae.rpl.invpatterngenerator.OuterRequirementFormula;
+import su.nsk.iae.rpl.invpatterngenerator.OuterRequirementFormulaGenerator;
 import su.nsk.iae.rpl.rPL.*;
 import su.nsk.iae.rpl.rPL.impl.InnerFormulaImpl;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
@@ -76,8 +79,10 @@ public class Main {
 			writer.write("theory " + outputFileName + " imports Patterns\n begin\n");
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
-					ExtraInvariantPattern einvPattern = ExtraInvariantPatternGenerator.generateExtraInvariantPattern(pattern);
-					writer.write(einvPattern.toString() + "\n");
+					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
+					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
+					writer.write(reqPattern.toString() + "\n\n");
+					writer.write(einvPattern.toString() + "\n\n");
 					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
 					LemmaPremise L8Premise = einvDef.generateL8();
 					RPLFactory factory = RPLFactoryImpl.init();

@@ -19,8 +19,8 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		return left;
 	}
 	@Override
-	public LemmaPremise replacePatterns(DerivedLemmaScheme LS) {
-		return ((InnerExtraInvariantFormula) left.getFormula()).replacePatternsForImplication(LS, left.getStates());
+	public LemmaPremise replacePatterns() {
+		return ((InnerExtraInvariantFormula) left.getFormula()).replacePatternsForImplication(right.getFormula(), left.getStates());
 	}
 	
 	@Override

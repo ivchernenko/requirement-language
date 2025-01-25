@@ -4,10 +4,10 @@ import java.util.List;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public abstract class OuterExtraInvariantFormula {
+public interface OuterExtraInvariantFormula extends OuterFormula {
 	public abstract LemmaPremise generateL8();
-	public abstract LemmaPremise generateL9();
-	protected abstract List<String> getUsedPatternNames();
+	public abstract LemmaPremise generateL9(OuterRequirementFormula reqFormula);
+	
 	
 	public abstract String convertToString(UpdateStateVariable finalState);
 	

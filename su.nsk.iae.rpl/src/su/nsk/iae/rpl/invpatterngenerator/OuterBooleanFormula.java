@@ -4,7 +4,7 @@ import java.util.List;
 
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
+public class OuterBooleanFormula implements OuterExtraInvariantFormula  {
 	private BooleanOperator operator;
 	private OuterExtraInvariantFormula left;
 	private OuterExtraInvariantFormula right;
@@ -36,20 +36,22 @@ public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
 	}
 
 	@Override
-	public LemmaPremise generateL9() {
-		LemmaPremise lpLeft = left.generateL9();
-		LemmaPremise lpRight = right.generateL9();
+	public LemmaPremise generateL9(OuterRequirementFormula reqFormula) {
+		BooleanOuterRequirementFormula other = (BooleanOuterRequirementFormula) reqFormula;
+		OuterRequirementFormula otherLeft = other.getLeft();
+		OuterRequirementFormula otherRight = other.getRight();
+		LemmaPremise lpLeft = left.generateL9(otherLeft);
+		LemmaPremise lpRight = right.generateL9(otherRight);
 		return new BooleanLemmaPremise(operator, lpLeft, lpRight);
 	}
 
 	@Override
-	protected List<String> getUsedPatternNames() {
+	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = left.getUsedPatternNames();
 		usedPatterns.addAll(right.getUsedPatternNames());
 		return usedPatterns;		
 	}
 	
-
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder("(");
 		String operatorRep = null;
@@ -80,6 +82,4 @@ public class OuterBooleanFormula extends OuterExtraInvariantFormula  {
 		.append(")")
 		.toString();
 	}
-	
-
 }
