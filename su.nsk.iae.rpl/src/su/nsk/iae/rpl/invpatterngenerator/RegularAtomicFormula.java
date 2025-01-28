@@ -64,8 +64,12 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 		return new RegularAtomicFormula(renamed, original, newStates);
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(DerivedLemmaScheme LS, List<UpdateStateVariable> lambdaBound) {
-		return this;
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
+		return new GeneralizedAlwaysImplication(
+				state,
+				new FormulaParameterValue(lambdaBound, this),
+				new FormulaParameterValue(lambdaBound, right));
 	}
 	@Override
 	public boolean equalsToRequirementFormula() {

@@ -1,0 +1,27 @@
+derivedreq pattern P1(const: t simple formulas: A1 formulas: A2, A3) from Pattern1 with P1_inv lemmas {
+	LS9 lemma P1_inv_imp_req {
+		const: t
+		fun: t1
+		simple formulas: A1
+		extra invariant formulas: A2_1, A3_1
+		requirement formulas: A2, A3
+		final state: s
+		premise alwaysimp(s, A2_1(s), A2(s)) /\ alwaysimp(s, A3_1(s), A3(s)) /\ frm(t1(s) <= t)
+	};
+};
+
+derivedeinv pattern P1_inv(const: t fun: t1 simple formulas: A1 formulas: A2_1, A3_1) from Pattern1 lemmas {
+	LS8 lemma P1_inv_saving {
+		const: t
+		fun: t1
+		simple formulas: A1
+		extra invariant formulas: A2_1, A3_1
+		init state: s0
+		final state: s
+		premise (alwaysimp(s0, A2_1(s0), A2_1(s)) /\ alwaysimp(s0, A3_1(s0), A3_1(s)) /\
+		 (frm(t1(s0) == 0) \/ A3_1(s, s) /\ frm(t1(s0) <= t) \/ A2_1(s, s) /\ frm(t1(s0) < t1(s)))) /\
+		 (~ A1(s) \/ A3_1(s, s) \/ A2_1(s, s) /\ frm(t1(s) > 0))
+	};
+};
+
+requirement R1: P1 with extraInv1;

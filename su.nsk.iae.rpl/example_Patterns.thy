@@ -1,0 +1,25 @@
+theory example_Patterns imports Patterns
+ begin
+definition P1 where "P1 t A1 A2 A3 s \<equiv> (always (\<lambda> r2 r1 . ((\<not> (A1 r1)) \<or> (constrained_until t A2 A3 r2 r1))) s)"
+
+definition P1_inv where "P1_inv t t1_0 A1 A2' A3' s \<equiv> (always_inv (\<lambda> r2 r1 . ((\<not> (A1 r1)) \<or> (constrained_until_inv t t1_0 A2' A3' r2 r1))) s)"
+
+
+
+lemma P1_inv_saving : "
+P1_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+consecutive s0 s
+((True \<or> ((always_imp s0 (A2' s0) (A2' s)) \<and> ((always_imp s0 (A3' s0) (A3' s)) \<and> (((t1_0 s0) = 0) \<or> (((A3' s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2' s s) \<and> ((t1_0 s0) < (t1_0 s)))))))) \<and> ((\<not> (A1 s)) \<or> ((A3' s s) \<or> (((t1_0 s) > 0) \<and> (A2' s)))))
+P1_inv t t1_0 A1 A2' A3' s"
+
+lemma P1_inv_saving : "
+P1_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+toEnvP s0
+(True \<or> ((always_imp s0 (A2' s0) (A2 s0)) \<and> ((always_imp s0 (A3' s0) (A3 s0)) \<and> ((t1_0 s0) <= t))))
+P1 t A1 A2 A3 s0"
+
+lemmas P1_used_patterns = always constrained_until 
+
+lemmas P1_inv_used_patterns = always_inv constrained_until_inv 
+
+end

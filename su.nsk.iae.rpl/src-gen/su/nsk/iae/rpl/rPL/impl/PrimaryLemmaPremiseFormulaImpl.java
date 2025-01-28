@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import su.nsk.iae.rpl.invpatterngenerator.DerivedLemmaScheme;
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
 import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
@@ -91,9 +90,8 @@ public class PrimaryLemmaPremiseFormulaImpl extends ConjunctionLemmaPremiseFormu
   }
 
   @Override
-public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, DerivedLemmaScheme scheme,
-		ParameterValueMap params) {
-	return instCreator.substituteParams(this, scheme, params);
+public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, ParameterValueMap params) {
+	return instCreator.substituteParams(this, params);
 }
 
 /**

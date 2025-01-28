@@ -17,7 +17,8 @@ public abstract class Term implements InnerExtraInvariantFormula {
 		return this;
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		return BooleanLiteral.TRUE;
 	}
 	@Override

@@ -10,6 +10,7 @@ import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ParameterValueMap {
 	final Map<ConstantParameter, Term> cParams;
@@ -17,17 +18,24 @@ public class ParameterValueMap {
 	final Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams;
 	final Map<RegularFormulaParameter, FormulaParameterValue> regFmParams;
 	final FunctionalParameter boolParam;
+	final Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution;
+	public Map<UpdateStateVariable, UpdateStateVariable> getStateSubstitution() {
+		return stateSubstitution;
+	}
+
 	public ParameterValueMap(Map<ConstantParameter, Term> cParams,
 			Map<FunctionalParameter, FunctionalParameter> fnParams,
 			Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams,
 			Map<RegularFormulaParameter, FormulaParameterValue> regFmParams,
-			FunctionalParameter boolParam) {
+			FunctionalParameter boolParam,
+			Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution) {
 		super();
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.simpleFmParams = simpleFmParams;
 		this.regFmParams = regFmParams;
 		this.boolParam = boolParam;
+		this.stateSubstitution = stateSubstitution;
 	}
 	
 	 ParameterValueMap(
@@ -37,7 +45,9 @@ public class ParameterValueMap {
 			List<FormulaParameterValue> simpleFmParamValues,
 			List<FormulaParameterValue> einvFmParamValues,
 			List<FormulaParameterValue> reqFmParamValues,
-			FunctionalParameter boolParam) {
+			FunctionalParameter boolParam,
+			UpdateStateVariable initState,
+			UpdateStateVariable finState) {
 		List<ConstantParameter> cVars = lemma.getCVars();
 		List<FunctionalParameter> fnVars = lemma.getFnVars();
 		List<SimpleFormulaParameter> simpleFmVars = lemma.getSimpleFmVars();
@@ -58,6 +68,9 @@ public class ParameterValueMap {
 		for (int i = 0; i < reqFmVars.size(); i++)
 			regFmParams.put(reqFmVars.get(i), reqFmParamValues.get(i));
 		this.boolParam = boolParam;
+		stateSubstitution = new HashMap<>();
+		stateSubstitution.put(lemma.getInitState(), initState);
+		stateSubstitution.put(lemma.getFinalState(), finState);
 	}
 	
 	public Map<ConstantParameter, Term> getcParams() {
@@ -75,4 +88,6 @@ public class ParameterValueMap {
 	public FunctionalParameter getBoolParam() {
 		return boolParam;
 	}
+	
+	
 }

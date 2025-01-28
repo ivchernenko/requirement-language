@@ -16,7 +16,9 @@ import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 public class PatternGenerator {
 	public static RequirementPattern generateRequirementPattern(DerivedRequirementPattern reqPattern) {
 		List<ConstantParameter> cParams = reqPattern.getCParams();
-		List<SimpleFormulaParameter> simpleFmParams = reqPattern.getSimpleFmParam();
+		List<SimpleFormulaParameter> simpleFmParams = new ArrayList<>();
+		simpleFmParams.addAll(reqPattern.getSimpleFmParams());
+		simpleFmParams.addAll(reqPattern.getSimpleFmParam());
 		List<RegularFormulaParameter> regFmParams = reqPattern.getFmParams();
 		OuterRequirementFormulaGenerator generator = new OuterRequirementFormulaGenerator();
 		OuterRequirementFormula definition = reqPattern.getDefinition().generateFormula(generator);

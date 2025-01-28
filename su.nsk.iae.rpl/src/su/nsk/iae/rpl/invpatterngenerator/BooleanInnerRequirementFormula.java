@@ -43,5 +43,13 @@ public class BooleanInnerRequirementFormula implements InnerRequirementFormula {
 		usedPatterns.addAll(right.getUsedPatternNames());
 		return usedPatterns;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right)
+		.append(')');
+		return stringBuilder.toString();
+	}
 
 }

@@ -1,5 +1,7 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+
 public class BooleanLemmaPremise implements LemmaPremise {
 	private final BooleanOperator operator;
 	private final LemmaPremise  left;
@@ -20,9 +22,9 @@ public class BooleanLemmaPremise implements LemmaPremise {
 		return right;
 	}
 	@Override
-	public LemmaPremise replacePatterns() {
-		LemmaPremise transformedLeft = left.replacePatterns();
-		LemmaPremise transformedRight = right.replacePatterns();
+	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		LemmaPremise transformedLeft = left.replacePatterns(initState);
+		LemmaPremise transformedRight = right.replacePatterns(initState);
 		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
 	}
 	

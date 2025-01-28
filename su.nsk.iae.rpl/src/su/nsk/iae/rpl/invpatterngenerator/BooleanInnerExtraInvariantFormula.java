@@ -46,7 +46,8 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 	}
 	
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula other, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula other, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		Formula otherLeft;
 		Formula otherRight;
 		if (other instanceof BooleanInnerExtraInvariantFormula bOther) {
@@ -58,8 +59,8 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 			otherLeft = bOther.getLeft();
 			otherRight = bOther.getRight();
 		}
-		LemmaPremise transformedLeft = left.replacePatternsForImplication(otherLeft, lambdaBound);
-		LemmaPremise transformedRight = right.replacePatternsForImplication(otherRight, lambdaBound);
+		LemmaPremise transformedLeft = left.replacePatternsForImplication(otherLeft, lambdaBound, state);
+		LemmaPremise transformedRight = right.replacePatternsForImplication(otherRight, lambdaBound, state);
 		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
 	}
 	@Override
@@ -67,9 +68,9 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 		return left.equalsToRequirementFormula() && right.equalsToRequirementFormula();
 	}
 	@Override
-	public LemmaPremise replacePatterns() {
-		LemmaPremise transformedLeft = left.replacePatterns();
-		LemmaPremise transformedRight = right.replacePatterns();
+	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		LemmaPremise transformedLeft = left.replacePatterns(initState);
+		LemmaPremise transformedRight = right.replacePatterns(initState);
 		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
 	}
 	@Override

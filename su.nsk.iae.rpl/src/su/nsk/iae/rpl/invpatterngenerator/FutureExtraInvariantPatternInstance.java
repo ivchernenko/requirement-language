@@ -92,34 +92,36 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams,
-				new ArrayList<>(), null);
+				new ArrayList<>(), null, null, finState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(initState);
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		Lemma L;
 		ParameterValueMap params;
-		if (right instanceof FutureExtraInvariantPatternInstance) {
+		if (right instanceof FutureExtraInvariantPatternInstance fiRight) {
 			L = pattern.getLemmas().getL1();
-			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(), null);
+			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(), null,
+					this.finState, fiRight.finState);
 		}
 		else {
 			L = pattern.getLemmas().getL3();
 			FutureRequirementPatternInstance frRight = (FutureRequirementPatternInstance) right;
 			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, frRight.getFmParams(), 
-					null);
+					null, null, finState);
 		}
 		LemmaPremiseFormula premise = L.getPrem();	
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(this.finState);
 	}
 
 	@Override

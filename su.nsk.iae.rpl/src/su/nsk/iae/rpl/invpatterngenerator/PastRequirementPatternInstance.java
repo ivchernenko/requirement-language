@@ -118,39 +118,41 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		Lemma L = pattern.getLemmas().getL7();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
-				new ArrayList<>(), boolParam);
+				new ArrayList<>(), boolParam, initState, finState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();		
+		return premiseInstance.replacePatterns(initState);		
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		Lemma L;
 		ParameterValueMap params;
-		if (LS == DerivedLemmaScheme.LS8)
-			L = pattern.getLemmas().getL4();
-		else
+		PastRequirementPatternInstance other = (PastRequirementPatternInstance) right;
+		if (this.finState.equals(other.finState)) {
 			L = pattern.getLemmas().getL5();
+			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
+					other.getFmParams(), boolParam, null, finState);
+		}
+		else {
+			L = pattern.getLemmas().getL4();
+			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
+					new ArrayList<>(), boolParam, this.finState, other.finState);
+	}
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
-		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, boolParam);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, LS, params);
-		return premiseInstance.replacePatterns(LS);
+		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
+		return premiseInstance.replacePatterns(this.finState);
 	}
 
 	@Override
 	public boolean equalsToRequirementFormula() {
-		boolean equal = true;
-		for (FormulaParameterValue fmParam: fmParams) {
-			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
-			equal = equal && formula.equalsToRequirementFormula();
-		}
-		return equal;
+		return false;
 	}
 
 	@Override

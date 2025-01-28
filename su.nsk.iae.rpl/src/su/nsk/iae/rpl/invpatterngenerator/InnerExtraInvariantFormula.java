@@ -12,10 +12,11 @@ public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
 		return new ArrayList<>();
 	}
 
-	default LemmaPremise replacePatternsForImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
+	default LemmaPremise replacePatternsForImplication(Formula right, List<UpdateStateVariable> lambdaBound, 
+			UpdateStateVariable state) {
 		if (this.equalsToRequirementFormula())
 			return BooleanLiteral.TRUE;
-		else return replacePatternsForNotIdenticallyTrueImplication(right, lambdaBound);
+		else return replacePatternsForNotIdenticallyTrueImplication(right, lambdaBound, state);
 	}
 	
 	
@@ -26,7 +27,8 @@ public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
 	@Override
 	InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states);
 
-	LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound);
+	LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound,
+			UpdateStateVariable state);
 
 	boolean equalsToRequirementFormula();
 

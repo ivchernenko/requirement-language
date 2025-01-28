@@ -29,7 +29,8 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, List<UpdateStateVariable> lambdaBound) {
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		return BooleanLiteral.TRUE;
 	}
 

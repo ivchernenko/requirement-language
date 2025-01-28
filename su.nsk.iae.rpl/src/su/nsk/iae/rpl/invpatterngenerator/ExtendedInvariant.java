@@ -23,7 +23,7 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 		return extraConjs;
 	}
 	@Override
-	public LemmaPremise generateL8() {
+	public LemmaPremise generateL8(UpdateStateVariable initState, UpdateStateVariable finalState) {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L8 = pattern.getLemmas().getL8();
 		LemmaPremiseFormula premise = L8.getPrem();
@@ -35,21 +35,21 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
 				new ArrayList<>(),
-				null);
+				null,
+				initState,
+				finalState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		UpdateStateVariable finalState = L8.getFinalState();
 		for (var conjunct: extraConjs) {
 			FunctionApplication left = new FunctionApplication(conjunct.getLeft(), finalState);
 			PastExtraInvariantPatternInstance right = conjunct.getRight().setState(finalState, true);
 			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
 			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
 		}
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(initState);
 	}
 
-
 	@Override
-	public LemmaPremise generateL9(OuterRequirementFormula reqFormula) {
+	public LemmaPremise generateL9(OuterRequirementFormula reqFormula, UpdateStateVariable state) {
 		DerivedRequirementPatternInstance reqPatternInst = (DerivedRequirementPatternInstance) reqFormula;
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L9 = pattern.getLemmas().getL9();
@@ -62,9 +62,11 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
 				reqPatternInst.getRegFmParams(),
-				null);
+				null,
+				null,
+				state);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns();
+		return premiseInstance.replacePatterns(null);
 	}
 	@Override
 	public List<String> getUsedPatternNames() {

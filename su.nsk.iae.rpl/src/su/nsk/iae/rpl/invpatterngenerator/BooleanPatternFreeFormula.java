@@ -28,7 +28,7 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 	}
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right,
-			List<UpdateStateVariable> lambdaBound) {
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		return BooleanLiteral.TRUE;
 	}
 	@Override

@@ -71,7 +71,6 @@ public class Main {
 			Model model = (Model) resource.getContents().get(0);
 			List<Element> elements = model.getElements();
 			System.out.println(fileName);
-			String[] nameExt = fileName.split(".");
 			int index = fileName.indexOf('.');
 			String name = fileName.substring(0, index);
 			String outputFileName = name + "_Patterns";
@@ -83,13 +82,14 @@ public class Main {
 					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
 					writer.write(reqPattern.toString() + "\n\n");
 					writer.write(einvPattern.toString() + "\n\n");
+					OuterRequirementFormula reqDef = reqPattern.getDefinition();
 					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
-					LemmaPremise L8Premise = einvDef.generateL8();
 					RPLFactory factory = RPLFactoryImpl.init();
 					UpdateStateVariable s = factory.createUpdateStateVariable();
 					s.setName("s0");
 					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
+					LemmaPremise L8Premise = einvDef.generateL8(s, sPrimed);
 					LS8Lemma L8 = new LS8Lemma(
 							einvPattern.getName(),
 							einvPattern.getcParams(),
@@ -99,7 +99,7 @@ public class Main {
 							s,
 							sPrimed,
 							L8Premise);
-					LemmaPremise L9Premise = einvDef.generateL9();
+					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
 					LS9Lemma L9 = new LS9Lemma(
 							einvPattern.getName(),
 							pattern.getName(),
@@ -115,9 +115,14 @@ public class Main {
 					writer.write("\n\n");
 					writer.write(L9.toString());
 					writer.write("\n\n");
+					writer.write("lemmas " + reqPattern.getName() + "_used_patterns = ");
+					List<String> usedReqPatterns = reqPattern.getUsedPatternNames();
+					for (String usedPattern: usedReqPatterns)
+						writer.write(usedPattern + ' ');
+					writer.write("\n\n");
 					writer.write("lemmas " + einvPattern.getName() + "_used_patterns = ");
-					List<String> usedPatterns = einvPattern.getUsedPatternNames();
-					for (String usedPattern: usedPatterns)
+					List<String> usedEinvPatterns = einvPattern.getUsedPatternNames();
+					for (String usedPattern: usedEinvPatterns)
 						writer.write(usedPattern + ' ');
 					writer.write("\n\n");
 				}
@@ -140,14 +145,34 @@ public class Main {
 		try {
 			Model model = (Model) resource.getContents().get(0);
 			List<Element> elements = model.getElements();
+			String ceiOutputFileName = "CommonExtraInv_Proofs";
+			FileWriter ceiWriter = new FileWriter(ceiOutputFileName + ".thy");
+			generateTheoryName(ceiWriter, ceiOutputFileName, "CommonExtraInv");
+			generateInitVcProofForCommonExtraInvariant(ceiWriter);
+			for (int i =2; i<= numVCs; i++)
+				generateLoopPathForCommonExtraInvariant(ceiWriter, i, inputVars);
+			ceiWriter.write("end\n");
+			ceiWriter.close();
 			for (Element element: elements) {
 				if (element instanceof  ExtraInvariant einv) {
 					String outputFileName = einv.getName() + "_Proofs";
 					FileWriter writer = new FileWriter(outputFileName + ".thy");
 					generateTheoryName(writer, outputFileName, einv.getName());
-					generateInitVcProof(writer, einv.getName());
+					generateInitVcProofForExtraInvariant(writer, einv.getName());
 					for (int i =2; i<= numVCs; i++)
-						generateLoopPath(writer, i, einv, inputVars);
+						generateLoopPathForExtraInvariant(writer, i, einv, inputVars);
+					writer.write("end\n");
+					writer.close();
+				}
+				else if (element instanceof  Requirement req) {
+					String einv = req.getExtraIn();
+					String outputFileName = req.getName() + "_Proofs";
+					FileWriter writer = new FileWriter(outputFileName + ".thy");
+					generateTheoryName(writer, outputFileName, req.getName());
+					String extendedInv = req.getName() + "_extended_inv";
+					generateInitVcProofForRequirement(writer, extendedInv, einv, req.getName());
+					for (int i =2; i<= numVCs; i++)
+						generateLoopPathForRequirement(writer, i, einv, req, extendedInv, inputVars);
 					writer.write("end\n");
 					writer.close();
 				}
@@ -161,9 +186,9 @@ public class Main {
 		System.out.println("Code generation finished.");
 	}
 
-	private void generateLoopPath(FileWriter writer, int i, ExtraInvariant einv, String inputVars) throws IOException {
+	private void generateLoopPathForExtraInvariant(FileWriter writer, int i, ExtraInvariant einv, String inputVars) throws IOException {
 		String name = einv.getName();
-		writer.write("theorem extra1: \"VC" + i + ' ' + name + " env s0 " + inputVars + "\"\n");
+		writer.write("theorem extra" + i + ": \"VC" + i + ' ' + name + " env s0 " + inputVars + "\"\n");
 		writer.write("unfolding VC" + i + "_def " + name + "_def\n");
 		String proofScript = 
 				" apply(rule impI)\r\n"
@@ -176,16 +201,54 @@ public class Main {
 				+ "  done\r\n";
 		writer.write(proofScript + "\n");		
 	}
+	
+	private void generateLoopPathForRequirement(FileWriter writer, int i, String einv, Requirement req,
+			String extendedInvName, String inputVars) throws IOException {
+		String name = extendedInvName;
+		writer.write("theorem extendedInv" + i + ": \"VC" + i + ' ' + name + " env s0 " + inputVars + "\"\n");
+		writer.write("unfolding VC" + i + "_def " + name + "_def" + req.getName() + "_def");
+		Lemma L9 = req.getPattern().getLemmas().getL9();
+		String proofScript = 
+				"  apply(rule impI)\r\n"
+				+ "  apply(rule context_conjI)\r\n"
+				+ "  using extra" + i + " apply((auto simp add: VC" + i + "_def)[1];fastforce)\r\n"
+				+ "  apply(rule conjI)\r\n"
+				+ "   apply simp\r\n"
+				+ "  apply(unfold " + einv + "_def commonExtraInv_def)\r\n"
+				+ "  apply(erule conjE)+\r\n"
+				+ "  apply(auto simp add: " + L9.getName() +")\r\n"
+				+ "  done\r\n"
+				+ "";
+		writer.write(proofScript + "\n");		
+	}
+	
+	private void generateLoopPathForCommonExtraInvariant(FileWriter writer, int i, String inputVars) throws IOException {
+		writer.write("theorem cei" + i + ": \"VC" + i + "commonExtraInv env s0 " + inputVars + "\"\n");
+		writer.write("unfolding VC" + i + "_def commonExtraInv_def");
+		writer.write("by fastforce\n\n");
+	}
 
-	private void generateInitVcProof(FileWriter writer, String name) throws IOException {
+	private void generateInitVcProofForExtraInvariant(FileWriter writer, String name) throws IOException {
 		writer.write("theorem extra1: \"VC1 " + name + " s0\"");
 		writer.write("unfolding VC1_def " + name + "_def " + name + "_used_patterns\n");
+		writer.write("apply auto\n\n");
+	}
+	
+	private void generateInitVcProofForRequirement(FileWriter writer, String extendedInvName, String extraInvName, 
+			String reqName) throws IOException {
+		writer.write("theorem extra1: \"VC1 " + extendedInvName + " s0\"");
+		writer.write("unfolding VC1_def " + extendedInvName + "_def " + extraInvName + "_def " 
+		+ reqName + "_def " + extraInvName + "_used_patterns" + reqName + "_used_patterns\n");
+		writer.write("apply auto\n\n");
+	}
+	
+	private void generateInitVcProofForCommonExtraInvariant(FileWriter writer) throws IOException {
+		writer.write("theorem extra1: \"VC1 commonExtraInv s0\"");
+		writer.write("unfolding VC1_def commonExtraInv_def");
 		writer.write("apply auto\n\n");
 	}
 	
 	private void generateTheoryName(FileWriter writer, String theoryName, String imports) throws IOException {
 		writer.write("theory " + theoryName + " imports " + imports + "\n begin\n");
 	}
-	
-	
 }

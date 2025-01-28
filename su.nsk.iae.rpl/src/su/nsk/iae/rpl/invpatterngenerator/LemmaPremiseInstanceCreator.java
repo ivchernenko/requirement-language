@@ -28,7 +28,8 @@ public class LemmaPremiseInstanceCreator {
 		if (fnParams != null) {
 			fn = fnParams.getOrDefault(fn, fn);
 		}
-		FunctionApplication left = new FunctionApplication(fn, funApp.getState());
+		FunctionApplication left = (FunctionApplication) new FunctionApplication(fn, funApp.getState())
+				.replaceStates(params.getStateSubstitution());
 		LemmaPremise right = premise.getRight().substitiuteParams(this,  params);
 		return new ImplicationLemmaPremise(left, right);
 	}
@@ -51,7 +52,7 @@ public class LemmaPremiseInstanceCreator {
 			FormulaParameterValue atomicPremise = negation(negFormula, params);
 			List<UpdateStateVariable> lambdaBound = atomicPremise.getStates();
 			if (lambdaBound == null || lambdaBound.isEmpty())
-				return (InnerExtraInvariantFormula) atomicPremise.getFormula();
+				return ((InnerExtraInvariantFormula) atomicPremise.getFormula());
 			else
 				throw new InvalidTypeException();
 		}
@@ -61,7 +62,9 @@ public class LemmaPremiseInstanceCreator {
 			FormulaParameterValue instantiatedLeft = substituteParams(originalLeft, params);
 			AtomicFormula originalRight = alwaysImp.getRight().getFormula().getRight();
 			FormulaParameterValue instantiatedRight = substituteParams(originalRight, params);
-			return new GeneralizedAlwaysImplication(alwaysImp.getState(), instantiatedLeft, instantiatedRight);
+			UpdateStateVariable state = alwaysImp.getState();
+			state = params.getStateSubstitution().getOrDefault(state, state);
+			return new GeneralizedAlwaysImplication(state, instantiatedLeft, instantiatedRight);
 		}
 		else if (premise.getInst() != null) {
 			su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst = premise.getInst();
@@ -78,7 +81,6 @@ public class LemmaPremiseInstanceCreator {
 		if (atomic.getFmParam() != null) { // formula parameter
 			FormulaParameter fmParam = atomic.getFmParam();
 			FormulaParameterValue value;
-			System.out.println(fmParam);
 			if (fmParam instanceof SimpleFormulaParameter simpleParam) {
 				Map<SimpleFormulaParameter, FormulaParameterValue> fmParams = params.getSimpleFmParams();
 				value = fmParams.get(simpleParam);					
@@ -107,7 +109,7 @@ public class LemmaPremiseInstanceCreator {
 		}
 		else // boolean literal or boolean term
 			atomicFormula = substituteParamsToConstantFormula(atomic, params);
-		return new FormulaParameterValue(resultLambdaBound, atomicFormula);
+		return new FormulaParameterValue(resultLambdaBound, atomicFormula.replaceStates(params.getStateSubstitution()));
 	}
 
 	Term substituteParamsToConstantFormula(AtomicFormula atomic, ParameterValueMap params) {

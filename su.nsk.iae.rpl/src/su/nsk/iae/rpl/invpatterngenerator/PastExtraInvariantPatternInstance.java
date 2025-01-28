@@ -74,15 +74,15 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	}
 
 	@Override
-	public LemmaPremise replacePatterns() {
+	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		if (finState) {
 			Lemma L = pattern.getLemmas().getL6();
 			LemmaPremiseFormula premise = L.getPrem();
 			LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 			ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, 
-					new ArrayList<>(), boolParam);
+					new ArrayList<>(), boolParam, initState, state);
 			LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-			return premiseInstance.replacePatterns();
+			return premiseInstance.replacePatterns(initState);
 		}
 		else
 			return new FunctionApplication(boolParam, state);
