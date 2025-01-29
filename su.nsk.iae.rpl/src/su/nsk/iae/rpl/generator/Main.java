@@ -1,7 +1,9 @@
 package su.nsk.iae.rpl.generator;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.eclipse.emf.common.util.URI;
@@ -79,9 +81,13 @@ public class Main {
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
 					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
+					RequirementPattern particularReqPattern = reqPattern.generateParticularPattern(name + "_part");
 					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
+					ExtraInvariantPattern particularEinvPattern =einvPattern.generateParticularPattern(name + "_part");
 					writer.write(reqPattern.toString() + "\n\n");
+					writer.write(particularReqPattern.toString() + "\n\n");
 					writer.write(einvPattern.toString() + "\n\n");
+					writer.write(particularEinvPattern.toString() + "\n\n");
 					OuterRequirementFormula reqDef = reqPattern.getDefinition();
 					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
 					RPLFactory factory = RPLFactoryImpl.init();
@@ -91,6 +97,7 @@ public class Main {
 					sPrimed.setName("s");
 					LemmaPremise L8Premise = einvDef.generateL8(s, sPrimed);
 					LS8Lemma L8 = new LS8Lemma(
+							einvPattern.getName() + "_saving_gen",
 							einvPattern.getName(),
 							einvPattern.getcParams(),
 							einvPattern.getFnParams(),
@@ -101,6 +108,7 @@ public class Main {
 							L8Premise);
 					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
 					LS9Lemma L9 = new LS9Lemma(
+							pattern.getName() + "einv_imp_req_gen",
 							einvPattern.getName(),
 							pattern.getName(),
 							einvPattern.getcParams(),
@@ -110,10 +118,42 @@ public class Main {
 							pattern.getFmParams(),
 							s,
 							L9Premise);
+					List<RegularFormulaParameter> einvVars = einvPattern.getRegFmParams();
+					List<RegularFormulaParameter> reqVars = pattern.getFmParams();
+					Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping = new HashMap<>();
+					for (int i = 0; i < einvVars.size(); i++)
+						paramMapping.put(einvVars.get(i), reqVars.get(i));
+					LemmaPremise particularL8Premise = L8Premise.generateParticularLemmaPremise(paramMapping);
+					LS8Lemma particularL8 = new LS8Lemma(
+							einvPattern.getName() + "_saving",
+							particularEinvPattern.getName(),
+							particularEinvPattern.getcParams(),
+							particularEinvPattern.getFnParams(),
+							particularEinvPattern.getSimpleFmParams(),
+							particularEinvPattern.getRegFmParams(),
+							s,
+							sPrimed,
+							particularL8Premise);
+					LemmaPremise particularL9Premise = L9Premise.generateParticularLemmaPremise(paramMapping);
+					LS9Lemma particularL9 = new LS9Lemma(
+							pattern.getName() + "einv_imp_req",
+							particularEinvPattern.getName(),
+							particularReqPattern.getName(),
+							particularEinvPattern.getcParams(),
+							particularEinvPattern.getFnParams(),
+							particularEinvPattern.getSimpleFmParams(),
+							particularEinvPattern.getRegFmParams(),
+							particularReqPattern.getRegFmParams(),
+							s,
+							particularL9Premise);
 					writer.write("\n\n");
 					writer.write(L8.toString());
 					writer.write("\n\n");
 					writer.write(L9.toString());
+					writer.write("\n\n");
+					writer.write(particularL8.toString());
+					writer.write("\n\n");
+					writer.write(particularL9.toString());
 					writer.write("\n\n");
 					writer.write("lemmas " + reqPattern.getName() + "_used_patterns = ");
 					List<String> usedReqPatterns = reqPattern.getUsedPatternNames();

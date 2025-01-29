@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -75,5 +76,11 @@ public class SimpleAtomicFormula implements PatternFreeInnerFormula {
 			stringBuilder.append(')');
 			return stringBuilder.toString();
 		}
+	}
+
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		return this;
 	}
 }

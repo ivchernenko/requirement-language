@@ -93,5 +93,10 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 			return stringBuilder.toString();
 		}
 	}
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		return new RegularAtomicFormula(paramMapping.get(renamed), original, states);
+	}
 
 }

@@ -9,6 +9,7 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class DerivedLemma {
+	String lemmaName;
 	String extraInvPattern;
 	List<ConstantParameter> cVars;
 	List<FunctionalParameter> fnVars;
@@ -16,9 +17,9 @@ public class DerivedLemma {
 	List<RegularFormulaParameter> einvFmVars;
 	LemmaPremise premise;
 	
-	public DerivedLemma(String extraInvPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
+	public DerivedLemma(String lemmaName, String extraInvPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
 			List<SimpleFormulaParameter> simpleFmVars, List<RegularFormulaParameter> einvFmVars, LemmaPremise premise) {
-		super();
+		this.lemmaName = lemmaName;
 		this.extraInvPattern = extraInvPattern;
 		this.cVars = cVars;
 		this.fnVars = fnVars;

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public abstract class Term implements InnerExtraInvariantFormula {
@@ -29,5 +30,11 @@ public abstract class Term implements InnerExtraInvariantFormula {
 	public List<String> getUsedPatternNames() {
 		return new ArrayList<>();
 	}
-
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		return this;
+	}
+	
+	
 }

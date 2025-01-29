@@ -1,5 +1,8 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Map;
+
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanLemmaPremise implements LemmaPremise {
@@ -35,4 +38,19 @@ public class BooleanLemmaPremise implements LemmaPremise {
 				.toString();
 	}
 	
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise(paramMapping);
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
+		if (simplifiedLeft.equals(BooleanLiteral.TRUE) || simplifiedLeft instanceof GeneralizedAlwaysImplication)
+			if (operator == BooleanOperator.CONJUNCTION)
+				return simplifiedRight;
+			else return BooleanLiteral.TRUE;
+		if (simplifiedRight.equals(BooleanLiteral.TRUE) || simplifiedRight instanceof GeneralizedAlwaysImplication)
+			if (operator == BooleanOperator.CONJUNCTION)
+				return simplifiedLeft;
+			else return BooleanLiteral.TRUE;
+		return new BooleanLemmaPremise(operator, simplifiedLeft, simplifiedRight);
+	}	
 }

@@ -3,11 +3,13 @@ package su.nsk.iae.rpl.invpatterngenerator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class PastExtraInvariantPatternInstance implements LemmaPremise {
@@ -112,5 +114,18 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 			stringBuilder.append(' ').append(state.getName());
 		stringBuilder.append(')');
 		return stringBuilder.toString();
+	}
+
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
+		for (FormulaParameterValue fmParam: fmParams) {
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
+			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) formula.generateParticularLemmaPremise(paramMapping);
+			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
+		}
+		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, boolParam, state,
+				finState);
 	}
 }

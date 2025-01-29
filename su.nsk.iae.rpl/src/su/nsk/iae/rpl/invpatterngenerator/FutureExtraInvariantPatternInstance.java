@@ -8,6 +8,7 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantFormula {
@@ -156,5 +157,18 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 			stringBuilder.append(' ').append(curState.getName());
 		stringBuilder.append(')');
 		return stringBuilder.toString();
+	}
+
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
+		for (FormulaParameterValue fmParam: fmParams) {
+			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
+			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) 
+					formula.generateParticularLemmaPremise(paramMapping);
+			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
+		}
+		return new FutureExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, finState, curState);
 	}
 }

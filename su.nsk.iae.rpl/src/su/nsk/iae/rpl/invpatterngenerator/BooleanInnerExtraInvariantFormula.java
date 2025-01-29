@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFormula {
@@ -85,5 +86,20 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 		StringBuilder stringBuilder = new StringBuilder();
 		return stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right).append(')')
 				.toString();
+	}
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise(paramMapping);
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
+		if (simplifiedLeft.equals(BooleanLiteral.TRUE) || simplifiedLeft instanceof GeneralizedAlwaysImplication)
+			if (operator == BooleanOperator.CONJUNCTION)
+				return simplifiedRight;
+			else return BooleanLiteral.TRUE;
+		if (simplifiedRight.equals(BooleanLiteral.TRUE) || simplifiedRight instanceof GeneralizedAlwaysImplication)
+			if (operator == BooleanOperator.CONJUNCTION)
+				return simplifiedLeft;
+			else return BooleanLiteral.TRUE;
+		return new BooleanLemmaPremise(operator, simplifiedLeft, simplifiedRight);
 	}
 }

@@ -9,10 +9,10 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class LS9Lemma extends DerivedLemma {
-	public LS9Lemma(String extraInvPattern, String reqPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
+	public LS9Lemma(String lemmaName, String extraInvPattern, String reqPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
 			List<SimpleFormulaParameter> simpleFmVars, List<RegularFormulaParameter> einvFmVars, 
 			List<RegularFormulaParameter> reqFmParams, UpdateStateVariable state, LemmaPremise premise) {
-		super(extraInvPattern, cVars, fnVars, simpleFmVars, einvFmVars, premise);
+		super(lemmaName, extraInvPattern, cVars, fnVars, simpleFmVars, einvFmVars, premise);
 		this.reqPattern = reqPattern;
 		this.reqFmVars = reqFmParams;
 		this.state = state;
@@ -24,7 +24,7 @@ public class LS9Lemma extends DerivedLemma {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("lemma ").append(extraInvPattern).append("_saving : \"\n")
+		stringBuilder.append("lemma ").append(lemmaName).append(": \"\n")
 		.append(generateExtraInvPatternInstance(state)).append(" \\<Longrightarrow>\n")
 		.append("toEnvP ").append(state.getName()).append('\n')
 		.append(premise).append('\n')
@@ -44,5 +44,4 @@ public class LS9Lemma extends DerivedLemma {
 		stringBuilder.append(' ').append(state.getName());
 		return stringBuilder.toString();
 	}
-	
 }

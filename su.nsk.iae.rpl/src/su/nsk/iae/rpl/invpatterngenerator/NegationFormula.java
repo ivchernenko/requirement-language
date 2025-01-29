@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class NegationFormula implements PatternFreeInnerFormula  {
@@ -49,6 +50,12 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 		StringBuilder stringBuilder = new StringBuilder();
 		return stringBuilder.append("(\\<not> ").append(formula).append(')')
 				.toString();
+	}
+
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		return this;
 	}
 
 }

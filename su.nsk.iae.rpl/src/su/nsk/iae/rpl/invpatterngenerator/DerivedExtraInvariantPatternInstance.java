@@ -69,7 +69,7 @@ public class DerivedExtraInvariantPatternInstance {
 		for (Term cParam: cParams)
 			stringBuilder.append(' ').append(cParam);
 		for (FunctionalParameter fnParam: fnParams)
-			stringBuilder.append(' ').append(fnParam);
+			stringBuilder.append(' ').append(fnParam.getName());
 		for (FormulaParameterValue fmParam: simpleFmParams)
 			stringBuilder.append(' ').append(fmParam.toString());
 		for (FormulaParameterValue fmParam: regFmParams)

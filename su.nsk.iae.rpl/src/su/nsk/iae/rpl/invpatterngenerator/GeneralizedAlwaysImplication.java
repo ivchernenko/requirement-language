@@ -1,5 +1,8 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Map;
+
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class GeneralizedAlwaysImplication implements LemmaPremise {
@@ -29,5 +32,10 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		StringBuilder stringBuilder = new StringBuilder();
 		return stringBuilder.append("(always_imp ").append(state.getName()).append(' ').append(left).append(' ').append(right).append(')')
 				.toString();
+	}
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		return BooleanLiteral.TRUE;
 	}
 }

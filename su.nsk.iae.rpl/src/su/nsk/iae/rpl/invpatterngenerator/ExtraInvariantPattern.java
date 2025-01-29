@@ -1,8 +1,11 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
+import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
@@ -74,4 +77,30 @@ public class ExtraInvariantPattern {
 		return stringBuilder.toString();
 	}
 	
+	public ExtraInvariantPattern generateParticularPattern(String particularPatternName) {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		DerivedExtraInvariantPattern pattern = factory.createDerivedExtraInvariantPattern();
+		pattern.setName(name);
+		List<FormulaParameterValue> simpleParamValues = new ArrayList<>();
+		List<SimpleFormulaParameter> particularParams = new ArrayList<>(simpleFmParams);
+		for (SimpleFormulaParameter fmParam: simpleFmParams)
+			simpleParamValues.add(new FormulaParameterValue(new ArrayList<>(),
+					new SimpleAtomicFormula(fmParam, new ArrayList<>())));
+		UpdateStateVariable current = factory.createUpdateStateVariable();
+		current.setName("s1");
+		for (RegularFormulaParameter fmParam: regFmParams) {
+			SimpleFormulaParameter sParam = factory.createSimpleFormulaParameter();
+			sParam.setName(fmParam.getName());
+			particularParams.add(sParam);
+			simpleParamValues.add(new FormulaParameterValue(List.of(state, current),
+					new SimpleAtomicFormula(sParam, List.of(current))));
+		}
+		DerivedExtraInvariantPatternInstance patternInstance =  
+				new DerivedExtraInvariantPatternInstance(pattern,
+						cParams.stream().map(p -> new ConstParameter(p)).collect(Collectors.toList()),
+						fnParams, simpleParamValues, new ArrayList<>());
+		ExtendedInvariant particularDefinition = new ExtendedInvariant(patternInstance, new ArrayList<>());
+		return new ExtraInvariantPattern(particularPatternName, cParams, fnParams, particularParams, new ArrayList<>(),
+				particularDefinition);
+	}
 }

@@ -1,5 +1,8 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.Map;
+
+import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ImplicationLemmaPremise implements LemmaPremise {
@@ -19,6 +22,12 @@ public class ImplicationLemmaPremise implements LemmaPremise {
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		return new ImplicationLemmaPremise(left, right.replacePatterns(initState));
+	}
+	@Override
+	public LemmaPremise generateParticularLemmaPremise(
+			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
+		return new ImplicationLemmaPremise(left, right);
 	}
 	
 }

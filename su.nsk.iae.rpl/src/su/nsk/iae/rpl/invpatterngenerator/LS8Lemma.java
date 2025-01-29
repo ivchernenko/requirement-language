@@ -9,10 +9,10 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class LS8Lemma extends DerivedLemma {
-	public LS8Lemma(String extraInvPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
+	public LS8Lemma(String lemmaName, String extraInvPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
 			List<SimpleFormulaParameter> simpleFmVars, List<RegularFormulaParameter> einvFmVars, UpdateStateVariable initState, 
 			UpdateStateVariable finalState, LemmaPremise premise) {
-		super(extraInvPattern, cVars, fnVars, simpleFmVars, einvFmVars, premise);
+		super(lemmaName, extraInvPattern, cVars, fnVars, simpleFmVars, einvFmVars, premise);
 		this.initState = initState;
 		this.finalState = finalState;
 	}
@@ -23,7 +23,7 @@ public class LS8Lemma extends DerivedLemma {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("lemma ").append(extraInvPattern).append("_saving : \"\n")
+		stringBuilder.append("lemma ").append(lemmaName).append(": \"\n")
 		.append(generateExtraInvPatternInstance(initState)).append(" \\<Longrightarrow>\n")
 		.append("consecutive ").append(initState.getName()).append(' ').append(finalState.getName()).append('\n')
 		.append(premise).append('\n')

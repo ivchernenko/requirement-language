@@ -1,8 +1,12 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
+import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
@@ -67,5 +71,30 @@ public class RequirementPattern {
 		.append('\"');
 		return stringBuilder.toString();
 	}
-
+	
+	public RequirementPattern generateParticularPattern(String particularPatternName) {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		DerivedRequirementPattern pattern = factory.createDerivedRequirementPattern();
+		pattern.setName(name);
+		List<FormulaParameterValue> simpleParamValues = new ArrayList<>();
+		List<SimpleFormulaParameter> particularParams = new ArrayList<>(simpleFmParams);
+		for (SimpleFormulaParameter fmParam: simpleFmParams)
+			simpleParamValues.add(new FormulaParameterValue(new ArrayList<>(),
+					new SimpleAtomicFormula(fmParam, new ArrayList<>())));
+		UpdateStateVariable current = factory.createUpdateStateVariable();
+		current.setName("s1");
+		for (RegularFormulaParameter fmParam: regFmParams) {
+			SimpleFormulaParameter sParam = factory.createSimpleFormulaParameter();
+			sParam.setName(fmParam.getName());
+			particularParams.add(sParam);
+			simpleParamValues.add(new FormulaParameterValue(List.of(state, current),
+					new SimpleAtomicFormula(sParam, List.of(current))));
+		}
+		DerivedRequirementPatternInstance particularDefinition =  
+				new DerivedRequirementPatternInstance(pattern,
+						cParams.stream().map(p -> new ConstParameter(p)).collect(Collectors.toList()),
+						simpleParamValues, new ArrayList<>());
+		return new RequirementPattern(particularPatternName, cParams, particularParams, new ArrayList<>(),
+				particularDefinition);
+	}
 }
