@@ -131,7 +131,7 @@ public class LemmaPremiseInstanceCreator {
 		Formula resultFormula;
 		if (formula.isNeg()) {
 			PatternFreeInnerFormula pfNonNegativeFormula = (PatternFreeInnerFormula) nonNegativeFormula;
-			resultFormula = new su.nsk.iae.rpl.invpatterngenerator.NegationFormula(pfNonNegativeFormula);
+			resultFormula = pfNonNegativeFormula.negate();
 			return new FormulaParameterValue(atomicPremise.getStates(), resultFormula);
 		}
 		else 

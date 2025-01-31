@@ -2,6 +2,9 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.FunApplication;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -28,6 +31,16 @@ public class ImplicationLemmaPremise implements LemmaPremise {
 			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
 		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
 		return new ImplicationLemmaPremise(left, right);
+	}
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		FunApplication left = (FunApplication) this.left.convertToRPLTerm();
+		LemmaPremiseFormula right = this.right.convertToEObject();
+		LemmaPremiseFormula result = factory.createLemmaPremiseFormula();
+		result.setLeft(left);
+		result.setRight(right);
+		return result;
 	}
 	
 }

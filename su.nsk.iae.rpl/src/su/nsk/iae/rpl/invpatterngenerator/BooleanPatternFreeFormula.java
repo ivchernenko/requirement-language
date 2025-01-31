@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -74,5 +77,35 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 				return simplifiedLeft;
 			else return BooleanLiteral.TRUE;
 		return new BooleanLemmaPremise(operator, simplifiedLeft, simplifiedRight);
+	}
+	
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		LemmaPremiseFormula eLeft = left.convertToEObject();
+		LemmaPremiseFormula eRight = right.convertToEObject();
+		DisjunctionLemmaPremiseFormula premise = null;
+		switch (operator) {
+		case DISJUNCTION: premise = factory.createDisjunctionLemmaPremiseFormula(); break;
+		case CONJUNCTION: premise = factory.createConjunctionLemmaPremiseFormula(); break;
+		}
+		premise.setLeft(eLeft);
+		premise.setRight(eRight);
+		return premise;
+	}
+	@Override
+	public PatternFreeInnerFormula negate() {
+		PatternFreeInnerFormula negatedLeft  = left.negate();
+		PatternFreeInnerFormula negatedRight = right.negate();
+		BooleanOperator operator = null;
+		switch (this.operator) {
+		case CONJUNCTION:
+			operator = BooleanOperator.DISJUNCTION; break;
+		case DISJUNCTION:
+			operator = BooleanOperator.CONJUNCTION; break;
+		default:
+			break;
+		}
+		return new BooleanPatternFreeFormula(operator, negatedLeft, negatedRight);
 	}
 }

@@ -3,8 +3,14 @@ package su.nsk.iae.rpl.invpatterngenerator;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.AtomicFormula;
+import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.PrimaryTerm;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
@@ -65,5 +71,37 @@ public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	@Override
 	public String toString() {
 		return value ? "True" : "False";
+	}
+
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		AtomicFormula atomic = factory.createAtomicFormula();
+		atomic.setBoolLiteral(capitalize(String.valueOf(value)));
+		su.nsk.iae.rpl.rPL.NegationFormula formula = factory.createNegationFormula();
+		formula.setRight(atomic);
+		formula.setNeg(false);
+		PrimaryLemmaPremiseFormula premise = factory.createPrimaryLemmaPremiseFormula();
+		premise.setAtomic(formula);
+		return premise;
+	}
+	
+	private String capitalize(String s) {
+		return s.substring(0, 1).toUpperCase() + s.substring(1);
+	}
+
+	@Override
+	su.nsk.iae.rpl.rPL.Term convertToRPLTerm() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		Constant constant = factory.createConstant();
+		constant.setBool(capitalize(String.valueOf(value)));
+		PrimaryTerm term = factory.createPrimaryTerm();
+		term.setConst(constant);
+		return term;
+	}
+
+	@Override
+	public PatternFreeInnerFormula negate() {
+		return new NegationFormula(this);
 	}
 }

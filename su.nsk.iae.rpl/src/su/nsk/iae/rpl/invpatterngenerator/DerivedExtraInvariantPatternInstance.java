@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class DerivedExtraInvariantPatternInstance {
@@ -77,6 +79,4 @@ public class DerivedExtraInvariantPatternInstance {
 		stringBuilder.append(' ').append(finalState.getName()).append(')');
 		return stringBuilder.toString();
 	}
-	
-
 }

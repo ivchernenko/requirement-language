@@ -2,8 +2,12 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.Constant;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.NumericLiteral;
+import su.nsk.iae.rpl.rPL.PrimaryTerm;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class NumericConstant extends Term {
@@ -36,6 +40,18 @@ public class NumericConstant extends Term {
 	@Override
 	public String toString() {
 		return number.toString();
+	}
+
+	@Override
+	su.nsk.iae.rpl.rPL.Term convertToRPLTerm() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		NumericLiteral numLiteral = factory.createNumericLiteral();
+		numLiteral.setValue(number.toString());
+		Constant constant = factory.createConstant();
+		constant.setNum(numLiteral);
+		PrimaryTerm term = factory.createPrimaryTerm();
+		term.setConst(constant);
+		return term;
 	}
 
 	

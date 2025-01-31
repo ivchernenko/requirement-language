@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.AtomicFormula;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -82,5 +86,23 @@ public class SimpleAtomicFormula implements PatternFreeInnerFormula {
 	public LemmaPremise generateParticularLemmaPremise(
 			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
 		return this;
+	}
+	
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		AtomicFormula atomic = factory.createAtomicFormula();
+		atomic.setFmParam(fmParam);
+		atomic.getStates().addAll(states);
+		su.nsk.iae.rpl.rPL.NegationFormula negFormula = factory.createNegationFormula();
+		negFormula.setRight(atomic);
+		negFormula.setNeg(false);
+		PrimaryLemmaPremiseFormula formula = factory.createPrimaryLemmaPremiseFormula();
+		formula.setAtomic(negFormula);
+		return formula;
+	}
+	@Override
+	public PatternFreeInnerFormula negate() {
+		return new NegationFormula(this);
 	}
 }

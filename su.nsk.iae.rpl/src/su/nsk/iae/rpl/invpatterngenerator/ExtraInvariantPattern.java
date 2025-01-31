@@ -6,7 +6,9 @@ import java.util.stream.Collectors;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.DerivedLemmas;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
@@ -75,6 +77,21 @@ public class ExtraInvariantPattern {
 		.append(definition.convertToString(state))
 		.append('\"');
 		return stringBuilder.toString();
+	}
+	
+	public DerivedExtraInvariantPattern convertToEObject(Lemma L8, Lemma L9) {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		DerivedExtraInvariantPattern pattern = factory.createDerivedExtraInvariantPattern();
+		pattern.setName(name);
+		pattern.getCParams().addAll(cParams);
+		pattern.getFnParams().addAll(fnParams);
+		pattern.getSimpleFmParams().addAll(simpleFmParams);
+		pattern.getFmParams().addAll(regFmParams);
+		DerivedLemmas lemmas = factory.createDerivedLemmas();
+		lemmas.setL8(L8);
+		lemmas.setL9(L9);
+		pattern.setLemmas(lemmas);
+		return pattern;
 	}
 	
 	public ExtraInvariantPattern generateParticularPattern(String particularPatternName) {

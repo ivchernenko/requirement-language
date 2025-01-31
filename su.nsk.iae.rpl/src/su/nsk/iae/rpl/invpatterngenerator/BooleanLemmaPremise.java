@@ -2,6 +2,9 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -52,5 +55,20 @@ public class BooleanLemmaPremise implements LemmaPremise {
 				return simplifiedLeft;
 			else return BooleanLiteral.TRUE;
 		return new BooleanLemmaPremise(operator, simplifiedLeft, simplifiedRight);
-	}	
+	}
+	
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		LemmaPremiseFormula eLeft = left.convertToEObject();
+		LemmaPremiseFormula eRight = right.convertToEObject();
+		DisjunctionLemmaPremiseFormula premise = null;
+		switch (operator) {
+		case DISJUNCTION: premise = factory.createDisjunctionLemmaPremiseFormula(); break;
+		case CONJUNCTION: premise = factory.createConjunctionLemmaPremiseFormula(); break;
+		}
+		premise.setLeft(eLeft);
+		premise.setRight(eRight);
+		return premise;
+	}
 }

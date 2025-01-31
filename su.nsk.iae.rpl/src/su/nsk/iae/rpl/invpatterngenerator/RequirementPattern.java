@@ -97,4 +97,15 @@ public class RequirementPattern {
 		return new RequirementPattern(particularPatternName, cParams, particularParams, new ArrayList<>(),
 				particularDefinition);
 	}
+	
+	public DerivedRequirementPattern convertToEObject(DerivedExtraInvariantPattern einvPattern) {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		DerivedRequirementPattern pattern = factory.createDerivedRequirementPattern();
+		pattern.setName(name);
+		pattern.getCParams().addAll(cParams);
+		pattern.getSimpleFmParams().addAll(simpleFmParams);
+		pattern.getFmParams().addAll(regFmParams);
+		pattern.setExtraInvPattern(einvPattern);
+		return pattern;
+	}
 }

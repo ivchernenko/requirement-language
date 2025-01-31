@@ -171,4 +171,9 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		}
 		return new FutureExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, finState, curState);
 	}
+
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		throw new InvalidTypeException();
+	}
 }

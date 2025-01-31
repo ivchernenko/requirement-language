@@ -4,6 +4,7 @@ import java.util.List;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -29,6 +30,14 @@ public class LS8Lemma extends DerivedLemma {
 		.append(premise).append('\n')
 		.append(generateExtraInvPatternInstance(finalState)).append("\"");
 		return stringBuilder.toString();
+	}
+
+	@Override
+	public Lemma convertToEObject() {
+		Lemma lemma = super.convertToEObject();
+		lemma.setInitState(initState);
+		lemma.setFinalState(finalState);
+		return lemma;
 	}
 	
 

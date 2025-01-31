@@ -12,4 +12,6 @@ public interface PatternFreeInnerFormula extends InnerRequirementFormula, InnerE
 
 	@Override
 	PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states);
+	
+	PatternFreeInnerFormula negate();
 }

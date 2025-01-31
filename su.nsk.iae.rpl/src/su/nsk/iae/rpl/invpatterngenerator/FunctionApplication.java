@@ -3,7 +3,10 @@ package su.nsk.iae.rpl.invpatterngenerator;
 import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
+import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.PrimaryTerm;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class FunctionApplication extends Term {
@@ -48,5 +51,16 @@ public class FunctionApplication extends Term {
 		StringBuilder stringBuilder = new StringBuilder();
 		return stringBuilder.append('(').append(fnParam.getName()).append(' ').append(state.getName()).append(')')
 				.toString();
+	}
+
+	@Override
+	su.nsk.iae.rpl.rPL.Term convertToRPLTerm() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		FunApplication funApp = factory.createFunApplication();
+		funApp.setFnParam(fnParam);
+		funApp.setState(state);
+		PrimaryTerm term = factory.createPrimaryTerm();
+		term.setFunApp(funApp);
+		return term;
 	}
 }

@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.PrimaryTerm;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ConstParameter extends Term {
@@ -55,6 +57,14 @@ public class ConstParameter extends Term {
 	@Override
 	public String toString() {
 		return param.getName();
+	}
+
+	@Override
+	su.nsk.iae.rpl.rPL.Term convertToRPLTerm() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
+		PrimaryTerm term = factory.createPrimaryTerm();
+		term.setVariable(param);
+		return term;
 	}
 
 }

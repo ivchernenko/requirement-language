@@ -4,6 +4,7 @@ import java.util.List;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
+import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -44,4 +45,14 @@ public class LS9Lemma extends DerivedLemma {
 		stringBuilder.append(' ').append(state.getName());
 		return stringBuilder.toString();
 	}
+
+	@Override
+	public Lemma convertToEObject() {
+		Lemma lemma = super.convertToEObject();
+		lemma.getRfmVars().addAll(reqFmVars);
+		lemma.setFinalState(state);
+		return lemma;
+	}
+	
+	
 }

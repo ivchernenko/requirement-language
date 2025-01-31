@@ -128,4 +128,9 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, boolParam, state,
 				finState);
 	}
+
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		throw new InvalidTypeException();
+	}
 }

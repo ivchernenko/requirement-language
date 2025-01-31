@@ -195,4 +195,9 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		return new PastRequirementPatternInstance(pattern, cParams, simplifiedFmParams, boolParam, finState,
 				curState);
 	}
+
+	@Override
+	public LemmaPremiseFormula convertToEObject() {
+		throw new InvalidTypeException();
+	}
 }

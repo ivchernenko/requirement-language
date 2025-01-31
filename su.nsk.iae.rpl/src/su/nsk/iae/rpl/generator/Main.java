@@ -78,6 +78,10 @@ public class Main {
 			String outputFileName = name + "_Patterns";
 			FileWriter writer = new FileWriter(outputFileName + ".thy");
 			writer.write("theory " + outputFileName + " imports Patterns\n begin\n");
+			RPLFactory factory = RPLFactory.eINSTANCE;
+			Model genModel = factory.createModel();
+			genModel.getImports().addAll(model.getImports());
+			List<Element> genElements = genModel.getElements();
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
 					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
@@ -165,10 +169,29 @@ public class Main {
 					for (String usedPattern: usedEinvPatterns)
 						writer.write(usedPattern + ' ');
 					writer.write("\n\n");
-				}
+					//saving generated patterns and lemmas in the requirement pattern language
+					Lemma rplL8 = L8.convertToEObject();
+					Lemma rplL9 = L9.convertToEObject();
+					Lemma rplParticularL8 = particularL8.convertToEObject();
+					Lemma rplParticularL9 = particularL9.convertToEObject();
+					DerivedExtraInvariantPattern rplEinvPattern = einvPattern.convertToEObject(rplL8, rplL9);
+					DerivedExtraInvariantPattern rplParticularEinvPattern = particularEinvPattern
+							.convertToEObject(rplParticularL8, rplParticularL9);
+					DerivedRequirementPattern rplReqPattern = reqPattern.convertToEObject(rplEinvPattern);
+					DerivedRequirementPattern rplParticularReqPattern = particularReqPattern
+							.convertToEObject(rplParticularEinvPattern);
+					genElements.add(rplEinvPattern);
+					genElements.add(rplParticularEinvPattern);
+					genElements.add(rplReqPattern);
+					genElements.add(rplParticularReqPattern);
+				}				
 			}
 			writer.write("end\n");
-			writer.close();			
+			writer.close();
+			URI genUri = URI.createFileURI(outputFileName + ".rpl");
+			Resource genResource = set.createResource(genUri);
+			genResource.getContents().add(genModel);
+			genResource.save(new HashMap<>());
 		}
 		catch (Exception e) {			
 			e.printStackTrace();
@@ -248,6 +271,8 @@ public class Main {
 		writer.write("theorem extendedInv" + i + ": \"VC" + i + ' ' + name + " env s0 " + inputVars + "\"\n");
 		writer.write("unfolding VC" + i + "_def " + name + "_def" + req.getName() + "_def");
 		Lemma L9 = req.getPattern().getLemmas().getL9();
+		if (L9 == null)
+			L9 = req.getPattern().getExtraInvPattern().getLemmas().getL9();
 		String proofScript = 
 				"  apply(rule impI)\r\n"
 				+ "  apply(rule context_conjI)\r\n"
