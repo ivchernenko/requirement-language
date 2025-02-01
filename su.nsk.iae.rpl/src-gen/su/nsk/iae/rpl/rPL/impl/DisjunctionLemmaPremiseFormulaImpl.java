@@ -4,6 +4,7 @@
 package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
 import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
@@ -30,7 +31,7 @@ public class DisjunctionLemmaPremiseFormulaImpl extends LemmaPremiseFormulaImpl 
   }
 
   @Override
-public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator,	ParameterValueMap params) {
+public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, ParameterValueMap params) {
 	return instCreator.substituteParams(this, params);
 }
 

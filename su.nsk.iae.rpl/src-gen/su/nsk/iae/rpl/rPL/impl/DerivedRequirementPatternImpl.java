@@ -38,10 +38,8 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getSimpleFmParams <em>Simple Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getSimpleFmParam <em>Simple Fm Param</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getFmParams <em>Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getDefinition <em>Definition</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getExtraInvPattern <em>Extra Inv Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedRequirementPatternImpl#getLemmas <em>Lemmas</em>}</li>
  * </ul>
@@ -91,16 +89,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
   protected EList<SimpleFormulaParameter> simpleFmParams;
 
   /**
-   * The cached value of the '{@link #getSimpleFmParam() <em>Simple Fm Param</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSimpleFmParam()
-   * @generated
-   * @ordered
-   */
-  protected EList<SimpleFormulaParameter> simpleFmParam;
-
-  /**
    * The cached value of the '{@link #getFmParams() <em>Fm Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -119,26 +107,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
    * @ordered
    */
   protected Formula definition;
-
-  /**
-   * The default value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected static final String FILE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected String file = FILE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExtraInvPattern() <em>Extra Inv Pattern</em>}' reference.
@@ -242,21 +210,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
    * @generated
    */
   @Override
-  public EList<SimpleFormulaParameter> getSimpleFmParam()
-  {
-    if (simpleFmParam == null)
-    {
-      simpleFmParam = new EObjectContainmentEList<SimpleFormulaParameter>(SimpleFormulaParameter.class, this, RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM);
-    }
-    return simpleFmParam;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<RegularFormulaParameter> getFmParams()
   {
     if (fmParams == null)
@@ -314,31 +267,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION, newDefinition, newDefinition));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getFile()
-  {
-    return file;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setFile(String newFile)
-  {
-    String oldFile = file;
-    file = newFile;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.DERIVED_REQUIREMENT_PATTERN__FILE, oldFile, file));
   }
 
   /**
@@ -450,8 +378,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
         return ((InternalEList<?>)getCParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS:
         return ((InternalEList<?>)getSimpleFmParams()).basicRemove(otherEnd, msgs);
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM:
-        return ((InternalEList<?>)getSimpleFmParam()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         return ((InternalEList<?>)getFmParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
@@ -478,14 +404,10 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
         return getCParams();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS:
         return getSimpleFmParams();
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM:
-        return getSimpleFmParam();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         return getFmParams();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
         return getDefinition();
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FILE:
-        return getFile();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         if (resolve) return getExtraInvPattern();
         return basicGetExtraInvPattern();
@@ -517,19 +439,12 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
         getSimpleFmParams().clear();
         getSimpleFmParams().addAll((Collection<? extends SimpleFormulaParameter>)newValue);
         return;
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM:
-        getSimpleFmParam().clear();
-        getSimpleFmParam().addAll((Collection<? extends SimpleFormulaParameter>)newValue);
-        return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
         setDefinition((Formula)newValue);
-        return;
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FILE:
-        setFile((String)newValue);
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         setExtraInvPattern((DerivedExtraInvariantPattern)newValue);
@@ -560,17 +475,11 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS:
         getSimpleFmParams().clear();
         return;
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM:
-        getSimpleFmParam().clear();
-        return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         getFmParams().clear();
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
         setDefinition((Formula)null);
-        return;
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FILE:
-        setFile(FILE_EDEFAULT);
         return;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         setExtraInvPattern((DerivedExtraInvariantPattern)null);
@@ -598,14 +507,10 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
         return cParams != null && !cParams.isEmpty();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS:
         return simpleFmParams != null && !simpleFmParams.isEmpty();
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM:
-        return simpleFmParam != null && !simpleFmParam.isEmpty();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__DEFINITION:
         return definition != null;
-      case RPLPackage.DERIVED_REQUIREMENT_PATTERN__FILE:
-        return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         return extraInvPattern != null;
       case RPLPackage.DERIVED_REQUIREMENT_PATTERN__LEMMAS:
@@ -627,8 +532,6 @@ public class DerivedRequirementPatternImpl extends ElementImpl implements Derive
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", file: ");
-    result.append(file);
     result.append(')');
     return result.toString();
   }

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.invpatterngenerator.OuterFormulaGenerator;
-import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 import su.nsk.iae.rpl.rPL.Formula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -270,7 +269,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 
 @Override
 public <T> T generateFormula(OuterFormulaGenerator<T> generator) {
-
 	return generator.generateFormula(this);
 }
 

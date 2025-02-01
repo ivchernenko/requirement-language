@@ -31,7 +31,7 @@ public class PowerTermImpl extends MulTermImpl implements PowerTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

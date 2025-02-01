@@ -58,6 +58,8 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		PrimaryLemmaPremiseFormula rightFormula = (PrimaryLemmaPremiseFormula) right.convertToEObject();
 		leftValue.setFormula(rightFormula.getAtomic());
 		rightValue.setState(state);
+		alwaysImp.setLeft(leftValue);
+		alwaysImp.setRight(rightValue);
 		PrimaryLemmaPremiseFormula result = factory.createPrimaryLemmaPremiseFormula();
 		result.setAlwaysImp(alwaysImp);
 		return result;

@@ -62,7 +62,7 @@ public class EqTermImpl extends NegationTermImpl implements EqTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

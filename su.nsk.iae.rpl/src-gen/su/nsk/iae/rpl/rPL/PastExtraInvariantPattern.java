@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFnParams <em>Fn Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getLemmas <em>Lemmas</em>}</li>
  * </ul>
  *
@@ -85,28 +84,6 @@ public interface PastExtraInvariantPattern extends Element
    * @generated
    */
   EList<RegularFormulaParameter> getFmParams();
-
-  /**
-   * Returns the value of the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>File</em>' attribute.
-   * @see #setFile(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getPastExtraInvariantPattern_File()
-   * @model
-   * @generated
-   */
-  String getFile();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFile <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>File</em>' attribute.
-   * @see #getFile()
-   * @generated
-   */
-  void setFile(String value);
 
   /**
    * Returns the value of the '<em><b>Lemmas</b></em>' containment reference.

@@ -31,7 +31,7 @@ public class ConjunctionTermImpl extends TermImpl implements ConjunctionTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

@@ -199,22 +199,13 @@ public interface RPLPackage extends EPackage
   int DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Simple Fm Param</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM = ELEMENT_FEATURE_COUNT + 3;
-
-  /**
    * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 4;
+  int DERIVED_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Definition</b></em>' containment reference.
@@ -223,16 +214,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__DEFINITION = ELEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DERIVED_REQUIREMENT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 6;
+  int DERIVED_REQUIREMENT_PATTERN__DEFINITION = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Extra Inv Pattern</b></em>' reference.
@@ -241,7 +223,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 7;
+  int DERIVED_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
@@ -250,7 +232,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 8;
+  int DERIVED_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Derived Requirement Pattern</em>' class.
@@ -259,7 +241,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 9;
+  int DERIVED_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.VariableImpl <em>Variable</em>}' class.
@@ -1094,22 +1076,13 @@ public interface RPLPackage extends EPackage
   int FUTURE_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUTURE_REQUIREMENT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 3;
-
-  /**
    * The feature id for the '<em><b>Extra Inv Pattern</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 4;
+  int FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Lessas</b></em>' containment reference.
@@ -1118,7 +1091,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUTURE_REQUIREMENT_PATTERN__LESSAS = ELEMENT_FEATURE_COUNT + 5;
+  int FUTURE_REQUIREMENT_PATTERN__LESSAS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Future Requirement Pattern</em>' class.
@@ -1127,7 +1100,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUTURE_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+  int FUTURE_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.PastRequirementPatternImpl <em>Past Requirement Pattern</em>}' class.
@@ -1167,22 +1140,13 @@ public interface RPLPackage extends EPackage
   int PAST_REQUIREMENT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAST_REQUIREMENT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 3;
-
-  /**
    * The feature id for the '<em><b>Extra Inv Pattern</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAST_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 4;
+  int PAST_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
@@ -1191,7 +1155,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAST_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 5;
+  int PAST_REQUIREMENT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Past Requirement Pattern</em>' class.
@@ -1200,7 +1164,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAST_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+  int PAST_REQUIREMENT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.FutureExtraInvariantPatternImpl <em>Future Extra Invariant Pattern</em>}' class.
@@ -1249,22 +1213,13 @@ public interface RPLPackage extends EPackage
   int FUTURE_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FUTURE_EXTRA_INVARIANT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FUTURE_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 5;
+  int FUTURE_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Future Extra Invariant Pattern</em>' class.
@@ -1273,7 +1228,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FUTURE_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+  int FUTURE_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl <em>Past Extra Invariant Pattern</em>}' class.
@@ -1322,22 +1277,13 @@ public interface RPLPackage extends EPackage
   int PAST_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PAST_EXTRA_INVARIANT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAST_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 5;
+  int PAST_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Past Extra Invariant Pattern</em>' class.
@@ -1346,7 +1292,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAST_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+  int PAST_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl <em>Derived Extra Invariant Pattern</em>}' class.
@@ -1395,31 +1341,13 @@ public interface RPLPackage extends EPackage
   int DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Simple Fm Param</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM = ELEMENT_FEATURE_COUNT + 4;
-
-  /**
    * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__FILE = ELEMENT_FEATURE_COUNT + 6;
+  int DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Lemmas</b></em>' containment reference.
@@ -1428,7 +1356,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 7;
+  int DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Derived Extra Invariant Pattern</em>' class.
@@ -1437,7 +1365,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DERIVED_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 8;
+  int DERIVED_EXTRA_INVARIANT_PATTERN_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.TermImpl <em>Term</em>}' class.
@@ -2413,31 +2341,13 @@ public interface RPLPackage extends EPackage
   int REQUIREMENT__PATTERN = ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>CParams</b></em>' containment reference list.
+   * The feature id for the '<em><b>Extra Inv</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIREMENT__CPARAMS = ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Fm Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REQUIREMENT__FM_PARAMS = ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Extra In</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REQUIREMENT__EXTRA_IN = ELEMENT_FEATURE_COUNT + 4;
+  int REQUIREMENT__EXTRA_INV = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Requirement</em>' class.
@@ -2446,7 +2356,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIREMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+  int REQUIREMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl <em>Extra Invariant</em>}' class.
@@ -2477,31 +2387,13 @@ public interface RPLPackage extends EPackage
   int EXTRA_INVARIANT__PATTERN = ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Req Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTRA_INVARIANT__REQ_NAME = ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Req</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXTRA_INVARIANT__REQ = ELEMENT_FEATURE_COUNT + 3;
-
-  /**
    * The number of structural features of the '<em>Extra Invariant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTRA_INVARIANT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+  int EXTRA_INVARIANT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.PatternFreeFormulaParameterValueImpl <em>Pattern Free Formula Parameter Value</em>}' class.
@@ -3314,17 +3206,6 @@ public interface RPLPackage extends EPackage
   EReference getDerivedRequirementPattern_SimpleFmParams();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParam <em>Simple Fm Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Simple Fm Param</em>'.
-   * @see su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParam()
-   * @see #getDerivedRequirementPattern()
-   * @generated
-   */
-  EReference getDerivedRequirementPattern_SimpleFmParam();
-
-  /**
    * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFmParams <em>Fm Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3345,17 +3226,6 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getDerivedRequirementPattern_Definition();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFile()
-   * @see #getDerivedRequirementPattern()
-   * @generated
-   */
-  EAttribute getDerivedRequirementPattern_File();
 
   /**
    * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}'.
@@ -3985,17 +3855,6 @@ public interface RPLPackage extends EPackage
   EReference getFutureRequirementPattern_FmParams();
 
   /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.FutureRequirementPattern#getFile()
-   * @see #getFutureRequirementPattern()
-   * @generated
-   */
-  EAttribute getFutureRequirementPattern_File();
-
-  /**
    * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4059,17 +3918,6 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getPastRequirementPattern_FmParams();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.PastRequirementPattern#getFile()
-   * @see #getPastRequirementPattern()
-   * @generated
-   */
-  EAttribute getPastRequirementPattern_File();
 
   /**
    * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}'.
@@ -4148,17 +3996,6 @@ public interface RPLPackage extends EPackage
   EReference getFutureExtraInvariantPattern_FmParams();
 
   /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern#getFile()
-   * @see #getFutureExtraInvariantPattern()
-   * @generated
-   */
-  EAttribute getFutureExtraInvariantPattern_File();
-
-  /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern#getLemmas <em>Lemmas</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4222,17 +4059,6 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getPastExtraInvariantPattern_FmParams();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getFile()
-   * @see #getPastExtraInvariantPattern()
-   * @generated
-   */
-  EAttribute getPastExtraInvariantPattern_File();
 
   /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.PastExtraInvariantPattern#getLemmas <em>Lemmas</em>}'.
@@ -4300,17 +4126,6 @@ public interface RPLPackage extends EPackage
   EReference getDerivedExtraInvariantPattern_SimpleFmParams();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParam <em>Simple Fm Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Simple Fm Param</em>'.
-   * @see su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getSimpleFmParam()
-   * @see #getDerivedExtraInvariantPattern()
-   * @generated
-   */
-  EReference getDerivedExtraInvariantPattern_SimpleFmParam();
-
-  /**
    * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFmParams <em>Fm Params</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4320,17 +4135,6 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getDerivedExtraInvariantPattern_FmParams();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFile <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>File</em>'.
-   * @see su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getFile()
-   * @see #getDerivedExtraInvariantPattern()
-   * @generated
-   */
-  EAttribute getDerivedExtraInvariantPattern_File();
 
   /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern#getLemmas <em>Lemmas</em>}'.
@@ -4798,37 +4602,15 @@ public interface RPLPackage extends EPackage
   EReference getRequirement_Pattern();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.Requirement#getCParams <em>CParams</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>CParams</em>'.
-   * @see su.nsk.iae.rpl.rPL.Requirement#getCParams()
+   * @return the meta object for the containment reference '<em>Extra Inv</em>'.
+   * @see su.nsk.iae.rpl.rPL.Requirement#getExtraInv()
    * @see #getRequirement()
    * @generated
    */
-  EReference getRequirement_CParams();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.rpl.rPL.Requirement#getFmParams <em>Fm Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Fm Params</em>'.
-   * @see su.nsk.iae.rpl.rPL.Requirement#getFmParams()
-   * @see #getRequirement()
-   * @generated
-   */
-  EReference getRequirement_FmParams();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraIn <em>Extra In</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Extra In</em>'.
-   * @see su.nsk.iae.rpl.rPL.Requirement#getExtraIn()
-   * @see #getRequirement()
-   * @generated
-   */
-  EAttribute getRequirement_ExtraIn();
+  EReference getRequirement_ExtraInv();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.ExtraInvariant <em>Extra Invariant</em>}'.
@@ -4861,28 +4643,6 @@ public interface RPLPackage extends EPackage
    * @generated
    */
   EReference getExtraInvariant_Pattern();
-
-  /**
-   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReqName <em>Req Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Req Name</em>'.
-   * @see su.nsk.iae.rpl.rPL.ExtraInvariant#getReqName()
-   * @see #getExtraInvariant()
-   * @generated
-   */
-  EAttribute getExtraInvariant_ReqName();
-
-  /**
-   * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReq <em>Req</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Req</em>'.
-   * @see su.nsk.iae.rpl.rPL.ExtraInvariant#getReq()
-   * @see #getExtraInvariant()
-   * @generated
-   */
-  EReference getExtraInvariant_Req();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue <em>Pattern Free Formula Parameter Value</em>}'.
@@ -5582,14 +5342,6 @@ public interface RPLPackage extends EPackage
     EReference DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAMS = eINSTANCE.getDerivedRequirementPattern_SimpleFmParams();
 
     /**
-     * The meta object literal for the '<em><b>Simple Fm Param</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DERIVED_REQUIREMENT_PATTERN__SIMPLE_FM_PARAM = eINSTANCE.getDerivedRequirementPattern_SimpleFmParam();
-
-    /**
      * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5604,14 +5356,6 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference DERIVED_REQUIREMENT_PATTERN__DEFINITION = eINSTANCE.getDerivedRequirementPattern_Definition();
-
-    /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DERIVED_REQUIREMENT_PATTERN__FILE = eINSTANCE.getDerivedRequirementPattern_File();
 
     /**
      * The meta object literal for the '<em><b>Extra Inv Pattern</b></em>' reference feature.
@@ -6130,14 +5874,6 @@ public interface RPLPackage extends EPackage
     EReference FUTURE_REQUIREMENT_PATTERN__FM_PARAMS = eINSTANCE.getFutureRequirementPattern_FmParams();
 
     /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FUTURE_REQUIREMENT_PATTERN__FILE = eINSTANCE.getFutureRequirementPattern_File();
-
-    /**
      * The meta object literal for the '<em><b>Extra Inv Pattern</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6186,14 +5922,6 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference PAST_REQUIREMENT_PATTERN__FM_PARAMS = eINSTANCE.getPastRequirementPattern_FmParams();
-
-    /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAST_REQUIREMENT_PATTERN__FILE = eINSTANCE.getPastRequirementPattern_File();
 
     /**
      * The meta object literal for the '<em><b>Extra Inv Pattern</b></em>' reference feature.
@@ -6254,14 +5982,6 @@ public interface RPLPackage extends EPackage
     EReference FUTURE_EXTRA_INVARIANT_PATTERN__FM_PARAMS = eINSTANCE.getFutureExtraInvariantPattern_FmParams();
 
     /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FUTURE_EXTRA_INVARIANT_PATTERN__FILE = eINSTANCE.getFutureExtraInvariantPattern_File();
-
-    /**
      * The meta object literal for the '<em><b>Lemmas</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6310,14 +6030,6 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference PAST_EXTRA_INVARIANT_PATTERN__FM_PARAMS = eINSTANCE.getPastExtraInvariantPattern_FmParams();
-
-    /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PAST_EXTRA_INVARIANT_PATTERN__FILE = eINSTANCE.getPastExtraInvariantPattern_File();
 
     /**
      * The meta object literal for the '<em><b>Lemmas</b></em>' containment reference feature.
@@ -6370,28 +6082,12 @@ public interface RPLPackage extends EPackage
     EReference DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS = eINSTANCE.getDerivedExtraInvariantPattern_SimpleFmParams();
 
     /**
-     * The meta object literal for the '<em><b>Simple Fm Param</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM = eINSTANCE.getDerivedExtraInvariantPattern_SimpleFmParam();
-
-    /**
      * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS = eINSTANCE.getDerivedExtraInvariantPattern_FmParams();
-
-    /**
-     * The meta object literal for the '<em><b>File</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DERIVED_EXTRA_INVARIANT_PATTERN__FILE = eINSTANCE.getDerivedExtraInvariantPattern_File();
 
     /**
      * The meta object literal for the '<em><b>Lemmas</b></em>' containment reference feature.
@@ -6784,28 +6480,12 @@ public interface RPLPackage extends EPackage
     EReference REQUIREMENT__PATTERN = eINSTANCE.getRequirement_Pattern();
 
     /**
-     * The meta object literal for the '<em><b>CParams</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Extra Inv</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIREMENT__CPARAMS = eINSTANCE.getRequirement_CParams();
-
-    /**
-     * The meta object literal for the '<em><b>Fm Params</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REQUIREMENT__FM_PARAMS = eINSTANCE.getRequirement_FmParams();
-
-    /**
-     * The meta object literal for the '<em><b>Extra In</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute REQUIREMENT__EXTRA_IN = eINSTANCE.getRequirement_ExtraIn();
+    EReference REQUIREMENT__EXTRA_INV = eINSTANCE.getRequirement_ExtraInv();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl <em>Extra Invariant</em>}' class.
@@ -6832,22 +6512,6 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EReference EXTRA_INVARIANT__PATTERN = eINSTANCE.getExtraInvariant_Pattern();
-
-    /**
-     * The meta object literal for the '<em><b>Req Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXTRA_INVARIANT__REQ_NAME = eINSTANCE.getExtraInvariant_ReqName();
-
-    /**
-     * The meta object literal for the '<em><b>Req</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXTRA_INVARIANT__REQ = eINSTANCE.getExtraInvariant_Req();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.PatternFreeFormulaParameterValueImpl <em>Pattern Free Formula Parameter Value</em>}' class.

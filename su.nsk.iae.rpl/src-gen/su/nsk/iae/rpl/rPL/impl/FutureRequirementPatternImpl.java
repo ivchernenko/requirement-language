@@ -36,7 +36,6 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getExtraInvPattern <em>Extra Inv Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.FutureRequirementPatternImpl#getLessas <em>Lessas</em>}</li>
  * </ul>
@@ -84,26 +83,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
    * @ordered
    */
   protected EList<RegularFormulaParameter> fmParams;
-
-  /**
-   * The default value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected static final String FILE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected String file = FILE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExtraInvPattern() <em>Extra Inv Pattern</em>}' reference.
@@ -199,31 +178,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
       fmParams = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.FUTURE_REQUIREMENT_PATTERN__FM_PARAMS);
     }
     return fmParams;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getFile()
-  {
-    return file;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setFile(String newFile)
-  {
-    String oldFile = file;
-    file = newFile;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.FUTURE_REQUIREMENT_PATTERN__FILE, oldFile, file));
   }
 
   /**
@@ -357,8 +311,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
         return getCParams();
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FM_PARAMS:
         return getFmParams();
-      case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FILE:
-        return getFile();
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         if (resolve) return getExtraInvPattern();
         return basicGetExtraInvPattern();
@@ -390,9 +342,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
-      case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FILE:
-        setFile((String)newValue);
-        return;
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         setExtraInvPattern((FutureExtraInvariantPattern)newValue);
         return;
@@ -422,9 +371,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FM_PARAMS:
         getFmParams().clear();
         return;
-      case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FILE:
-        setFile(FILE_EDEFAULT);
-        return;
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         setExtraInvPattern((FutureExtraInvariantPattern)null);
         return;
@@ -451,8 +397,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
         return cParams != null && !cParams.isEmpty();
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
-      case RPLPackage.FUTURE_REQUIREMENT_PATTERN__FILE:
-        return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__EXTRA_INV_PATTERN:
         return extraInvPattern != null;
       case RPLPackage.FUTURE_REQUIREMENT_PATTERN__LESSAS:
@@ -474,8 +418,6 @@ public class FutureRequirementPatternImpl extends ElementImpl implements FutureR
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", file: ");
-    result.append(file);
     result.append(')');
     return result.toString();
   }

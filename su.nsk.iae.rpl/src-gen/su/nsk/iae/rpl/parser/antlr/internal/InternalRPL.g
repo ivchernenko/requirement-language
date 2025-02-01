@@ -402,17 +402,17 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0());
+							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_4_1_0());
 						}
-						lv_simpleFmParam_14_0=ruleSimpleFormulaParameter
+						lv_simpleFmParams_14_0=ruleSimpleFormulaParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
 							}
 							add(
 								$current,
-								"simpleFmParam",
-								lv_simpleFmParam_14_0,
+								"simpleFmParams",
+								lv_simpleFmParams_14_0,
 								"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -506,32 +506,9 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_23='from'
+				otherlv_23='with'
 				{
-					newLeafNode(otherlv_23, grammarAccess.getDerivedRequirementPatternAccess().getFromKeyword_8_1_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getFileFilePathParserRuleCall_8_1_1_0());
-						}
-						lv_file_24_0=ruleFilePath
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
-							}
-							set(
-								$current,
-								"file",
-								lv_file_24_0,
-								"su.nsk.iae.rpl.RPL.FilePath");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				otherlv_25='with'
-				{
-					newLeafNode(otherlv_25, grammarAccess.getDerivedRequirementPatternAccess().getWithKeyword_8_1_2());
+					newLeafNode(otherlv_23, grammarAccess.getDerivedRequirementPatternAccess().getWithKeyword_8_1_0());
 				}
 				(
 					(
@@ -540,9 +517,9 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 								$current = createModelElement(grammarAccess.getDerivedRequirementPatternRule());
 							}
 						}
-						otherlv_26=RULE_ID
+						otherlv_24=RULE_ID
 						{
-							newLeafNode(otherlv_26, grammarAccess.getDerivedRequirementPatternAccess().getExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0());
+							newLeafNode(otherlv_24, grammarAccess.getDerivedRequirementPatternAccess().getExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_1_0());
 						}
 					)
 				)
@@ -553,7 +530,7 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getDerivedRequirementPatternAccess().getLemmasDerivedLemmasParserRuleCall_9_0());
 				}
-				lv_lemmas_27_0=ruleDerivedLemmas
+				lv_lemmas_25_0=ruleDerivedLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDerivedRequirementPatternRule());
@@ -561,15 +538,15 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_27_0,
+						lv_lemmas_25_0,
 						"su.nsk.iae.rpl.RPL.DerivedLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_28=';'
+		otherlv_26=';'
 		{
-			newLeafNode(otherlv_28, grammarAccess.getDerivedRequirementPatternAccess().getSemicolonKeyword_10());
+			newLeafNode(otherlv_26, grammarAccess.getDerivedRequirementPatternAccess().getSemicolonKeyword_10());
 		}
 	)
 ;
@@ -2087,32 +2064,9 @@ ruleFutureRequirementPattern returns [EObject current=null]
 		{
 			newLeafNode(otherlv_14, grammarAccess.getFutureRequirementPatternAccess().getRightParenthesisKeyword_6());
 		}
-		otherlv_15='from'
+		otherlv_15='with'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getFutureRequirementPatternAccess().getFromKeyword_7());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getFutureRequirementPatternAccess().getFileFilePathParserRuleCall_8_0());
-				}
-				lv_file_16_0=ruleFilePath
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFutureRequirementPatternRule());
-					}
-					set(
-						$current,
-						"file",
-						lv_file_16_0,
-						"su.nsk.iae.rpl.RPL.FilePath");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_17='with'
-		{
-			newLeafNode(otherlv_17, grammarAccess.getFutureRequirementPatternAccess().getWithKeyword_9());
+			newLeafNode(otherlv_15, grammarAccess.getFutureRequirementPatternAccess().getWithKeyword_7());
 		}
 		(
 			(
@@ -2121,18 +2075,18 @@ ruleFutureRequirementPattern returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getFutureRequirementPatternRule());
 					}
 				}
-				otherlv_18=RULE_ID
+				otherlv_16=RULE_ID
 				{
-					newLeafNode(otherlv_18, grammarAccess.getFutureRequirementPatternAccess().getExtraInvPatternFutureExtraInvariantPatternCrossReference_10_0());
+					newLeafNode(otherlv_16, grammarAccess.getFutureRequirementPatternAccess().getExtraInvPatternFutureExtraInvariantPatternCrossReference_8_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFutureRequirementPatternAccess().getLessasFutureLemmasParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getFutureRequirementPatternAccess().getLessasFutureLemmasParserRuleCall_9_0());
 				}
-				lv_lessas_19_0=ruleFutureLemmas
+				lv_lessas_17_0=ruleFutureLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFutureRequirementPatternRule());
@@ -2140,15 +2094,15 @@ ruleFutureRequirementPattern returns [EObject current=null]
 					set(
 						$current,
 						"lessas",
-						lv_lessas_19_0,
+						lv_lessas_17_0,
 						"su.nsk.iae.rpl.RPL.FutureLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_20=';'
+		otherlv_18=';'
 		{
-			newLeafNode(otherlv_20, grammarAccess.getFutureRequirementPatternAccess().getSemicolonKeyword_12());
+			newLeafNode(otherlv_18, grammarAccess.getFutureRequirementPatternAccess().getSemicolonKeyword_10());
 		}
 	)
 ;
@@ -2311,32 +2265,9 @@ rulePastRequirementPattern returns [EObject current=null]
 		{
 			newLeafNode(otherlv_14, grammarAccess.getPastRequirementPatternAccess().getRightParenthesisKeyword_6());
 		}
-		otherlv_15='from'
+		otherlv_15='with'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getPastRequirementPatternAccess().getFromKeyword_7());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPastRequirementPatternAccess().getFileFilePathParserRuleCall_8_0());
-				}
-				lv_file_16_0=ruleFilePath
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPastRequirementPatternRule());
-					}
-					set(
-						$current,
-						"file",
-						lv_file_16_0,
-						"su.nsk.iae.rpl.RPL.FilePath");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_17='with'
-		{
-			newLeafNode(otherlv_17, grammarAccess.getPastRequirementPatternAccess().getWithKeyword_9());
+			newLeafNode(otherlv_15, grammarAccess.getPastRequirementPatternAccess().getWithKeyword_7());
 		}
 		(
 			(
@@ -2345,18 +2276,18 @@ rulePastRequirementPattern returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getPastRequirementPatternRule());
 					}
 				}
-				otherlv_18=RULE_ID
+				otherlv_16=RULE_ID
 				{
-					newLeafNode(otherlv_18, grammarAccess.getPastRequirementPatternAccess().getExtraInvPatternPastExtraInvariantPatternCrossReference_10_0());
+					newLeafNode(otherlv_16, grammarAccess.getPastRequirementPatternAccess().getExtraInvPatternPastExtraInvariantPatternCrossReference_8_0());
 				}
 			)
 		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPastRequirementPatternAccess().getLemmasPastLemmasParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getPastRequirementPatternAccess().getLemmasPastLemmasParserRuleCall_9_0());
 				}
-				lv_lemmas_19_0=rulePastLemmas
+				lv_lemmas_17_0=rulePastLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPastRequirementPatternRule());
@@ -2364,15 +2295,15 @@ rulePastRequirementPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_19_0,
+						lv_lemmas_17_0,
 						"su.nsk.iae.rpl.RPL.PastLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_20=';'
+		otherlv_18=';'
 		{
-			newLeafNode(otherlv_20, grammarAccess.getPastRequirementPatternAccess().getSemicolonKeyword_12());
+			newLeafNode(otherlv_18, grammarAccess.getPastRequirementPatternAccess().getSemicolonKeyword_10());
 		}
 	)
 ;
@@ -2590,36 +2521,11 @@ ruleFutureExtraInvariantPattern returns [EObject current=null]
 			newLeafNode(otherlv_19, grammarAccess.getFutureExtraInvariantPatternAccess().getRightParenthesisKeyword_7());
 		}
 		(
-			otherlv_20='from'
-			{
-				newLeafNode(otherlv_20, grammarAccess.getFutureExtraInvariantPatternAccess().getFromKeyword_8_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getFutureExtraInvariantPatternAccess().getFileFilePathParserRuleCall_8_1_0());
-					}
-					lv_file_21_0=ruleFilePath
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getFutureExtraInvariantPatternRule());
-						}
-						set(
-							$current,
-							"file",
-							lv_file_21_0,
-							"su.nsk.iae.rpl.RPL.FilePath");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFutureExtraInvariantPatternAccess().getLemmasFutureLemmasParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getFutureExtraInvariantPatternAccess().getLemmasFutureLemmasParserRuleCall_8_0());
 				}
-				lv_lemmas_22_0=ruleFutureLemmas
+				lv_lemmas_20_0=ruleFutureLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFutureExtraInvariantPatternRule());
@@ -2627,15 +2533,15 @@ ruleFutureExtraInvariantPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_22_0,
+						lv_lemmas_20_0,
 						"su.nsk.iae.rpl.RPL.FutureLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_23=';'
+		otherlv_21=';'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getFutureExtraInvariantPatternAccess().getSemicolonKeyword_10());
+			newLeafNode(otherlv_21, grammarAccess.getFutureExtraInvariantPatternAccess().getSemicolonKeyword_9());
 		}
 	)
 ;
@@ -2853,36 +2759,11 @@ rulePastExtraInvariantPattern returns [EObject current=null]
 			newLeafNode(otherlv_19, grammarAccess.getPastExtraInvariantPatternAccess().getRightParenthesisKeyword_7());
 		}
 		(
-			otherlv_20='from'
-			{
-				newLeafNode(otherlv_20, grammarAccess.getPastExtraInvariantPatternAccess().getFromKeyword_8_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getPastExtraInvariantPatternAccess().getFileFilePathParserRuleCall_8_1_0());
-					}
-					lv_file_21_0=ruleFilePath
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPastExtraInvariantPatternRule());
-						}
-						set(
-							$current,
-							"file",
-							lv_file_21_0,
-							"su.nsk.iae.rpl.RPL.FilePath");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPastExtraInvariantPatternAccess().getLemmasPastLemmasParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getPastExtraInvariantPatternAccess().getLemmasPastLemmasParserRuleCall_8_0());
 				}
-				lv_lemmas_22_0=rulePastLemmas
+				lv_lemmas_20_0=rulePastLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPastExtraInvariantPatternRule());
@@ -2890,15 +2771,15 @@ rulePastExtraInvariantPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_22_0,
+						lv_lemmas_20_0,
 						"su.nsk.iae.rpl.RPL.PastLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_23=';'
+		otherlv_21=';'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getPastExtraInvariantPatternAccess().getSemicolonKeyword_10());
+			newLeafNode(otherlv_21, grammarAccess.getPastExtraInvariantPatternAccess().getSemicolonKeyword_9());
 		}
 	)
 ;
@@ -3097,17 +2978,17 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0());
+							newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_4_1_0());
 						}
-						lv_simpleFmParam_19_0=ruleSimpleFormulaParameter
+						lv_simpleFmParams_19_0=ruleSimpleFormulaParameter
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
 							}
 							add(
 								$current,
-								"simpleFmParam",
-								lv_simpleFmParam_19_0,
+								"simpleFmParams",
+								lv_simpleFmParams_19_0,
 								"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
 							afterParserOrEnumRuleCall();
 						}
@@ -3174,36 +3055,11 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 			newLeafNode(otherlv_25, grammarAccess.getDerivedExtraInvariantPatternAccess().getRightParenthesisKeyword_8());
 		}
 		(
-			otherlv_26='from'
-			{
-				newLeafNode(otherlv_26, grammarAccess.getDerivedExtraInvariantPatternAccess().getFromKeyword_9_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getFileFilePathParserRuleCall_9_1_0());
-					}
-					lv_file_27_0=ruleFilePath
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
-						}
-						set(
-							$current,
-							"file",
-							lv_file_27_0,
-							"su.nsk.iae.rpl.RPL.FilePath");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getLemmasDerivedLemmasParserRuleCall_10_0());
+					newCompositeNode(grammarAccess.getDerivedExtraInvariantPatternAccess().getLemmasDerivedLemmasParserRuleCall_9_0());
 				}
-				lv_lemmas_28_0=ruleDerivedLemmas
+				lv_lemmas_26_0=ruleDerivedLemmas
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDerivedExtraInvariantPatternRule());
@@ -3211,65 +3067,15 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 					set(
 						$current,
 						"lemmas",
-						lv_lemmas_28_0,
+						lv_lemmas_26_0,
 						"su.nsk.iae.rpl.RPL.DerivedLemmas");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
-		otherlv_29=';'
+		otherlv_27=';'
 		{
-			newLeafNode(otherlv_29, grammarAccess.getDerivedExtraInvariantPatternAccess().getSemicolonKeyword_11());
-		}
-	)
-;
-
-// Entry rule entryRuleFilePath
-entryRuleFilePath returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getFilePathRule()); }
-	iv_ruleFilePath=ruleFilePath
-	{ $current=$iv_ruleFilePath.current.getText(); }
-	EOF;
-
-// Rule FilePath
-ruleFilePath returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			kw='/'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getFilePathAccess().getSolidusKeyword_0());
-			}
-		)?
-		(
-			{
-				newCompositeNode(grammarAccess.getFilePathAccess().getDirParserRuleCall_1_0());
-			}
-			this_Dir_1=ruleDir
-			{
-				$current.merge(this_Dir_1);
-			}
-			{
-				afterParserOrEnumRuleCall();
-			}
-			kw='/'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getFilePathAccess().getSolidusKeyword_1_1());
-			}
-		)*
-		this_ID_3=RULE_ID
-		{
-			$current.merge(this_ID_3);
-		}
-		{
-			newLeafNode(this_ID_3, grammarAccess.getFilePathAccess().getIDTerminalRuleCall_2());
+			newLeafNode(otherlv_27, grammarAccess.getDerivedExtraInvariantPatternAccess().getSemicolonKeyword_10());
 		}
 	)
 ;
@@ -4517,188 +4323,49 @@ ruleRequirement returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_2=':'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRequirementAccess().getColonKeyword_2());
+		}
 		(
 			(
-				otherlv_2='='
 				{
-					newLeafNode(otherlv_2, grammarAccess.getRequirementAccess().getEqualsSignKeyword_2_0_0());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getRequirementRule());
-							}
-						}
-						otherlv_3=RULE_ID
-						{
-							newLeafNode(otherlv_3, grammarAccess.getRequirementAccess().getPatternDerivedRequirementPatternCrossReference_2_0_1_0());
-						}
-					)
-				)
-				otherlv_4='('
-				{
-					newLeafNode(otherlv_4, grammarAccess.getRequirementAccess().getLeftParenthesisKeyword_2_0_2());
-				}
-				(
-					otherlv_5='const'
-					{
-						newLeafNode(otherlv_5, grammarAccess.getRequirementAccess().getConstKeyword_2_0_3_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRequirementRule());
 					}
-					otherlv_6=':'
-					{
-						newLeafNode(otherlv_6, grammarAccess.getRequirementAccess().getColonKeyword_2_0_3_1());
-					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getRequirementAccess().getCParamsTermParserRuleCall_2_0_3_2_0());
-							}
-							lv_cParams_7_0=ruleTerm
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getRequirementRule());
-								}
-								add(
-									$current,
-									"cParams",
-									lv_cParams_7_0,
-									"su.nsk.iae.rpl.RPL.Term");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-					(
-						otherlv_8=','
-						{
-							newLeafNode(otherlv_8, grammarAccess.getRequirementAccess().getCommaKeyword_2_0_3_3_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getRequirementAccess().getCParamsTermParserRuleCall_2_0_3_3_1_0());
-								}
-								lv_cParams_9_0=ruleTerm
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getRequirementRule());
-									}
-									add(
-										$current,
-										"cParams",
-										lv_cParams_9_0,
-										"su.nsk.iae.rpl.RPL.Term");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)*
-				)?
-				(
-					otherlv_10='formulas'
-					{
-						newLeafNode(otherlv_10, grammarAccess.getRequirementAccess().getFormulasKeyword_2_0_4_0());
-					}
-					otherlv_11=':'
-					{
-						newLeafNode(otherlv_11, grammarAccess.getRequirementAccess().getColonKeyword_2_0_4_1());
-					}
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getRequirementAccess().getFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_2_0());
-							}
-							lv_fmParams_12_0=rulePatternFreeFormulaParameterValue
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getRequirementRule());
-								}
-								add(
-									$current,
-									"fmParams",
-									lv_fmParams_12_0,
-									"su.nsk.iae.rpl.RPL.PatternFreeFormulaParameterValue");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-					(
-						otherlv_13=','
-						{
-							newLeafNode(otherlv_13, grammarAccess.getRequirementAccess().getCommaKeyword_2_0_4_3_0());
-						}
-						(
-							(
-								{
-									newCompositeNode(grammarAccess.getRequirementAccess().getFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_3_1_0());
-								}
-								lv_fmParams_14_0=rulePatternFreeFormulaParameterValue
-								{
-									if ($current==null) {
-										$current = createModelElementForParent(grammarAccess.getRequirementRule());
-									}
-									add(
-										$current,
-										"fmParams",
-										lv_fmParams_14_0,
-										"su.nsk.iae.rpl.RPL.PatternFreeFormulaParameterValue");
-									afterParserOrEnumRuleCall();
-								}
-							)
-						)
-					)*
-				)?
-				otherlv_15=')'
-				{
-					newLeafNode(otherlv_15, grammarAccess.getRequirementAccess().getRightParenthesisKeyword_2_0_5());
 				}
-			)
-			    |
-			(
-				otherlv_16=':'
+				otherlv_3=RULE_ID
 				{
-					newLeafNode(otherlv_16, grammarAccess.getRequirementAccess().getColonKeyword_2_1_0());
+					newLeafNode(otherlv_3, grammarAccess.getRequirementAccess().getPatternDerivedRequirementPatternCrossReference_3_0());
 				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getRequirementRule());
-							}
-						}
-						otherlv_17=RULE_ID
-						{
-							newLeafNode(otherlv_17, grammarAccess.getRequirementAccess().getPatternDerivedRequirementPatternCrossReference_2_1_1_0());
-						}
-					)
-				)
-				otherlv_18='with'
-				{
-					newLeafNode(otherlv_18, grammarAccess.getRequirementAccess().getWithKeyword_2_1_2());
-				}
-				(
-					(
-						lv_extraIn_19_0=RULE_ID
-						{
-							newLeafNode(lv_extraIn_19_0, grammarAccess.getRequirementAccess().getExtraInIDTerminalRuleCall_2_1_3_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getRequirementRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"extraIn",
-								lv_extraIn_19_0,
-								"org.eclipse.xtext.common.Terminals.ID");
-						}
-					)
-				)
 			)
 		)
-		otherlv_20=';'
+		otherlv_4='with'
 		{
-			newLeafNode(otherlv_20, grammarAccess.getRequirementAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getRequirementAccess().getWithKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRequirementAccess().getExtraInvExtraInvariantParserRuleCall_5_0());
+				}
+				lv_extraInv_5_0=ruleExtraInvariant
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRequirementRule());
+					}
+					set(
+						$current,
+						"extraInv",
+						lv_extraInv_5_0,
+						"su.nsk.iae.rpl.RPL.ExtraInvariant");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_6=';'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getRequirementAccess().getSemicolonKeyword_6());
 		}
 	)
 ;
@@ -4745,72 +4412,26 @@ ruleExtraInvariant returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_3=':'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getExtraInvariantAccess().getColonKeyword_3());
+		}
 		(
 			(
-				otherlv_3=':'
 				{
-					newLeafNode(otherlv_3, grammarAccess.getExtraInvariantAccess().getColonKeyword_3_0_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getExtraInvariantRule());
+					}
 				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExtraInvariantRule());
-							}
-						}
-						otherlv_4=RULE_ID
-						{
-							newLeafNode(otherlv_4, grammarAccess.getExtraInvariantAccess().getPatternDerivedExtraInvariantPatternCrossReference_3_0_1_0());
-						}
-					)
-				)
-				otherlv_5='for'
+				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_5, grammarAccess.getExtraInvariantAccess().getForKeyword_3_0_2());
+					newLeafNode(otherlv_4, grammarAccess.getExtraInvariantAccess().getPatternDerivedExtraInvariantPatternCrossReference_4_0());
 				}
-				(
-					(
-						lv_reqName_6_0=RULE_ID
-						{
-							newLeafNode(lv_reqName_6_0, grammarAccess.getExtraInvariantAccess().getReqNameIDTerminalRuleCall_3_0_3_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExtraInvariantRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"reqName",
-								lv_reqName_6_0,
-								"org.eclipse.xtext.common.Terminals.ID");
-						}
-					)
-				)
-			)
-			    |
-			(
-				otherlv_7='for'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getExtraInvariantAccess().getForKeyword_3_1_0());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExtraInvariantRule());
-							}
-						}
-						otherlv_8=RULE_ID
-						{
-							newLeafNode(otherlv_8, grammarAccess.getExtraInvariantAccess().getReqRequirementCrossReference_3_1_1_0());
-						}
-					)
-				)
 			)
 		)
-		otherlv_9=';'
+		otherlv_5=';'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getExtraInvariantAccess().getSemicolonKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getExtraInvariantAccess().getSemicolonKeyword_5());
 		}
 	)
 ;
@@ -6558,7 +6179,7 @@ ruleEqPredicate returns [Enumerator current=null]
 }:
 	(
 		(
-			enumLiteral_0='=='
+			enumLiteral_0='='
 			{
 				$current = grammarAccess.getEqPredicateAccess().getEQEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_0, grammarAccess.getEqPredicateAccess().getEQEnumLiteralDeclaration_0());
@@ -6566,7 +6187,7 @@ ruleEqPredicate returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_1='~='
+			enumLiteral_1='<>'
 			{
 				$current = grammarAccess.getEqPredicateAccess().getNOT_EQEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_1, grammarAccess.getEqPredicateAccess().getNOT_EQEnumLiteralDeclaration_1());
@@ -6701,7 +6322,7 @@ RULE_DISJUNCTION : ('OR'|'||'|'\\/');
 
 RULE_CONJUNCTION : ('AND'|'&'|'&&'|'/\\');
 
-RULE_NEGATION : ('NOT'|'~');
+RULE_NEGATION : ('NOT'|'!'|'~');
 
 RULE_POWER_OPERATOR : '**';
 

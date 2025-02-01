@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.rpl.invpatterngenerator.Formula;
-import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.InnerFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
@@ -270,8 +269,7 @@ public class InnerFormulaImpl extends MinimalEObjectImpl.Container implements In
   }
 
 @Override
-public <T extends su.nsk.iae.rpl.invpatterngenerator.Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
-
+public <T extends Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
 	return generator.generateInnerFormula(this);
 }
 

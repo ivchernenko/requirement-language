@@ -5,7 +5,6 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.PatternFreeInnerFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionPatternFreeFormula;

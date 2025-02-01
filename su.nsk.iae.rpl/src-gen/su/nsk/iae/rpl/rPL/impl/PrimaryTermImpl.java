@@ -101,7 +101,7 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
 
   @Override
 public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

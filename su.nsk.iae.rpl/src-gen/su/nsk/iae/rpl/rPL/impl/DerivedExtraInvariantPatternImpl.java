@@ -38,9 +38,7 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getFnParams <em>Fn Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getSimpleFmParams <em>Simple Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getSimpleFmParam <em>Simple Fm Param</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.DerivedExtraInvariantPatternImpl#getLemmas <em>Lemmas</em>}</li>
  * </ul>
  *
@@ -99,16 +97,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
   protected EList<SimpleFormulaParameter> simpleFmParams;
 
   /**
-   * The cached value of the '{@link #getSimpleFmParam() <em>Simple Fm Param</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSimpleFmParam()
-   * @generated
-   * @ordered
-   */
-  protected EList<SimpleFormulaParameter> simpleFmParam;
-
-  /**
    * The cached value of the '{@link #getFmParams() <em>Fm Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -117,26 +105,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
    * @ordered
    */
   protected EList<RegularFormulaParameter> fmParams;
-
-  /**
-   * The default value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected static final String FILE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected String file = FILE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLemmas() <em>Lemmas</em>}' containment reference.
@@ -245,21 +213,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
    * @generated
    */
   @Override
-  public EList<SimpleFormulaParameter> getSimpleFmParam()
-  {
-    if (simpleFmParam == null)
-    {
-      simpleFmParam = new EObjectContainmentEList<SimpleFormulaParameter>(SimpleFormulaParameter.class, this, RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM);
-    }
-    return simpleFmParam;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<RegularFormulaParameter> getFmParams()
   {
     if (fmParams == null)
@@ -267,31 +220,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
       fmParams = new EObjectContainmentEList<RegularFormulaParameter>(RegularFormulaParameter.class, this, RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS);
     }
     return fmParams;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getFile()
-  {
-    return file;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setFile(String newFile)
-  {
-    String oldFile = file;
-    file = newFile;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FILE, oldFile, file));
   }
 
   /**
@@ -360,8 +288,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
         return ((InternalEList<?>)getFnParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS:
         return ((InternalEList<?>)getSimpleFmParams()).basicRemove(otherEnd, msgs);
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM:
-        return ((InternalEList<?>)getSimpleFmParam()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         return ((InternalEList<?>)getFmParams()).basicRemove(otherEnd, msgs);
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS:
@@ -388,12 +314,8 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
         return getFnParams();
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS:
         return getSimpleFmParams();
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM:
-        return getSimpleFmParam();
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         return getFmParams();
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FILE:
-        return getFile();
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS:
         return getLemmas();
     }
@@ -426,16 +348,9 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
         getSimpleFmParams().clear();
         getSimpleFmParams().addAll((Collection<? extends SimpleFormulaParameter>)newValue);
         return;
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM:
-        getSimpleFmParam().clear();
-        getSimpleFmParam().addAll((Collection<? extends SimpleFormulaParameter>)newValue);
-        return;
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
-        return;
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FILE:
-        setFile((String)newValue);
         return;
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS:
         setLemmas((DerivedLemmas)newValue);
@@ -466,14 +381,8 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS:
         getSimpleFmParams().clear();
         return;
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM:
-        getSimpleFmParam().clear();
-        return;
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         getFmParams().clear();
-        return;
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FILE:
-        setFile(FILE_EDEFAULT);
         return;
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS:
         setLemmas((DerivedLemmas)null);
@@ -500,12 +409,8 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
         return fnParams != null && !fnParams.isEmpty();
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAMS:
         return simpleFmParams != null && !simpleFmParams.isEmpty();
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__SIMPLE_FM_PARAM:
-        return simpleFmParam != null && !simpleFmParam.isEmpty();
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
-      case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__FILE:
-        return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case RPLPackage.DERIVED_EXTRA_INVARIANT_PATTERN__LEMMAS:
         return lemmas != null;
     }
@@ -525,8 +430,6 @@ public class DerivedExtraInvariantPatternImpl extends ElementImpl implements Der
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", file: ");
-    result.append(file);
     result.append(')');
     return result.toString();
   }

@@ -15,8 +15,6 @@ package su.nsk.iae.rpl.rPL;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getPattern <em>Pattern</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReqName <em>Req Name</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReq <em>Req</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.rpl.rPL.RPLPackage#getExtraInvariant()
@@ -68,49 +66,5 @@ public interface ExtraInvariant extends Element
    * @generated
    */
   void setPattern(DerivedExtraInvariantPattern value);
-
-  /**
-   * Returns the value of the '<em><b>Req Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Req Name</em>' attribute.
-   * @see #setReqName(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getExtraInvariant_ReqName()
-   * @model
-   * @generated
-   */
-  String getReqName();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReqName <em>Req Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Req Name</em>' attribute.
-   * @see #getReqName()
-   * @generated
-   */
-  void setReqName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Req</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Req</em>' reference.
-   * @see #setReq(Requirement)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getExtraInvariant_Req()
-   * @model
-   * @generated
-   */
-  Requirement getReq();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.ExtraInvariant#getReq <em>Req</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Req</em>' reference.
-   * @see #getReq()
-   * @generated
-   */
-  void setReq(Requirement value);
 
 } // ExtraInvariant

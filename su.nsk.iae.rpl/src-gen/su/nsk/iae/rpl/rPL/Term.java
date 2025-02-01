@@ -26,7 +26,6 @@ import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
  */
 public interface Term extends EObject
 {
-	su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter);
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -70,5 +69,7 @@ public interface Term extends EObject
    * @generated
    */
   void setRight(Term value);
+
+su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter);
 
 } // Term

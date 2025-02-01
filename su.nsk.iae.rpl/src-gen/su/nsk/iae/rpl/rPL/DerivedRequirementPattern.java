@@ -17,10 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParams <em>Simple Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getSimpleFmParam <em>Simple Fm Param</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFmParams <em>Fm Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getDefinition <em>Definition</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getLemmas <em>Lemmas</em>}</li>
  * </ul>
@@ -78,18 +76,6 @@ public interface DerivedRequirementPattern extends Element, BasicRequirementPatt
   EList<SimpleFormulaParameter> getSimpleFmParams();
 
   /**
-   * Returns the value of the '<em><b>Simple Fm Param</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.SimpleFormulaParameter}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Simple Fm Param</em>' containment reference list.
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getDerivedRequirementPattern_SimpleFmParam()
-   * @model containment="true"
-   * @generated
-   */
-  EList<SimpleFormulaParameter> getSimpleFmParam();
-
-  /**
    * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.
    * The list contents are of type {@link su.nsk.iae.rpl.rPL.RegularFormulaParameter}.
    * <!-- begin-user-doc -->
@@ -122,28 +108,6 @@ public interface DerivedRequirementPattern extends Element, BasicRequirementPatt
    * @generated
    */
   void setDefinition(Formula value);
-
-  /**
-   * Returns the value of the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>File</em>' attribute.
-   * @see #setFile(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getDerivedRequirementPattern_File()
-   * @model
-   * @generated
-   */
-  String getFile();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.DerivedRequirementPattern#getFile <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>File</em>' attribute.
-   * @see #getFile()
-   * @generated
-   */
-  void setFile(String value);
 
   /**
    * Returns the value of the '<em><b>Extra Inv Pattern</b></em>' reference.

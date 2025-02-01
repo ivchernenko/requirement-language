@@ -37,7 +37,6 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl#getFnParams <em>Fn Params</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PastExtraInvariantPatternImpl#getLemmas <em>Lemmas</em>}</li>
  * </ul>
  *
@@ -94,26 +93,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
    * @ordered
    */
   protected EList<RegularFormulaParameter> fmParams;
-
-  /**
-   * The default value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected static final String FILE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFile()
-   * @generated
-   * @ordered
-   */
-  protected String file = FILE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLemmas() <em>Lemmas</em>}' containment reference.
@@ -222,31 +201,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
    * @generated
    */
   @Override
-  public String getFile()
-  {
-    return file;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setFile(String newFile)
-  {
-    String oldFile = file;
-    file = newFile;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FILE, oldFile, file));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public PastLemmas getLemmas()
   {
     return lemmas;
@@ -331,8 +285,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
         return getFnParams();
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         return getFmParams();
-      case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FILE:
-        return getFile();
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__LEMMAS:
         return getLemmas();
     }
@@ -365,9 +317,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
         getFmParams().clear();
         getFmParams().addAll((Collection<? extends RegularFormulaParameter>)newValue);
         return;
-      case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FILE:
-        setFile((String)newValue);
-        return;
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__LEMMAS:
         setLemmas((PastLemmas)newValue);
         return;
@@ -397,9 +346,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         getFmParams().clear();
         return;
-      case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FILE:
-        setFile(FILE_EDEFAULT);
-        return;
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__LEMMAS:
         setLemmas((PastLemmas)null);
         return;
@@ -425,8 +371,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
         return fnParams != null && !fnParams.isEmpty();
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FM_PARAMS:
         return fmParams != null && !fmParams.isEmpty();
-      case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__FILE:
-        return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
       case RPLPackage.PAST_EXTRA_INVARIANT_PATTERN__LEMMAS:
         return lemmas != null;
     }
@@ -446,8 +390,6 @@ public class PastExtraInvariantPatternImpl extends ElementImpl implements PastEx
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", file: ");
-    result.append(file);
     result.append(')');
     return result.toString();
   }

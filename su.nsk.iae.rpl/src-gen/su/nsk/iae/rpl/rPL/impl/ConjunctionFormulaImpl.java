@@ -6,7 +6,6 @@ package su.nsk.iae.rpl.rPL.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import su.nsk.iae.rpl.invpatterngenerator.OuterFormulaGenerator;
-import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 
@@ -31,7 +30,6 @@ public class ConjunctionFormulaImpl extends FormulaImpl implements ConjunctionFo
 
   @Override
 public <T> T generateFormula(OuterFormulaGenerator<T> generator) {
-
 	return generator.generateFormula(this);
 }
 

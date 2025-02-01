@@ -333,8 +333,11 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.ALWAYS_IMPLICATION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RPLPackage.Literals.ALWAYS_IMPLICATION__STATE, false));
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getLeftAlwaysImplicationParameterValueParserRuleCall_4_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess()
+				.getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), 
+				semanticObject.eGet(RPLPackage.Literals.ALWAYS_IMPLICATION__STATE, false));
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess()
+				.getLeftAlwaysImplicationParameterValueParserRuleCall_4_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getRightAlwaysImplicationParameterValueParserRuleCall_6_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -588,9 +591,8 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
-	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
+	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParams+=SimpleFormulaParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         file=FilePath? 
 	 *         lemmas=DerivedLemmas?
 	 *     )
 	 * </pre>
@@ -626,9 +628,9 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     (
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
-	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParam+=SimpleFormulaParameter*)? 
+	 *         (simpleFmParams+=SimpleFormulaParameter simpleFmParams+=SimpleFormulaParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         (definition=Formula | (file=FilePath extraInvPattern=[DerivedExtraInvariantPattern|ID])) 
+	 *         (definition=Formula | extraInvPattern=[DerivedExtraInvariantPattern|ID]) 
 	 *         lemmas=DerivedLemmas?
 	 *     )
 	 * </pre>
@@ -702,11 +704,20 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ExtraInvariant returns ExtraInvariant
 	 *
 	 * Constraint:
-	 *     (name=ID ((pattern=[DerivedExtraInvariantPattern|ID] reqName=ID) | req=[Requirement|ID]))
+	 *     (name=ID pattern=[DerivedExtraInvariantPattern|ID])
 	 * </pre>
 	 */
 	protected void sequence_ExtraInvariant(ISerializationContext context, ExtraInvariant semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.EXTRA_INVARIANT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.EXTRA_INVARIANT__NAME));
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.EXTRA_INVARIANT__PATTERN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.EXTRA_INVARIANT__PATTERN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExtraInvariantAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExtraInvariantAccess().getPatternDerivedExtraInvariantPatternIDTerminalRuleCall_4_0_1(), semanticObject.eGet(RPLPackage.Literals.EXTRA_INVARIANT__PATTERN, false));
+		feeder.finish();
 	}
 	
 	
@@ -803,7 +814,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         file=FilePath? 
 	 *         lemmas=FutureLemmas?
 	 *     )
 	 * </pre>
@@ -839,7 +849,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         file=FilePath 
 	 *         extraInvPattern=[FutureExtraInvariantPattern|ID] 
 	 *         lessas=FutureLemmas?
 	 *     )
@@ -1096,7 +1105,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fnParams+=FunctionalParameter fnParams+=FunctionalParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         file=FilePath? 
 	 *         lemmas=PastLemmas?
 	 *     )
 	 * </pre>
@@ -1133,7 +1141,6 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         name=ID 
 	 *         (cParams+=ConstantParameter cParams+=ConstantParameter*)? 
 	 *         (fmParams+=RegularFormulaParameter fmParams+=RegularFormulaParameter*)? 
-	 *         file=FilePath 
 	 *         extraInvPattern=[PastExtraInvariantPattern|ID] 
 	 *         lemmas=PastLemmas?
 	 *     )
@@ -1386,21 +1393,23 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Requirement returns Requirement
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         (
-	 *             (
-	 *                 pattern=[DerivedRequirementPattern|ID] 
-	 *                 (cParams+=Term cParams+=Term*)? 
-	 *                 (fmParams+=PatternFreeFormulaParameterValue fmParams+=PatternFreeFormulaParameterValue*)?
-	 *             ) | 
-	 *             (pattern=[DerivedRequirementPattern|ID] extraIn=ID)
-	 *         )
-	 *     )
+	 *     (name=ID pattern=[DerivedRequirementPattern|ID] extraInv=ExtraInvariant)
 	 * </pre>
 	 */
 	protected void sequence_Requirement(ISerializationContext context, Requirement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.REQUIREMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.REQUIREMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.REQUIREMENT__PATTERN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.REQUIREMENT__PATTERN));
+			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.REQUIREMENT__EXTRA_INV) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.REQUIREMENT__EXTRA_INV));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRequirementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRequirementAccess().getPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1(), semanticObject.eGet(RPLPackage.Literals.REQUIREMENT__PATTERN, false));
+		feeder.accept(grammarAccess.getRequirementAccess().getExtraInvExtraInvariantParserRuleCall_5_0(), semanticObject.getExtraInv());
+		feeder.finish();
 	}
 	
 	

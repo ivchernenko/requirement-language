@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getLemmas <em>Lemmas</em>}</li>
  * </ul>
@@ -73,28 +72,6 @@ public interface PastRequirementPattern extends Element, BasicRequirementPattern
    * @generated
    */
   EList<RegularFormulaParameter> getFmParams();
-
-  /**
-   * Returns the value of the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>File</em>' attribute.
-   * @see #setFile(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getPastRequirementPattern_File()
-   * @model
-   * @generated
-   */
-  String getFile();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PastRequirementPattern#getFile <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>File</em>' attribute.
-   * @see #getFile()
-   * @generated
-   */
-  void setFile(String value);
 
   /**
    * Returns the value of the '<em><b>Extra Inv Pattern</b></em>' reference.

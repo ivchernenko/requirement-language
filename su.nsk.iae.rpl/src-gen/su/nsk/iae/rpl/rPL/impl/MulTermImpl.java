@@ -62,7 +62,7 @@ public class MulTermImpl extends AddTermImpl implements MulTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

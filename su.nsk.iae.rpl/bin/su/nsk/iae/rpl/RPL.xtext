@@ -21,9 +21,9 @@ BasicRequirementPattern:
 DerivedRequirementPattern:
 	'derivedreq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
-	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
-   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+   ("=" definition=Formula | "with" extraInvPattern=[DerivedExtraInvariantPattern])
    (lemmas=DerivedLemmas)? ";";
    
 Variable:
@@ -101,7 +101,7 @@ NegationFormula:
 	(neg?=NEGATION)? right=AtomicFormula;
 	
 terminal NEGATION:
-	"NOT" | "~";
+	"NOT" | "!" | "~";
            	
 AtomicFormula:
 	boolLiteral=BOOLEAN_LITERAL | "frm" "(" boolTerm=Term ")" |
@@ -120,14 +120,14 @@ FutureRequirementPattern:
 	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	 ")"
-	 "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
+	 "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 	 
 PastRequirementPattern:
 	'pastreq' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
-	"from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
+	"with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
                        	
 FutureExtraInvariantPattern:
 	'futureeinv' 'pattern' name=ID '('
@@ -135,7 +135,7 @@ FutureExtraInvariantPattern:
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
-	("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
+	(lemmas=FutureLemmas)? ";";
            	
 PastExtraInvariantPattern:
 	'pasteinv' 'pattern' name=ID '('
@@ -143,16 +143,16 @@ PastExtraInvariantPattern:
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
-	("from" file=FilePath)? (lemmas=PastLemmas)? ";";
+	(lemmas=PastLemmas)? ";";
                           	
 DerivedExtraInvariantPattern:
 	'derivedeinv' 'pattern' name=ID '('
 	("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+	("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	")"
-	("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
+	(lemmas=DerivedLemmas)? ";";
 	
 FilePath:
 	'/'? (Dir '/')* ID;
@@ -172,7 +172,7 @@ NegationTerm:
 EqTerm:
 	CompareTerm ({EqTerm.left=current} eqPred=EqPredicate right=EqTerm)*;
 enum EqPredicate:
-	EQ="==" | NOT_EQ="~=";
+	EQ="=" | NOT_EQ="<>";
            	
 CompareTerm:
 	AddTerm ({CompareTerm.left=current} compPred=CompPredicate right=CompareTerm)*;
@@ -250,15 +250,10 @@ PrimaryPatternFreeFormula:
 	atomic=NegationFormula | "(" nestedFormula=PatternFreeFormula ")";
            	
 Requirement:
-	"requirement" name=ID (("=" pattern=[DerivedRequirementPattern] "("
-	("const" ":" cParams+=Term ("," cParams+=Term)*)?
-	("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
-	(":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)) ";";
+	"requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=[ExtraInvariant] ";";
 	
 ExtraInvariant:
-	"extra" "invariant" name=ID (":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
-		"for" req=[Requirement]
-	) ";";
+	"extra" "invariant" name=ID ":" pattern=[DerivedExtraInvariantPattern] ";";
                           	
 PatternFreeFormulaParameterValue:
 	("lambda" states+=UpdateStateVariable+ ".")? formula=PatternFreeFormula;
@@ -309,3 +304,7 @@ PastExtraInvariantPatternInstance:
 	("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	("current" | "final") state=[UpdateStateVariable]
 	 ")";
+
+@Override	 
+terminal ID: 
+    ('^')?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9' | "'")* ('a'..'z'|'A'..'Z'|'0'..'9' | "'");

@@ -18,7 +18,6 @@ public class PatternGenerator {
 		List<ConstantParameter> cParams = reqPattern.getCParams();
 		List<SimpleFormulaParameter> simpleFmParams = new ArrayList<>();
 		simpleFmParams.addAll(reqPattern.getSimpleFmParams());
-		simpleFmParams.addAll(reqPattern.getSimpleFmParam());
 		List<RegularFormulaParameter> regFmParams = reqPattern.getFmParams();
 		OuterRequirementFormulaGenerator generator = new OuterRequirementFormulaGenerator();
 		OuterRequirementFormula definition = reqPattern.getDefinition().generateFormula(generator);
@@ -29,13 +28,12 @@ public class PatternGenerator {
 		List<ConstantParameter> cParams = reqPattern.getCParams();
 		List<SimpleFormulaParameter> simpleFmParams = new ArrayList<>();
 		simpleFmParams.addAll(reqPattern.getSimpleFmParams());
-		simpleFmParams.addAll(reqPattern.getSimpleFmParam());
 		List<RegularFormulaParameter> regFmParams = new ArrayList<>();
 		Map<RegularFormulaParameter, RegularFormulaParameter> regParamMapping = new HashMap<>();
 		for (RegularFormulaParameter original: reqPattern.getFmParams()) {
 			RPLFactory factory = RPLFactoryImpl.init();
 			RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
-			renamed.setName(original.getName() + "'");
+			renamed.setName(original.getName() + "_1");
 			regParamMapping.put(original, renamed);
 			regFmParams.add(renamed);
 		}

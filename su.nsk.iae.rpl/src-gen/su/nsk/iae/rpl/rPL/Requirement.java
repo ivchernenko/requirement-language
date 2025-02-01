@@ -3,7 +3,6 @@
  */
 package su.nsk.iae.rpl.rPL;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,9 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getPattern <em>Pattern</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getCParams <em>CParams</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getExtraIn <em>Extra In</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement()
@@ -72,49 +69,25 @@ public interface Requirement extends Element
   void setPattern(DerivedRequirementPattern value);
 
   /**
-   * Returns the value of the '<em><b>CParams</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.Term}.
+   * Returns the value of the '<em><b>Extra Inv</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>CParams</em>' containment reference list.
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement_CParams()
+   * @return the value of the '<em>Extra Inv</em>' containment reference.
+   * @see #setExtraInv(ExtraInvariant)
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement_ExtraInv()
    * @model containment="true"
    * @generated
    */
-  EList<Term> getCParams();
+  ExtraInvariant getExtraInv();
 
   /**
-   * Returns the value of the '<em><b>Fm Params</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue}.
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fm Params</em>' containment reference list.
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement_FmParams()
-   * @model containment="true"
+   * @param value the new value of the '<em>Extra Inv</em>' containment reference.
+   * @see #getExtraInv()
    * @generated
    */
-  EList<PatternFreeFormulaParameterValue> getFmParams();
-
-  /**
-   * Returns the value of the '<em><b>Extra In</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Extra In</em>' attribute.
-   * @see #setExtraIn(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement_ExtraIn()
-   * @model
-   * @generated
-   */
-  String getExtraIn();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraIn <em>Extra In</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extra In</em>' attribute.
-   * @see #getExtraIn()
-   * @generated
-   */
-  void setExtraIn(String value);
+  void setExtraInv(ExtraInvariant value);
 
 } // Requirement

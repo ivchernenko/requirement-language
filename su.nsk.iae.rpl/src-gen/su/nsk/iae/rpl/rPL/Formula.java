@@ -6,7 +6,6 @@ package su.nsk.iae.rpl.rPL;
 import org.eclipse.emf.ecore.EObject;
 
 import su.nsk.iae.rpl.invpatterngenerator.OuterFormulaGenerator;
-import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 
 /**
  * <!-- begin-user-doc -->

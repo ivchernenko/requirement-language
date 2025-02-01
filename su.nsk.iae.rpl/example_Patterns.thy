@@ -4,35 +4,35 @@ definition P1 where "P1 t A1 A2 A3 s \<equiv> (always (\<lambda> r2 r1 . ((\<not
 
 definition example_part where "example_part t A1 A2 A3 s \<equiv> (P1 t A1 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
 
-definition P1_inv where "P1_inv t t1_0 A1 A2' A3' s \<equiv> (always_inv (\<lambda> r2 r1 . ((\<not> (A1 r1)) \<or> (constrained_until_inv t t1_0 A2' A3' r2 r1))) s)"
+definition P1_inv where "P1_inv t t1_0 A1 A2_1 A3_1 s \<equiv> (always_inv (\<lambda> r2 r1 . ((\<not> (A1 r1)) \<or> (constrained_until_inv t t1_0 A2_1 A3_1 r2 r1))) s)"
 
-definition example_part_inv where "example_part_inv t t1_0 A1 A2' A3' s \<equiv> (P1_inv t su.nsk.iae.rpl.rPL.impl.FunctionalParameterImpl@4c060c8f (name: t1_0) A1 (\<lambda> s s1 . (A2' s1)) (\<lambda> s s1 . (A3' s1)) s)"
+definition example_part_inv where "example_part_inv t t1_0 A1 A2_1 A3_1 s \<equiv> (P1_inv t t1_0 A1 (\<lambda> s s1 . (A2_1 s1)) (\<lambda> s s1 . (A3_1 s1)) s)"
 
 
 
 lemma P1_inv_saving_gen: "
-P1_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+P1_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s
-((True \<or> ((always_imp s0 (A2' s0) (A2' s)) \<and> ((always_imp s0 (A3' s0) (A3' s)) \<and> (((t1_0 s0) = 0) \<or> (((A3' s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2' s s) \<and> ((t1_0 s0) < (t1_0 s)))))))) \<and> ((\<not> (A1 s)) \<or> ((A3' s s) \<or> (((t1_0 s) > 0) \<and> (A2' s)))))
-P1_inv t t1_0 A1 A2' A3' s"
+((True \<or> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> (((t1_0 s0) = 0) \<or> (((A3_1 s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2_1 s s) \<and> ((t1_0 s0) < (t1_0 s)))))))) \<and> ((\<not> (A1 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) > 0) \<and> (A2_1 s)))))
+P1_inv t t1_0 A1 A2_1 A3_1 s"
 
 lemma P1einv_imp_req_gen: "
-P1_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+P1_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 toEnvP s0
-(True \<or> ((always_imp s0 (A2' s0) (A2 s0)) \<and> ((always_imp s0 (A3' s0) (A3 s0)) \<and> ((t1_0 s0) <= t))))
+(True \<or> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> ((always_imp s0 (A3_1 s0) (A3 s0)) \<and> ((t1_0 s0) <= t))))
 P1 t A1 A2 A3 s0"
 
 lemma P1_inv_saving: "
-example_part_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+example_part_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s
 ((\<not> (A1 s)) \<or> ((A3 s s) \<or> (((t1_0 s) > 0) \<and> (A2 s))))
-example_part_inv t t1_0 A1 A2' A3' s"
+example_part_inv t t1_0 A1 A2_1 A3_1 s"
 
 lemma P1einv_imp_req: "
-example_part_inv t t1_0 A1 A2' A3' s0 \<Longrightarrow>
+example_part_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 toEnvP s0
 True
-example_part t A1 A2' A3' s0"
+example_part t A1 A2_1 A3_1 s0"
 
 lemmas P1_used_patterns = always constrained_until 
 

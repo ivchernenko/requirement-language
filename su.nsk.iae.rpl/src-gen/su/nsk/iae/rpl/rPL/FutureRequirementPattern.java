@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getCParams <em>CParams</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getFmParams <em>Fm Params</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getFile <em>File</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getExtraInvPattern <em>Extra Inv Pattern</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getLessas <em>Lessas</em>}</li>
  * </ul>
@@ -73,28 +72,6 @@ public interface FutureRequirementPattern extends Element, BasicRequirementPatte
    * @generated
    */
   EList<RegularFormulaParameter> getFmParams();
-
-  /**
-   * Returns the value of the '<em><b>File</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>File</em>' attribute.
-   * @see #setFile(String)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getFutureRequirementPattern_File()
-   * @model
-   * @generated
-   */
-  String getFile();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.FutureRequirementPattern#getFile <em>File</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>File</em>' attribute.
-   * @see #getFile()
-   * @generated
-   */
-  void setFile(String value);
 
   /**
    * Returns the value of the '<em><b>Extra Inv Pattern</b></em>' reference.

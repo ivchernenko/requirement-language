@@ -62,7 +62,7 @@ public class CompareTermImpl extends EqTermImpl implements CompareTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

@@ -180,8 +180,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_3_0 = (RuleCall)cSimpleFmParamsAssignment_5_3.eContents().get(0);
 		private final Group cGroup_5_4 = (Group)cGroup_5.eContents().get(4);
 		private final Keyword cCommaKeyword_5_4_0 = (Keyword)cGroup_5_4.eContents().get(0);
-		private final Assignment cSimpleFmParamAssignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
-		private final RuleCall cSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0 = (RuleCall)cSimpleFmParamAssignment_5_4_1.eContents().get(0);
+		private final Assignment cSimpleFmParamsAssignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
+		private final RuleCall cSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_4_1_0 = (RuleCall)cSimpleFmParamsAssignment_5_4_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cFormulasKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
@@ -198,13 +198,10 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cDefinitionAssignment_8_0_1 = (Assignment)cGroup_8_0.eContents().get(1);
 		private final RuleCall cDefinitionFormulaParserRuleCall_8_0_1_0 = (RuleCall)cDefinitionAssignment_8_0_1.eContents().get(0);
 		private final Group cGroup_8_1 = (Group)cAlternatives_8.eContents().get(1);
-		private final Keyword cFromKeyword_8_1_0 = (Keyword)cGroup_8_1.eContents().get(0);
-		private final Assignment cFileAssignment_8_1_1 = (Assignment)cGroup_8_1.eContents().get(1);
-		private final RuleCall cFileFilePathParserRuleCall_8_1_1_0 = (RuleCall)cFileAssignment_8_1_1.eContents().get(0);
-		private final Keyword cWithKeyword_8_1_2 = (Keyword)cGroup_8_1.eContents().get(2);
-		private final Assignment cExtraInvPatternAssignment_8_1_3 = (Assignment)cGroup_8_1.eContents().get(3);
-		private final CrossReference cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0 = (CrossReference)cExtraInvPatternAssignment_8_1_3.eContents().get(0);
-		private final RuleCall cExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_3_0_1 = (RuleCall)cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0.eContents().get(1);
+		private final Keyword cWithKeyword_8_1_0 = (Keyword)cGroup_8_1.eContents().get(0);
+		private final Assignment cExtraInvPatternAssignment_8_1_1 = (Assignment)cGroup_8_1.eContents().get(1);
+		private final CrossReference cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_1_0 = (CrossReference)cExtraInvPatternAssignment_8_1_1.eContents().get(0);
+		private final RuleCall cExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_1_0_1 = (RuleCall)cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_1_0.eContents().get(1);
 		private final Assignment cLemmasAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cLemmasDerivedLemmasParserRuleCall_9_0 = (RuleCall)cLemmasAssignment_9.eContents().get(0);
 		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
@@ -213,17 +210,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//DerivedRequirementPattern:
 		//    'derivedreq' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
-		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
-		//   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+		//   ("=" definition=Formula | "with" extraInvPattern=[DerivedExtraInvariantPattern])
 		//   (lemmas=DerivedLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		// 'derivedreq' 'pattern' name=ID '('
 		// ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
-		// ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		// ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		// ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
-		//("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+		//("=" definition=Formula | "with" extraInvPattern=[DerivedExtraInvariantPattern])
 		//(lemmas=DerivedLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
@@ -269,7 +266,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ConstantParameter
 		public RuleCall getCParamsConstantParameterParserRuleCall_4_3_1_0() { return cCParamsConstantParameterParserRuleCall_4_3_1_0; }
 		
-		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//"simple"
@@ -287,17 +284,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SimpleFormulaParameter
 		public RuleCall getSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_3_0() { return cSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_3_0; }
 		
-		//("," simpleFmParam+=SimpleFormulaParameter)*
+		//("," simpleFmParams+=SimpleFormulaParameter)*
 		public Group getGroup_5_4() { return cGroup_5_4; }
 		
 		//","
 		public Keyword getCommaKeyword_5_4_0() { return cCommaKeyword_5_4_0; }
 		
-		//simpleFmParam+=SimpleFormulaParameter
-		public Assignment getSimpleFmParamAssignment_5_4_1() { return cSimpleFmParamAssignment_5_4_1; }
+		//simpleFmParams+=SimpleFormulaParameter
+		public Assignment getSimpleFmParamsAssignment_5_4_1() { return cSimpleFmParamsAssignment_5_4_1; }
 		
 		//SimpleFormulaParameter
-		public RuleCall getSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0() { return cSimpleFmParamSimpleFormulaParameterParserRuleCall_5_4_1_0; }
+		public RuleCall getSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_4_1_0() { return cSimpleFmParamsSimpleFormulaParameterParserRuleCall_5_4_1_0; }
 		
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
@@ -329,7 +326,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 		
-		//("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+		//("=" definition=Formula | "with" extraInvPattern=[DerivedExtraInvariantPattern])
 		public Alternatives getAlternatives_8() { return cAlternatives_8; }
 		
 		//"=" definition=Formula
@@ -344,29 +341,20 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//Formula
 		public RuleCall getDefinitionFormulaParserRuleCall_8_0_1_0() { return cDefinitionFormulaParserRuleCall_8_0_1_0; }
 		
-		//"from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern]
+		//"with" extraInvPattern=[DerivedExtraInvariantPattern]
 		public Group getGroup_8_1() { return cGroup_8_1; }
 		
-		//"from"
-		public Keyword getFromKeyword_8_1_0() { return cFromKeyword_8_1_0; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_8_1_1() { return cFileAssignment_8_1_1; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_8_1_1_0() { return cFileFilePathParserRuleCall_8_1_1_0; }
-		
 		//"with"
-		public Keyword getWithKeyword_8_1_2() { return cWithKeyword_8_1_2; }
+		public Keyword getWithKeyword_8_1_0() { return cWithKeyword_8_1_0; }
 		
 		//extraInvPattern=[DerivedExtraInvariantPattern]
-		public Assignment getExtraInvPatternAssignment_8_1_3() { return cExtraInvPatternAssignment_8_1_3; }
+		public Assignment getExtraInvPatternAssignment_8_1_1() { return cExtraInvPatternAssignment_8_1_1; }
 		
 		//[DerivedExtraInvariantPattern]
-		public CrossReference getExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0() { return cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_3_0; }
+		public CrossReference getExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_1_0() { return cExtraInvPatternDerivedExtraInvariantPatternCrossReference_8_1_1_0; }
 		
 		//ID
-		public RuleCall getExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_3_0_1() { return cExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_3_0_1; }
+		public RuleCall getExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_1_0_1() { return cExtraInvPatternDerivedExtraInvariantPatternIDTerminalRuleCall_8_1_1_0_1; }
 		
 		//(lemmas=DerivedLemmas)?
 		public Assignment getLemmasAssignment_9() { return cLemmasAssignment_9; }
@@ -1335,16 +1323,13 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFmParamsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
 		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cFromKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cFileAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cFileFilePathParserRuleCall_8_0 = (RuleCall)cFileAssignment_8.eContents().get(0);
-		private final Keyword cWithKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cExtraInvPatternAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cExtraInvPatternFutureExtraInvariantPatternCrossReference_10_0 = (CrossReference)cExtraInvPatternAssignment_10.eContents().get(0);
-		private final RuleCall cExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_10_0_1 = (RuleCall)cExtraInvPatternFutureExtraInvariantPatternCrossReference_10_0.eContents().get(1);
-		private final Assignment cLessasAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cLessasFutureLemmasParserRuleCall_11_0 = (RuleCall)cLessasAssignment_11.eContents().get(0);
-		private final Keyword cSemicolonKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cWithKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cExtraInvPatternAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cExtraInvPatternFutureExtraInvariantPatternCrossReference_8_0 = (CrossReference)cExtraInvPatternAssignment_8.eContents().get(0);
+		private final RuleCall cExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_8_0_1 = (RuleCall)cExtraInvPatternFutureExtraInvariantPatternCrossReference_8_0.eContents().get(1);
+		private final Assignment cLessasAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cLessasFutureLemmasParserRuleCall_9_0 = (RuleCall)cLessasAssignment_9.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		///* ======================= Pattern declarations ======================= */
 		//FutureRequirementPattern:
@@ -1352,14 +1337,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//     ")"
-		//     "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
+		//     "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'futurereq' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		// ")"
-		// "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";"
+		// "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
 		//'futurereq'
@@ -1434,35 +1419,26 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
-		//"from"
-		public Keyword getFromKeyword_7() { return cFromKeyword_7; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_8() { return cFileAssignment_8; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_8_0() { return cFileFilePathParserRuleCall_8_0; }
-		
 		//"with"
-		public Keyword getWithKeyword_9() { return cWithKeyword_9; }
+		public Keyword getWithKeyword_7() { return cWithKeyword_7; }
 		
 		//extraInvPattern=[FutureExtraInvariantPattern]
-		public Assignment getExtraInvPatternAssignment_10() { return cExtraInvPatternAssignment_10; }
+		public Assignment getExtraInvPatternAssignment_8() { return cExtraInvPatternAssignment_8; }
 		
 		//[FutureExtraInvariantPattern]
-		public CrossReference getExtraInvPatternFutureExtraInvariantPatternCrossReference_10_0() { return cExtraInvPatternFutureExtraInvariantPatternCrossReference_10_0; }
+		public CrossReference getExtraInvPatternFutureExtraInvariantPatternCrossReference_8_0() { return cExtraInvPatternFutureExtraInvariantPatternCrossReference_8_0; }
 		
 		//ID
-		public RuleCall getExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_10_0_1() { return cExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_10_0_1; }
+		public RuleCall getExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_8_0_1() { return cExtraInvPatternFutureExtraInvariantPatternIDTerminalRuleCall_8_0_1; }
 		
 		//(lessas=FutureLemmas)?
-		public Assignment getLessasAssignment_11() { return cLessasAssignment_11; }
+		public Assignment getLessasAssignment_9() { return cLessasAssignment_9; }
 		
 		//FutureLemmas
-		public RuleCall getLessasFutureLemmasParserRuleCall_11_0() { return cLessasFutureLemmasParserRuleCall_11_0; }
+		public RuleCall getLessasFutureLemmasParserRuleCall_9_0() { return cLessasFutureLemmasParserRuleCall_9_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_12() { return cSemicolonKeyword_12; }
+		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 	}
 	public class PastRequirementPatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.PastRequirementPattern");
@@ -1491,30 +1467,27 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFmParamsAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
 		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_5_3_1_0 = (RuleCall)cFmParamsAssignment_5_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cFromKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cFileAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cFileFilePathParserRuleCall_8_0 = (RuleCall)cFileAssignment_8.eContents().get(0);
-		private final Keyword cWithKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cExtraInvPatternAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cExtraInvPatternPastExtraInvariantPatternCrossReference_10_0 = (CrossReference)cExtraInvPatternAssignment_10.eContents().get(0);
-		private final RuleCall cExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_10_0_1 = (RuleCall)cExtraInvPatternPastExtraInvariantPatternCrossReference_10_0.eContents().get(1);
-		private final Assignment cLemmasAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cLemmasPastLemmasParserRuleCall_11_0 = (RuleCall)cLemmasAssignment_11.eContents().get(0);
-		private final Keyword cSemicolonKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cWithKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cExtraInvPatternAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cExtraInvPatternPastExtraInvariantPatternCrossReference_8_0 = (CrossReference)cExtraInvPatternAssignment_8.eContents().get(0);
+		private final RuleCall cExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_8_0_1 = (RuleCall)cExtraInvPatternPastExtraInvariantPatternCrossReference_8_0.eContents().get(1);
+		private final Assignment cLemmasAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cLemmasPastLemmasParserRuleCall_9_0 = (RuleCall)cLemmasAssignment_9.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//PastRequirementPattern:
 		//    'pastreq' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
-		//    "from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
+		//    "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'pastreq' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
-		//"from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";"
+		//"with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
 		//'pastreq'
@@ -1589,35 +1562,26 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
-		//"from"
-		public Keyword getFromKeyword_7() { return cFromKeyword_7; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_8() { return cFileAssignment_8; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_8_0() { return cFileFilePathParserRuleCall_8_0; }
-		
 		//"with"
-		public Keyword getWithKeyword_9() { return cWithKeyword_9; }
+		public Keyword getWithKeyword_7() { return cWithKeyword_7; }
 		
 		//extraInvPattern=[PastExtraInvariantPattern]
-		public Assignment getExtraInvPatternAssignment_10() { return cExtraInvPatternAssignment_10; }
+		public Assignment getExtraInvPatternAssignment_8() { return cExtraInvPatternAssignment_8; }
 		
 		//[PastExtraInvariantPattern]
-		public CrossReference getExtraInvPatternPastExtraInvariantPatternCrossReference_10_0() { return cExtraInvPatternPastExtraInvariantPatternCrossReference_10_0; }
+		public CrossReference getExtraInvPatternPastExtraInvariantPatternCrossReference_8_0() { return cExtraInvPatternPastExtraInvariantPatternCrossReference_8_0; }
 		
 		//ID
-		public RuleCall getExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_10_0_1() { return cExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_10_0_1; }
+		public RuleCall getExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_8_0_1() { return cExtraInvPatternPastExtraInvariantPatternIDTerminalRuleCall_8_0_1; }
 		
 		//(lemmas=PastLemmas)?
-		public Assignment getLemmasAssignment_11() { return cLemmasAssignment_11; }
+		public Assignment getLemmasAssignment_9() { return cLemmasAssignment_9; }
 		
 		//PastLemmas
-		public RuleCall getLemmasPastLemmasParserRuleCall_11_0() { return cLemmasPastLemmasParserRuleCall_11_0; }
+		public RuleCall getLemmasPastLemmasParserRuleCall_9_0() { return cLemmasPastLemmasParserRuleCall_9_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_12() { return cSemicolonKeyword_12; }
+		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 	}
 	public class FutureExtraInvariantPatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FutureExtraInvariantPattern");
@@ -1655,13 +1619,9 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFmParamsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
 		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cFromKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cFileAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cFileFilePathParserRuleCall_8_1_0 = (RuleCall)cFileAssignment_8_1.eContents().get(0);
-		private final Assignment cLemmasAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cLemmasFutureLemmasParserRuleCall_9_0 = (RuleCall)cLemmasAssignment_9.eContents().get(0);
-		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cLemmasAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cLemmasFutureLemmasParserRuleCall_8_0 = (RuleCall)cLemmasAssignment_8.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//FutureExtraInvariantPattern:
 		//    'futureeinv' 'pattern' name=ID '('
@@ -1669,7 +1629,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
-		//    ("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
+		//    (lemmas=FutureLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'futureeinv' 'pattern' name=ID '('
@@ -1677,7 +1637,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
-		//("from" file=FilePath)? (lemmas=FutureLemmas)? ";"
+		//(lemmas=FutureLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
 		//'futureeinv'
@@ -1779,26 +1739,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 		
-		//("from" file=FilePath)?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//"from"
-		public Keyword getFromKeyword_8_0() { return cFromKeyword_8_0; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_8_1() { return cFileAssignment_8_1; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_8_1_0() { return cFileFilePathParserRuleCall_8_1_0; }
-		
 		//(lemmas=FutureLemmas)?
-		public Assignment getLemmasAssignment_9() { return cLemmasAssignment_9; }
+		public Assignment getLemmasAssignment_8() { return cLemmasAssignment_8; }
 		
 		//FutureLemmas
-		public RuleCall getLemmasFutureLemmasParserRuleCall_9_0() { return cLemmasFutureLemmasParserRuleCall_9_0; }
+		public RuleCall getLemmasFutureLemmasParserRuleCall_8_0() { return cLemmasFutureLemmasParserRuleCall_8_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
+		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
 	}
 	public class PastExtraInvariantPatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.PastExtraInvariantPattern");
@@ -1836,13 +1784,9 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFmParamsAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
 		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_6_3_1_0 = (RuleCall)cFmParamsAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cFromKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cFileAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cFileFilePathParserRuleCall_8_1_0 = (RuleCall)cFileAssignment_8_1.eContents().get(0);
-		private final Assignment cLemmasAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cLemmasPastLemmasParserRuleCall_9_0 = (RuleCall)cLemmasAssignment_9.eContents().get(0);
-		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cLemmasAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cLemmasPastLemmasParserRuleCall_8_0 = (RuleCall)cLemmasAssignment_8.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//PastExtraInvariantPattern:
 		//    'pasteinv' 'pattern' name=ID '('
@@ -1850,7 +1794,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
-		//    ("from" file=FilePath)? (lemmas=PastLemmas)? ";";
+		//    (lemmas=PastLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'pasteinv' 'pattern' name=ID '('
@@ -1858,7 +1802,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
-		//("from" file=FilePath)? (lemmas=PastLemmas)? ";"
+		//(lemmas=PastLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
 		//'pasteinv'
@@ -1960,26 +1904,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 		
-		//("from" file=FilePath)?
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//"from"
-		public Keyword getFromKeyword_8_0() { return cFromKeyword_8_0; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_8_1() { return cFileAssignment_8_1; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_8_1_0() { return cFileFilePathParserRuleCall_8_1_0; }
-		
 		//(lemmas=PastLemmas)?
-		public Assignment getLemmasAssignment_9() { return cLemmasAssignment_9; }
+		public Assignment getLemmasAssignment_8() { return cLemmasAssignment_8; }
 		
 		//PastLemmas
-		public RuleCall getLemmasPastLemmasParserRuleCall_9_0() { return cLemmasPastLemmasParserRuleCall_9_0; }
+		public RuleCall getLemmasPastLemmasParserRuleCall_8_0() { return cLemmasPastLemmasParserRuleCall_8_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
+		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
 	}
 	public class DerivedExtraInvariantPatternElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.DerivedExtraInvariantPattern");
@@ -2015,8 +1947,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_3_0 = (RuleCall)cSimpleFmParamsAssignment_6_3.eContents().get(0);
 		private final Group cGroup_6_4 = (Group)cGroup_6.eContents().get(4);
 		private final Keyword cCommaKeyword_6_4_0 = (Keyword)cGroup_6_4.eContents().get(0);
-		private final Assignment cSimpleFmParamAssignment_6_4_1 = (Assignment)cGroup_6_4.eContents().get(1);
-		private final RuleCall cSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0 = (RuleCall)cSimpleFmParamAssignment_6_4_1.eContents().get(0);
+		private final Assignment cSimpleFmParamsAssignment_6_4_1 = (Assignment)cGroup_6_4.eContents().get(1);
+		private final RuleCall cSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_4_1_0 = (RuleCall)cSimpleFmParamsAssignment_6_4_1.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cFormulasKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Keyword cColonKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
@@ -2027,31 +1959,27 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cFmParamsAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
 		private final RuleCall cFmParamsRegularFormulaParameterParserRuleCall_7_3_1_0 = (RuleCall)cFmParamsAssignment_7_3_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cFromKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cFileAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cFileFilePathParserRuleCall_9_1_0 = (RuleCall)cFileAssignment_9_1.eContents().get(0);
-		private final Assignment cLemmasAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cLemmasDerivedLemmasParserRuleCall_10_0 = (RuleCall)cLemmasAssignment_10.eContents().get(0);
-		private final Keyword cSemicolonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cLemmasAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cLemmasDerivedLemmasParserRuleCall_9_0 = (RuleCall)cLemmasAssignment_9.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//DerivedExtraInvariantPattern:
 		//    'derivedeinv' 'pattern' name=ID '('
 		//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//    ")"
-		//    ("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
+		//    (lemmas=DerivedLemmas)? ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'derivedeinv' 'pattern' name=ID '('
 		//("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 		//("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		//")"
-		//("from" file=FilePath)? (lemmas=DerivedLemmas)? ";"
+		//(lemmas=DerivedLemmas)? ";"
 		public Group getGroup() { return cGroup; }
 		
 		//'derivedeinv'
@@ -2123,7 +2051,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//FunctionalParameter
 		public RuleCall getFnParamsFunctionalParameterParserRuleCall_5_3_1_0() { return cFnParamsFunctionalParameterParserRuleCall_5_3_1_0; }
 		
-		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+		//("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//"simple"
@@ -2141,17 +2069,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//SimpleFormulaParameter
 		public RuleCall getSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_3_0() { return cSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_3_0; }
 		
-		//("," simpleFmParam+=SimpleFormulaParameter)*
+		//("," simpleFmParams+=SimpleFormulaParameter)*
 		public Group getGroup_6_4() { return cGroup_6_4; }
 		
 		//","
 		public Keyword getCommaKeyword_6_4_0() { return cCommaKeyword_6_4_0; }
 		
-		//simpleFmParam+=SimpleFormulaParameter
-		public Assignment getSimpleFmParamAssignment_6_4_1() { return cSimpleFmParamAssignment_6_4_1; }
+		//simpleFmParams+=SimpleFormulaParameter
+		public Assignment getSimpleFmParamsAssignment_6_4_1() { return cSimpleFmParamsAssignment_6_4_1; }
 		
 		//SimpleFormulaParameter
-		public RuleCall getSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0() { return cSimpleFmParamSimpleFormulaParameterParserRuleCall_6_4_1_0; }
+		public RuleCall getSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_4_1_0() { return cSimpleFmParamsSimpleFormulaParameterParserRuleCall_6_4_1_0; }
 		
 		//("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 		public Group getGroup_7() { return cGroup_7; }
@@ -2183,26 +2111,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//")"
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
 		
-		//("from" file=FilePath)?
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//"from"
-		public Keyword getFromKeyword_9_0() { return cFromKeyword_9_0; }
-		
-		//file=FilePath
-		public Assignment getFileAssignment_9_1() { return cFileAssignment_9_1; }
-		
-		//FilePath
-		public RuleCall getFileFilePathParserRuleCall_9_1_0() { return cFileFilePathParserRuleCall_9_1_0; }
-		
 		//(lemmas=DerivedLemmas)?
-		public Assignment getLemmasAssignment_10() { return cLemmasAssignment_10; }
+		public Assignment getLemmasAssignment_9() { return cLemmasAssignment_9; }
 		
 		//DerivedLemmas
-		public RuleCall getLemmasDerivedLemmasParserRuleCall_10_0() { return cLemmasDerivedLemmasParserRuleCall_10_0; }
+		public RuleCall getLemmasDerivedLemmasParserRuleCall_9_0() { return cLemmasDerivedLemmasParserRuleCall_9_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_11() { return cSemicolonKeyword_11; }
+		public Keyword getSemicolonKeyword_10() { return cSemicolonKeyword_10; }
 	}
 	public class FilePathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FilePath");
@@ -2944,53 +2860,20 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cRequirementKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cPatternAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final CrossReference cPatternDerivedRequirementPatternCrossReference_2_0_1_0 = (CrossReference)cPatternAssignment_2_0_1.eContents().get(0);
-		private final RuleCall cPatternDerivedRequirementPatternIDTerminalRuleCall_2_0_1_0_1 = (RuleCall)cPatternDerivedRequirementPatternCrossReference_2_0_1_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2_0_2 = (Keyword)cGroup_2_0.eContents().get(2);
-		private final Group cGroup_2_0_3 = (Group)cGroup_2_0.eContents().get(3);
-		private final Keyword cConstKeyword_2_0_3_0 = (Keyword)cGroup_2_0_3.eContents().get(0);
-		private final Keyword cColonKeyword_2_0_3_1 = (Keyword)cGroup_2_0_3.eContents().get(1);
-		private final Assignment cCParamsAssignment_2_0_3_2 = (Assignment)cGroup_2_0_3.eContents().get(2);
-		private final RuleCall cCParamsTermParserRuleCall_2_0_3_2_0 = (RuleCall)cCParamsAssignment_2_0_3_2.eContents().get(0);
-		private final Group cGroup_2_0_3_3 = (Group)cGroup_2_0_3.eContents().get(3);
-		private final Keyword cCommaKeyword_2_0_3_3_0 = (Keyword)cGroup_2_0_3_3.eContents().get(0);
-		private final Assignment cCParamsAssignment_2_0_3_3_1 = (Assignment)cGroup_2_0_3_3.eContents().get(1);
-		private final RuleCall cCParamsTermParserRuleCall_2_0_3_3_1_0 = (RuleCall)cCParamsAssignment_2_0_3_3_1.eContents().get(0);
-		private final Group cGroup_2_0_4 = (Group)cGroup_2_0.eContents().get(4);
-		private final Keyword cFormulasKeyword_2_0_4_0 = (Keyword)cGroup_2_0_4.eContents().get(0);
-		private final Keyword cColonKeyword_2_0_4_1 = (Keyword)cGroup_2_0_4.eContents().get(1);
-		private final Assignment cFmParamsAssignment_2_0_4_2 = (Assignment)cGroup_2_0_4.eContents().get(2);
-		private final RuleCall cFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_2_0 = (RuleCall)cFmParamsAssignment_2_0_4_2.eContents().get(0);
-		private final Group cGroup_2_0_4_3 = (Group)cGroup_2_0_4.eContents().get(3);
-		private final Keyword cCommaKeyword_2_0_4_3_0 = (Keyword)cGroup_2_0_4_3.eContents().get(0);
-		private final Assignment cFmParamsAssignment_2_0_4_3_1 = (Assignment)cGroup_2_0_4_3.eContents().get(1);
-		private final RuleCall cFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_3_1_0 = (RuleCall)cFmParamsAssignment_2_0_4_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2_0_5 = (Keyword)cGroup_2_0.eContents().get(5);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cColonKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cPatternAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final CrossReference cPatternDerivedRequirementPatternCrossReference_2_1_1_0 = (CrossReference)cPatternAssignment_2_1_1.eContents().get(0);
-		private final RuleCall cPatternDerivedRequirementPatternIDTerminalRuleCall_2_1_1_0_1 = (RuleCall)cPatternDerivedRequirementPatternCrossReference_2_1_1_0.eContents().get(1);
-		private final Keyword cWithKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
-		private final Assignment cExtraInAssignment_2_1_3 = (Assignment)cGroup_2_1.eContents().get(3);
-		private final RuleCall cExtraInIDTerminalRuleCall_2_1_3_0 = (RuleCall)cExtraInAssignment_2_1_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPatternAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cPatternDerivedRequirementPatternCrossReference_3_0 = (CrossReference)cPatternAssignment_3.eContents().get(0);
+		private final RuleCall cPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1 = (RuleCall)cPatternDerivedRequirementPatternCrossReference_3_0.eContents().get(1);
+		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cExtraInvAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cExtraInvExtraInvariantParserRuleCall_5_0 = (RuleCall)cExtraInvAssignment_5.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Requirement:
-		//    "requirement" name=ID (("=" pattern=[DerivedRequirementPattern] "("
-		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//    ("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
-		//    (":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)) ";";
+		//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"requirement" name=ID (("=" pattern=[DerivedRequirementPattern] "("
-		//("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
-		//(":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)) ";"
+		//"requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";"
 		public Group getGroup() { return cGroup; }
 		
 		//"requirement"
@@ -3002,115 +2885,29 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//(("=" pattern=[DerivedRequirementPattern] "("
-		//   ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//   ("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
-		//   (":" pattern=[DerivedRequirementPattern] "with" extraIn=ID))
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//("=" pattern=[DerivedRequirementPattern] "("
-		//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		//    ("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")")
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//"="
-		public Keyword getEqualsSignKeyword_2_0_0() { return cEqualsSignKeyword_2_0_0; }
+		//":"
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//pattern=[DerivedRequirementPattern]
-		public Assignment getPatternAssignment_2_0_1() { return cPatternAssignment_2_0_1; }
+		public Assignment getPatternAssignment_3() { return cPatternAssignment_3; }
 		
 		//[DerivedRequirementPattern]
-		public CrossReference getPatternDerivedRequirementPatternCrossReference_2_0_1_0() { return cPatternDerivedRequirementPatternCrossReference_2_0_1_0; }
+		public CrossReference getPatternDerivedRequirementPatternCrossReference_3_0() { return cPatternDerivedRequirementPatternCrossReference_3_0; }
 		
 		//ID
-		public RuleCall getPatternDerivedRequirementPatternIDTerminalRuleCall_2_0_1_0_1() { return cPatternDerivedRequirementPatternIDTerminalRuleCall_2_0_1_0_1; }
-		
-		//"("
-		public Keyword getLeftParenthesisKeyword_2_0_2() { return cLeftParenthesisKeyword_2_0_2; }
-		
-		//("const" ":" cParams+=Term ("," cParams+=Term)*)?
-		public Group getGroup_2_0_3() { return cGroup_2_0_3; }
-		
-		//"const"
-		public Keyword getConstKeyword_2_0_3_0() { return cConstKeyword_2_0_3_0; }
-		
-		//":"
-		public Keyword getColonKeyword_2_0_3_1() { return cColonKeyword_2_0_3_1; }
-		
-		//cParams+=Term
-		public Assignment getCParamsAssignment_2_0_3_2() { return cCParamsAssignment_2_0_3_2; }
-		
-		//Term
-		public RuleCall getCParamsTermParserRuleCall_2_0_3_2_0() { return cCParamsTermParserRuleCall_2_0_3_2_0; }
-		
-		//("," cParams+=Term)*
-		public Group getGroup_2_0_3_3() { return cGroup_2_0_3_3; }
-		
-		//","
-		public Keyword getCommaKeyword_2_0_3_3_0() { return cCommaKeyword_2_0_3_3_0; }
-		
-		//cParams+=Term
-		public Assignment getCParamsAssignment_2_0_3_3_1() { return cCParamsAssignment_2_0_3_3_1; }
-		
-		//Term
-		public RuleCall getCParamsTermParserRuleCall_2_0_3_3_1_0() { return cCParamsTermParserRuleCall_2_0_3_3_1_0; }
-		
-		//("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)?
-		public Group getGroup_2_0_4() { return cGroup_2_0_4; }
-		
-		//"formulas"
-		public Keyword getFormulasKeyword_2_0_4_0() { return cFormulasKeyword_2_0_4_0; }
-		
-		//":"
-		public Keyword getColonKeyword_2_0_4_1() { return cColonKeyword_2_0_4_1; }
-		
-		//fmParams+=PatternFreeFormulaParameterValue
-		public Assignment getFmParamsAssignment_2_0_4_2() { return cFmParamsAssignment_2_0_4_2; }
-		
-		//PatternFreeFormulaParameterValue
-		public RuleCall getFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_2_0() { return cFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_2_0; }
-		
-		//("," fmParams+=PatternFreeFormulaParameterValue)*
-		public Group getGroup_2_0_4_3() { return cGroup_2_0_4_3; }
-		
-		//","
-		public Keyword getCommaKeyword_2_0_4_3_0() { return cCommaKeyword_2_0_4_3_0; }
-		
-		//fmParams+=PatternFreeFormulaParameterValue
-		public Assignment getFmParamsAssignment_2_0_4_3_1() { return cFmParamsAssignment_2_0_4_3_1; }
-		
-		//PatternFreeFormulaParameterValue
-		public RuleCall getFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_3_1_0() { return cFmParamsPatternFreeFormulaParameterValueParserRuleCall_2_0_4_3_1_0; }
-		
-		//")"
-		public Keyword getRightParenthesisKeyword_2_0_5() { return cRightParenthesisKeyword_2_0_5; }
-		
-		//(":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)
-		public Group getGroup_2_1() { return cGroup_2_1; }
-		
-		//":"
-		public Keyword getColonKeyword_2_1_0() { return cColonKeyword_2_1_0; }
-		
-		//pattern=[DerivedRequirementPattern]
-		public Assignment getPatternAssignment_2_1_1() { return cPatternAssignment_2_1_1; }
-		
-		//[DerivedRequirementPattern]
-		public CrossReference getPatternDerivedRequirementPatternCrossReference_2_1_1_0() { return cPatternDerivedRequirementPatternCrossReference_2_1_1_0; }
-		
-		//ID
-		public RuleCall getPatternDerivedRequirementPatternIDTerminalRuleCall_2_1_1_0_1() { return cPatternDerivedRequirementPatternIDTerminalRuleCall_2_1_1_0_1; }
+		public RuleCall getPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1() { return cPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1; }
 		
 		//"with"
-		public Keyword getWithKeyword_2_1_2() { return cWithKeyword_2_1_2; }
+		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
 		
-		//extraIn=ID
-		public Assignment getExtraInAssignment_2_1_3() { return cExtraInAssignment_2_1_3; }
+		//extraInv=ExtraInvariant
+		public Assignment getExtraInvAssignment_5() { return cExtraInvAssignment_5; }
 		
-		//ID
-		public RuleCall getExtraInIDTerminalRuleCall_2_1_3_0() { return cExtraInIDTerminalRuleCall_2_1_3_0; }
+		//ExtraInvariant
+		public RuleCall getExtraInvExtraInvariantParserRuleCall_5_0() { return cExtraInvExtraInvariantParserRuleCall_5_0; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 	public class ExtraInvariantElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.ExtraInvariant");
@@ -3119,31 +2916,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cInvariantKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
-		private final Keyword cColonKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
-		private final Assignment cPatternAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
-		private final CrossReference cPatternDerivedExtraInvariantPatternCrossReference_3_0_1_0 = (CrossReference)cPatternAssignment_3_0_1.eContents().get(0);
-		private final RuleCall cPatternDerivedExtraInvariantPatternIDTerminalRuleCall_3_0_1_0_1 = (RuleCall)cPatternDerivedExtraInvariantPatternCrossReference_3_0_1_0.eContents().get(1);
-		private final Keyword cForKeyword_3_0_2 = (Keyword)cGroup_3_0.eContents().get(2);
-		private final Assignment cReqNameAssignment_3_0_3 = (Assignment)cGroup_3_0.eContents().get(3);
-		private final RuleCall cReqNameIDTerminalRuleCall_3_0_3_0 = (RuleCall)cReqNameAssignment_3_0_3.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cForKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cReqAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final CrossReference cReqRequirementCrossReference_3_1_1_0 = (CrossReference)cReqAssignment_3_1_1.eContents().get(0);
-		private final RuleCall cReqRequirementIDTerminalRuleCall_3_1_1_0_1 = (RuleCall)cReqRequirementCrossReference_3_1_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPatternAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cPatternDerivedExtraInvariantPatternCrossReference_4_0 = (CrossReference)cPatternAssignment_4.eContents().get(0);
+		private final RuleCall cPatternDerivedExtraInvariantPatternIDTerminalRuleCall_4_0_1 = (RuleCall)cPatternDerivedExtraInvariantPatternCrossReference_4_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ExtraInvariant:
-		//    "extra" "invariant" name=ID (":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
-		//        "for" req=[Requirement]
-		//    ) ";";
+		//    "extra" "invariant" name=ID ":" pattern=[DerivedExtraInvariantPattern] ";";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"extra" "invariant" name=ID (":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
-		//    "for" req=[Requirement]
-		//) ";"
+		//"extra" "invariant" name=ID ":" pattern=[DerivedExtraInvariantPattern] ";"
 		public Group getGroup() { return cGroup; }
 		
 		//"extra"
@@ -3158,52 +2941,20 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//(":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
-		//       "for" req=[Requirement]
-		//   )
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-		
-		//":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID
-		public Group getGroup_3_0() { return cGroup_3_0; }
-		
 		//":"
-		public Keyword getColonKeyword_3_0_0() { return cColonKeyword_3_0_0; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
 		//pattern=[DerivedExtraInvariantPattern]
-		public Assignment getPatternAssignment_3_0_1() { return cPatternAssignment_3_0_1; }
+		public Assignment getPatternAssignment_4() { return cPatternAssignment_4; }
 		
 		//[DerivedExtraInvariantPattern]
-		public CrossReference getPatternDerivedExtraInvariantPatternCrossReference_3_0_1_0() { return cPatternDerivedExtraInvariantPatternCrossReference_3_0_1_0; }
+		public CrossReference getPatternDerivedExtraInvariantPatternCrossReference_4_0() { return cPatternDerivedExtraInvariantPatternCrossReference_4_0; }
 		
 		//ID
-		public RuleCall getPatternDerivedExtraInvariantPatternIDTerminalRuleCall_3_0_1_0_1() { return cPatternDerivedExtraInvariantPatternIDTerminalRuleCall_3_0_1_0_1; }
-		
-		//"for"
-		public Keyword getForKeyword_3_0_2() { return cForKeyword_3_0_2; }
-		
-		//reqName=ID
-		public Assignment getReqNameAssignment_3_0_3() { return cReqNameAssignment_3_0_3; }
-		
-		//ID
-		public RuleCall getReqNameIDTerminalRuleCall_3_0_3_0() { return cReqNameIDTerminalRuleCall_3_0_3_0; }
-		
-		//"for" req=[Requirement]
-		public Group getGroup_3_1() { return cGroup_3_1; }
-		
-		//"for"
-		public Keyword getForKeyword_3_1_0() { return cForKeyword_3_1_0; }
-		
-		//req=[Requirement]
-		public Assignment getReqAssignment_3_1_1() { return cReqAssignment_3_1_1; }
-		
-		//[Requirement]
-		public CrossReference getReqRequirementCrossReference_3_1_1_0() { return cReqRequirementCrossReference_3_1_1_0; }
-		
-		//ID
-		public RuleCall getReqRequirementIDTerminalRuleCall_3_1_1_0_1() { return cReqRequirementIDTerminalRuleCall_3_1_1_0_1; }
+		public RuleCall getPatternDerivedExtraInvariantPatternIDTerminalRuleCall_4_0_1() { return cPatternDerivedExtraInvariantPatternIDTerminalRuleCall_4_0_1; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 	public class PatternFreeFormulaParameterValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.PatternFreeFormulaParameterValue");
@@ -3982,7 +3733,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cStateUpdateStateVariableCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
-		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_1 = (RuleCall)cStateUpdateStateVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_1 =
+				(RuleCall)cStateUpdateStateVariableCrossReference_2_0.eContents().get(1);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cLeftAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cLeftAlwaysImplicationParameterValueParserRuleCall_4_0 = (RuleCall)cLeftAssignment_4.eContents().get(0);
@@ -4013,7 +3765,8 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public CrossReference getStateUpdateStateVariableCrossReference_2_0() { return cStateUpdateStateVariableCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getStateUpdateStateVariableIDTerminalRuleCall_2_0_1() { return cStateUpdateStateVariableIDTerminalRuleCall_2_0_1; }
+		public RuleCall getStateUpdateStateVariableIDTerminalRuleCall_2_0_1() {
+			return cStateUpdateStateVariableIDTerminalRuleCall_2_0_1; }
 		
 		//","
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
@@ -4253,28 +4006,28 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.EqPredicate");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cEQEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cEQEqualsSignEqualsSignKeyword_0_0 = (Keyword)cEQEnumLiteralDeclaration_0.eContents().get(0);
+		private final Keyword cEQEqualsSignKeyword_0_0 = (Keyword)cEQEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cNOT_EQEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cNOT_EQTildeEqualsSignKeyword_1_0 = (Keyword)cNOT_EQEnumLiteralDeclaration_1.eContents().get(0);
+		private final Keyword cNOT_EQLessThanSignGreaterThanSignKeyword_1_0 = (Keyword)cNOT_EQEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum EqPredicate:
-		//    EQ="==" | NOT_EQ="~=";
+		//    EQ="=" | NOT_EQ="<>";
 		public EnumRule getRule() { return rule; }
 		
-		//EQ="==" | NOT_EQ="~="
+		//EQ="=" | NOT_EQ="<>"
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//EQ="=="
+		//EQ="="
 		public EnumLiteralDeclaration getEQEnumLiteralDeclaration_0() { return cEQEnumLiteralDeclaration_0; }
 		
-		//"=="
-		public Keyword getEQEqualsSignEqualsSignKeyword_0_0() { return cEQEqualsSignEqualsSignKeyword_0_0; }
+		//"="
+		public Keyword getEQEqualsSignKeyword_0_0() { return cEQEqualsSignKeyword_0_0; }
 		
-		//NOT_EQ="~="
+		//NOT_EQ="<>"
 		public EnumLiteralDeclaration getNOT_EQEnumLiteralDeclaration_1() { return cNOT_EQEnumLiteralDeclaration_1; }
 		
-		//"~="
-		public Keyword getNOT_EQTildeEqualsSignKeyword_1_0() { return cNOT_EQTildeEqualsSignKeyword_1_0; }
+		//"<>"
+		public Keyword getNOT_EQLessThanSignGreaterThanSignKeyword_1_0() { return cNOT_EQLessThanSignGreaterThanSignKeyword_1_0; }
 	}
 	public class CompPredicateElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.CompPredicate");
@@ -4640,9 +4393,9 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//DerivedRequirementPattern:
 	//    'derivedreq' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
-	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)? ")"
-	//   ("=" definition=Formula | "from" file=FilePath "with" extraInvPattern=[DerivedExtraInvariantPattern])
+	//   ("=" definition=Formula | "with" extraInvPattern=[DerivedExtraInvariantPattern])
 	//   (lemmas=DerivedLemmas)? ";";
 	public DerivedRequirementPatternElements getDerivedRequirementPatternAccess() {
 		return pDerivedRequirementPattern;
@@ -4865,7 +4618,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//terminal NEGATION:
-	//    "NOT" | "~";
+	//    "NOT" | "!" | "~";
 	public TerminalRule getNEGATIONRule() {
 		return tNEGATION;
 	}
@@ -4901,7 +4654,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//     ")"
-	//     "from" file=FilePath "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
+	//     "with" extraInvPattern=[FutureExtraInvariantPattern] (lessas=FutureLemmas)? ";";
 	public FutureRequirementPatternElements getFutureRequirementPatternAccess() {
 		return pFutureRequirementPattern;
 	}
@@ -4915,7 +4668,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    ("const" ":" cParams+=ConstantParameter (","cParams+=ConstantParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
-	//    "from" file=FilePath "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
+	//    "with" extraInvPattern=[PastExtraInvariantPattern] (lemmas=PastLemmas)? ";";
 	public PastRequirementPatternElements getPastRequirementPatternAccess() {
 		return pPastRequirementPattern;
 	}
@@ -4930,7 +4683,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
-	//    ("from" file=FilePath)? (lemmas=FutureLemmas)? ";";
+	//    (lemmas=FutureLemmas)? ";";
 	public FutureExtraInvariantPatternElements getFutureExtraInvariantPatternAccess() {
 		return pFutureExtraInvariantPattern;
 	}
@@ -4945,7 +4698,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
-	//    ("from" file=FilePath)? (lemmas=PastLemmas)? ";";
+	//    (lemmas=PastLemmas)? ";";
 	public PastExtraInvariantPatternElements getPastExtraInvariantPatternAccess() {
 		return pPastExtraInvariantPattern;
 	}
@@ -4958,10 +4711,10 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    'derivedeinv' 'pattern' name=ID '('
 	//    ("const" ":" cParams+=ConstantParameter ("," cParams+=ConstantParameter)*)?
 	//    ("fun" ":" fnParams+=FunctionalParameter ("," fnParams+=FunctionalParameter)*)?
-	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParam+=SimpleFormulaParameter)*)?
+	//    ("simple" "formulas" ":" simpleFmParams+=SimpleFormulaParameter ("," simpleFmParams+=SimpleFormulaParameter)*)?
 	//    ("formulas" ":" fmParams+=RegularFormulaParameter ("," fmParams+=RegularFormulaParameter)*)?
 	//    ")"
-	//    ("from" file=FilePath)? (lemmas=DerivedLemmas)? ";";
+	//    (lemmas=DerivedLemmas)? ";";
 	public DerivedExtraInvariantPatternElements getDerivedExtraInvariantPatternAccess() {
 		return pDerivedExtraInvariantPattern;
 	}
@@ -5032,7 +4785,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//enum EqPredicate:
-	//    EQ="==" | NOT_EQ="~=";
+	//    EQ="=" | NOT_EQ="<>";
 	public EqPredicateElements getEqPredicateAccess() {
 		return eEqPredicate;
 	}
@@ -5256,10 +5009,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Requirement:
-	//    "requirement" name=ID (("=" pattern=[DerivedRequirementPattern] "("
-	//    ("const" ":" cParams+=Term ("," cParams+=Term)*)?
-	//    ("formulas" ":" fmParams+=PatternFreeFormulaParameterValue ("," fmParams+=PatternFreeFormulaParameterValue)*)? ")") |
-	//    (":" pattern=[DerivedRequirementPattern] "with" extraIn=ID)) ";";
+	//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";";
 	public RequirementElements getRequirementAccess() {
 		return pRequirement;
 	}
@@ -5269,9 +5019,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//ExtraInvariant:
-	//    "extra" "invariant" name=ID (":" pattern=[DerivedExtraInvariantPattern] "for" reqName=ID |
-	//        "for" req=[Requirement]
-	//    ) ";";
+	//    "extra" "invariant" name=ID ":" pattern=[DerivedExtraInvariantPattern] ";";
 	public ExtraInvariantElements getExtraInvariantAccess() {
 		return pExtraInvariant;
 	}

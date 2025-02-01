@@ -76,7 +76,7 @@ public class RPLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * terminal NEGATION:
-	 * 	"NOT" | "~";
+	 * 	"NOT" | "!" | "~";
 	 */
 	protected String getNEGATIONToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

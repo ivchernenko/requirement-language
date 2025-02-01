@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.ExtraInvariant;
 import su.nsk.iae.rpl.rPL.RPLPackage;
-import su.nsk.iae.rpl.rPL.Requirement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,8 +24,6 @@ import su.nsk.iae.rpl.rPL.Requirement;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl#getReqName <em>Req Name</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.ExtraInvariantImpl#getReq <em>Req</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,36 +59,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
    * @ordered
    */
   protected DerivedExtraInvariantPattern pattern;
-
-  /**
-   * The default value of the '{@link #getReqName() <em>Req Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReqName()
-   * @generated
-   * @ordered
-   */
-  protected static final String REQ_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getReqName() <em>Req Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReqName()
-   * @generated
-   * @ordered
-   */
-  protected String reqName = REQ_NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getReq() <em>Req</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReq()
-   * @generated
-   * @ordered
-   */
-  protected Requirement req;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,76 +157,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
    * @generated
    */
   @Override
-  public String getReqName()
-  {
-    return reqName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setReqName(String newReqName)
-  {
-    String oldReqName = reqName;
-    reqName = newReqName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.EXTRA_INVARIANT__REQ_NAME, oldReqName, reqName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Requirement getReq()
-  {
-    if (req != null && req.eIsProxy())
-    {
-      InternalEObject oldReq = (InternalEObject)req;
-      req = (Requirement)eResolveProxy(oldReq);
-      if (req != oldReq)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.EXTRA_INVARIANT__REQ, oldReq, req));
-      }
-    }
-    return req;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Requirement basicGetReq()
-  {
-    return req;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setReq(Requirement newReq)
-  {
-    Requirement oldReq = req;
-    req = newReq;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.EXTRA_INVARIANT__REQ, oldReq, req));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -269,11 +166,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
       case RPLPackage.EXTRA_INVARIANT__PATTERN:
         if (resolve) return getPattern();
         return basicGetPattern();
-      case RPLPackage.EXTRA_INVARIANT__REQ_NAME:
-        return getReqName();
-      case RPLPackage.EXTRA_INVARIANT__REQ:
-        if (resolve) return getReq();
-        return basicGetReq();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -293,12 +185,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
         return;
       case RPLPackage.EXTRA_INVARIANT__PATTERN:
         setPattern((DerivedExtraInvariantPattern)newValue);
-        return;
-      case RPLPackage.EXTRA_INVARIANT__REQ_NAME:
-        setReqName((String)newValue);
-        return;
-      case RPLPackage.EXTRA_INVARIANT__REQ:
-        setReq((Requirement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -320,12 +206,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
       case RPLPackage.EXTRA_INVARIANT__PATTERN:
         setPattern((DerivedExtraInvariantPattern)null);
         return;
-      case RPLPackage.EXTRA_INVARIANT__REQ_NAME:
-        setReqName(REQ_NAME_EDEFAULT);
-        return;
-      case RPLPackage.EXTRA_INVARIANT__REQ:
-        setReq((Requirement)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -344,10 +224,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RPLPackage.EXTRA_INVARIANT__PATTERN:
         return pattern != null;
-      case RPLPackage.EXTRA_INVARIANT__REQ_NAME:
-        return REQ_NAME_EDEFAULT == null ? reqName != null : !REQ_NAME_EDEFAULT.equals(reqName);
-      case RPLPackage.EXTRA_INVARIANT__REQ:
-        return req != null;
     }
     return super.eIsSet(featureID);
   }
@@ -365,8 +241,6 @@ public class ExtraInvariantImpl extends ElementImpl implements ExtraInvariant
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", reqName: ");
-    result.append(reqName);
     result.append(')');
     return result.toString();
   }

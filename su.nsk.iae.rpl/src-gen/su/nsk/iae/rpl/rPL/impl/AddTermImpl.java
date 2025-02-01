@@ -62,7 +62,7 @@ public class AddTermImpl extends CompareTermImpl implements AddTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

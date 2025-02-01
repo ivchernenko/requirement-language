@@ -5,7 +5,7 @@ package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import su.nsk.iae.rpl.invpatterngenerator.InnerExtraInvariantFormula;
+import su.nsk.iae.rpl.invpatterngenerator.Formula;
 import su.nsk.iae.rpl.invpatterngenerator.InnerFormulaGenerator;
 import su.nsk.iae.rpl.rPL.ConjunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.RPLPackage;
@@ -30,7 +30,7 @@ public class ConjunctionInnerFormulaImpl extends InnerFormulaImpl implements Con
   }
 
   @Override
-public <T extends su.nsk.iae.rpl.invpatterngenerator.Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
+public <T extends Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
 	return generator.generateInnerFormula(this);
 }
 

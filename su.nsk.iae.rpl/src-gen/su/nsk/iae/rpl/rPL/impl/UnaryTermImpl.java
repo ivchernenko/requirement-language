@@ -62,7 +62,7 @@ public class UnaryTermImpl extends PowerTermImpl implements UnaryTerm
 
   @Override
 public Term convert(TermConverter converter) {
-	  return converter.convertTerm(this);
+	return converter.convertTerm(this);
 }
 
 /**

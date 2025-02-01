@@ -41,10 +41,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//DerivedRequirementPattern/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/simpleFmParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/simpleFmParam"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/fmParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/definition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//DerivedRequirementPattern/file"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/extraInvPattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedRequirementPattern/lemmas"/>
     </genClasses>
@@ -120,7 +118,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//FutureRequirementPattern/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureRequirementPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureRequirementPattern/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//FutureRequirementPattern/file"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureRequirementPattern/extraInvPattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureRequirementPattern/lessas"/>
     </genClasses>
@@ -128,7 +125,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//PastRequirementPattern/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastRequirementPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastRequirementPattern/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//PastRequirementPattern/file"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//PastRequirementPattern/extraInvPattern"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastRequirementPattern/lemmas"/>
     </genClasses>
@@ -137,7 +133,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureExtraInvariantPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureExtraInvariantPattern/fnParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureExtraInvariantPattern/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//FutureExtraInvariantPattern/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//FutureExtraInvariantPattern/lemmas"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//PastExtraInvariantPattern">
@@ -145,7 +140,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastExtraInvariantPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastExtraInvariantPattern/fnParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastExtraInvariantPattern/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//PastExtraInvariantPattern/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PastExtraInvariantPattern/lemmas"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//DerivedExtraInvariantPattern">
@@ -153,9 +147,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/cParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/fnParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/simpleFmParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/simpleFmParam"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//DerivedExtraInvariantPattern/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//DerivedExtraInvariantPattern/lemmas"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//Term">
@@ -213,15 +205,11 @@
     <genClasses ecoreClass="RPL.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Requirement/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/pattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/cParams"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/fmParams"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Requirement/extraIn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/extraInv"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//ExtraInvariant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//ExtraInvariant/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//ExtraInvariant/pattern"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//ExtraInvariant/reqName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//ExtraInvariant/req"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//PatternFreeFormulaParameterValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PatternFreeFormulaParameterValue/states"/>

@@ -94,7 +94,7 @@ public class Main {
 					writer.write(particularEinvPattern.toString() + "\n\n");
 					OuterRequirementFormula reqDef = reqPattern.getDefinition();
 					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
-					RPLFactory factory = RPLFactoryImpl.init();
+					//RPLFactory factory = RPLFactoryImpl.init();
 					UpdateStateVariable s = factory.createUpdateStateVariable();
 					s.setName("s0");
 					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
@@ -191,7 +191,7 @@ public class Main {
 			URI genUri = URI.createFileURI(outputFileName + ".rpl");
 			Resource genResource = set.createResource(genUri);
 			genResource.getContents().add(genModel);
-			genResource.save(new HashMap<>());
+			//genResource.save(new HashMap<>());
 		}
 		catch (Exception e) {			
 			e.printStackTrace();
@@ -228,14 +228,14 @@ public class Main {
 					writer.close();
 				}
 				else if (element instanceof  Requirement req) {
-					String einv = req.getExtraIn();
+					ExtraInvariant einv = req.getExtraInv();
 					String outputFileName = req.getName() + "_Proofs";
 					FileWriter writer = new FileWriter(outputFileName + ".thy");
 					generateTheoryName(writer, outputFileName, req.getName());
 					String extendedInv = req.getName() + "_extended_inv";
-					generateInitVcProofForRequirement(writer, extendedInv, einv, req.getName());
+					generateInitVcProofForRequirement(writer, extendedInv, einv.getName(), req.getName());
 					for (int i =2; i<= numVCs; i++)
-						generateLoopPathForRequirement(writer, i, einv, req, extendedInv, inputVars);
+						generateLoopPathForRequirement(writer, i, einv.getName(), req, extendedInv, inputVars);
 					writer.write("end\n");
 					writer.close();
 				}

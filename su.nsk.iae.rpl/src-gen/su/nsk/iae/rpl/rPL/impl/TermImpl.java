@@ -62,12 +62,7 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
     super();
   }
 
-  @Override
-public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) {
-	return converter.convertTerm(this);
-}
-
-/**
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -271,5 +266,10 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
     }
     return super.eIsSet(featureID);
   }
+
+@Override
+public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) {
+	return converter.convertTerm(this);
+}
 
 } //TermImpl

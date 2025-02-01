@@ -28,7 +28,7 @@ public enum EqPredicate implements Enumerator
    * @generated
    * @ordered
    */
-  EQ(0, "EQ", "=="),
+  EQ(0, "EQ", "="),
 
   /**
    * The '<em><b>NOT EQ</b></em>' literal object.
@@ -38,14 +38,14 @@ public enum EqPredicate implements Enumerator
    * @generated
    * @ordered
    */
-  NOT_EQ(1, "NOT_EQ", "~=");
+  NOT_EQ(1, "NOT_EQ", "<>");
 
   /**
    * The '<em><b>EQ</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #EQ
-   * @model literal="=="
+   * @model literal="="
    * @generated
    * @ordered
    */
@@ -56,7 +56,7 @@ public enum EqPredicate implements Enumerator
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #NOT_EQ
-   * @model literal="~="
+   * @model literal="&lt;&gt;"
    * @generated
    * @ordered
    */
