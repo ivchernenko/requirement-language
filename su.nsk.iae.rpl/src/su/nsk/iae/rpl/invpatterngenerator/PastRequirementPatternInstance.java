@@ -121,6 +121,8 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		Lemma L = pattern.getLemmas().getL7();
+		if (L == null)
+			L = pattern.getExtraInvPattern().getLemmas().getL7();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
@@ -137,11 +139,15 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		PastRequirementPatternInstance other = (PastRequirementPatternInstance) right;
 		if (this.finState.equals(other.finState)) {
 			L = pattern.getLemmas().getL5();
+			if (L == null)
+				L = pattern.getExtraInvPattern().getLemmas().getL5();
 			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
 					other.getFmParams(), boolParam, null, finState);
 		}
 		else {
 			L = pattern.getLemmas().getL4();
+			if (L == null)
+				L = pattern.getExtraInvPattern().getLemmas().getL4();
 			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
 					new ArrayList<>(), boolParam, this.finState, other.finState);
 	}
@@ -184,12 +190,12 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 	
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
 		for (FormulaParameterValue fmParam: fmParams) {
 			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
-			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) formula.generateParticularLemmaPremise(paramMapping);
+			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) 
+					formula.generateParticularLemmaPremise();
 			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
 		}
 		return new PastRequirementPatternInstance(pattern, cParams, simplifiedFmParams, boolParam, finState,

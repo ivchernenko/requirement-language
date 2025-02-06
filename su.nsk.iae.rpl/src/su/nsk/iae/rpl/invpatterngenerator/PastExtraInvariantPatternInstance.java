@@ -117,12 +117,12 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	}
 
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
 		for (FormulaParameterValue fmParam: fmParams) {
 			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
-			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) formula.generateParticularLemmaPremise(paramMapping);
+			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula)
+					formula.generateParticularLemmaPremise();
 			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
 		}
 		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, boolParam, state,

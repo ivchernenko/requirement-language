@@ -300,7 +300,7 @@ ruleDerivedRequirementPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -651,7 +651,7 @@ ruleProgramVariable returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"su.nsk.iae.rpl.RPL.ID");
 			}
 		)
 	)
@@ -686,7 +686,7 @@ ruleUpdateStateVariable returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"su.nsk.iae.rpl.RPL.ID");
 			}
 		)
 	)
@@ -721,7 +721,7 @@ ruleConstantParameter returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"su.nsk.iae.rpl.RPL.ID");
 			}
 		)
 	)
@@ -757,7 +757,7 @@ ruleSimpleFormulaParameter returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -821,7 +821,7 @@ ruleRegularFormulaParameter returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"su.nsk.iae.rpl.RPL.ID");
 			}
 		)
 	)
@@ -856,7 +856,7 @@ ruleFunctionalParameter returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
+					"su.nsk.iae.rpl.RPL.ID");
 			}
 		)
 	)
@@ -1944,7 +1944,7 @@ ruleFutureRequirementPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -2145,7 +2145,7 @@ rulePastRequirementPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -2346,7 +2346,7 @@ ruleFutureExtraInvariantPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -2584,7 +2584,7 @@ rulePastExtraInvariantPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -2822,7 +2822,7 @@ ruleDerivedExtraInvariantPattern returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -3764,47 +3764,10 @@ rulePrimaryTerm returns [EObject current=null]
 		    |
 		(
 			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPrimaryTermRule());
-						}
-					}
-					otherlv_2=RULE_ID
-					{
-						newLeafNode(otherlv_2, grammarAccess.getPrimaryTermAccess().getStateUpdateStateVariableCrossReference_2_0_0());
-					}
-				)
-			)
-			otherlv_3='['
-			{
-				newLeafNode(otherlv_3, grammarAccess.getPrimaryTermAccess().getLeftSquareBracketKeyword_2_1());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPrimaryTermRule());
-						}
-					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getPrimaryTermAccess().getVariableProgramVariableCrossReference_2_2_0());
-					}
-				)
-			)
-			otherlv_5=']'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getPrimaryTermAccess().getRightSquareBracketKeyword_2_3());
-			}
-		)
-		    |
-		(
-			(
 				{
-					newCompositeNode(grammarAccess.getPrimaryTermAccess().getFunAppFunApplicationParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPrimaryTermAccess().getFunAppFunApplicationParserRuleCall_2_0());
 				}
-				lv_funApp_6_0=ruleFunApplication
+				lv_funApp_2_0=ruleFunApplication
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPrimaryTermRule());
@@ -3812,7 +3775,7 @@ rulePrimaryTerm returns [EObject current=null]
 					set(
 						$current,
 						"funApp",
-						lv_funApp_6_0,
+						lv_funApp_2_0,
 						"su.nsk.iae.rpl.RPL.FunApplication");
 					afterParserOrEnumRuleCall();
 				}
@@ -3820,16 +3783,16 @@ rulePrimaryTerm returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_7='('
+			otherlv_3='('
 			{
-				newLeafNode(otherlv_7, grammarAccess.getPrimaryTermAccess().getLeftParenthesisKeyword_4_0());
+				newLeafNode(otherlv_3, grammarAccess.getPrimaryTermAccess().getLeftParenthesisKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPrimaryTermAccess().getNestedTermTermParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getPrimaryTermAccess().getNestedTermTermParserRuleCall_3_1_0());
 					}
-					lv_nestedTerm_8_0=ruleTerm
+					lv_nestedTerm_4_0=ruleTerm
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryTermRule());
@@ -3837,15 +3800,15 @@ rulePrimaryTerm returns [EObject current=null]
 						set(
 							$current,
 							"nestedTerm",
-							lv_nestedTerm_8_0,
+							lv_nestedTerm_4_0,
 							"su.nsk.iae.rpl.RPL.Term");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_9=')'
+			otherlv_5=')'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getPrimaryTermAccess().getRightParenthesisKeyword_4_2());
+				newLeafNode(otherlv_5, grammarAccess.getPrimaryTermAccess().getRightParenthesisKeyword_3_2());
 			}
 		)
 	)
@@ -4319,7 +4282,7 @@ ruleRequirement returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -4347,19 +4310,13 @@ ruleRequirement returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRequirementAccess().getExtraInvExtraInvariantParserRuleCall_5_0());
-				}
-				lv_extraInv_5_0=ruleExtraInvariant
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRequirementRule());
+						$current = createModelElement(grammarAccess.getRequirementRule());
 					}
-					set(
-						$current,
-						"extraInv",
-						lv_extraInv_5_0,
-						"su.nsk.iae.rpl.RPL.ExtraInvariant");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_5=RULE_ID
+				{
+					newLeafNode(otherlv_5, grammarAccess.getRequirementAccess().getExtraInvExtraInvariantCrossReference_5_0());
 				}
 			)
 		)
@@ -4408,7 +4365,7 @@ ruleExtraInvariant returns [EObject current=null]
 						$current,
 						"name",
 						lv_name_2_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"su.nsk.iae.rpl.RPL.ID");
 				}
 			)
 		)
@@ -5016,7 +4973,7 @@ ruleLemma returns [EObject current=null]
 											$current,
 											"name",
 											lv_name_2_0,
-											"org.eclipse.xtext.common.Terminals.ID");
+											"su.nsk.iae.rpl.RPL.ID");
 									}
 								)
 							)
@@ -6336,7 +6293,7 @@ RULE_REAL : RULE_INTEGER '.' RULE_INTEGER;
 
 RULE_IMPLICATION : '-->';
 
-RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') (('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'\'')* ('a'..'z'|'A'..'Z'|'0'..'9'|'\''))?;
 
 RULE_INT : ('0'..'9')+;
 

@@ -56,8 +56,7 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 	}
 
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		return this;
 	}
 

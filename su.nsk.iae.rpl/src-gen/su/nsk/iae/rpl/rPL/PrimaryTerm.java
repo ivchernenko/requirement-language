@@ -15,7 +15,6 @@ package su.nsk.iae.rpl.rPL;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getConst <em>Const</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getVariable <em>Variable</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getState <em>State</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp <em>Fun App</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getNestedTerm <em>Nested Term</em>}</li>
  * </ul>
@@ -69,28 +68,6 @@ public interface PrimaryTerm extends UnaryTerm
    * @generated
    */
   void setVariable(Variable value);
-
-  /**
-   * Returns the value of the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>State</em>' reference.
-   * @see #setState(UpdateStateVariable)
-   * @see su.nsk.iae.rpl.rPL.RPLPackage#getPrimaryTerm_State()
-   * @model
-   * @generated
-   */
-  UpdateStateVariable getState();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getState <em>State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>State</em>' reference.
-   * @see #getState()
-   * @generated
-   */
-  void setState(UpdateStateVariable value);
 
   /**
    * Returns the value of the '<em><b>Fun App</b></em>' containment reference.

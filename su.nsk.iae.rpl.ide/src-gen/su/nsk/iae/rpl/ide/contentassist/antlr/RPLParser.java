@@ -151,8 +151,7 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPowerTermAccess().getGroup(), "rule__PowerTerm__Group__0");
 			builder.put(grammarAccess.getPowerTermAccess().getGroup_1(), "rule__PowerTerm__Group_1__0");
 			builder.put(grammarAccess.getUnaryTermAccess().getGroup_1(), "rule__UnaryTerm__Group_1__0");
-			builder.put(grammarAccess.getPrimaryTermAccess().getGroup_2(), "rule__PrimaryTerm__Group_2__0");
-			builder.put(grammarAccess.getPrimaryTermAccess().getGroup_4(), "rule__PrimaryTerm__Group_4__0");
+			builder.put(grammarAccess.getPrimaryTermAccess().getGroup_3(), "rule__PrimaryTerm__Group_3__0");
 			builder.put(grammarAccess.getFunApplicationAccess().getGroup(), "rule__FunApplication__Group__0");
 			builder.put(grammarAccess.getIntegerLiteralAccess().getGroup(), "rule__IntegerLiteral__Group__0");
 			builder.put(grammarAccess.getRealLiteralAccess().getGroup(), "rule__RealLiteral__Group__0");
@@ -320,10 +319,8 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUnaryTermAccess().getRightAssignment_1_1(), "rule__UnaryTerm__RightAssignment_1_1");
 			builder.put(grammarAccess.getPrimaryTermAccess().getConstAssignment_0(), "rule__PrimaryTerm__ConstAssignment_0");
 			builder.put(grammarAccess.getPrimaryTermAccess().getVariableAssignment_1(), "rule__PrimaryTerm__VariableAssignment_1");
-			builder.put(grammarAccess.getPrimaryTermAccess().getStateAssignment_2_0(), "rule__PrimaryTerm__StateAssignment_2_0");
-			builder.put(grammarAccess.getPrimaryTermAccess().getVariableAssignment_2_2(), "rule__PrimaryTerm__VariableAssignment_2_2");
-			builder.put(grammarAccess.getPrimaryTermAccess().getFunAppAssignment_3(), "rule__PrimaryTerm__FunAppAssignment_3");
-			builder.put(grammarAccess.getPrimaryTermAccess().getNestedTermAssignment_4_1(), "rule__PrimaryTerm__NestedTermAssignment_4_1");
+			builder.put(grammarAccess.getPrimaryTermAccess().getFunAppAssignment_2(), "rule__PrimaryTerm__FunAppAssignment_2");
+			builder.put(grammarAccess.getPrimaryTermAccess().getNestedTermAssignment_3_1(), "rule__PrimaryTerm__NestedTermAssignment_3_1");
 			builder.put(grammarAccess.getFunApplicationAccess().getFnParamAssignment_0(), "rule__FunApplication__FnParamAssignment_0");
 			builder.put(grammarAccess.getFunApplicationAccess().getStateAssignment_2(), "rule__FunApplication__StateAssignment_2");
 			builder.put(grammarAccess.getConstantAccess().getNumAssignment_0(), "rule__Constant__NumAssignment_0");

@@ -64,7 +64,7 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 		}
 		LemmaPremise transformedLeft = left.replacePatternsForImplication(otherLeft, lambdaBound, state);
 		LemmaPremise transformedRight = right.replacePatternsForImplication(otherRight, lambdaBound, state);
-		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
+		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, transformedLeft, transformedRight);
 	}
 	@Override
 	public boolean equalsToRequirementFormula() {
@@ -90,10 +90,9 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 				.toString();
 	}
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
-		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise(paramMapping);
-		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
+	public LemmaPremise generateParticularLemmaPremise() {
+		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise();
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise();
 		if (simplifiedLeft.equals(BooleanLiteral.TRUE) || simplifiedLeft instanceof GeneralizedAlwaysImplication)
 			if (operator == BooleanOperator.CONJUNCTION)
 				return simplifiedRight;

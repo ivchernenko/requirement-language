@@ -175,7 +175,6 @@
     <genClasses ecoreClass="RPL.ecore#//PrimaryTerm">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryTerm/const"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryTerm/variable"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryTerm/state"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryTerm/funApp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//PrimaryTerm/nestedTerm"/>
     </genClasses>
@@ -205,7 +204,7 @@
     <genClasses ecoreClass="RPL.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Requirement/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/pattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/extraInv"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RPL.ecore#//Requirement/extraInv"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//ExtraInvariant">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//ExtraInvariant/name"/>

@@ -53,8 +53,9 @@ public class LemmaPremiseInstanceCreator {
 			List<UpdateStateVariable> lambdaBound = atomicPremise.getStates();
 			if (lambdaBound == null || lambdaBound.isEmpty())
 				return ((InnerExtraInvariantFormula) atomicPremise.getFormula());
-			else
+			else {
 				throw new InvalidTypeException();
+			}
 		}
 		else if (premise.getAlwaysImp() != null) {
 			su.nsk.iae.rpl.rPL.AlwaysImplication alwaysImp = premise.getAlwaysImp();
@@ -81,14 +82,15 @@ public class LemmaPremiseInstanceCreator {
 		if (atomic.getFmParam() != null) { // formula parameter
 			FormulaParameter fmParam = atomic.getFmParam();
 			FormulaParameterValue value;
+			List<UpdateStateVariable> states = atomic.getStates();
 			if (fmParam instanceof SimpleFormulaParameter simpleParam) {
 				Map<SimpleFormulaParameter, FormulaParameterValue> fmParams = params.getSimpleFmParams();
 				value = fmParams.get(simpleParam);					
 			}
 			else { // regular parameter
 				RegularFormulaParameter regParam = (RegularFormulaParameter) fmParam;
-				Map<RegularFormulaParameter, FormulaParameterValue> fmParams = params.getRegFmParams();
-				value = fmParams.get(regParam);
+				Map<String, FormulaParameterValue> fmParams = params.getRegFmParams();
+				value = fmParams.get(regParam.getName());
 			}
 			List<UpdateStateVariable> lambdaBound = value.getStates();
 			List<UpdateStateVariable> args = atomic.getStates();
@@ -153,9 +155,9 @@ public class LemmaPremiseInstanceCreator {
 			fnParams.add(value);
 		}
 		List<FormulaParameterValue> fmParams = new ArrayList<>();
-		Map<RegularFormulaParameter, FormulaParameterValue> fmParamValues = params.getRegFmParams();
+		Map<String, FormulaParameterValue> fmParamValues = params.getRegFmParams();
 		for (RegularFormulaParameter fmParam: patternInst.getFmParams()) {
-			FormulaParameterValue value = fmParamValues.get(fmParam);
+			FormulaParameterValue value = fmParamValues.get(fmParam.getName());
 			fmParams.add(value);
 		}
 		FunctionalParameter boolParam = params.getBoolParam();

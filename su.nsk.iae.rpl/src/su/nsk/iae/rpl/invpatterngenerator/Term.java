@@ -35,8 +35,7 @@ public abstract class Term implements InnerExtraInvariantFormula {
 		return new ArrayList<>();
 	}
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		return this;
 	}
 	

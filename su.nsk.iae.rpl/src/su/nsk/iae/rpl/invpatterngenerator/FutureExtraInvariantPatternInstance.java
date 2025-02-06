@@ -115,8 +115,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 					this.finState, fiRight.finState);
 		}
 		else {
-			L = pattern.getLemmas().getL3();
 			FutureRequirementPatternInstance frRight = (FutureRequirementPatternInstance) right;
+			L = pattern.getLemmas().getL3();
+			if (L == null)
+				L = frRight.getPattern().getLessas().getL3();
 			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, frRight.getFmParams(), 
 					null, null, finState);
 		}
@@ -160,13 +162,12 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
 		for (FormulaParameterValue fmParam: fmParams) {
 			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
 			InnerExtraInvariantFormula simplifiedFormula = (InnerExtraInvariantFormula) 
-					formula.generateParticularLemmaPremise(paramMapping);
+					formula.generateParticularLemmaPremise();
 			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
 		}
 		return new FutureExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, finState, curState);

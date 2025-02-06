@@ -25,9 +25,10 @@ public class LS8Lemma extends DerivedLemma {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("lemma ").append(lemmaName).append(": \"\n")
-		.append(generateExtraInvPatternInstance(initState)).append(" \\<Longrightarrow>\n")
-		.append("consecutive ").append(initState.getName()).append(' ').append(finalState.getName()).append('\n')
-		.append(premise).append('\n')
+		.append(generateExtraInvPatternInstance(initState)).append(' ').append(META_IMPLICATION).append('\n')
+		.append("consecutive ").append(initState.getName()).append(' ').append(finalState.getName())
+				.append(' ').append(META_IMPLICATION).append('\n')
+		.append(premise).append(' ').append(META_IMPLICATION).append('\n')
 		.append(generateExtraInvPatternInstance(finalState)).append("\"");
 		return stringBuilder.toString();
 	}
@@ -35,6 +36,7 @@ public class LS8Lemma extends DerivedLemma {
 	@Override
 	public Lemma convertToEObject() {
 		Lemma lemma = super.convertToEObject();
+		System.out.println("const vars: " + getcVars());
 		lemma.setInitState(initState);
 		lemma.setFinalState(finalState);
 		return lemma;

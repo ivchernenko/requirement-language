@@ -1,5 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import su.nsk.iae.rpl.rPL.ConstantParameter;
@@ -13,17 +14,19 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 public class DerivedLemma {
 	String lemmaName;
 	String extraInvPattern;
-	List<ConstantParameter> cVars;
+	private List<ConstantParameter> cVars;
 	List<FunctionalParameter> fnVars;
 	List<SimpleFormulaParameter> simpleFmVars;
 	List<RegularFormulaParameter> einvFmVars;
 	LemmaPremise premise;
 	
+	static final  String META_IMPLICATION = "\\<Longrightarrow>";
+	
 	public DerivedLemma(String lemmaName, String extraInvPattern, List<ConstantParameter> cVars, List<FunctionalParameter> fnVars,
 			List<SimpleFormulaParameter> simpleFmVars, List<RegularFormulaParameter> einvFmVars, LemmaPremise premise) {
 		this.lemmaName = lemmaName;
 		this.extraInvPattern = extraInvPattern;
-		this.cVars = cVars;
+		this.setcVars(cVars);
 		this.fnVars = fnVars;
 		this.simpleFmVars = simpleFmVars;
 		this.einvFmVars = einvFmVars;
@@ -33,7 +36,7 @@ public class DerivedLemma {
 	String generateExtraInvPatternInstance(UpdateStateVariable state) {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(extraInvPattern).append(' ');
-		for (ConstantParameter cVar: cVars)
+		for (ConstantParameter cVar: getcVars())
 			stringBuilder.append(cVar.getName()).append(' ');
 		for (FunctionalParameter fnVar: fnVars)
 			stringBuilder.append(fnVar.getName()).append(' ');
@@ -49,12 +52,24 @@ public class DerivedLemma {
 		RPLFactory factory = RPLFactory.eINSTANCE;
 		Lemma lemma = factory.createLemma();
 		lemma.setName(lemmaName);
-		lemma.getCVars().addAll(cVars);
+		for (ConstantParameter cVar: cVars) {
+			ConstantParameter newCVar = factory.createConstantParameter();
+			newCVar.setName(cVar.getName());
+			lemma.getCVars().add(newCVar);
+		}
 		lemma.getFnVars().addAll(fnVars);
 		lemma.getSimpleFmVars().addAll(simpleFmVars);
 		lemma.getIfmVars().addAll(einvFmVars);
 		lemma.setPrem(premise.convertToEObject());
 		return lemma;
+	}
+
+	public List<ConstantParameter> getcVars() {
+		return cVars;
+	}
+
+	public void setcVars(List<ConstantParameter> cVars) {
+		this.cVars = cVars;
 	}
 
 }

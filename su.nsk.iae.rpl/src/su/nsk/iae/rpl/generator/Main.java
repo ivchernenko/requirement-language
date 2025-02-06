@@ -16,15 +16,20 @@ import com.google.inject.Injector;
 import com.google.inject.Provider;
 
 import su.nsk.iae.rpl.RPLStandaloneSetup;
+import su.nsk.iae.rpl.invpatterngenerator.DerivedExtraInvariantPatternInstance;
+import su.nsk.iae.rpl.invpatterngenerator.DerivedRequirementPatternInstance;
+import su.nsk.iae.rpl.invpatterngenerator.ExtendedInvariant;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPattern;
 import su.nsk.iae.rpl.invpatterngenerator.PatternGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.RequirementPattern;
 import su.nsk.iae.rpl.invpatterngenerator.LS8Lemma;
 import su.nsk.iae.rpl.invpatterngenerator.LS9Lemma;
 import su.nsk.iae.rpl.invpatterngenerator.LemmaPremise;
+import su.nsk.iae.rpl.invpatterngenerator.LemmaPremiseInstanceCreator;
 import su.nsk.iae.rpl.invpatterngenerator.OuterExtraInvariantFormula;
 import su.nsk.iae.rpl.invpatterngenerator.OuterRequirementFormula;
 import su.nsk.iae.rpl.invpatterngenerator.OuterRequirementFormulaGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.ParameterValueMap;
 import su.nsk.iae.rpl.rPL.*;
 import su.nsk.iae.rpl.rPL.impl.InnerFormulaImpl;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
@@ -87,7 +92,12 @@ public class Main {
 					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
 					RequirementPattern particularReqPattern = reqPattern.generateParticularPattern(name + "_part");
 					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
-					ExtraInvariantPattern particularEinvPattern =einvPattern.generateParticularPattern(name + "_part");
+					ExtraInvariantPattern particularEinvPattern =einvPattern
+							.generateParticularPattern(einvPattern.getName() + "_part", reqPattern.getRegFmParams());
+					DerivedExtraInvariantPatternInstance partEinvPatternDef = 
+							((ExtendedInvariant) particularEinvPattern.getDefinition()).getMainConj();
+					DerivedRequirementPatternInstance partReqPatternDef = 
+							(DerivedRequirementPatternInstance) particularReqPattern.getDefinition();
 					writer.write(reqPattern.toString() + "\n\n");
 					writer.write(particularReqPattern.toString() + "\n\n");
 					writer.write(einvPattern.toString() + "\n\n");
@@ -122,12 +132,20 @@ public class Main {
 							pattern.getFmParams(),
 							s,
 							L9Premise);
-					List<RegularFormulaParameter> einvVars = einvPattern.getRegFmParams();
-					List<RegularFormulaParameter> reqVars = pattern.getFmParams();
-					Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping = new HashMap<>();
-					for (int i = 0; i < einvVars.size(); i++)
-						paramMapping.put(einvVars.get(i), reqVars.get(i));
-					LemmaPremise particularL8Premise = L8Premise.generateParticularLemmaPremise(paramMapping);
+					ParameterValueMap L8Params = new ParameterValueMap(
+							L8.convertToEObject(),
+							partEinvPatternDef.getcParams(),
+							partEinvPatternDef.getFnParams(),
+							partEinvPatternDef.getSimpleFmParams(),
+							partEinvPatternDef.getRegFmParams(),
+							new ArrayList<>(),
+							null,
+							s,
+							sPrimed
+							);
+					LemmaPremiseInstanceCreator creator = new LemmaPremiseInstanceCreator();
+					LemmaPremise particularL8Premise = L8Premise.convertToEObject()
+							.substitiuteParams(creator, L8Params).generateParticularLemmaPremise();
 					LS8Lemma particularL8 = new LS8Lemma(
 							einvPattern.getName() + "_saving",
 							particularEinvPattern.getName(),
@@ -138,7 +156,19 @@ public class Main {
 							s,
 							sPrimed,
 							particularL8Premise);
-					LemmaPremise particularL9Premise = L9Premise.generateParticularLemmaPremise(paramMapping);
+					ParameterValueMap L9Params = new ParameterValueMap(
+							L9.convertToEObject(),
+							partEinvPatternDef.getcParams(),
+							partEinvPatternDef.getFnParams(),
+							partEinvPatternDef.getSimpleFmParams(),
+							partEinvPatternDef.getRegFmParams(),
+							partReqPatternDef.getRegFmParams(),
+							null,
+							s,
+							sPrimed
+							);
+					LemmaPremise particularL9Premise = 
+							L9Premise.convertToEObject().substitiuteParams(creator, L9Params).generateParticularLemmaPremise();
 					LS9Lemma particularL9 = new LS9Lemma(
 							pattern.getName() + "einv_imp_req",
 							particularEinvPattern.getName(),
@@ -191,7 +221,7 @@ public class Main {
 			URI genUri = URI.createFileURI(outputFileName + ".rpl");
 			Resource genResource = set.createResource(genUri);
 			genResource.getContents().add(genModel);
-			//genResource.save(new HashMap<>());
+			genResource.save(new HashMap<>());
 		}
 		catch (Exception e) {			
 			e.printStackTrace();

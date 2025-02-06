@@ -11,7 +11,7 @@ public interface LemmaPremise {
 		return this;
 	}
 	
-	LemmaPremise generateParticularLemmaPremise(Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping);
+	LemmaPremise generateParticularLemmaPremise();
 	LemmaPremiseFormula convertToEObject();
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -26,9 +27,9 @@ public class LS9Lemma extends DerivedLemma {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("lemma ").append(lemmaName).append(": \"\n")
-		.append(generateExtraInvPatternInstance(state)).append(" \\<Longrightarrow>\n")
-		.append("toEnvP ").append(state.getName()).append('\n')
-		.append(premise).append('\n')
+		.append(generateExtraInvPatternInstance(state)).append(' ').append(META_IMPLICATION).append('\n')
+		.append("toEnvP ").append(state.getName()).append(' ').append(META_IMPLICATION).append('\n')
+		.append(premise).append(' ').append(META_IMPLICATION).append('\n')
 		.append(generateRequirementPatternInstance()).append("\"");
 		return stringBuilder.toString();
 	}
@@ -36,7 +37,7 @@ public class LS9Lemma extends DerivedLemma {
 	String generateRequirementPatternInstance() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(reqPattern);
-		for (ConstantParameter cVar: cVars)
+		for (ConstantParameter cVar: getcVars())
 			stringBuilder.append(' ').append(cVar.getName());
 		for (SimpleFormulaParameter fmVar: simpleFmVars)
 			stringBuilder.append(' ').append(fmVar.getName());
@@ -48,8 +49,13 @@ public class LS9Lemma extends DerivedLemma {
 
 	@Override
 	public Lemma convertToEObject() {
+		RPLFactory factory = RPLFactory.eINSTANCE;
 		Lemma lemma = super.convertToEObject();
-		lemma.getRfmVars().addAll(reqFmVars);
+		for (RegularFormulaParameter fmVar: reqFmVars) {
+			RegularFormulaParameter newFmVar = factory.createRegularFormulaParameter();
+			newFmVar.setName(fmVar.getName());
+			lemma.getRfmVars().add(newFmVar);
+		}
 		lemma.setFinalState(state);
 		return lemma;
 	}

@@ -94,28 +94,32 @@ public class ExtraInvariantPattern {
 		return pattern;
 	}
 	
-	public ExtraInvariantPattern generateParticularPattern(String particularPatternName) {
+	public ExtraInvariantPattern generateParticularPattern(
+			String particularPatternName,
+			List<RegularFormulaParameter> reqParams) {
 		RPLFactory factory = RPLFactory.eINSTANCE;
 		DerivedExtraInvariantPattern pattern = factory.createDerivedExtraInvariantPattern();
 		pattern.setName(name);
 		List<FormulaParameterValue> simpleParamValues = new ArrayList<>();
+		List<FormulaParameterValue> regParamValues = new ArrayList<>();
 		List<SimpleFormulaParameter> particularParams = new ArrayList<>(simpleFmParams);
 		for (SimpleFormulaParameter fmParam: simpleFmParams)
 			simpleParamValues.add(new FormulaParameterValue(new ArrayList<>(),
 					new SimpleAtomicFormula(fmParam, new ArrayList<>())));
 		UpdateStateVariable current = factory.createUpdateStateVariable();
 		current.setName("s1");
-		for (RegularFormulaParameter fmParam: regFmParams) {
+		for (int i = 0; i < regFmParams.size(); i++) {
+			RegularFormulaParameter fmParam = regFmParams.get(i);
 			SimpleFormulaParameter sParam = factory.createSimpleFormulaParameter();
-			sParam.setName(fmParam.getName());
+			sParam.setName(reqParams.get(i).getName());
 			particularParams.add(sParam);
-			simpleParamValues.add(new FormulaParameterValue(List.of(state, current),
+			regParamValues.add(new FormulaParameterValue(List.of(state, current),
 					new SimpleAtomicFormula(sParam, List.of(current))));
 		}
 		DerivedExtraInvariantPatternInstance patternInstance =  
 				new DerivedExtraInvariantPatternInstance(pattern,
 						cParams.stream().map(p -> new ConstParameter(p)).collect(Collectors.toList()),
-						fnParams, simpleParamValues, new ArrayList<>());
+						fnParams, simpleParamValues, regParamValues);
 		ExtendedInvariant particularDefinition = new ExtendedInvariant(patternInstance, new ArrayList<>());
 		return new ExtraInvariantPattern(particularPatternName, cParams, fnParams, particularParams, new ArrayList<>(),
 				particularDefinition);

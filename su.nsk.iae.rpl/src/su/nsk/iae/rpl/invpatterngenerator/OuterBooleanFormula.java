@@ -32,7 +32,7 @@ public class OuterBooleanFormula implements OuterExtraInvariantFormula  {
 	public LemmaPremise generateL8(UpdateStateVariable initState, UpdateStateVariable finalState) {
 		LemmaPremise lpLeft = left.generateL8(initState, finalState);
 		LemmaPremise lpRight = right.generateL8(initState, finalState);
-		return new BooleanLemmaPremise(operator, lpLeft, lpRight);
+		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, lpLeft, lpRight);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class OuterBooleanFormula implements OuterExtraInvariantFormula  {
 		OuterRequirementFormula otherRight = other.getRight();
 		LemmaPremise lpLeft = left.generateL9(otherLeft, state);
 		LemmaPremise lpRight = right.generateL9(otherRight, state);
-		return new BooleanLemmaPremise(operator, lpLeft, lpRight);
+		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, lpLeft, lpRight);
 	}
 
 	@Override

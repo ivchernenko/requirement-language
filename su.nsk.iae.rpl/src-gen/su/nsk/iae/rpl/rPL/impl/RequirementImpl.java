@@ -4,7 +4,6 @@
 package su.nsk.iae.rpl.rPL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -64,7 +63,7 @@ public class RequirementImpl extends ElementImpl implements Requirement
   protected DerivedRequirementPattern pattern;
 
   /**
-   * The cached value of the '{@link #getExtraInv() <em>Extra Inv</em>}' containment reference.
+   * The cached value of the '{@link #getExtraInv() <em>Extra Inv</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExtraInv()
@@ -172,6 +171,16 @@ public class RequirementImpl extends ElementImpl implements Requirement
   @Override
   public ExtraInvariant getExtraInv()
   {
+    if (extraInv != null && extraInv.eIsProxy())
+    {
+      InternalEObject oldExtraInv = (InternalEObject)extraInv;
+      extraInv = (ExtraInvariant)eResolveProxy(oldExtraInv);
+      if (extraInv != oldExtraInv)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.REQUIREMENT__EXTRA_INV, oldExtraInv, extraInv));
+      }
+    }
     return extraInv;
   }
 
@@ -180,16 +189,9 @@ public class RequirementImpl extends ElementImpl implements Requirement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExtraInv(ExtraInvariant newExtraInv, NotificationChain msgs)
+  public ExtraInvariant basicGetExtraInv()
   {
-    ExtraInvariant oldExtraInv = extraInv;
-    extraInv = newExtraInv;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT__EXTRA_INV, oldExtraInv, newExtraInv);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return extraInv;
   }
 
   /**
@@ -200,34 +202,10 @@ public class RequirementImpl extends ElementImpl implements Requirement
   @Override
   public void setExtraInv(ExtraInvariant newExtraInv)
   {
-    if (newExtraInv != extraInv)
-    {
-      NotificationChain msgs = null;
-      if (extraInv != null)
-        msgs = ((InternalEObject)extraInv).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RPLPackage.REQUIREMENT__EXTRA_INV, null, msgs);
-      if (newExtraInv != null)
-        msgs = ((InternalEObject)newExtraInv).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RPLPackage.REQUIREMENT__EXTRA_INV, null, msgs);
-      msgs = basicSetExtraInv(newExtraInv, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT__EXTRA_INV, newExtraInv, newExtraInv));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case RPLPackage.REQUIREMENT__EXTRA_INV:
-        return basicSetExtraInv(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    ExtraInvariant oldExtraInv = extraInv;
+    extraInv = newExtraInv;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.REQUIREMENT__EXTRA_INV, oldExtraInv, extraInv));
   }
 
   /**
@@ -246,7 +224,8 @@ public class RequirementImpl extends ElementImpl implements Requirement
         if (resolve) return getPattern();
         return basicGetPattern();
       case RPLPackage.REQUIREMENT__EXTRA_INV:
-        return getExtraInv();
+        if (resolve) return getExtraInv();
+        return basicGetExtraInv();
     }
     return super.eGet(featureID, resolve, coreType);
   }

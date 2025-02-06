@@ -39,8 +39,7 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 				.toString();
 	}
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
+	public LemmaPremise generateParticularLemmaPremise() {
 		return BooleanLiteral.TRUE;
 	}
 	@Override
@@ -56,7 +55,7 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		leftValue.setState(state);
 		AlwaysImplicationParameterValue rightValue = factory.createAlwaysImplicationParameterValue();
 		PrimaryLemmaPremiseFormula rightFormula = (PrimaryLemmaPremiseFormula) right.convertToEObject();
-		leftValue.setFormula(rightFormula.getAtomic());
+		rightValue.setFormula(rightFormula.getAtomic());
 		rightValue.setState(state);
 		alwaysImp.setLeft(leftValue);
 		alwaysImp.setRight(rightValue);

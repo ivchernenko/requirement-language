@@ -69,22 +69,22 @@ public interface Requirement extends Element
   void setPattern(DerivedRequirementPattern value);
 
   /**
-   * Returns the value of the '<em><b>Extra Inv</b></em>' containment reference.
+   * Returns the value of the '<em><b>Extra Inv</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extra Inv</em>' containment reference.
+   * @return the value of the '<em>Extra Inv</em>' reference.
    * @see #setExtraInv(ExtraInvariant)
    * @see su.nsk.iae.rpl.rPL.RPLPackage#getRequirement_ExtraInv()
-   * @model containment="true"
+   * @model
    * @generated
    */
   ExtraInvariant getExtraInv();
 
   /**
-   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}' containment reference.
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extra Inv</em>' containment reference.
+   * @param value the new value of the '<em>Extra Inv</em>' reference.
    * @see #getExtraInv()
    * @generated
    */

@@ -110,7 +110,7 @@ public class TermConverter {
 				return new NumericConstant(numConst);
 			}
 		}
-		else if (term.getVariable() != null && term.getState() == null) {
+		else if (term.getVariable() != null) {
 			Variable variable = term.getVariable();
 			if (variable instanceof ConstantParameter constParam)
 				return new ConstParameter(constParam);

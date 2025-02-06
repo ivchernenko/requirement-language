@@ -64,10 +64,9 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 	}
 	
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
-		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise(paramMapping);
-		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
+	public LemmaPremise generateParticularLemmaPremise() {
+		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise();
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise();
 		if (simplifiedLeft.equals(BooleanLiteral.TRUE) || simplifiedLeft instanceof GeneralizedAlwaysImplication)
 			if (operator == BooleanOperator.CONJUNCTION)
 				return simplifiedRight;

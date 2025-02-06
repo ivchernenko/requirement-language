@@ -333,11 +333,8 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.ALWAYS_IMPLICATION__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess()
-				.getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), 
-				semanticObject.eGet(RPLPackage.Literals.ALWAYS_IMPLICATION__STATE, false));
-		feeder.accept(grammarAccess.getAlwaysImplicationAccess()
-				.getLeftAlwaysImplicationParameterValueParserRuleCall_4_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getStateUpdateStateVariableIDTerminalRuleCall_2_0_1(), semanticObject.eGet(RPLPackage.Literals.ALWAYS_IMPLICATION__STATE, false));
+		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getLeftAlwaysImplicationParameterValueParserRuleCall_4_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getAlwaysImplicationAccess().getRightAlwaysImplicationParameterValueParserRuleCall_6_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -1321,7 +1318,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryTerm returns PrimaryTerm
 	 *
 	 * Constraint:
-	 *     (const=Constant | variable=[Variable|ID] | (state=[UpdateStateVariable|ID] variable=[ProgramVariable|ID]) | funApp=FunApplication | nestedTerm=Term)
+	 *     (const=Constant | variable=[Variable|ID] | funApp=FunApplication | nestedTerm=Term)
 	 * </pre>
 	 */
 	protected void sequence_PrimaryTerm(ISerializationContext context, PrimaryTerm semanticObject) {
@@ -1393,7 +1390,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Requirement returns Requirement
 	 *
 	 * Constraint:
-	 *     (name=ID pattern=[DerivedRequirementPattern|ID] extraInv=ExtraInvariant)
+	 *     (name=ID pattern=[DerivedRequirementPattern|ID] extraInv=[ExtraInvariant|ID])
 	 * </pre>
 	 */
 	protected void sequence_Requirement(ISerializationContext context, Requirement semanticObject) {
@@ -1408,7 +1405,7 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRequirementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getRequirementAccess().getPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1(), semanticObject.eGet(RPLPackage.Literals.REQUIREMENT__PATTERN, false));
-		feeder.accept(grammarAccess.getRequirementAccess().getExtraInvExtraInvariantParserRuleCall_5_0(), semanticObject.getExtraInv());
+		feeder.accept(grammarAccess.getRequirementAccess().getExtraInvExtraInvariantIDTerminalRuleCall_5_0_1(), semanticObject.eGet(RPLPackage.Literals.REQUIREMENT__EXTRA_INV, false));
 		feeder.finish();
 	}
 	

@@ -45,7 +45,13 @@ public class NumericConstant extends Term {
 	@Override
 	su.nsk.iae.rpl.rPL.Term convertToRPLTerm() {
 		RPLFactory factory = RPLFactory.eINSTANCE;
-		NumericLiteral numLiteral = factory.createNumericLiteral();
+		NumericLiteral numLiteral;
+		if (number instanceof Float || number instanceof Double) {
+			numLiteral = factory.createRealLiteral();
+		}
+		else {
+			numLiteral = factory.createIntegerLiteral();
+		}
 		numLiteral.setValue(number.toString());
 		Constant constant = factory.createConstant();
 		constant.setNum(numLiteral);

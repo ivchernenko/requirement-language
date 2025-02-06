@@ -2510,30 +2510,21 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cVariableAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final CrossReference cVariableVariableCrossReference_1_0 = (CrossReference)cVariableAssignment_1.eContents().get(0);
 		private final RuleCall cVariableVariableIDTerminalRuleCall_1_0_1 = (RuleCall)cVariableVariableCrossReference_1_0.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Assignment cStateAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final CrossReference cStateUpdateStateVariableCrossReference_2_0_0 = (CrossReference)cStateAssignment_2_0.eContents().get(0);
-		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_0_1 = (RuleCall)cStateUpdateStateVariableCrossReference_2_0_0.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cVariableAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final CrossReference cVariableProgramVariableCrossReference_2_2_0 = (CrossReference)cVariableAssignment_2_2.eContents().get(0);
-		private final RuleCall cVariableProgramVariableIDTerminalRuleCall_2_2_0_1 = (RuleCall)cVariableProgramVariableCrossReference_2_2_0.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cFunAppAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final RuleCall cFunAppFunApplicationParserRuleCall_3_0 = (RuleCall)cFunAppAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cNestedTermAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cNestedTermTermParserRuleCall_4_1_0 = (RuleCall)cNestedTermAssignment_4_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cFunAppAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cFunAppFunApplicationParserRuleCall_2_0 = (RuleCall)cFunAppAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cNestedTermAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cNestedTermTermParserRuleCall_3_1_0 = (RuleCall)cNestedTermAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
 		//PrimaryTerm:
-		//    const=Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" |
+		//    const=Constant |  variable=[Variable] |
 		//     funApp=FunApplication |
 		//    "(" nestedTerm=Term ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//const=Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" |
+		//const=Constant |  variable=[Variable] |
 		// funApp=FunApplication |
 		//"(" nestedTerm=Term ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -2553,53 +2544,26 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ID
 		public RuleCall getVariableVariableIDTerminalRuleCall_1_0_1() { return cVariableVariableIDTerminalRuleCall_1_0_1; }
 		
-		//state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]"
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//state=[UpdateStateVariable]
-		public Assignment getStateAssignment_2_0() { return cStateAssignment_2_0; }
-		
-		//[UpdateStateVariable]
-		public CrossReference getStateUpdateStateVariableCrossReference_2_0_0() { return cStateUpdateStateVariableCrossReference_2_0_0; }
-		
-		//ID
-		public RuleCall getStateUpdateStateVariableIDTerminalRuleCall_2_0_0_1() { return cStateUpdateStateVariableIDTerminalRuleCall_2_0_0_1; }
-		
-		//"["
-		public Keyword getLeftSquareBracketKeyword_2_1() { return cLeftSquareBracketKeyword_2_1; }
-		
-		//variable=[ProgramVariable]
-		public Assignment getVariableAssignment_2_2() { return cVariableAssignment_2_2; }
-		
-		//[ProgramVariable]
-		public CrossReference getVariableProgramVariableCrossReference_2_2_0() { return cVariableProgramVariableCrossReference_2_2_0; }
-		
-		//ID
-		public RuleCall getVariableProgramVariableIDTerminalRuleCall_2_2_0_1() { return cVariableProgramVariableIDTerminalRuleCall_2_2_0_1; }
-		
-		//"]"
-		public Keyword getRightSquareBracketKeyword_2_3() { return cRightSquareBracketKeyword_2_3; }
-		
 		//funApp=FunApplication
-		public Assignment getFunAppAssignment_3() { return cFunAppAssignment_3; }
+		public Assignment getFunAppAssignment_2() { return cFunAppAssignment_2; }
 		
 		//FunApplication
-		public RuleCall getFunAppFunApplicationParserRuleCall_3_0() { return cFunAppFunApplicationParserRuleCall_3_0; }
+		public RuleCall getFunAppFunApplicationParserRuleCall_2_0() { return cFunAppFunApplicationParserRuleCall_2_0; }
 		
 		//"(" nestedTerm=Term ")"
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//"("
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 		
 		//nestedTerm=Term
-		public Assignment getNestedTermAssignment_4_1() { return cNestedTermAssignment_4_1; }
+		public Assignment getNestedTermAssignment_3_1() { return cNestedTermAssignment_3_1; }
 		
 		//Term
-		public RuleCall getNestedTermTermParserRuleCall_4_1_0() { return cNestedTermTermParserRuleCall_4_1_0; }
+		public RuleCall getNestedTermTermParserRuleCall_3_1_0() { return cNestedTermTermParserRuleCall_3_1_0; }
 		
 		//")"
-		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
 	}
 	public class FunApplicationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.FunApplication");
@@ -2866,14 +2830,15 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cPatternDerivedRequirementPatternIDTerminalRuleCall_3_0_1 = (RuleCall)cPatternDerivedRequirementPatternCrossReference_3_0.eContents().get(1);
 		private final Keyword cWithKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cExtraInvAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cExtraInvExtraInvariantParserRuleCall_5_0 = (RuleCall)cExtraInvAssignment_5.eContents().get(0);
+		private final CrossReference cExtraInvExtraInvariantCrossReference_5_0 = (CrossReference)cExtraInvAssignment_5.eContents().get(0);
+		private final RuleCall cExtraInvExtraInvariantIDTerminalRuleCall_5_0_1 = (RuleCall)cExtraInvExtraInvariantCrossReference_5_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Requirement:
-		//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";";
+		//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=[ExtraInvariant] ";";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";"
+		//"requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=[ExtraInvariant] ";"
 		public Group getGroup() { return cGroup; }
 		
 		//"requirement"
@@ -2900,11 +2865,14 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//"with"
 		public Keyword getWithKeyword_4() { return cWithKeyword_4; }
 		
-		//extraInv=ExtraInvariant
+		//extraInv=[ExtraInvariant]
 		public Assignment getExtraInvAssignment_5() { return cExtraInvAssignment_5; }
 		
-		//ExtraInvariant
-		public RuleCall getExtraInvExtraInvariantParserRuleCall_5_0() { return cExtraInvExtraInvariantParserRuleCall_5_0; }
+		//[ExtraInvariant]
+		public CrossReference getExtraInvExtraInvariantCrossReference_5_0() { return cExtraInvExtraInvariantCrossReference_5_0; }
+		
+		//ID
+		public RuleCall getExtraInvExtraInvariantIDTerminalRuleCall_5_0_1() { return cExtraInvExtraInvariantIDTerminalRuleCall_5_0_1; }
 		
 		//";"
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
@@ -3733,8 +3701,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cStateUpdateStateVariableCrossReference_2_0 = (CrossReference)cStateAssignment_2.eContents().get(0);
-		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_1 =
-				(RuleCall)cStateUpdateStateVariableCrossReference_2_0.eContents().get(1);
+		private final RuleCall cStateUpdateStateVariableIDTerminalRuleCall_2_0_1 = (RuleCall)cStateUpdateStateVariableCrossReference_2_0.eContents().get(1);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cLeftAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cLeftAlwaysImplicationParameterValueParserRuleCall_4_0 = (RuleCall)cLeftAssignment_4.eContents().get(0);
@@ -3765,8 +3732,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		public CrossReference getStateUpdateStateVariableCrossReference_2_0() { return cStateUpdateStateVariableCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getStateUpdateStateVariableIDTerminalRuleCall_2_0_1() {
-			return cStateUpdateStateVariableIDTerminalRuleCall_2_0_1; }
+		public RuleCall getStateUpdateStateVariableIDTerminalRuleCall_2_0_1() { return cStateUpdateStateVariableIDTerminalRuleCall_2_0_1; }
 		
 		//","
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
@@ -4229,6 +4195,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final AlwaysImplicationElements pAlwaysImplication;
 	private final AlwaysImplicationParameterValueElements pAlwaysImplicationParameterValue;
 	private final PastExtraInvariantPatternInstanceElements pPastExtraInvariantPatternInstance;
+	private final TerminalRule tID;
 	
 	private final Grammar grammar;
 	
@@ -4318,6 +4285,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pAlwaysImplication = new AlwaysImplicationElements();
 		this.pAlwaysImplicationParameterValue = new AlwaysImplicationParameterValueElements();
 		this.pPastExtraInvariantPatternInstance = new PastExtraInvariantPatternInstanceElements();
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.ID");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -4891,7 +4859,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//PrimaryTerm:
-	//    const=Constant |  variable=[Variable] | state=[UpdateStateVariable] "[" variable=[ProgramVariable] "]" |
+	//    const=Constant |  variable=[Variable] |
 	//     funApp=FunApplication |
 	//    "(" nestedTerm=Term ")";
 	public PrimaryTermElements getPrimaryTermAccess() {
@@ -5009,7 +4977,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Requirement:
-	//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=ExtraInvariant ";";
+	//    "requirement" name=ID ":" pattern=[DerivedRequirementPattern] "with" extraInv=[ExtraInvariant] ";";
 	public RequirementElements getRequirementAccess() {
 		return pRequirement;
 	}
@@ -5170,9 +5138,11 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getPastExtraInvariantPatternInstanceAccess().getRule();
 	}
 	
-	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+	//@Override
+	//terminal ID:
+	//    ('^')?('a'..'z'|'A'..'Z'|'_') (('a'..'z'|'A'..'Z'|'_'|'0'..'9' | "'")* ('a'..'z'|'A'..'Z'|'0'..'9' | "'"))?;
 	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
+		return tID;
 	}
 	
 	//terminal INT returns ecore::EInt: ('0'..'9')+;

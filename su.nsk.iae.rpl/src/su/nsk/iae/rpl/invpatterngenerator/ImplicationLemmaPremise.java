@@ -27,10 +27,9 @@ public class ImplicationLemmaPremise implements LemmaPremise {
 		return new ImplicationLemmaPremise(left, right.replacePatterns(initState));
 	}
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
-		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise(paramMapping);
-		return new ImplicationLemmaPremise(left, right);
+	public LemmaPremise generateParticularLemmaPremise() {
+		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise();
+		return new ImplicationLemmaPremise(left, simplifiedRight);
 	}
 	@Override
 	public LemmaPremiseFormula convertToEObject() {

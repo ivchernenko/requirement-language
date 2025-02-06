@@ -1963,22 +1963,13 @@ public interface RPLPackage extends EPackage
   int PRIMARY_TERM__VARIABLE = UNARY_TERM_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>State</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_TERM__STATE = UNARY_TERM_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Fun App</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM__FUN_APP = UNARY_TERM_FEATURE_COUNT + 3;
+  int PRIMARY_TERM__FUN_APP = UNARY_TERM_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Nested Term</b></em>' containment reference.
@@ -1987,7 +1978,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM__NESTED_TERM = UNARY_TERM_FEATURE_COUNT + 4;
+  int PRIMARY_TERM__NESTED_TERM = UNARY_TERM_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Primary Term</em>' class.
@@ -1996,7 +1987,7 @@ public interface RPLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_TERM_FEATURE_COUNT = UNARY_TERM_FEATURE_COUNT + 5;
+  int PRIMARY_TERM_FEATURE_COUNT = UNARY_TERM_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.FunApplicationImpl <em>Fun Application</em>}' class.
@@ -2341,7 +2332,7 @@ public interface RPLPackage extends EPackage
   int REQUIREMENT__PATTERN = ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Extra Inv</b></em>' containment reference.
+   * The feature id for the '<em><b>Extra Inv</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4347,17 +4338,6 @@ public interface RPLPackage extends EPackage
   EReference getPrimaryTerm_Variable();
 
   /**
-   * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getState <em>State</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>State</em>'.
-   * @see su.nsk.iae.rpl.rPL.PrimaryTerm#getState()
-   * @see #getPrimaryTerm()
-   * @generated
-   */
-  EReference getPrimaryTerm_State();
-
-  /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.PrimaryTerm#getFunApp <em>Fun App</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4602,10 +4582,10 @@ public interface RPLPackage extends EPackage
   EReference getRequirement_Pattern();
 
   /**
-   * Returns the meta object for the containment reference '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}'.
+   * Returns the meta object for the reference '{@link su.nsk.iae.rpl.rPL.Requirement#getExtraInv <em>Extra Inv</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Extra Inv</em>'.
+   * @return the meta object for the reference '<em>Extra Inv</em>'.
    * @see su.nsk.iae.rpl.rPL.Requirement#getExtraInv()
    * @see #getRequirement()
    * @generated
@@ -6270,14 +6250,6 @@ public interface RPLPackage extends EPackage
     EReference PRIMARY_TERM__VARIABLE = eINSTANCE.getPrimaryTerm_Variable();
 
     /**
-     * The meta object literal for the '<em><b>State</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_TERM__STATE = eINSTANCE.getPrimaryTerm_State();
-
-    /**
      * The meta object literal for the '<em><b>Fun App</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6480,7 +6452,7 @@ public interface RPLPackage extends EPackage
     EReference REQUIREMENT__PATTERN = eINSTANCE.getRequirement_Pattern();
 
     /**
-     * The meta object literal for the '<em><b>Extra Inv</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Extra Inv</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

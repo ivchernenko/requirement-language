@@ -8,8 +8,11 @@ import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
+import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
+import su.nsk.iae.rpl.rPL.impl.AtomicFormulaImpl;
+import su.nsk.iae.rpl.rPL.impl.UpdateStateVariableImpl;
 
 public class RegularAtomicFormula implements PatternFreeInnerFormula {
 	private final RegularFormulaParameter renamed;
@@ -27,7 +30,7 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 		this.original = original;
 		this.states = states;
 	}
-	
+
 	public RegularAtomicFormula(
 			RegularFormulaParameter renamed,
 			RegularFormulaParameter original) {
@@ -36,18 +39,18 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 		this.original = original;
 		this.states = new ArrayList<>();
 	}
-	
+
 	public RegularFormulaParameter getRenamed() {
 		return renamed;
 	}
 	public RegularFormulaParameter getOriginal() {
 		return original;
 	}
-	
+
 	public String getName() {
 		return renamed.getName();
 	}
-	
+
 	public String getOriginalName() {
 		return original.getName();
 	}
@@ -83,7 +86,7 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 	public List<String> getUsedPatternNames() {
 		return new ArrayList<>();
 	}
-	
+
 	@Override
 	public String toString() {
 		if (states == null || states.isEmpty())
@@ -98,16 +101,21 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 		}
 	}
 	@Override
-	public LemmaPremise generateParticularLemmaPremise(
-			Map<RegularFormulaParameter, RegularFormulaParameter> paramMapping) {
-		return new RegularAtomicFormula(paramMapping.get(renamed), original, states);
+	public LemmaPremise generateParticularLemmaPremise() {
+		return this;
 	}
 	@Override
 	public LemmaPremiseFormula convertToEObject() {
 		RPLFactory factory = RPLFactory.eINSTANCE;
-		AtomicFormula atomic = factory.createAtomicFormula();
+		AtomicFormulaImpl atomic = (AtomicFormulaImpl) factory.createAtomicFormula();
 		atomic.setFmParam(renamed);
-		atomic.getStates().addAll(states);
+		List<UpdateStateVariable> rStates = atomic.getStates();
+		//atomic.eSet(RPLPackage.ATOMIC_FORMULA__STATES, states);
+		for (UpdateStateVariable s: states) {
+			UpdateStateVariableImpl newS = (UpdateStateVariableImpl) factory.createUpdateStateVariable();
+			newS.setName(s.getName());
+			rStates.add(newS);
+		}
 		su.nsk.iae.rpl.rPL.NegationFormula negFormula = factory.createNegationFormula();
 		negFormula.setRight(atomic);
 		negFormula.setNeg(false);

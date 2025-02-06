@@ -1940,7 +1940,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryTerm_State()
+  public EReference getPrimaryTerm_FunApp()
   {
     return (EReference)primaryTermEClass.getEStructuralFeatures().get(2);
   }
@@ -1951,20 +1951,9 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryTerm_FunApp()
-  {
-    return (EReference)primaryTermEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getPrimaryTerm_NestedTerm()
   {
-    return (EReference)primaryTermEClass.getEStructuralFeatures().get(4);
+    return (EReference)primaryTermEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3025,7 +3014,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     primaryTermEClass = createEClass(PRIMARY_TERM);
     createEReference(primaryTermEClass, PRIMARY_TERM__CONST);
     createEReference(primaryTermEClass, PRIMARY_TERM__VARIABLE);
-    createEReference(primaryTermEClass, PRIMARY_TERM__STATE);
     createEReference(primaryTermEClass, PRIMARY_TERM__FUN_APP);
     createEReference(primaryTermEClass, PRIMARY_TERM__NESTED_TERM);
 
@@ -3362,7 +3350,6 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEClass(primaryTermEClass, PrimaryTerm.class, "PrimaryTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrimaryTerm_Const(), this.getConstant(), null, "const", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_Variable(), this.getVariable(), null, "variable", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrimaryTerm_State(), this.getUpdateStateVariable(), null, "state", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_FunApp(), this.getFunApplication(), null, "funApp", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryTerm_NestedTerm(), this.getTerm(), null, "nestedTerm", null, 0, 1, PrimaryTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3395,7 +3382,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
     initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRequirement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRequirement_Pattern(), this.getDerivedRequirementPattern(), null, "pattern", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRequirement_ExtraInv(), this.getExtraInvariant(), null, "extraInv", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_ExtraInv(), this.getExtraInvariant(), null, "extraInv", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extraInvariantEClass, ExtraInvariant.class, "ExtraInvariant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExtraInvariant_Name(), ecorePackage.getEString(), "name", null, 0, 1, ExtraInvariant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

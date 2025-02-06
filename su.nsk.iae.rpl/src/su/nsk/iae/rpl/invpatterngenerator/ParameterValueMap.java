@@ -16,7 +16,7 @@ public class ParameterValueMap {
 	final Map<ConstantParameter, Term> cParams;
 	final Map<FunctionalParameter, FunctionalParameter> fnParams;
 	final Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams;
-	final Map<RegularFormulaParameter, FormulaParameterValue> regFmParams;
+	final Map<String, FormulaParameterValue> regFmParams;
 	final FunctionalParameter boolParam;
 	final Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution;
 	public Map<UpdateStateVariable, UpdateStateVariable> getStateSubstitution() {
@@ -26,7 +26,7 @@ public class ParameterValueMap {
 	public ParameterValueMap(Map<ConstantParameter, Term> cParams,
 			Map<FunctionalParameter, FunctionalParameter> fnParams,
 			Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams,
-			Map<RegularFormulaParameter, FormulaParameterValue> regFmParams,
+			Map<String, FormulaParameterValue> regFmParams,
 			FunctionalParameter boolParam,
 			Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution) {
 		super();
@@ -38,7 +38,7 @@ public class ParameterValueMap {
 		this.stateSubstitution = stateSubstitution;
 	}
 	
-	 ParameterValueMap(
+	public  ParameterValueMap(
 			Lemma lemma,
 			List<Term> cParamValues,
 			List<FunctionalParameter> fnParamValues,
@@ -63,10 +63,11 @@ public class ParameterValueMap {
 		for (int i = 0; i< simpleFmVars.size(); i++)
 			simpleFmParams.put(simpleFmVars.get(i), simpleFmParamValues.get(i));
 		regFmParams = new HashMap<>();
-		for (int i = 0; i < einvFmVars.size(); i++)
-			regFmParams.put(einvFmVars.get(i), einvFmParamValues.get(i));
+		for (int i = 0; i < einvFmVars.size(); i++) {
+			regFmParams.put(einvFmVars.get(i).getName(), einvFmParamValues.get(i));
+		}
 		for (int i = 0; i < reqFmVars.size(); i++)
-			regFmParams.put(reqFmVars.get(i), reqFmParamValues.get(i));
+			regFmParams.put(reqFmVars.get(i).getName(), reqFmParamValues.get(i));
 		this.boolParam = boolParam;
 		stateSubstitution = new HashMap<>();
 		stateSubstitution.put(lemma.getInitState(), initState);
@@ -82,7 +83,7 @@ public class ParameterValueMap {
 	public Map<SimpleFormulaParameter, FormulaParameterValue> getSimpleFmParams() {
 		return simpleFmParams;
 	}
-	public Map<RegularFormulaParameter, FormulaParameterValue> getRegFmParams() {
+	public Map<String, FormulaParameterValue> getRegFmParams() {
 		return regFmParams;
 	}
 	public FunctionalParameter getBoolParam() {

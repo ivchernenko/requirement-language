@@ -17,7 +17,6 @@ import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.PrimaryTerm;
 import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.Term;
-import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 import su.nsk.iae.rpl.rPL.Variable;
 
 /**
@@ -30,7 +29,6 @@ import su.nsk.iae.rpl.rPL.Variable;
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getConst <em>Const</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getState <em>State</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getFunApp <em>Fun App</em>}</li>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.PrimaryTermImpl#getNestedTerm <em>Nested Term</em>}</li>
  * </ul>
@@ -58,16 +56,6 @@ public class PrimaryTermImpl extends UnaryTermImpl implements PrimaryTerm
    * @ordered
    */
   protected Variable variable;
-
-  /**
-   * The cached value of the '{@link #getState() <em>State</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getState()
-   * @generated
-   * @ordered
-   */
-  protected UpdateStateVariable state;
 
   /**
    * The cached value of the '{@link #getFunApp() <em>Fun App</em>}' containment reference.
@@ -216,51 +204,6 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
    * @generated
    */
   @Override
-  public UpdateStateVariable getState()
-  {
-    if (state != null && state.eIsProxy())
-    {
-      InternalEObject oldState = (InternalEObject)state;
-      state = (UpdateStateVariable)eResolveProxy(oldState);
-      if (state != oldState)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RPLPackage.PRIMARY_TERM__STATE, oldState, state));
-      }
-    }
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UpdateStateVariable basicGetState()
-  {
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setState(UpdateStateVariable newState)
-  {
-    UpdateStateVariable oldState = state;
-    state = newState;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.PRIMARY_TERM__STATE, oldState, state));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public FunApplication getFunApp()
   {
     return funApp;
@@ -390,9 +333,6 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         if (resolve) return getVariable();
         return basicGetVariable();
-      case RPLPackage.PRIMARY_TERM__STATE:
-        if (resolve) return getState();
-        return basicGetState();
       case RPLPackage.PRIMARY_TERM__FUN_APP:
         return getFunApp();
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
@@ -416,9 +356,6 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
         return;
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         setVariable((Variable)newValue);
-        return;
-      case RPLPackage.PRIMARY_TERM__STATE:
-        setState((UpdateStateVariable)newValue);
         return;
       case RPLPackage.PRIMARY_TERM__FUN_APP:
         setFunApp((FunApplication)newValue);
@@ -446,9 +383,6 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         setVariable((Variable)null);
         return;
-      case RPLPackage.PRIMARY_TERM__STATE:
-        setState((UpdateStateVariable)null);
-        return;
       case RPLPackage.PRIMARY_TERM__FUN_APP:
         setFunApp((FunApplication)null);
         return;
@@ -473,8 +407,6 @@ public su.nsk.iae.rpl.invpatterngenerator.Term convert(TermConverter converter) 
         return const_ != null;
       case RPLPackage.PRIMARY_TERM__VARIABLE:
         return variable != null;
-      case RPLPackage.PRIMARY_TERM__STATE:
-        return state != null;
       case RPLPackage.PRIMARY_TERM__FUN_APP:
         return funApp != null;
       case RPLPackage.PRIMARY_TERM__NESTED_TERM:
