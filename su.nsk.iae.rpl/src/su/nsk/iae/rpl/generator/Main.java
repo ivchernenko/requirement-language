@@ -77,7 +77,6 @@ public class Main {
 		try {
 			Model model = (Model) resource.getContents().get(0);
 			List<Element> elements = model.getElements();
-			System.out.println(fileName);
 			int index = fileName.indexOf('.');
 			String name = fileName.substring(0, index);
 			String outputFileName = name + "_Patterns";
@@ -85,7 +84,12 @@ public class Main {
 			writer.write("theory " + outputFileName + " imports Patterns\n begin\n");
 			RPLFactory factory = RPLFactory.eINSTANCE;
 			Model genModel = factory.createModel();
-			genModel.getImports().addAll(model.getImports());
+			List<Import> imports = genModel.getImports();
+			for (Import importElement: model.getImports()) {
+				Import importCopy = factory.createImport();
+				importCopy.setImportURI(importElement.getImportURI());
+				imports.add(importCopy);
+			}
 			List<Element> genElements = genModel.getElements();
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
@@ -223,9 +227,9 @@ public class Main {
 			genResource.getContents().add(genModel);
 			genResource.save(new HashMap<>());
 		}
-		catch (Exception e) {			
+		catch (Exception e) {
+			System.out.println(resource.getErrors());
 			e.printStackTrace();
-			 System.out.println(resource.getErrors());
 		}
 		System.out.println("Code generation finished.");
 	}

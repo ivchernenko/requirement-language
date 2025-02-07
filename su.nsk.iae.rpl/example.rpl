@@ -1,4 +1,4 @@
-import "lib.rpl";
+import "Lib.rpl";
 
 
 derivedreq pattern P1(const : t simple formulas : A1 formulas : A2, A3) = always(formulas : lambda r2 r1. 

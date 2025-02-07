@@ -13,12 +13,14 @@ import su.nsk.iae.rpl.generator.RPLCrossReferenceSerializer;
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class RPLRuntimeModule extends AbstractRPLRuntimeModule {
+	
 	@Override
 	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
 		 return ImportUriGlobalScopeProvider.class;
 	 }
-	
+	 
 	public Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
 		return RPLCrossReferenceSerializer.class;
 	}
+
 }

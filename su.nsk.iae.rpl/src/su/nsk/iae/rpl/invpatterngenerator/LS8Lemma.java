@@ -36,7 +36,6 @@ public class LS8Lemma extends DerivedLemma {
 	@Override
 	public Lemma convertToEObject() {
 		Lemma lemma = super.convertToEObject();
-		System.out.println("const vars: " + getcVars());
 		lemma.setInitState(initState);
 		lemma.setFinalState(finalState);
 		return lemma;

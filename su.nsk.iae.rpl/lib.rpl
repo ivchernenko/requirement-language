@@ -24,7 +24,7 @@ lemmas {
 		extra invariant formulas: A1_1, A2_1
 		final state: s
 		premise A2_1(s, s) \/ A1_1(s, s) /\ frm(t1(s) > 0)
-	};
+	};89
 };
 
 futurereq pattern constrained_always(const: t formulas: A) with constrained_always_inv;
