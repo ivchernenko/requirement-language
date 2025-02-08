@@ -56,6 +56,7 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMulOperatorAccess().getAlternatives(), "rule__MulOperator__Alternatives");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
+			builder.put(grammarAccess.getImportAccess().getGroup_2(), "rule__Import__Group_2__0");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getGroup(), "rule__DerivedRequirementPattern__Group__0");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getGroup_4(), "rule__DerivedRequirementPattern__Group_4__0");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getGroup_4_3(), "rule__DerivedRequirementPattern__Group_4_3__0");
@@ -179,20 +180,18 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDerivedLemmasAccess().getGroup_1(), "rule__DerivedLemmas__Group_1__0");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getGroup_1_2_0(), "rule__DerivedLemmas__Group_1_2_0__0");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getGroup_1_2_1(), "rule__DerivedLemmas__Group_1_2_1__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_0(), "rule__Lemma__Group_0__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_0_3(), "rule__Lemma__Group_0_3__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_0_3_3(), "rule__Lemma__Group_0_3_3__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_1(), "rule__Lemma__Group_1__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_1_3(), "rule__Lemma__Group_1_3__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_2(), "rule__Lemma__Group_2__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_2_4(), "rule__Lemma__Group_2_4__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup(), "rule__Lemma__Group__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_3(), "rule__Lemma__Group_3__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_3_5(), "rule__Lemma__Group_3_5__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_3_3(), "rule__Lemma__Group_3_3__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_4(), "rule__Lemma__Group_4__0");
-			builder.put(grammarAccess.getLemmaAccess().getGroup_4_4(), "rule__Lemma__Group_4_4__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_4_3(), "rule__Lemma__Group_4_3__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_5(), "rule__Lemma__Group_5__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_5_4(), "rule__Lemma__Group_5_4__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_6(), "rule__Lemma__Group_6__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_6_5(), "rule__Lemma__Group_6_5__0");
 			builder.put(grammarAccess.getLemmaAccess().getGroup_7(), "rule__Lemma__Group_7__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_7_4(), "rule__Lemma__Group_7_4__0");
+			builder.put(grammarAccess.getLemmaAccess().getGroup_8(), "rule__Lemma__Group_8__0");
 			builder.put(grammarAccess.getLemmaPremiseFormulaAccess().getGroup_1(), "rule__LemmaPremiseFormula__Group_1__0");
 			builder.put(grammarAccess.getDisjunctionLemmaPremiseFormulaAccess().getGroup(), "rule__DisjunctionLemmaPremiseFormula__Group__0");
 			builder.put(grammarAccess.getDisjunctionLemmaPremiseFormulaAccess().getGroup_1(), "rule__DisjunctionLemmaPremiseFormula__Group_1__0");
@@ -212,6 +211,7 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getImportsAssignment_0(), "rule__Model__ImportsAssignment_0");
 			builder.put(grammarAccess.getModelAccess().getElementsAssignment_1(), "rule__Model__ElementsAssignment_1");
 			builder.put(grammarAccess.getImportAccess().getImportURIAssignment_1(), "rule__Import__ImportURIAssignment_1");
+			builder.put(grammarAccess.getImportAccess().getSessionAssignment_2_1(), "rule__Import__SessionAssignment_2_1");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getNameAssignment_2(), "rule__DerivedRequirementPattern__NameAssignment_2");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getCParamsAssignment_4_2(), "rule__DerivedRequirementPattern__CParamsAssignment_4_2");
 			builder.put(grammarAccess.getDerivedRequirementPatternAccess().getCParamsAssignment_4_3_1(), "rule__DerivedRequirementPattern__CParamsAssignment_4_3_1");
@@ -349,20 +349,20 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPastLemmasAccess().getL7Assignment_1_2_3_1(), "rule__PastLemmas__L7Assignment_1_2_3_1");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getL8Assignment_1_2_0_1(), "rule__DerivedLemmas__L8Assignment_1_2_0_1");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getL9Assignment_1_2_1_1(), "rule__DerivedLemmas__L9Assignment_1_2_1_1");
-			builder.put(grammarAccess.getLemmaAccess().getNameAssignment_0_1(), "rule__Lemma__NameAssignment_0_1");
-			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_3_2(), "rule__Lemma__CVarsAssignment_0_3_2");
-			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_0_3_3_1(), "rule__Lemma__CVarsAssignment_0_3_3_1");
-			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_1_2(), "rule__Lemma__FnVarsAssignment_1_2");
-			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_1_3_1(), "rule__Lemma__FnVarsAssignment_1_3_1");
-			builder.put(grammarAccess.getLemmaAccess().getSimpleFmVarsAssignment_2_3(), "rule__Lemma__SimpleFmVarsAssignment_2_3");
-			builder.put(grammarAccess.getLemmaAccess().getSimpleFmVarsAssignment_2_4_1(), "rule__Lemma__SimpleFmVarsAssignment_2_4_1");
-			builder.put(grammarAccess.getLemmaAccess().getIfmVarsAssignment_3_4(), "rule__Lemma__IfmVarsAssignment_3_4");
-			builder.put(grammarAccess.getLemmaAccess().getIfmVarsAssignment_3_5_1(), "rule__Lemma__IfmVarsAssignment_3_5_1");
-			builder.put(grammarAccess.getLemmaAccess().getRfmVarsAssignment_4_3(), "rule__Lemma__RfmVarsAssignment_4_3");
-			builder.put(grammarAccess.getLemmaAccess().getRfmVarsAssignment_4_4_1(), "rule__Lemma__RfmVarsAssignment_4_4_1");
-			builder.put(grammarAccess.getLemmaAccess().getInitStateAssignment_5_3(), "rule__Lemma__InitStateAssignment_5_3");
-			builder.put(grammarAccess.getLemmaAccess().getFinalStateAssignment_6_3(), "rule__Lemma__FinalStateAssignment_6_3");
-			builder.put(grammarAccess.getLemmaAccess().getPremAssignment_7_1(), "rule__Lemma__PremAssignment_7_1");
+			builder.put(grammarAccess.getLemmaAccess().getNameAssignment_1(), "rule__Lemma__NameAssignment_1");
+			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_3_2(), "rule__Lemma__CVarsAssignment_3_2");
+			builder.put(grammarAccess.getLemmaAccess().getCVarsAssignment_3_3_1(), "rule__Lemma__CVarsAssignment_3_3_1");
+			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_4_2(), "rule__Lemma__FnVarsAssignment_4_2");
+			builder.put(grammarAccess.getLemmaAccess().getFnVarsAssignment_4_3_1(), "rule__Lemma__FnVarsAssignment_4_3_1");
+			builder.put(grammarAccess.getLemmaAccess().getSimpleFmVarsAssignment_5_3(), "rule__Lemma__SimpleFmVarsAssignment_5_3");
+			builder.put(grammarAccess.getLemmaAccess().getSimpleFmVarsAssignment_5_4_1(), "rule__Lemma__SimpleFmVarsAssignment_5_4_1");
+			builder.put(grammarAccess.getLemmaAccess().getIfmVarsAssignment_6_4(), "rule__Lemma__IfmVarsAssignment_6_4");
+			builder.put(grammarAccess.getLemmaAccess().getIfmVarsAssignment_6_5_1(), "rule__Lemma__IfmVarsAssignment_6_5_1");
+			builder.put(grammarAccess.getLemmaAccess().getRfmVarsAssignment_7_3(), "rule__Lemma__RfmVarsAssignment_7_3");
+			builder.put(grammarAccess.getLemmaAccess().getRfmVarsAssignment_7_4_1(), "rule__Lemma__RfmVarsAssignment_7_4_1");
+			builder.put(grammarAccess.getLemmaAccess().getInitStateAssignment_8_3(), "rule__Lemma__InitStateAssignment_8_3");
+			builder.put(grammarAccess.getLemmaAccess().getFinalStateAssignment_12(), "rule__Lemma__FinalStateAssignment_12");
+			builder.put(grammarAccess.getLemmaAccess().getPremAssignment_14(), "rule__Lemma__PremAssignment_14");
 			builder.put(grammarAccess.getLemmaPremiseFormulaAccess().getLeftAssignment_1_0(), "rule__LemmaPremiseFormula__LeftAssignment_1_0");
 			builder.put(grammarAccess.getLemmaPremiseFormulaAccess().getRightAssignment_1_2(), "rule__LemmaPremiseFormula__RightAssignment_1_2");
 			builder.put(grammarAccess.getDisjunctionLemmaPremiseFormulaAccess().getRightAssignment_1_2(), "rule__DisjunctionLemmaPremiseFormula__RightAssignment_1_2");
@@ -387,7 +387,6 @@ public class RPLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFutureLemmasAccess().getUnorderedGroup_1_2(), "rule__FutureLemmas__UnorderedGroup_1_2");
 			builder.put(grammarAccess.getPastLemmasAccess().getUnorderedGroup_1_2(), "rule__PastLemmas__UnorderedGroup_1_2");
 			builder.put(grammarAccess.getDerivedLemmasAccess().getUnorderedGroup_1_2(), "rule__DerivedLemmas__UnorderedGroup_1_2");
-			builder.put(grammarAccess.getLemmaAccess().getUnorderedGroup(), "rule__Lemma__UnorderedGroup");
 		}
 	}
 	

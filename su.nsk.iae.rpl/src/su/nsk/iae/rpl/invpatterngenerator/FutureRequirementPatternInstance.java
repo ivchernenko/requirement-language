@@ -55,9 +55,9 @@ public class FutureRequirementPatternInstance implements InnerRequirementFormula
 		return stringBuilder.toString();
 	}
 	@Override
-	public InnerRequirementFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
-		UpdateStateVariable newFinState = substitution.getOrDefault(finState, finState);
-		UpdateStateVariable newCurState = substitution.getOrDefault(curState, curState);
+	public InnerRequirementFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
+		UpdateStateVariable newFinState = substitution.getOrDefault(finState.getName(), finState);
+		UpdateStateVariable newCurState = substitution.getOrDefault(curState.getName(), curState);
 		List<FormulaParameterValue> newFmParams = new ArrayList<>();
 		for (FormulaParameterValue fm: fmParams) {
 			Formula formula = fm.getFormula();
@@ -86,7 +86,7 @@ public class FutureRequirementPatternInstance implements InnerRequirementFormula
 	@Override
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = new ArrayList<>();
-		usedPatterns.add(pattern.getName());
+		usedPatterns.add(pattern.getName() + "_def");
 		for (FormulaParameterValue fmParam: fmParams)
 			usedPatterns.addAll(fmParam.getFormula().getUsedPatternNames());
 		return usedPatterns;

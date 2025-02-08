@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.Import#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.Import#getSession <em>Session</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.rpl.rPL.RPLPackage#getImport()
@@ -44,5 +45,27 @@ public interface Import extends EObject
    * @generated
    */
   void setImportURI(String value);
+
+  /**
+   * Returns the value of the '<em><b>Session</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Session</em>' attribute.
+   * @see #setSession(String)
+   * @see su.nsk.iae.rpl.rPL.RPLPackage#getImport_Session()
+   * @model
+   * @generated
+   */
+  String getSession();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.rpl.rPL.Import#getSession <em>Session</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Session</em>' attribute.
+   * @see #getSession()
+   * @generated
+   */
+  void setSession(String value);
 
 } // Import

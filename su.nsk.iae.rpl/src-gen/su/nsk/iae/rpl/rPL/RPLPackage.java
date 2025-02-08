@@ -115,13 +115,22 @@ public interface RPLPackage extends EPackage
   int IMPORT__IMPORT_URI = 0;
 
   /**
+   * The feature id for the '<em><b>Session</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__SESSION = 1;
+
+  /**
    * The number of structural features of the '<em>Import</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IMPORT_FEATURE_COUNT = 1;
+  int IMPORT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.rpl.rPL.impl.ElementImpl <em>Element</em>}' class.
@@ -3134,6 +3143,17 @@ public interface RPLPackage extends EPackage
   EAttribute getImport_ImportURI();
 
   /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.rpl.rPL.Import#getSession <em>Session</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Session</em>'.
+   * @see su.nsk.iae.rpl.rPL.Import#getSession()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_Session();
+
+  /**
    * Returns the meta object for class '{@link su.nsk.iae.rpl.rPL.Element <em>Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5266,6 +5286,14 @@ public interface RPLPackage extends EPackage
      * @generated
      */
     EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
+
+    /**
+     * The meta object literal for the '<em><b>Session</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__SESSION = eINSTANCE.getImport_Session();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.rpl.rPL.impl.ElementImpl <em>Element</em>}' class.

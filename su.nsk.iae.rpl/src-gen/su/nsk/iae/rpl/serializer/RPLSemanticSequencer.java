@@ -862,17 +862,11 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Import returns Import
 	 *
 	 * Constraint:
-	 *     importURI=STRING
+	 *     (importURI=STRING session=STRING?)
 	 * </pre>
 	 */
 	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, RPLPackage.Literals.IMPORT__IMPORT_URI) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RPLPackage.Literals.IMPORT__IMPORT_URI));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getImportURISTRINGTerminalRuleCall_1_0(), semanticObject.getImportURI());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -945,15 +939,16 @@ public class RPLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *
 	 * Constraint:
 	 *     (
-	 *         (name=ID (cVars+=ConstantParameter cVars+=ConstantParameter*)?) | 
-	 *         (fnVars+=FunctionalParameter fnVars+=FunctionalParameter*) | 
-	 *         (simpleFmVars+=SimpleFormulaParameter simpleFmVars+=SimpleFormulaParameter*) | 
-	 *         (ifmVars+=RegularFormulaParameter ifmVars+=RegularFormulaParameter*) | 
-	 *         (rfmVars+=RegularFormulaParameter rfmVars+=RegularFormulaParameter*) | 
-	 *         initState=UpdateStateVariable | 
-	 *         finalState=UpdateStateVariable | 
+	 *         name=ID 
+	 *         (cVars+=ConstantParameter cVars+=ConstantParameter*)? 
+	 *         (fnVars+=FunctionalParameter fnVars+=FunctionalParameter*)? 
+	 *         (simpleFmVars+=SimpleFormulaParameter simpleFmVars+=SimpleFormulaParameter*)? 
+	 *         (ifmVars+=RegularFormulaParameter ifmVars+=RegularFormulaParameter*)? 
+	 *         (rfmVars+=RegularFormulaParameter rfmVars+=RegularFormulaParameter*)? 
+	 *         initState=UpdateStateVariable? 
+	 *         finalState=UpdateStateVariable 
 	 *         prem=LemmaPremiseFormula
-	 *     )+
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Lemma(ISerializationContext context, Lemma semanticObject) {

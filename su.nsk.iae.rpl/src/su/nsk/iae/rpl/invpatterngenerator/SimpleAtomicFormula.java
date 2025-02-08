@@ -35,11 +35,11 @@ public class SimpleAtomicFormula implements PatternFreeInnerFormula {
 	}
 
 	@Override
-	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		List<UpdateStateVariable> newStates = new ArrayList<>();
 		for (int i = 0; i < states.size(); i++) {
 			UpdateStateVariable s = states.get(i);
-			s = substitution.getOrDefault(s,  s);
+			s = substitution.getOrDefault(s.getName(),  s);
 			newStates.add(s);
 		}
 		return new SimpleAtomicFormula(fmParam, newStates);

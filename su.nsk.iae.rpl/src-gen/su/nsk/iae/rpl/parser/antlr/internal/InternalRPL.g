@@ -156,9 +156,33 @@ ruleImport returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2=';'
+		(
+			otherlv_2='from'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getImportAccess().getFromKeyword_2_0());
+			}
+			(
+				(
+					lv_session_3_0=RULE_STRING
+					{
+						newLeafNode(lv_session_3_0, grammarAccess.getImportAccess().getSessionSTRINGTerminalRuleCall_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getImportRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"session",
+							lv_session_3_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+		)?
+		otherlv_4=';'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getImportAccess().getSemicolonKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getImportAccess().getSemicolonKeyword_3());
 		}
 	)
 ;
@@ -4944,504 +4968,413 @@ ruleLemma returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='lemma'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getLemmaAccess().getLemmaKeyword_0());
+		}
 		(
-			{ 
-			  getUnorderedGroupHelper().enter(grammarAccess.getLemmaAccess().getUnorderedGroup());
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getLemmaAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLemmaRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"su.nsk.iae.rpl.RPL.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getLemmaAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			otherlv_3='const'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getLemmaAccess().getConstKeyword_3_0());
+			}
+			otherlv_4=':'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getLemmaAccess().getColonKeyword_3_1());
 			}
 			(
 				(
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 0)}?=>(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_3_2_0());
+					}
+					lv_cVars_5_0=ruleConstantParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						add(
+							$current,
+							"cVars",
+							lv_cVars_5_0,
+							"su.nsk.iae.rpl.RPL.ConstantParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_6=','
 				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 0);
+					newLeafNode(otherlv_6, grammarAccess.getLemmaAccess().getCommaKeyword_3_3_0());
 				}
-							({true}?=>(otherlv_1='lemma'
-							{
-								newLeafNode(otherlv_1, grammarAccess.getLemmaAccess().getLemmaKeyword_0_0());
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_3_3_1_0());
+						}
+						lv_cVars_7_0=ruleConstantParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLemmaRule());
 							}
-							(
-								(
-									lv_name_2_0=RULE_ID
-									{
-										newLeafNode(lv_name_2_0, grammarAccess.getLemmaAccess().getNameIDTerminalRuleCall_0_1_0());
-									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getLemmaRule());
-										}
-										setWithLastConsumed(
-											$current,
-											"name",
-											lv_name_2_0,
-											"su.nsk.iae.rpl.RPL.ID");
-									}
-								)
-							)
-							otherlv_3='{'
-							{
-								newLeafNode(otherlv_3, grammarAccess.getLemmaAccess().getLeftCurlyBracketKeyword_0_2());
-							}
-							(
-								otherlv_4='const'
-								{
-									newLeafNode(otherlv_4, grammarAccess.getLemmaAccess().getConstKeyword_0_3_0());
-								}
-								otherlv_5=':'
-								{
-									newLeafNode(otherlv_5, grammarAccess.getLemmaAccess().getColonKeyword_0_3_1());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_3_2_0());
-										}
-										lv_cVars_6_0=ruleConstantParameter
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getLemmaRule());
-											}
-											add(
-												$current,
-												"cVars",
-												lv_cVars_6_0,
-												"su.nsk.iae.rpl.RPL.ConstantParameter");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-								(
-									otherlv_7=','
-									{
-										newLeafNode(otherlv_7, grammarAccess.getLemmaAccess().getCommaKeyword_0_3_3_0());
-									}
-									(
-										(
-											{
-												newCompositeNode(grammarAccess.getLemmaAccess().getCVarsConstantParameterParserRuleCall_0_3_3_1_0());
-											}
-											lv_cVars_8_0=ruleConstantParameter
-											{
-												if ($current==null) {
-													$current = createModelElementForParent(grammarAccess.getLemmaRule());
-												}
-												add(
-													$current,
-													"cVars",
-													lv_cVars_8_0,
-													"su.nsk.iae.rpl.RPL.ConstantParameter");
-												afterParserOrEnumRuleCall();
-											}
-										)
-									)
-								)*
-							)?
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
+							add(
+								$current,
+								"cVars",
+								lv_cVars_7_0,
+								"su.nsk.iae.rpl.RPL.ConstantParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
 		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 1)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 1);
-				}
-							({true}?=>(otherlv_9='fun'
-							{
-								newLeafNode(otherlv_9, grammarAccess.getLemmaAccess().getFunKeyword_1_0());
-							}
-							otherlv_10=':'
-							{
-								newLeafNode(otherlv_10, grammarAccess.getLemmaAccess().getColonKeyword_1_1());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_1_2_0());
-									}
-									lv_fnVars_11_0=ruleFunctionalParameter
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										add(
-											$current,
-											"fnVars",
-											lv_fnVars_11_0,
-											"su.nsk.iae.rpl.RPL.FunctionalParameter");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							(
-								otherlv_12=','
-								{
-									newLeafNode(otherlv_12, grammarAccess.getLemmaAccess().getCommaKeyword_1_3_0());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_1_3_1_0());
-										}
-										lv_fnVars_13_0=ruleFunctionalParameter
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getLemmaRule());
-											}
-											add(
-												$current,
-												"fnVars",
-												lv_fnVars_13_0,
-												"su.nsk.iae.rpl.RPL.FunctionalParameter");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)*
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 2)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 2);
-				}
-							({true}?=>(otherlv_14='simple'
-							{
-								newLeafNode(otherlv_14, grammarAccess.getLemmaAccess().getSimpleKeyword_2_0());
-							}
-							otherlv_15='formulas'
-							{
-								newLeafNode(otherlv_15, grammarAccess.getLemmaAccess().getFormulasKeyword_2_1());
-							}
-							otherlv_16=':'
-							{
-								newLeafNode(otherlv_16, grammarAccess.getLemmaAccess().getColonKeyword_2_2());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0());
-									}
-									lv_simpleFmVars_17_0=ruleSimpleFormulaParameter
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										add(
-											$current,
-											"simpleFmVars",
-											lv_simpleFmVars_17_0,
-											"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							(
-								otherlv_18=','
-								{
-									newLeafNode(otherlv_18, grammarAccess.getLemmaAccess().getCommaKeyword_2_4_0());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0());
-										}
-										lv_simpleFmVars_19_0=ruleSimpleFormulaParameter
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getLemmaRule());
-											}
-											add(
-												$current,
-												"simpleFmVars",
-												lv_simpleFmVars_19_0,
-												"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)*
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 3)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 3);
-				}
-							({true}?=>(otherlv_20='extra'
-							{
-								newLeafNode(otherlv_20, grammarAccess.getLemmaAccess().getExtraKeyword_3_0());
-							}
-							otherlv_21='invariant'
-							{
-								newLeafNode(otherlv_21, grammarAccess.getLemmaAccess().getInvariantKeyword_3_1());
-							}
-							otherlv_22='formulas'
-							{
-								newLeafNode(otherlv_22, grammarAccess.getLemmaAccess().getFormulasKeyword_3_2());
-							}
-							otherlv_23=':'
-							{
-								newLeafNode(otherlv_23, grammarAccess.getLemmaAccess().getColonKeyword_3_3());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsRegularFormulaParameterParserRuleCall_3_4_0());
-									}
-									lv_ifmVars_24_0=ruleRegularFormulaParameter
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										add(
-											$current,
-											"ifmVars",
-											lv_ifmVars_24_0,
-											"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							(
-								otherlv_25=','
-								{
-									newLeafNode(otherlv_25, grammarAccess.getLemmaAccess().getCommaKeyword_3_5_0());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0());
-										}
-										lv_ifmVars_26_0=ruleRegularFormulaParameter
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getLemmaRule());
-											}
-											add(
-												$current,
-												"ifmVars",
-												lv_ifmVars_26_0,
-												"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)*
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 4)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 4);
-				}
-							({true}?=>(otherlv_27='requirement'
-							{
-								newLeafNode(otherlv_27, grammarAccess.getLemmaAccess().getRequirementKeyword_4_0());
-							}
-							otherlv_28='formulas'
-							{
-								newLeafNode(otherlv_28, grammarAccess.getLemmaAccess().getFormulasKeyword_4_1());
-							}
-							otherlv_29=':'
-							{
-								newLeafNode(otherlv_29, grammarAccess.getLemmaAccess().getColonKeyword_4_2());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsRegularFormulaParameterParserRuleCall_4_3_0());
-									}
-									lv_rfmVars_30_0=ruleRegularFormulaParameter
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										add(
-											$current,
-											"rfmVars",
-											lv_rfmVars_30_0,
-											"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							(
-								otherlv_31=','
-								{
-									newLeafNode(otherlv_31, grammarAccess.getLemmaAccess().getCommaKeyword_4_4_0());
-								}
-								(
-									(
-										{
-											newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0());
-										}
-										lv_rfmVars_32_0=ruleRegularFormulaParameter
-										{
-											if ($current==null) {
-												$current = createModelElementForParent(grammarAccess.getLemmaRule());
-											}
-											add(
-												$current,
-												"rfmVars",
-												lv_rfmVars_32_0,
-												"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
-											afterParserOrEnumRuleCall();
-										}
-									)
-								)
-							)*
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 5)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 5);
-				}
-							({true}?=>(otherlv_33='init'
-							{
-								newLeafNode(otherlv_33, grammarAccess.getLemmaAccess().getInitKeyword_5_0());
-							}
-							otherlv_34='state'
-							{
-								newLeafNode(otherlv_34, grammarAccess.getLemmaAccess().getStateKeyword_5_1());
-							}
-							otherlv_35=':'
-							{
-								newLeafNode(otherlv_35, grammarAccess.getLemmaAccess().getColonKeyword_5_2());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getInitStateUpdateStateVariableParserRuleCall_5_3_0());
-									}
-									lv_initState_36_0=ruleUpdateStateVariable
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										set(
-											$current,
-											"initState",
-											lv_initState_36_0,
-											"su.nsk.iae.rpl.RPL.UpdateStateVariable");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 6)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 6);
-				}
-							({true}?=>(otherlv_37='final'
-							{
-								newLeafNode(otherlv_37, grammarAccess.getLemmaAccess().getFinalKeyword_6_0());
-							}
-							otherlv_38='state'
-							{
-								newLeafNode(otherlv_38, grammarAccess.getLemmaAccess().getStateKeyword_6_1());
-							}
-							otherlv_39=':'
-							{
-								newLeafNode(otherlv_39, grammarAccess.getLemmaAccess().getColonKeyword_6_2());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getFinalStateUpdateStateVariableParserRuleCall_6_3_0());
-									}
-									lv_finalState_40_0=ruleUpdateStateVariable
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										set(
-											$current,
-											"finalState",
-											lv_finalState_40_0,
-											"su.nsk.iae.rpl.RPL.UpdateStateVariable");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)|
-		(
-			{getUnorderedGroupHelper().canSelect(grammarAccess.getLemmaAccess().getUnorderedGroup(), 7)}?=>(
-				{
-					getUnorderedGroupHelper().select(grammarAccess.getLemmaAccess().getUnorderedGroup(), 7);
-				}
-							({true}?=>(otherlv_41='premise'
-							{
-								newLeafNode(otherlv_41, grammarAccess.getLemmaAccess().getPremiseKeyword_7_0());
-							}
-							(
-								(
-									{
-										newCompositeNode(grammarAccess.getLemmaAccess().getPremLemmaPremiseFormulaParserRuleCall_7_1_0());
-									}
-									lv_prem_42_0=ruleLemmaPremiseFormula
-									{
-										if ($current==null) {
-											$current = createModelElementForParent(grammarAccess.getLemmaRule());
-										}
-										set(
-											$current,
-											"prem",
-											lv_prem_42_0,
-											"su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
-										afterParserOrEnumRuleCall();
-									}
-								)
-							)
-							otherlv_43='}'
-							{
-								newLeafNode(otherlv_43, grammarAccess.getLemmaAccess().getRightCurlyBracketKeyword_7_2());
-							}
-							otherlv_44=';'
-							{
-								newLeafNode(otherlv_44, grammarAccess.getLemmaAccess().getSemicolonKeyword_7_3());
-							}
-							))
-				{ 
-					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLemmaAccess().getUnorderedGroup());
-				}
-			)
-		)
-				)+
-				{getUnorderedGroupHelper().canLeave(grammarAccess.getLemmaAccess().getUnorderedGroup())}?
-			)
-		)
-			{ 
-			  getUnorderedGroupHelper().leave(grammarAccess.getLemmaAccess().getUnorderedGroup());
+			otherlv_8='fun'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getLemmaAccess().getFunKeyword_4_0());
 			}
+			otherlv_9=':'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getLemmaAccess().getColonKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_4_2_0());
+					}
+					lv_fnVars_10_0=ruleFunctionalParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						add(
+							$current,
+							"fnVars",
+							lv_fnVars_10_0,
+							"su.nsk.iae.rpl.RPL.FunctionalParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_11=','
+				{
+					newLeafNode(otherlv_11, grammarAccess.getLemmaAccess().getCommaKeyword_4_3_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLemmaAccess().getFnVarsFunctionalParameterParserRuleCall_4_3_1_0());
+						}
+						lv_fnVars_12_0=ruleFunctionalParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLemmaRule());
+							}
+							add(
+								$current,
+								"fnVars",
+								lv_fnVars_12_0,
+								"su.nsk.iae.rpl.RPL.FunctionalParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_13='simple'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getLemmaAccess().getSimpleKeyword_5_0());
+			}
+			otherlv_14='formulas'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getLemmaAccess().getFormulasKeyword_5_1());
+			}
+			otherlv_15=':'
+			{
+				newLeafNode(otherlv_15, grammarAccess.getLemmaAccess().getColonKeyword_5_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_3_0());
+					}
+					lv_simpleFmVars_16_0=ruleSimpleFormulaParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						add(
+							$current,
+							"simpleFmVars",
+							lv_simpleFmVars_16_0,
+							"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_17=','
+				{
+					newLeafNode(otherlv_17, grammarAccess.getLemmaAccess().getCommaKeyword_5_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLemmaAccess().getSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_4_1_0());
+						}
+						lv_simpleFmVars_18_0=ruleSimpleFormulaParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLemmaRule());
+							}
+							add(
+								$current,
+								"simpleFmVars",
+								lv_simpleFmVars_18_0,
+								"su.nsk.iae.rpl.RPL.SimpleFormulaParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_19='extra'
+			{
+				newLeafNode(otherlv_19, grammarAccess.getLemmaAccess().getExtraKeyword_6_0());
+			}
+			otherlv_20='invariant'
+			{
+				newLeafNode(otherlv_20, grammarAccess.getLemmaAccess().getInvariantKeyword_6_1());
+			}
+			otherlv_21='formulas'
+			{
+				newLeafNode(otherlv_21, grammarAccess.getLemmaAccess().getFormulasKeyword_6_2());
+			}
+			otherlv_22=':'
+			{
+				newLeafNode(otherlv_22, grammarAccess.getLemmaAccess().getColonKeyword_6_3());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsRegularFormulaParameterParserRuleCall_6_4_0());
+					}
+					lv_ifmVars_23_0=ruleRegularFormulaParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						add(
+							$current,
+							"ifmVars",
+							lv_ifmVars_23_0,
+							"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_24=','
+				{
+					newLeafNode(otherlv_24, grammarAccess.getLemmaAccess().getCommaKeyword_6_5_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLemmaAccess().getIfmVarsRegularFormulaParameterParserRuleCall_6_5_1_0());
+						}
+						lv_ifmVars_25_0=ruleRegularFormulaParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLemmaRule());
+							}
+							add(
+								$current,
+								"ifmVars",
+								lv_ifmVars_25_0,
+								"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_26='requirement'
+			{
+				newLeafNode(otherlv_26, grammarAccess.getLemmaAccess().getRequirementKeyword_7_0());
+			}
+			otherlv_27='formulas'
+			{
+				newLeafNode(otherlv_27, grammarAccess.getLemmaAccess().getFormulasKeyword_7_1());
+			}
+			otherlv_28=':'
+			{
+				newLeafNode(otherlv_28, grammarAccess.getLemmaAccess().getColonKeyword_7_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsRegularFormulaParameterParserRuleCall_7_3_0());
+					}
+					lv_rfmVars_29_0=ruleRegularFormulaParameter
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						add(
+							$current,
+							"rfmVars",
+							lv_rfmVars_29_0,
+							"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_30=','
+				{
+					newLeafNode(otherlv_30, grammarAccess.getLemmaAccess().getCommaKeyword_7_4_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLemmaAccess().getRfmVarsRegularFormulaParameterParserRuleCall_7_4_1_0());
+						}
+						lv_rfmVars_31_0=ruleRegularFormulaParameter
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLemmaRule());
+							}
+							add(
+								$current,
+								"rfmVars",
+								lv_rfmVars_31_0,
+								"su.nsk.iae.rpl.RPL.RegularFormulaParameter");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+		(
+			otherlv_32='init'
+			{
+				newLeafNode(otherlv_32, grammarAccess.getLemmaAccess().getInitKeyword_8_0());
+			}
+			otherlv_33='state'
+			{
+				newLeafNode(otherlv_33, grammarAccess.getLemmaAccess().getStateKeyword_8_1());
+			}
+			otherlv_34=':'
+			{
+				newLeafNode(otherlv_34, grammarAccess.getLemmaAccess().getColonKeyword_8_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLemmaAccess().getInitStateUpdateStateVariableParserRuleCall_8_3_0());
+					}
+					lv_initState_35_0=ruleUpdateStateVariable
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLemmaRule());
+						}
+						set(
+							$current,
+							"initState",
+							lv_initState_35_0,
+							"su.nsk.iae.rpl.RPL.UpdateStateVariable");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_36='final'
+		{
+			newLeafNode(otherlv_36, grammarAccess.getLemmaAccess().getFinalKeyword_9());
+		}
+		otherlv_37='state'
+		{
+			newLeafNode(otherlv_37, grammarAccess.getLemmaAccess().getStateKeyword_10());
+		}
+		otherlv_38=':'
+		{
+			newLeafNode(otherlv_38, grammarAccess.getLemmaAccess().getColonKeyword_11());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLemmaAccess().getFinalStateUpdateStateVariableParserRuleCall_12_0());
+				}
+				lv_finalState_39_0=ruleUpdateStateVariable
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLemmaRule());
+					}
+					set(
+						$current,
+						"finalState",
+						lv_finalState_39_0,
+						"su.nsk.iae.rpl.RPL.UpdateStateVariable");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_40='premise'
+		{
+			newLeafNode(otherlv_40, grammarAccess.getLemmaAccess().getPremiseKeyword_13());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLemmaAccess().getPremLemmaPremiseFormulaParserRuleCall_14_0());
+				}
+				lv_prem_41_0=ruleLemmaPremiseFormula
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLemmaRule());
+					}
+					set(
+						$current,
+						"prem",
+						lv_prem_41_0,
+						"su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_42='}'
+		{
+			newLeafNode(otherlv_42, grammarAccess.getLemmaAccess().getRightCurlyBracketKeyword_15());
+		}
+		otherlv_43=';'
+		{
+			newLeafNode(otherlv_43, grammarAccess.getLemmaAccess().getSemicolonKeyword_16());
+		}
 	)
 ;
 

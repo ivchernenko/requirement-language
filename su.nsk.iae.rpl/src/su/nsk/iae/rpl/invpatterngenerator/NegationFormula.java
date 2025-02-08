@@ -23,7 +23,7 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 	}
 
 	@Override
-	public NegationFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public NegationFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		return new NegationFormula(formula.replaceStates(substitution));
 	}
 

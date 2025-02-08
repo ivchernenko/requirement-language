@@ -7,7 +7,7 @@ Model:
 	(elements+=Element)*;
 	
 Import:
-	"import" importURI=STRING ";";
+	"import" importURI=STRING ("from" session=STRING)?  ";";
 	
 Element:
 	VarDeclaration | DerivedRequirementPattern | FutureRequirementPattern | PastRequirementPattern | 
@@ -269,13 +269,13 @@ DerivedLemmas:
 	{DerivedLemmas} ("lemmas" "{" (("LS8" L8=Lemma)? & ("LS9" L9=Lemma)?) "}");
 Lemma:
 	"lemma" name=ID "{"
-	("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
-	("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-	("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
-   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
-   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
-   ("init" "state" ":" initState=UpdateStateVariable)? &
-   "final" "state" ":" finalState=UpdateStateVariable &
+	("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? 
+	("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? 
+	("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? 
+   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? 
+   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? 
+   ("init" "state" ":" initState=UpdateStateVariable)? 
+   "final" "state" ":" finalState=UpdateStateVariable 
    "premise" prem=LemmaPremiseFormula "}" ";";
            	
  /* ======================= Formulas in lemma premises ======================= */

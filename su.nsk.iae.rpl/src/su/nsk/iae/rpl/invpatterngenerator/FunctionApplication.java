@@ -41,8 +41,8 @@ public class FunctionApplication extends Term {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
-		UpdateStateVariable newState = substitution.getOrDefault(state, state);
+	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
+		UpdateStateVariable newState = substitution.getOrDefault(state.getName(), state);
 		return new FunctionApplication(fnParam, newState);
 	}
 	

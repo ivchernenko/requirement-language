@@ -8,7 +8,7 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 public interface InnerRequirementFormula extends Formula {
 
 	@Override
-	InnerRequirementFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
+	InnerRequirementFormula replaceStates(Map<String, UpdateStateVariable> substitution);
 
 	@Override
 	InnerRequirementFormula applyToStates(List<UpdateStateVariable> states);

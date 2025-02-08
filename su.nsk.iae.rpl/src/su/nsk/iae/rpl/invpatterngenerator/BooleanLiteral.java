@@ -40,7 +40,7 @@ public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	}
 
 	@Override
-	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		return this;
 	}
 

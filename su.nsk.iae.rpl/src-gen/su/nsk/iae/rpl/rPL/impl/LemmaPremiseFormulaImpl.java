@@ -271,8 +271,8 @@ public class LemmaPremiseFormulaImpl extends MinimalEObjectImpl.Container implem
   }
 
 @Override
-public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, ParameterValueMap params) {
-	return instCreator.substituteParams(this, params);
+public LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator creator, ParameterValueMap l8Params) {
+	return creator.substituteParams(this, l8Params);
 }
 
 } //LemmaPremiseFormulaImpl

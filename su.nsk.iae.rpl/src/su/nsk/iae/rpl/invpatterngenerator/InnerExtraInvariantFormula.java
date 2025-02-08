@@ -22,7 +22,7 @@ public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
 	
 
 	@Override
-	InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
+	InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution);
 
 	@Override
 	InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states);

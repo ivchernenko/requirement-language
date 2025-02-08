@@ -44,7 +44,7 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 		return new ArrayList<>();
 	}
 	@Override
-	public PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		PatternFreeInnerFormula transformedLeft = left.replaceStates(substitution);
 		PatternFreeInnerFormula transformedRight = right.replaceStates(substitution);
 		return new BooleanPatternFreeFormula(operator, transformedLeft, transformedRight);

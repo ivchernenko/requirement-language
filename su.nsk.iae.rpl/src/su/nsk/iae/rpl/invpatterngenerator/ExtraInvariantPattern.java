@@ -23,10 +23,10 @@ public class ExtraInvariantPattern {
 	List<RegularFormulaParameter> regFmParams;
 	OuterExtraInvariantFormula definition;
 	UpdateStateVariable state;
-	public ExtraInvariantPattern(String reqPatternName, List<ConstantParameter> cParams, List<FunctionalParameter> fnParams,
+	public ExtraInvariantPattern(String einvPatternName, List<ConstantParameter> cParams, List<FunctionalParameter> fnParams,
 			List<SimpleFormulaParameter> simpleFmParams, List<RegularFormulaParameter> regFmParams,
 			OuterExtraInvariantFormula definition) {
-		name = reqPatternName + "_inv";
+		name = einvPatternName;
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.simpleFmParams = simpleFmParams;

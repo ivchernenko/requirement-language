@@ -33,7 +33,7 @@ public class NumericConstant extends Term {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		return this;
 	}
 	
@@ -59,6 +59,4 @@ public class NumericConstant extends Term {
 		term.setConst(constant);
 		return term;
 	}
-
-	
 }

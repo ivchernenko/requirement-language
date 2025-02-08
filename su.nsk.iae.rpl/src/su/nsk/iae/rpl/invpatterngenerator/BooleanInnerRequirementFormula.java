@@ -26,7 +26,7 @@ public class BooleanInnerRequirementFormula implements InnerRequirementFormula {
 		return right;
 	}
 	@Override
-	public InnerRequirementFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public InnerRequirementFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		InnerRequirementFormula transformedLeft = left.replaceStates(substitution);
 		InnerRequirementFormula transformedRight = right.replaceStates(substitution);
 		return new BooleanInnerRequirementFormula(operator, transformedLeft, transformedRight);

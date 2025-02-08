@@ -72,6 +72,6 @@ public interface LemmaPremiseFormula extends EObject
    */
   void setRight(LemmaPremiseFormula value);
 
-LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator instCreator, ParameterValueMap params);
+LemmaPremise substitiuteParams(LemmaPremiseInstanceCreator creator, ParameterValueMap l8Params);
 
 } // LemmaPremiseFormula

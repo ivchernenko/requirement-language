@@ -6,8 +6,7 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public interface Formula {
-	Formula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
+	Formula replaceStates(Map<String, UpdateStateVariable> substitution);
 	Formula applyToStates(List<UpdateStateVariable> states);
 	List<String> getUsedPatternNames();
-	
 }

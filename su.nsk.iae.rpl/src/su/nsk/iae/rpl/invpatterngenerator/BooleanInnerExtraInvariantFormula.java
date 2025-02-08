@@ -36,7 +36,7 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 		return extraConjs;
 	}
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		InnerExtraInvariantFormula rLeft = left.replaceStates(substitution);
 		InnerExtraInvariantFormula rRight = right.replaceStates(substitution);
 		return new BooleanInnerExtraInvariantFormula(operator, rLeft, rRight);

@@ -28,11 +28,13 @@ public class ConjunctionInnerFormulaImpl extends InnerFormulaImpl implements Con
   {
     super();
   }
+  
 
   @Override
 public <T extends Formula> T generateFormula(InnerFormulaGenerator<T> generator) {
 	return generator.generateInnerFormula(this);
 }
+
 
 /**
    * <!-- begin-user-doc -->

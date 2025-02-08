@@ -7,7 +7,6 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
-import su.nsk.iae.rpl.rPL.PatternFreeFormulaParameterValue;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -18,8 +17,8 @@ public class ParameterValueMap {
 	final Map<String, FormulaParameterValue> simpleFmParams;
 	final Map<String, FormulaParameterValue> regFmParams;
 	final FunctionalParameter boolParam;
-	final Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution;
-	public Map<UpdateStateVariable, UpdateStateVariable> getStateSubstitution() {
+	final Map<String, UpdateStateVariable> stateSubstitution;
+	public Map<String, UpdateStateVariable> getStateSubstitution() {
 		return stateSubstitution;
 	}
 
@@ -28,7 +27,7 @@ public class ParameterValueMap {
 			Map<String, FormulaParameterValue> simpleFmParams,
 			Map<String, FormulaParameterValue> regFmParams,
 			FunctionalParameter boolParam,
-			Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution) {
+			Map<String, UpdateStateVariable> stateSubstitution) {
 		super();
 		this.cParams = cParams;
 		this.fnParams = fnParams;
@@ -37,7 +36,7 @@ public class ParameterValueMap {
 		this.boolParam = boolParam;
 		this.stateSubstitution = stateSubstitution;
 	}
-	
+
 	public  ParameterValueMap(
 			Lemma lemma,
 			List<Term> cParamValues,
@@ -70,10 +69,12 @@ public class ParameterValueMap {
 			regFmParams.put(reqFmVars.get(i).getName(), reqFmParamValues.get(i));
 		this.boolParam = boolParam;
 		stateSubstitution = new HashMap<>();
-		stateSubstitution.put(lemma.getInitState(), initState);
-		stateSubstitution.put(lemma.getFinalState(), finState);
+		UpdateStateVariable lemmaInitState = lemma.getInitState();
+		if (lemmaInitState != null)
+			stateSubstitution.put(lemmaInitState.getName(), initState);
+		stateSubstitution.put(lemma.getFinalState().getName(), finState);
 	}
-	
+
 	public Map<String, Term> getcParams() {
 		return cParams;
 	}
@@ -89,6 +90,4 @@ public class ParameterValueMap {
 	public FunctionalParameter getBoolParam() {
 		return boolParam;
 	}
-	
-	
 }

@@ -22,6 +22,7 @@ import su.nsk.iae.rpl.rPL.RPLPackage;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.rpl.rPL.impl.ImportImpl#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link su.nsk.iae.rpl.rPL.impl.ImportImpl#getSession <em>Session</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +48,26 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * @ordered
    */
   protected String importURI = IMPORT_URI_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSession() <em>Session</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSession()
+   * @generated
+   * @ordered
+   */
+  protected static final String SESSION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSession() <em>Session</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSession()
+   * @generated
+   * @ordered
+   */
+  protected String session = SESSION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +121,39 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * @generated
    */
   @Override
+  public String getSession()
+  {
+    return session;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSession(String newSession)
+  {
+    String oldSession = session;
+    session = newSession;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RPLPackage.IMPORT__SESSION, oldSession, session));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case RPLPackage.IMPORT__IMPORT_URI:
         return getImportURI();
+      case RPLPackage.IMPORT__SESSION:
+        return getSession();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +170,9 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     {
       case RPLPackage.IMPORT__IMPORT_URI:
         setImportURI((String)newValue);
+        return;
+      case RPLPackage.IMPORT__SESSION:
+        setSession((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +191,9 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
       case RPLPackage.IMPORT__IMPORT_URI:
         setImportURI(IMPORT_URI_EDEFAULT);
         return;
+      case RPLPackage.IMPORT__SESSION:
+        setSession(SESSION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +210,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     {
       case RPLPackage.IMPORT__IMPORT_URI:
         return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
+      case RPLPackage.IMPORT__SESSION:
+        return SESSION_EDEFAULT == null ? session != null : !SESSION_EDEFAULT.equals(session);
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +229,8 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (importURI: ");
     result.append(importURI);
+    result.append(", session: ");
+    result.append(session);
     result.append(')');
     return result.toString();
   }

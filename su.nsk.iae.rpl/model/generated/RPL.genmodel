@@ -34,6 +34,7 @@
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Import/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RPL.ecore#//Import/session"/>
     </genClasses>
     <genClasses ecoreClass="RPL.ecore#//Element"/>
     <genClasses ecoreClass="RPL.ecore#//BasicRequirementPattern"/>

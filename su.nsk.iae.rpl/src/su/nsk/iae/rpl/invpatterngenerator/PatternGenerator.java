@@ -40,6 +40,6 @@ public class PatternGenerator {
 		OuterExtraInvariantFormulaGenerator generator = new OuterExtraInvariantFormulaGenerator(regParamMapping);
 		OuterExtraInvariantFormula definition = reqPattern.getDefinition().generateFormula(generator);
 		List<FunctionalParameter> fnParams = generator.getFnParamList().params;
-		return new ExtraInvariantPattern(reqPattern.getName(), cParams, fnParams, simpleFmParams, regFmParams, definition);
+		return new ExtraInvariantPattern(reqPattern.getName() + "_inv", cParams, fnParams, simpleFmParams, regFmParams, definition);
 	}
 }

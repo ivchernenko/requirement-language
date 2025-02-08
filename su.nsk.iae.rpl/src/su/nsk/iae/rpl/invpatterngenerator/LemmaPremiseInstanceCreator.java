@@ -64,7 +64,7 @@ public class LemmaPremiseInstanceCreator {
 			AtomicFormula originalRight = alwaysImp.getRight().getFormula().getRight();
 			FormulaParameterValue instantiatedRight = substituteParams(originalRight, params);
 			UpdateStateVariable state = alwaysImp.getState();
-			state = params.getStateSubstitution().getOrDefault(state, state);
+			state = params.getStateSubstitution().getOrDefault(state.getName(), state);
 			return new GeneralizedAlwaysImplication(state, instantiatedLeft, instantiatedRight);
 		}
 		else if (premise.getInst() != null) {
@@ -95,11 +95,11 @@ public class LemmaPremiseInstanceCreator {
 			List<UpdateStateVariable> args = atomic.getStates();
 			Formula formula = value.getFormula();
 			int i;
-			Map<UpdateStateVariable, UpdateStateVariable> substitution = new HashMap<>();
+			Map<String, UpdateStateVariable> substitution = new HashMap<>();
 			for (i = 0; i < lambdaBound.size(); i++) {
 				if (i >= args.size())
 					resultLambdaBound.add(lambdaBound.get(i));
-				else substitution.put(lambdaBound.get(i), args.get(i));
+				else substitution.put(lambdaBound.get(i).getName(), args.get(i));
 
 			}
 			formula = formula.replaceStates(substitution);

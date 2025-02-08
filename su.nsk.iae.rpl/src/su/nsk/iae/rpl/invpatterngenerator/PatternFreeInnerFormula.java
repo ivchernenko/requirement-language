@@ -8,7 +8,7 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 public interface PatternFreeInnerFormula extends InnerRequirementFormula, InnerExtraInvariantFormula {
 
 	@Override
-	PatternFreeInnerFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution);
+	PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution);
 
 	@Override
 	PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states);

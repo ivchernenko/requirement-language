@@ -94,7 +94,8 @@ public class Main {
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
 					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
-					RequirementPattern particularReqPattern = reqPattern.generateParticularPattern(name + "_part");
+					RequirementPattern particularReqPattern = reqPattern
+							.generateParticularPattern(reqPattern.getName() + "_part");
 					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
 					ExtraInvariantPattern particularEinvPattern =einvPattern
 							.generateParticularPattern(einvPattern.getName() + "_part", reqPattern.getRegFmParams());

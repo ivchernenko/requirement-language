@@ -30,7 +30,7 @@ public class NegationTerm extends Term {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		Term newTerm = (Term) term.replaceStates(substitution);
 		return new NegationTerm(newTerm);
 	}

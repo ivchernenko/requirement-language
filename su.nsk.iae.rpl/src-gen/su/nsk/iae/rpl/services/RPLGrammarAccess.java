@@ -62,13 +62,17 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cFromKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSessionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSessionSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cSessionAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Import:
-		//    "import" importURI=STRING ";";
+		//    "import" importURI=STRING ("from" session=STRING)?  ";";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"import" importURI=STRING ";"
+		//"import" importURI=STRING ("from" session=STRING)?  ";"
 		public Group getGroup() { return cGroup; }
 		
 		//"import"
@@ -80,8 +84,20 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//STRING
 		public RuleCall getImportURISTRINGTerminalRuleCall_1_0() { return cImportURISTRINGTerminalRuleCall_1_0; }
 		
+		//("from" session=STRING)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//"from"
+		public Keyword getFromKeyword_2_0() { return cFromKeyword_2_0; }
+		
+		//session=STRING
+		public Assignment getSessionAssignment_2_1() { return cSessionAssignment_2_1; }
+		
+		//STRING
+		public RuleCall getSessionSTRINGTerminalRuleCall_2_1_0() { return cSessionSTRINGTerminalRuleCall_2_1_0; }
+		
 		//";"
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.Element");
@@ -3215,319 +3231,306 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	public class LemmaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.Lemma");
-		private final UnorderedGroup cUnorderedGroup = (UnorderedGroup)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cUnorderedGroup.eContents().get(0);
-		private final Keyword cLemmaKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
-		private final Keyword cConstKeyword_0_3_0 = (Keyword)cGroup_0_3.eContents().get(0);
-		private final Keyword cColonKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
-		private final Assignment cCVarsAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
-		private final RuleCall cCVarsConstantParameterParserRuleCall_0_3_2_0 = (RuleCall)cCVarsAssignment_0_3_2.eContents().get(0);
-		private final Group cGroup_0_3_3 = (Group)cGroup_0_3.eContents().get(3);
-		private final Keyword cCommaKeyword_0_3_3_0 = (Keyword)cGroup_0_3_3.eContents().get(0);
-		private final Assignment cCVarsAssignment_0_3_3_1 = (Assignment)cGroup_0_3_3.eContents().get(1);
-		private final RuleCall cCVarsConstantParameterParserRuleCall_0_3_3_1_0 = (RuleCall)cCVarsAssignment_0_3_3_1.eContents().get(0);
-		private final Group cGroup_1 = (Group)cUnorderedGroup.eContents().get(1);
-		private final Keyword cFunKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cFnVarsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cFnVarsFunctionalParameterParserRuleCall_1_2_0 = (RuleCall)cFnVarsAssignment_1_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
-		private final Keyword cCommaKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cFnVarsAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cFnVarsFunctionalParameterParserRuleCall_1_3_1_0 = (RuleCall)cFnVarsAssignment_1_3_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cUnorderedGroup.eContents().get(2);
-		private final Keyword cSimpleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cFormulasKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Keyword cColonKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Assignment cSimpleFmVarsAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
-		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0 = (RuleCall)cSimpleFmVarsAssignment_2_3.eContents().get(0);
-		private final Group cGroup_2_4 = (Group)cGroup_2.eContents().get(4);
-		private final Keyword cCommaKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
-		private final Assignment cSimpleFmVarsAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
-		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0 = (RuleCall)cSimpleFmVarsAssignment_2_4_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cUnorderedGroup.eContents().get(3);
-		private final Keyword cExtraKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cInvariantKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Keyword cFormulasKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Keyword cColonKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Assignment cIfmVarsAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
-		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_3_4_0 = (RuleCall)cIfmVarsAssignment_3_4.eContents().get(0);
-		private final Group cGroup_3_5 = (Group)cGroup_3.eContents().get(5);
-		private final Keyword cCommaKeyword_3_5_0 = (Keyword)cGroup_3_5.eContents().get(0);
-		private final Assignment cIfmVarsAssignment_3_5_1 = (Assignment)cGroup_3_5.eContents().get(1);
-		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0 = (RuleCall)cIfmVarsAssignment_3_5_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cUnorderedGroup.eContents().get(4);
-		private final Keyword cRequirementKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cFormulasKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Keyword cColonKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cRfmVarsAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_4_3_0 = (RuleCall)cRfmVarsAssignment_4_3.eContents().get(0);
-		private final Group cGroup_4_4 = (Group)cGroup_4.eContents().get(4);
-		private final Keyword cCommaKeyword_4_4_0 = (Keyword)cGroup_4_4.eContents().get(0);
-		private final Assignment cRfmVarsAssignment_4_4_1 = (Assignment)cGroup_4_4.eContents().get(1);
-		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0 = (RuleCall)cRfmVarsAssignment_4_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cUnorderedGroup.eContents().get(5);
-		private final Keyword cInitKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cStateKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLemmaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cConstKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cCVarsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cCVarsConstantParameterParserRuleCall_3_2_0 = (RuleCall)cCVarsAssignment_3_2.eContents().get(0);
+		private final Group cGroup_3_3 = (Group)cGroup_3.eContents().get(3);
+		private final Keyword cCommaKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
+		private final Assignment cCVarsAssignment_3_3_1 = (Assignment)cGroup_3_3.eContents().get(1);
+		private final RuleCall cCVarsConstantParameterParserRuleCall_3_3_1_0 = (RuleCall)cCVarsAssignment_3_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFunKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cFnVarsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cFnVarsFunctionalParameterParserRuleCall_4_2_0 = (RuleCall)cFnVarsAssignment_4_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cFnVarsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cFnVarsFunctionalParameterParserRuleCall_4_3_1_0 = (RuleCall)cFnVarsAssignment_4_3_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cSimpleKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cFormulasKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		private final Keyword cColonKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Assignment cInitStateAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
-		private final RuleCall cInitStateUpdateStateVariableParserRuleCall_5_3_0 = (RuleCall)cInitStateAssignment_5_3.eContents().get(0);
-		private final Group cGroup_6 = (Group)cUnorderedGroup.eContents().get(6);
-		private final Keyword cFinalKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cStateKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Keyword cColonKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cFinalStateAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cFinalStateUpdateStateVariableParserRuleCall_6_3_0 = (RuleCall)cFinalStateAssignment_6_3.eContents().get(0);
-		private final Group cGroup_7 = (Group)cUnorderedGroup.eContents().get(7);
-		private final Keyword cPremiseKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPremAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPremLemmaPremiseFormulaParserRuleCall_7_1_0 = (RuleCall)cPremAssignment_7_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
-		private final Keyword cSemicolonKeyword_7_3 = (Keyword)cGroup_7.eContents().get(3);
+		private final Assignment cSimpleFmVarsAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_3_0 = (RuleCall)cSimpleFmVarsAssignment_5_3.eContents().get(0);
+		private final Group cGroup_5_4 = (Group)cGroup_5.eContents().get(4);
+		private final Keyword cCommaKeyword_5_4_0 = (Keyword)cGroup_5_4.eContents().get(0);
+		private final Assignment cSimpleFmVarsAssignment_5_4_1 = (Assignment)cGroup_5_4.eContents().get(1);
+		private final RuleCall cSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_4_1_0 = (RuleCall)cSimpleFmVarsAssignment_5_4_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cExtraKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cInvariantKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cFormulasKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Keyword cColonKeyword_6_3 = (Keyword)cGroup_6.eContents().get(3);
+		private final Assignment cIfmVarsAssignment_6_4 = (Assignment)cGroup_6.eContents().get(4);
+		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_6_4_0 = (RuleCall)cIfmVarsAssignment_6_4.eContents().get(0);
+		private final Group cGroup_6_5 = (Group)cGroup_6.eContents().get(5);
+		private final Keyword cCommaKeyword_6_5_0 = (Keyword)cGroup_6_5.eContents().get(0);
+		private final Assignment cIfmVarsAssignment_6_5_1 = (Assignment)cGroup_6_5.eContents().get(1);
+		private final RuleCall cIfmVarsRegularFormulaParameterParserRuleCall_6_5_1_0 = (RuleCall)cIfmVarsAssignment_6_5_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cRequirementKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cFormulasKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Keyword cColonKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cRfmVarsAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_7_3_0 = (RuleCall)cRfmVarsAssignment_7_3.eContents().get(0);
+		private final Group cGroup_7_4 = (Group)cGroup_7.eContents().get(4);
+		private final Keyword cCommaKeyword_7_4_0 = (Keyword)cGroup_7_4.eContents().get(0);
+		private final Assignment cRfmVarsAssignment_7_4_1 = (Assignment)cGroup_7_4.eContents().get(1);
+		private final RuleCall cRfmVarsRegularFormulaParameterParserRuleCall_7_4_1_0 = (RuleCall)cRfmVarsAssignment_7_4_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cInitKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cStateKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Keyword cColonKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
+		private final Assignment cInitStateAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
+		private final RuleCall cInitStateUpdateStateVariableParserRuleCall_8_3_0 = (RuleCall)cInitStateAssignment_8_3.eContents().get(0);
+		private final Keyword cFinalKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cStateKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cColonKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cFinalStateAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cFinalStateUpdateStateVariableParserRuleCall_12_0 = (RuleCall)cFinalStateAssignment_12.eContents().get(0);
+		private final Keyword cPremiseKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cPremAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cPremLemmaPremiseFormulaParserRuleCall_14_0 = (RuleCall)cPremAssignment_14.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cSemicolonKeyword_16 = (Keyword)cGroup.eContents().get(16);
 		
 		//Lemma:
 		//    "lemma" name=ID "{"
-		//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
-		//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-		//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
-		//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
-		//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
-		//   ("init" "state" ":" initState=UpdateStateVariable)? &
-		//   "final" "state" ":" finalState=UpdateStateVariable &
+		//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
+		//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
+		//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
+		//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
+		//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
+		//   ("init" "state" ":" initState=UpdateStateVariable)?
+		//   "final" "state" ":" finalState=UpdateStateVariable
 		//   "premise" prem=LemmaPremiseFormula "}" ";";
 		@Override public ParserRule getRule() { return rule; }
 		
 		// "lemma" name=ID "{"
-		// ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
-		// ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-		// ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
-		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
-		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
-		//("init" "state" ":" initState=UpdateStateVariable)? &
-		//"final" "state" ":" finalState=UpdateStateVariable &
+		// ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
+		// ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
+		// ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
+		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
+		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
+		//("init" "state" ":" initState=UpdateStateVariable)?
+		//"final" "state" ":" finalState=UpdateStateVariable
 		//"premise" prem=LemmaPremiseFormula "}" ";"
-		public UnorderedGroup getUnorderedGroup() { return cUnorderedGroup; }
-		
-		//"lemma" name=ID "{"
-		//("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
-		public Group getGroup_0() { return cGroup_0; }
+		public Group getGroup() { return cGroup; }
 		
 		//"lemma"
-		public Keyword getLemmaKeyword_0_0() { return cLemmaKeyword_0_0; }
+		public Keyword getLemmaKeyword_0() { return cLemmaKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_0_2() { return cLeftCurlyBracketKeyword_0_2; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
-		public Group getGroup_0_3() { return cGroup_0_3; }
-		
-		//"const"
-		public Keyword getConstKeyword_0_3_0() { return cConstKeyword_0_3_0; }
-		
-		//":"
-		public Keyword getColonKeyword_0_3_1() { return cColonKeyword_0_3_1; }
-		
-		//cVars+=ConstantParameter
-		public Assignment getCVarsAssignment_0_3_2() { return cCVarsAssignment_0_3_2; }
-		
-		//ConstantParameter
-		public RuleCall getCVarsConstantParameterParserRuleCall_0_3_2_0() { return cCVarsConstantParameterParserRuleCall_0_3_2_0; }
-		
-		//("," cVars+=ConstantParameter)*
-		public Group getGroup_0_3_3() { return cGroup_0_3_3; }
-		
-		//","
-		public Keyword getCommaKeyword_0_3_3_0() { return cCommaKeyword_0_3_3_0; }
-		
-		//cVars+=ConstantParameter
-		public Assignment getCVarsAssignment_0_3_3_1() { return cCVarsAssignment_0_3_3_1; }
-		
-		//ConstantParameter
-		public RuleCall getCVarsConstantParameterParserRuleCall_0_3_3_1_0() { return cCVarsConstantParameterParserRuleCall_0_3_3_1_0; }
-		
-		//("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//"fun"
-		public Keyword getFunKeyword_1_0() { return cFunKeyword_1_0; }
-		
-		//":"
-		public Keyword getColonKeyword_1_1() { return cColonKeyword_1_1; }
-		
-		//fnVars+=FunctionalParameter
-		public Assignment getFnVarsAssignment_1_2() { return cFnVarsAssignment_1_2; }
-		
-		//FunctionalParameter
-		public RuleCall getFnVarsFunctionalParameterParserRuleCall_1_2_0() { return cFnVarsFunctionalParameterParserRuleCall_1_2_0; }
-		
-		//("," fnVars+=FunctionalParameter)*
-		public Group getGroup_1_3() { return cGroup_1_3; }
-		
-		//","
-		public Keyword getCommaKeyword_1_3_0() { return cCommaKeyword_1_3_0; }
-		
-		//fnVars+=FunctionalParameter
-		public Assignment getFnVarsAssignment_1_3_1() { return cFnVarsAssignment_1_3_1; }
-		
-		//FunctionalParameter
-		public RuleCall getFnVarsFunctionalParameterParserRuleCall_1_3_1_0() { return cFnVarsFunctionalParameterParserRuleCall_1_3_1_0; }
-		
-		//("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//"simple"
-		public Keyword getSimpleKeyword_2_0() { return cSimpleKeyword_2_0; }
-		
-		//"formulas"
-		public Keyword getFormulasKeyword_2_1() { return cFormulasKeyword_2_1; }
-		
-		//":"
-		public Keyword getColonKeyword_2_2() { return cColonKeyword_2_2; }
-		
-		//simpleFmVars+=SimpleFormulaParameter
-		public Assignment getSimpleFmVarsAssignment_2_3() { return cSimpleFmVarsAssignment_2_3; }
-		
-		//SimpleFormulaParameter
-		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_3_0; }
-		
-		//("," simpleFmVars+=SimpleFormulaParameter)*
-		public Group getGroup_2_4() { return cGroup_2_4; }
-		
-		//","
-		public Keyword getCommaKeyword_2_4_0() { return cCommaKeyword_2_4_0; }
-		
-		//simpleFmVars+=SimpleFormulaParameter
-		public Assignment getSimpleFmVarsAssignment_2_4_1() { return cSimpleFmVarsAssignment_2_4_1; }
-		
-		//SimpleFormulaParameter
-		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_2_4_1_0; }
-		
-		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//"extra"
-		public Keyword getExtraKeyword_3_0() { return cExtraKeyword_3_0; }
-		
-		//"invariant"
-		public Keyword getInvariantKeyword_3_1() { return cInvariantKeyword_3_1; }
-		
-		//"formulas"
-		public Keyword getFormulasKeyword_3_2() { return cFormulasKeyword_3_2; }
+		//"const"
+		public Keyword getConstKeyword_3_0() { return cConstKeyword_3_0; }
 		
 		//":"
-		public Keyword getColonKeyword_3_3() { return cColonKeyword_3_3; }
+		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
 		
-		//ifmVars+=RegularFormulaParameter
-		public Assignment getIfmVarsAssignment_3_4() { return cIfmVarsAssignment_3_4; }
+		//cVars+=ConstantParameter
+		public Assignment getCVarsAssignment_3_2() { return cCVarsAssignment_3_2; }
 		
-		//RegularFormulaParameter
-		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_3_4_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_3_4_0; }
+		//ConstantParameter
+		public RuleCall getCVarsConstantParameterParserRuleCall_3_2_0() { return cCVarsConstantParameterParserRuleCall_3_2_0; }
 		
-		//("," ifmVars+=RegularFormulaParameter)*
-		public Group getGroup_3_5() { return cGroup_3_5; }
+		//("," cVars+=ConstantParameter)*
+		public Group getGroup_3_3() { return cGroup_3_3; }
 		
 		//","
-		public Keyword getCommaKeyword_3_5_0() { return cCommaKeyword_3_5_0; }
+		public Keyword getCommaKeyword_3_3_0() { return cCommaKeyword_3_3_0; }
 		
-		//ifmVars+=RegularFormulaParameter
-		public Assignment getIfmVarsAssignment_3_5_1() { return cIfmVarsAssignment_3_5_1; }
+		//cVars+=ConstantParameter
+		public Assignment getCVarsAssignment_3_3_1() { return cCVarsAssignment_3_3_1; }
 		
-		//RegularFormulaParameter
-		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_3_5_1_0; }
+		//ConstantParameter
+		public RuleCall getCVarsConstantParameterParserRuleCall_3_3_1_0() { return cCVarsConstantParameterParserRuleCall_3_3_1_0; }
 		
-		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
+		//("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//"requirement"
-		public Keyword getRequirementKeyword_4_0() { return cRequirementKeyword_4_0; }
-		
-		//"formulas"
-		public Keyword getFormulasKeyword_4_1() { return cFormulasKeyword_4_1; }
+		//"fun"
+		public Keyword getFunKeyword_4_0() { return cFunKeyword_4_0; }
 		
 		//":"
-		public Keyword getColonKeyword_4_2() { return cColonKeyword_4_2; }
+		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
 		
-		//rfmVars+=RegularFormulaParameter
-		public Assignment getRfmVarsAssignment_4_3() { return cRfmVarsAssignment_4_3; }
+		//fnVars+=FunctionalParameter
+		public Assignment getFnVarsAssignment_4_2() { return cFnVarsAssignment_4_2; }
 		
-		//RegularFormulaParameter
-		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_4_3_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_4_3_0; }
+		//FunctionalParameter
+		public RuleCall getFnVarsFunctionalParameterParserRuleCall_4_2_0() { return cFnVarsFunctionalParameterParserRuleCall_4_2_0; }
 		
-		//("," rfmVars+=RegularFormulaParameter)*
-		public Group getGroup_4_4() { return cGroup_4_4; }
+		//("," fnVars+=FunctionalParameter)*
+		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//","
-		public Keyword getCommaKeyword_4_4_0() { return cCommaKeyword_4_4_0; }
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
 		
-		//rfmVars+=RegularFormulaParameter
-		public Assignment getRfmVarsAssignment_4_4_1() { return cRfmVarsAssignment_4_4_1; }
+		//fnVars+=FunctionalParameter
+		public Assignment getFnVarsAssignment_4_3_1() { return cFnVarsAssignment_4_3_1; }
 		
-		//RegularFormulaParameter
-		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_4_4_1_0; }
+		//FunctionalParameter
+		public RuleCall getFnVarsFunctionalParameterParserRuleCall_4_3_1_0() { return cFnVarsFunctionalParameterParserRuleCall_4_3_1_0; }
 		
-		//("init" "state" ":" initState=UpdateStateVariable)?
+		//("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//"init"
-		public Keyword getInitKeyword_5_0() { return cInitKeyword_5_0; }
+		//"simple"
+		public Keyword getSimpleKeyword_5_0() { return cSimpleKeyword_5_0; }
 		
-		//"state"
-		public Keyword getStateKeyword_5_1() { return cStateKeyword_5_1; }
+		//"formulas"
+		public Keyword getFormulasKeyword_5_1() { return cFormulasKeyword_5_1; }
 		
 		//":"
 		public Keyword getColonKeyword_5_2() { return cColonKeyword_5_2; }
 		
-		//initState=UpdateStateVariable
-		public Assignment getInitStateAssignment_5_3() { return cInitStateAssignment_5_3; }
+		//simpleFmVars+=SimpleFormulaParameter
+		public Assignment getSimpleFmVarsAssignment_5_3() { return cSimpleFmVarsAssignment_5_3; }
 		
-		//UpdateStateVariable
-		public RuleCall getInitStateUpdateStateVariableParserRuleCall_5_3_0() { return cInitStateUpdateStateVariableParserRuleCall_5_3_0; }
+		//SimpleFormulaParameter
+		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_3_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_3_0; }
 		
-		//"final" "state" ":" finalState=UpdateStateVariable
+		//("," simpleFmVars+=SimpleFormulaParameter)*
+		public Group getGroup_5_4() { return cGroup_5_4; }
+		
+		//","
+		public Keyword getCommaKeyword_5_4_0() { return cCommaKeyword_5_4_0; }
+		
+		//simpleFmVars+=SimpleFormulaParameter
+		public Assignment getSimpleFmVarsAssignment_5_4_1() { return cSimpleFmVarsAssignment_5_4_1; }
+		
+		//SimpleFormulaParameter
+		public RuleCall getSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_4_1_0() { return cSimpleFmVarsSimpleFormulaParameterParserRuleCall_5_4_1_0; }
+		
+		//("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//"final"
-		public Keyword getFinalKeyword_6_0() { return cFinalKeyword_6_0; }
+		//"extra"
+		public Keyword getExtraKeyword_6_0() { return cExtraKeyword_6_0; }
 		
-		//"state"
-		public Keyword getStateKeyword_6_1() { return cStateKeyword_6_1; }
+		//"invariant"
+		public Keyword getInvariantKeyword_6_1() { return cInvariantKeyword_6_1; }
+		
+		//"formulas"
+		public Keyword getFormulasKeyword_6_2() { return cFormulasKeyword_6_2; }
 		
 		//":"
-		public Keyword getColonKeyword_6_2() { return cColonKeyword_6_2; }
+		public Keyword getColonKeyword_6_3() { return cColonKeyword_6_3; }
 		
-		//finalState=UpdateStateVariable
-		public Assignment getFinalStateAssignment_6_3() { return cFinalStateAssignment_6_3; }
+		//ifmVars+=RegularFormulaParameter
+		public Assignment getIfmVarsAssignment_6_4() { return cIfmVarsAssignment_6_4; }
 		
-		//UpdateStateVariable
-		public RuleCall getFinalStateUpdateStateVariableParserRuleCall_6_3_0() { return cFinalStateUpdateStateVariableParserRuleCall_6_3_0; }
+		//RegularFormulaParameter
+		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_6_4_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_6_4_0; }
 		
-		//"premise" prem=LemmaPremiseFormula "}" ";"
+		//("," ifmVars+=RegularFormulaParameter)*
+		public Group getGroup_6_5() { return cGroup_6_5; }
+		
+		//","
+		public Keyword getCommaKeyword_6_5_0() { return cCommaKeyword_6_5_0; }
+		
+		//ifmVars+=RegularFormulaParameter
+		public Assignment getIfmVarsAssignment_6_5_1() { return cIfmVarsAssignment_6_5_1; }
+		
+		//RegularFormulaParameter
+		public RuleCall getIfmVarsRegularFormulaParameterParserRuleCall_6_5_1_0() { return cIfmVarsRegularFormulaParameterParserRuleCall_6_5_1_0; }
+		
+		//("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
 		public Group getGroup_7() { return cGroup_7; }
 		
+		//"requirement"
+		public Keyword getRequirementKeyword_7_0() { return cRequirementKeyword_7_0; }
+		
+		//"formulas"
+		public Keyword getFormulasKeyword_7_1() { return cFormulasKeyword_7_1; }
+		
+		//":"
+		public Keyword getColonKeyword_7_2() { return cColonKeyword_7_2; }
+		
+		//rfmVars+=RegularFormulaParameter
+		public Assignment getRfmVarsAssignment_7_3() { return cRfmVarsAssignment_7_3; }
+		
+		//RegularFormulaParameter
+		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_7_3_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_7_3_0; }
+		
+		//("," rfmVars+=RegularFormulaParameter)*
+		public Group getGroup_7_4() { return cGroup_7_4; }
+		
+		//","
+		public Keyword getCommaKeyword_7_4_0() { return cCommaKeyword_7_4_0; }
+		
+		//rfmVars+=RegularFormulaParameter
+		public Assignment getRfmVarsAssignment_7_4_1() { return cRfmVarsAssignment_7_4_1; }
+		
+		//RegularFormulaParameter
+		public RuleCall getRfmVarsRegularFormulaParameterParserRuleCall_7_4_1_0() { return cRfmVarsRegularFormulaParameterParserRuleCall_7_4_1_0; }
+		
+		//("init" "state" ":" initState=UpdateStateVariable)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//"init"
+		public Keyword getInitKeyword_8_0() { return cInitKeyword_8_0; }
+		
+		//"state"
+		public Keyword getStateKeyword_8_1() { return cStateKeyword_8_1; }
+		
+		//":"
+		public Keyword getColonKeyword_8_2() { return cColonKeyword_8_2; }
+		
+		//initState=UpdateStateVariable
+		public Assignment getInitStateAssignment_8_3() { return cInitStateAssignment_8_3; }
+		
+		//UpdateStateVariable
+		public RuleCall getInitStateUpdateStateVariableParserRuleCall_8_3_0() { return cInitStateUpdateStateVariableParserRuleCall_8_3_0; }
+		
+		//"final"
+		public Keyword getFinalKeyword_9() { return cFinalKeyword_9; }
+		
+		//"state"
+		public Keyword getStateKeyword_10() { return cStateKeyword_10; }
+		
+		//":"
+		public Keyword getColonKeyword_11() { return cColonKeyword_11; }
+		
+		//finalState=UpdateStateVariable
+		public Assignment getFinalStateAssignment_12() { return cFinalStateAssignment_12; }
+		
+		//UpdateStateVariable
+		public RuleCall getFinalStateUpdateStateVariableParserRuleCall_12_0() { return cFinalStateUpdateStateVariableParserRuleCall_12_0; }
+		
 		//"premise"
-		public Keyword getPremiseKeyword_7_0() { return cPremiseKeyword_7_0; }
+		public Keyword getPremiseKeyword_13() { return cPremiseKeyword_13; }
 		
 		//prem=LemmaPremiseFormula
-		public Assignment getPremAssignment_7_1() { return cPremAssignment_7_1; }
+		public Assignment getPremAssignment_14() { return cPremAssignment_14; }
 		
 		//LemmaPremiseFormula
-		public RuleCall getPremLemmaPremiseFormulaParserRuleCall_7_1_0() { return cPremLemmaPremiseFormulaParserRuleCall_7_1_0; }
+		public RuleCall getPremLemmaPremiseFormulaParserRuleCall_14_0() { return cPremLemmaPremiseFormulaParserRuleCall_14_0; }
 		
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7_2() { return cRightCurlyBracketKeyword_7_2; }
+		public Keyword getRightCurlyBracketKeyword_15() { return cRightCurlyBracketKeyword_15; }
 		
 		//";"
-		public Keyword getSemicolonKeyword_7_3() { return cSemicolonKeyword_7_3; }
+		public Keyword getSemicolonKeyword_16() { return cSemicolonKeyword_16; }
 	}
 	public class LemmaPremiseFormulaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "su.nsk.iae.rpl.RPL.LemmaPremiseFormula");
@@ -4327,7 +4330,7 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Import:
-	//    "import" importURI=STRING ";";
+	//    "import" importURI=STRING ("from" session=STRING)?  ";";
 	public ImportElements getImportAccess() {
 		return pImport;
 	}
@@ -5039,13 +5042,13 @@ public class RPLGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//Lemma:
 	//    "lemma" name=ID "{"
-	//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)? &
-	//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)? &
-	//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)? &
-	//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)? &
-	//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)? &
-	//   ("init" "state" ":" initState=UpdateStateVariable)? &
-	//   "final" "state" ":" finalState=UpdateStateVariable &
+	//    ("const" ":" cVars+=ConstantParameter ("," cVars+=ConstantParameter)*)?
+	//    ("fun" ":" fnVars+=FunctionalParameter ("," fnVars+=FunctionalParameter)*)?
+	//    ("simple" "formulas" ":" simpleFmVars+=SimpleFormulaParameter ("," simpleFmVars+=SimpleFormulaParameter)*)?
+	//   ("extra" "invariant" "formulas" ":" ifmVars+=RegularFormulaParameter ("," ifmVars+=RegularFormulaParameter)*)?
+	//   ("requirement" "formulas" ":" rfmVars+=RegularFormulaParameter ("," rfmVars+=RegularFormulaParameter)*)?
+	//   ("init" "state" ":" initState=UpdateStateVariable)?
+	//   "final" "state" ":" finalState=UpdateStateVariable
 	//   "premise" prem=LemmaPremiseFormula "}" ";";
 	public LemmaElements getLemmaAccess() {
 		return pLemma;

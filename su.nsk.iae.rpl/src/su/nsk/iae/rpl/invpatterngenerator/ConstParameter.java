@@ -50,7 +50,7 @@ public class ConstParameter extends Term {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<UpdateStateVariable, UpdateStateVariable> substitution) {
+	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		return this;
 	}
 	

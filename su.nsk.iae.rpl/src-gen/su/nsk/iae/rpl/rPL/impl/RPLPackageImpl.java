@@ -697,6 +697,17 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
    * @generated
    */
   @Override
+  public EAttribute getImport_Session()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getElement()
   {
     return elementEClass;
@@ -2862,6 +2873,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORT_URI);
+    createEAttribute(importEClass, IMPORT__SESSION);
 
     elementEClass = createEClass(ELEMENT);
 
@@ -3198,6 +3210,7 @@ public class RPLPackageImpl extends EPackageImpl implements RPLPackage
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImport_Session(), ecorePackage.getEString(), "session", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

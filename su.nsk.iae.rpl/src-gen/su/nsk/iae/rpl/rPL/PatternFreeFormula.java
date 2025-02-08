@@ -71,6 +71,6 @@ public interface PatternFreeFormula extends EObject
    */
   void setRight(PatternFreeFormula value);
 
-PatternFreeInnerFormula generateFormula(InnerFormulaGenerator<?> innerFormulaGenerator);
+PatternFreeInnerFormula generateFormula(InnerFormulaGenerator<?> generator);
 
 } // PatternFreeFormula
