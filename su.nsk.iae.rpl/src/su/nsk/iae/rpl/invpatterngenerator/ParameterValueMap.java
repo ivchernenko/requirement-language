@@ -13,9 +13,9 @@ import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ParameterValueMap {
-	final Map<ConstantParameter, Term> cParams;
-	final Map<FunctionalParameter, FunctionalParameter> fnParams;
-	final Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams;
+	final Map<String, Term> cParams;
+	final Map<String, FunctionalParameter> fnParams;
+	final Map<String, FormulaParameterValue> simpleFmParams;
 	final Map<String, FormulaParameterValue> regFmParams;
 	final FunctionalParameter boolParam;
 	final Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution;
@@ -23,9 +23,9 @@ public class ParameterValueMap {
 		return stateSubstitution;
 	}
 
-	public ParameterValueMap(Map<ConstantParameter, Term> cParams,
-			Map<FunctionalParameter, FunctionalParameter> fnParams,
-			Map<SimpleFormulaParameter, FormulaParameterValue> simpleFmParams,
+	public ParameterValueMap(Map<String, Term> cParams,
+			Map<String, FunctionalParameter> fnParams,
+			Map<String, FormulaParameterValue> simpleFmParams,
 			Map<String, FormulaParameterValue> regFmParams,
 			FunctionalParameter boolParam,
 			Map<UpdateStateVariable, UpdateStateVariable> stateSubstitution) {
@@ -55,13 +55,13 @@ public class ParameterValueMap {
 		List<RegularFormulaParameter> reqFmVars = lemma.getRfmVars();
 		cParams = new HashMap<>();
 		for (int i = 0; i < cVars.size(); i++)
-			cParams.put(cVars.get(i), cParamValues.get(i));
+			cParams.put(cVars.get(i).getName(), cParamValues.get(i));
 		fnParams = new HashMap<>();
 		for (int i = 0; i < fnVars.size(); i++)
-			fnParams.put(fnVars.get(i), fnParamValues.get(i));
+			fnParams.put(fnVars.get(i).getName(), fnParamValues.get(i));
 		simpleFmParams = new HashMap<>();
 		for (int i = 0; i< simpleFmVars.size(); i++)
-			simpleFmParams.put(simpleFmVars.get(i), simpleFmParamValues.get(i));
+			simpleFmParams.put(simpleFmVars.get(i).getName(), simpleFmParamValues.get(i));
 		regFmParams = new HashMap<>();
 		for (int i = 0; i < einvFmVars.size(); i++) {
 			regFmParams.put(einvFmVars.get(i).getName(), einvFmParamValues.get(i));
@@ -74,13 +74,13 @@ public class ParameterValueMap {
 		stateSubstitution.put(lemma.getFinalState(), finState);
 	}
 	
-	public Map<ConstantParameter, Term> getcParams() {
+	public Map<String, Term> getcParams() {
 		return cParams;
 	}
-	public Map<FunctionalParameter, FunctionalParameter> getFnParams() {
+	public Map<String, FunctionalParameter> getFnParams() {
 		return fnParams;
 	}
-	public Map<SimpleFormulaParameter, FormulaParameterValue> getSimpleFmParams() {
+	public Map<String, FormulaParameterValue> getSimpleFmParams() {
 		return simpleFmParams;
 	}
 	public Map<String, FormulaParameterValue> getRegFmParams() {

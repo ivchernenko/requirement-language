@@ -23,12 +23,12 @@ public class NumericConstant extends Term {
 	}
 
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+	public Term substrituteCParam(Map<String, Term> values) {
 		return this;
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		return this;
 	}
 

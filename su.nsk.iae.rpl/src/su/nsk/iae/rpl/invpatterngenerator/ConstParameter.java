@@ -22,9 +22,9 @@ public class ConstParameter extends Term {
 	}
 
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+	public Term substrituteCParam(Map<String, Term> values) {
 		for (var paramValuePair: values.entrySet()) {
-			if (param.equals(paramValuePair.getKey()))
+			if (param.getName().equals(paramValuePair.getKey()))
 				return paramValuePair.getValue();
 		}
 		return this;
@@ -45,7 +45,7 @@ public class ConstParameter extends Term {
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		return this;
 	}
 

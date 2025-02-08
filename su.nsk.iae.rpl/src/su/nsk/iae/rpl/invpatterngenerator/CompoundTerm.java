@@ -36,11 +36,11 @@ public class CompoundTerm extends Term {
 		return right;
 	}
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+	public Term substrituteCParam(Map<String, Term> values) {
 		return new CompoundTerm(operator, left.substrituteCParam(values), right.substrituteCParam(values));
 	}
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		return new CompoundTerm(
 				operator,
 				left.substituteFunctionalParameter(values),

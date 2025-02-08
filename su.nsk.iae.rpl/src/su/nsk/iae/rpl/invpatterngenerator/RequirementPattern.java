@@ -103,9 +103,21 @@ public class RequirementPattern {
 		RPLFactory factory = RPLFactory.eINSTANCE;
 		DerivedRequirementPattern pattern = factory.createDerivedRequirementPattern();
 		pattern.setName(name);
-		pattern.getCParams().addAll(cParams);
-		pattern.getSimpleFmParams().addAll(simpleFmParams);
-		pattern.getFmParams().addAll(regFmParams);
+		for (ConstantParameter cParam: cParams) {
+			ConstantParameter newCParam  =  factory.createConstantParameter();
+			newCParam.setName(cParam.getName());
+			pattern.getCParams().add(newCParam);
+		}
+		for (SimpleFormulaParameter fmParam: simpleFmParams) {
+			SimpleFormulaParameter newFmParam  =  factory.createSimpleFormulaParameter();
+			newFmParam.setName(fmParam.getName());
+			pattern.getSimpleFmParams().add(newFmParam);
+		}
+		for (RegularFormulaParameter fmParam: regFmParams) {
+			RegularFormulaParameter newFmParam  =  factory.createRegularFormulaParameter();
+			newFmParam.setName(fmParam.getName());
+			pattern.getFmParams().add(newFmParam);
+		}
 		pattern.setExtraInvPattern(einvPattern);
 		return pattern;
 	}

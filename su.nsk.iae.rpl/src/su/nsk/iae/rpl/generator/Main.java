@@ -124,6 +124,10 @@ public class Main {
 							s,
 							sPrimed,
 							L8Premise);
+					s = factory.createUpdateStateVariable();
+					s.setName("s0");
+					sPrimed = factory.createUpdateStateVariable();
+					sPrimed.setName("s");
 					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
 					LS9Lemma L9 = new LS9Lemma(
 							pattern.getName() + "einv_imp_req_gen",
@@ -136,6 +140,10 @@ public class Main {
 							pattern.getFmParams(),
 							s,
 							L9Premise);
+					s = factory.createUpdateStateVariable();
+					s.setName("s0");
+					sPrimed = factory.createUpdateStateVariable();
+					sPrimed.setName("s");
 					ParameterValueMap L8Params = new ParameterValueMap(
 							L8.convertToEObject(),
 							partEinvPatternDef.getcParams(),
@@ -160,6 +168,10 @@ public class Main {
 							s,
 							sPrimed,
 							particularL8Premise);
+					s = factory.createUpdateStateVariable();
+					s.setName("s0");
+					sPrimed = factory.createUpdateStateVariable();
+					sPrimed.setName("s");
 					ParameterValueMap L9Params = new ParameterValueMap(
 							L9.convertToEObject(),
 							partEinvPatternDef.getcParams(),
@@ -182,7 +194,7 @@ public class Main {
 							particularEinvPattern.getSimpleFmParams(),
 							particularEinvPattern.getRegFmParams(),
 							particularReqPattern.getRegFmParams(),
-							s,
+							sPrimed,
 							particularL9Premise);
 					writer.write("\n\n");
 					writer.write(L8.toString());

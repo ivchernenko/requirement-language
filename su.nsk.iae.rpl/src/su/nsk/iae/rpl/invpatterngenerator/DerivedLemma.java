@@ -57,9 +57,21 @@ public class DerivedLemma {
 			newCVar.setName(cVar.getName());
 			lemma.getCVars().add(newCVar);
 		}
-		lemma.getFnVars().addAll(fnVars);
-		lemma.getSimpleFmVars().addAll(simpleFmVars);
-		lemma.getIfmVars().addAll(einvFmVars);
+		for (FunctionalParameter fnVar: fnVars) {
+			FunctionalParameter newFnVar = factory.createFunctionalParameter();
+			newFnVar.setName(fnVar.getName());
+			lemma.getFnVars().add(newFnVar);
+		}
+		for (SimpleFormulaParameter fmVar: simpleFmVars) {
+			SimpleFormulaParameter newFmVar = factory.createSimpleFormulaParameter();
+			newFmVar.setName(fmVar.getName());
+			lemma.getSimpleFmVars().add(newFmVar);
+		}
+		for (RegularFormulaParameter fmVar: einvFmVars) {
+			RegularFormulaParameter newFmVar = factory.createRegularFormulaParameter();
+			newFmVar.setName(fmVar.getName());
+			lemma.getIfmVars().add(newFmVar);
+		}
 		lemma.setPrem(premise.convertToEObject());
 		return lemma;
 	}

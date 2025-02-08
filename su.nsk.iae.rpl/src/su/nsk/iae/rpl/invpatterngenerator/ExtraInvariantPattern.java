@@ -83,10 +83,26 @@ public class ExtraInvariantPattern {
 		RPLFactory factory = RPLFactory.eINSTANCE;
 		DerivedExtraInvariantPattern pattern = factory.createDerivedExtraInvariantPattern();
 		pattern.setName(name);
-		pattern.getCParams().addAll(cParams);
-		pattern.getFnParams().addAll(fnParams);
-		pattern.getSimpleFmParams().addAll(simpleFmParams);
-		pattern.getFmParams().addAll(regFmParams);
+		for (ConstantParameter cParam: cParams) {
+			ConstantParameter newCParam  =  factory.createConstantParameter();
+			newCParam.setName(cParam.getName());
+			pattern.getCParams().add(newCParam);
+		}
+		for (FunctionalParameter fnParam: fnParams) {
+			FunctionalParameter newFnParam  =  factory.createFunctionalParameter();
+			newFnParam.setName(fnParam.getName());
+			pattern.getFnParams().add(newFnParam);
+		}
+		for (SimpleFormulaParameter fmParam: simpleFmParams) {
+			SimpleFormulaParameter newFmParam  =  factory.createSimpleFormulaParameter();
+			newFmParam.setName(fmParam.getName());
+			pattern.getSimpleFmParams().add(newFmParam);
+		}
+		for (RegularFormulaParameter fmParam: regFmParams) {
+			RegularFormulaParameter newFmParam  =  factory.createRegularFormulaParameter();
+			newFmParam.setName(fmParam.getName());
+			pattern.getFmParams().add(newFmParam);
+		}
 		DerivedLemmas lemmas = factory.createDerivedLemmas();
 		lemmas.setL8(L8);
 		lemmas.setL9(L9);

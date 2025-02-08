@@ -20,12 +20,12 @@ public class NegationTerm extends Term {
 	}
 
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> values) {
+	public Term substrituteCParam(Map<String, Term> values) {
 		return new NegationTerm(term.substrituteCParam(values));
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		return new NegationTerm(term.substituteFunctionalParameter(values));
 	}
 

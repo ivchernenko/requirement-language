@@ -30,12 +30,12 @@ public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	 }
 
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> value) {
+	public Term substrituteCParam(Map<String, Term> value) {
 		return this;
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		return this;
 	}
 

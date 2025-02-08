@@ -28,14 +28,14 @@ public class FunctionApplication extends Term {
 	}
 
 	@Override
-	public Term substrituteCParam(Map<ConstantParameter, Term> value) {
+	public Term substrituteCParam(Map<String, Term> value) {
 		return this;
 	}
 
 	@Override
-	public Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values) {
+	public Term substituteFunctionalParameter(Map<String, FunctionalParameter> values) {
 		for (var paramValuePair: values.entrySet())
-			if (fnParam.equals(paramValuePair.getKey()))
+			if (fnParam.getName().equals(paramValuePair.getKey()))
 				return new FunctionApplication(paramValuePair.getValue(), state);
 		return this;
 	}

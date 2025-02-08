@@ -29,10 +29,10 @@ consecutive s0 s \<Longrightarrow>
 P1_inv_part_inv t t1_0 A1 A2 A3 s"
 
 lemma P1einv_imp_req: "
-P1_inv_part_inv t t1_0 A1 A2 A3 s0 \<Longrightarrow>
-toEnvP s0 \<Longrightarrow>
+P1_inv_part_inv t t1_0 A1 A2 A3 s \<Longrightarrow>
+toEnvP s \<Longrightarrow>
 ((t1_0 s) <= t) \<Longrightarrow>
-example_part t A1 A2 A3 s0"
+example_part t A1 A2 A3 s"
 
 lemmas P1_used_patterns = always constrained_until 
 

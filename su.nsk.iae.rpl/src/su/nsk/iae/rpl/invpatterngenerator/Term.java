@@ -14,8 +14,8 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public abstract class Term implements InnerExtraInvariantFormula {
-	public abstract Term substrituteCParam(Map<ConstantParameter, Term> values);
-	public abstract Term substituteFunctionalParameter(Map<FunctionalParameter, FunctionalParameter> values);
+	public abstract Term substrituteCParam(Map<String, Term> values);
+	public abstract Term substituteFunctionalParameter(Map<String, FunctionalParameter> values);
 	
 	@Override
 	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {

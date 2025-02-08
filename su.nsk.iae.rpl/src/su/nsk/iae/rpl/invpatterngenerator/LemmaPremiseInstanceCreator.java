@@ -23,10 +23,10 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 public class LemmaPremiseInstanceCreator {
 	public LemmaPremise substituteParams(LemmaPremiseFormula premise,  ParameterValueMap params) {
 		FunApplication funApp = (FunApplication) premise.getLeft();
-		Map<FunctionalParameter, FunctionalParameter> fnParams = params.getFnParams();
+		Map<String, FunctionalParameter> fnParams = params.getFnParams();
 		FunctionalParameter fn = funApp.getFnParam();
 		if (fnParams != null) {
-			fn = fnParams.getOrDefault(fn, fn);
+			fn = fnParams.getOrDefault(fn.getName(), fn);
 		}
 		FunctionApplication left = (FunctionApplication) new FunctionApplication(fn, funApp.getState())
 				.replaceStates(params.getStateSubstitution());
@@ -82,10 +82,9 @@ public class LemmaPremiseInstanceCreator {
 		if (atomic.getFmParam() != null) { // formula parameter
 			FormulaParameter fmParam = atomic.getFmParam();
 			FormulaParameterValue value;
-			List<UpdateStateVariable> states = atomic.getStates();
 			if (fmParam instanceof SimpleFormulaParameter simpleParam) {
-				Map<SimpleFormulaParameter, FormulaParameterValue> fmParams = params.getSimpleFmParams();
-				value = fmParams.get(simpleParam);					
+				Map<String, FormulaParameterValue> fmParams = params.getSimpleFmParams();
+				value = fmParams.get(simpleParam.getName());					
 			}
 			else { // regular parameter
 				RegularFormulaParameter regParam = (RegularFormulaParameter) fmParam;
@@ -143,15 +142,15 @@ public class LemmaPremiseInstanceCreator {
 	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
 			ParameterValueMap params) {
 		List<Term> cParams = new ArrayList<>();
-		Map<ConstantParameter, Term> cParamValues = params.getcParams();
+		Map<String, Term> cParamValues = params.getcParams();
 		for (ConstantParameter cParam: patternInst.getCParams()) {
-			Term value = cParamValues.get(cParam);
+			Term value = cParamValues.get(cParam.getName());
 			cParams.add(value);
 		}
 		List<FunctionalParameter> fnParams = new ArrayList<>();
-		Map<FunctionalParameter, FunctionalParameter> fnParamValues = params.getFnParams();
+		Map<String, FunctionalParameter> fnParamValues = params.getFnParams();
 		for (FunctionalParameter fnParam: patternInst.getFnParams()) {
-			FunctionalParameter value = fnParamValues.get(fnParam);
+			FunctionalParameter value = fnParamValues.get(fnParam.getName());
 			fnParams.add(value);
 		}
 		List<FormulaParameterValue> fmParams = new ArrayList<>();
