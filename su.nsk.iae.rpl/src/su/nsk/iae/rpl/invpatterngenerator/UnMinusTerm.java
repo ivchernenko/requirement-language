@@ -31,7 +31,7 @@ public class UnMinusTerm extends Term {
 	}
 
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		Term newTerm = (Term) term.replaceStates(substitution);
 		return new UnMinusTerm(newTerm);
 	}

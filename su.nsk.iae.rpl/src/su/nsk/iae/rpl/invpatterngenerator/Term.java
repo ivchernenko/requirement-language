@@ -13,12 +13,12 @@ import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public abstract class Term implements InnerExtraInvariantFormula {
+public abstract class Term implements PatternFreeInnerFormula {
 	public abstract Term substrituteCParam(Map<String, Term> values);
 	public abstract Term substituteFunctionalParameter(Map<String, FunctionalParameter> values);
 	
 	@Override
-	public InnerExtraInvariantFormula applyToStates(List<UpdateStateVariable> states) {
+	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		return this;
 	}
 	@Override
@@ -53,6 +53,10 @@ public abstract class Term implements InnerExtraInvariantFormula {
 		PrimaryLemmaPremiseFormula premise = factory.createPrimaryLemmaPremiseFormula();
 		premise.setAtomic(formula);
 		return premise;
+	}
+	@Override
+	public PatternFreeInnerFormula negate() {
+		return new NegationFormula(this);
 	}
 	
 }

@@ -47,7 +47,7 @@ public class CompoundTerm extends Term {
 				right.substituteFunctionalParameter(values));
 	}
 	@Override
-	public InnerExtraInvariantFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
+	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		Term newLeft = (Term) left.replaceStates(substitution);
 		Term newRight = (Term) right.replaceStates(substitution);
 		return new CompoundTerm(operator, newLeft, newRight);

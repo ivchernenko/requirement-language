@@ -91,8 +91,8 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 
 	@Override
 	public PastRequirementPatternInstance replaceStates(Map<String, UpdateStateVariable> substitution) {
-		UpdateStateVariable newFinState = substitution.getOrDefault(finState.getName(), finState);
-		UpdateStateVariable newCurState = substitution.getOrDefault(curState.getName(), curState);
+		UpdateStateVariable newFinState = finState == null? null: substitution.getOrDefault(finState.getName(), finState);
+		UpdateStateVariable newCurState = curState== null? null: substitution.getOrDefault(curState.getName(), curState);
 		List<FormulaParameterValue> newFmParams = new ArrayList<>();
 		for (FormulaParameterValue fm: fmParams) {
 			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fm.getFormula();
