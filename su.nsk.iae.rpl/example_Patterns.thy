@@ -266,6 +266,82 @@ lemmas P3_2_used_patterns = always_def weak_previous_def weak_until_def
 
 lemmas P3_2_inv_used_patterns = always_inv_def weak_previous_def weak_until_inv_def previous_inv_def 
 
+definition P3_3 where "P3_3 A1 A2 A3 s \<equiv> (always (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (\<not> (A1 r3))) r2 r1) \<or> (weak_until A2 A3 r2 r1))) s)"
+
+definition P3_3_part where "P3_3_part A1 A2 A3 s \<equiv> (P3_3 A1 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+definition P3_3_inv where "P3_3_inv b_0 w_0 A1 A2_1 A3_1 s \<equiv> ((always_inv (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (\<not> (A1 r3))) r2 r1) \<or> (weak_until_inv w_0 A2_1 A3_1 r2 r1))) s) \<and> (b_0 s --> (previous_inv (\<lambda> r4 r3 . (\<not> (A1 r3))) s))"
+
+definition P3_3_inv_part where "P3_3_inv_part b_0 w_0 A1 A2 A3 s \<equiv> (P3_3_inv b_0 w_0 A1 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+
+
+lemma P3_3_inv_saving_gen: "
+P3_3_inv b_0 w_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+(((True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_0 s) \<and> True) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
+P3_3_inv b_0 w_0 A1 A2_1 A3_1 s"
+
+lemma P3_3einv_imp_req_gen: "
+P3_3_inv b_0 w_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
+toEnvP s0 \<Longrightarrow>
+(True \<and> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> (always_imp s0 (A3_1 s0) (A3 s0)))) \<Longrightarrow>
+P3_3 A1 A2 A3 s0"
+
+lemma P3_3_inv_saving: "
+P3_3_inv_part b_0 w_0 A1 A2 A3 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
+P3_3_inv_part b_0 w_0 A1 A2 A3 s"
+
+lemma P3_3einv_imp_req: "
+P3_3_inv_part b_0 w_0 A1 A2 A3 s \<Longrightarrow>
+toEnvP s \<Longrightarrow>
+True \<Longrightarrow>
+P3_3_part A1 A2 A3 s"
+
+lemmas P3_3_used_patterns = always_def weak_previous_def weak_until_def 
+
+lemmas P3_3_inv_used_patterns = always_inv_def weak_previous_def weak_until_inv_def previous_inv_def 
+
+definition P3_4 where "P3_4 A11 A12 A2 A3 s \<equiv> (always (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . ((weak_previous (\<lambda> r6 r5 . (\<not> (A11 r5))) r4 r3) \<or> (\<not> (A12 r3)))) r2 r1) \<or> (weak_until A2 A3 r2 r1))) s)"
+
+definition P3_4_part where "P3_4_part A11 A12 A2 A3 s \<equiv> (P3_4 A11 A12 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+definition P3_4_inv where "P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s \<equiv> (((always_inv (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . ((weak_previous (\<lambda> r6 r5 . (\<not> (A11 r5))) r4 r3) \<or> (\<not> (A12 r3)))) r2 r1) \<or> (weak_until_inv w_0 A2_1 A3_1 r2 r1))) s) \<and> (b_1 s --> (previous_inv (\<lambda> r4 r3 . ((weak_previous (\<lambda> r6 r5 . (\<not> (A11 r5))) r4 r3) \<or> (\<not> (A12 r3)))) s)) \<and> (b_0 s --> (previous_inv (\<lambda> r6 r5 . (\<not> (A11 r5))) s))"
+
+definition P3_4_inv_part where "P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s \<equiv> (P3_4_inv b_0 b_1 w_0 A11 A12 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+
+
+lemma P3_4_inv_saving_gen: "
+P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+(((((True \<and> True) \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_1 s) \<and> (True \<and> True)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_1 s) --> (((b_0 s) \<and> True) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s"
+
+lemma P3_4einv_imp_req_gen: "
+P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
+toEnvP s0 \<Longrightarrow>
+((True \<and> True) \<and> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> (always_imp s0 (A3_1 s0) (A3 s0)))) \<Longrightarrow>
+P3_4 A11 A12 A2 A3 s0"
+
+lemma P3_4_inv_saving: "
+P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+(((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_1 s) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_1 s) --> ((b_0 s) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s"
+
+lemma P3_4einv_imp_req: "
+P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s \<Longrightarrow>
+toEnvP s \<Longrightarrow>
+True \<Longrightarrow>
+P3_4_part A11 A12 A2 A3 s"
+
+lemmas P3_4_used_patterns = always_def weak_previous_def weak_previous_def weak_until_def 
+
+lemmas P3_4_inv_used_patterns = always_inv_def weak_previous_def weak_previous_def weak_until_inv_def previous_inv_def weak_previous_def previous_inv_def 
+
 definition P4_1 where "P4_1 t A1 A2 A3 s \<equiv> (always (\<lambda> r2 r1 . ((\<not> (A1 r1)) \<or> (constrained_weak_until t A2 A3 r2 r1))) s)"
 
 definition P4_1_part where "P4_1_part t A1 A2 A3 s \<equiv> (P4_1 t A1 (\<lambda> s s1 . (A2 s1)) (\<lambda> s s1 . (A3 s1)) s)"
@@ -291,7 +367,7 @@ P4_1 t A1 A2 A3 s0"
 lemma P4_1_inv_saving: "
 P4_1_inv_part t t1_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) + ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((\<not> (A1 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s))))) \<Longrightarrow>
+(((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((\<not> (A1 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s))))) \<Longrightarrow>
 P4_1_inv_part t t1_0 A1 A2 A3 s"
 
 lemma P4_1einv_imp_req: "
@@ -329,7 +405,7 @@ P4_2 t A11 A12 A2 A3 s0"
 lemma P4_2_inv_saving: "
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) + ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"
 
 lemma P4_2einv_imp_req: "
@@ -342,4 +418,46 @@ lemmas P4_2_used_patterns = always_def weak_previous_def constrained_weak_until_
 
 lemmas P4_2_inv_used_patterns = always_inv_def weak_previous_def constrained_weak_until_inv_def previous_inv_def 
 
-end
+definition P4_3 where "P4_3 t A11 A12 A21 A22 A3 s \<equiv> (always (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (\<not> (A11 r3))) r2 r1) \<or> ((\<not> (A12 r1)) \<or> (constrained_weak_until t (\<lambda> r4 r3 . ((previous A21 r4 r3) \<and> (A22 r4 r3))) A3 r2 r1)))) s)"
+
+definition P4_3_part where "P4_3_part t A11 A12 A21 A22 A3 s \<equiv> (P4_3 t A11 A12 (\<lambda> s s1 . (A21 s1)) (\<lambda> s s1 . (A22 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+definition P4_3_inv where "P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s \<equiv> (((always_inv (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (\<not> (A11 r3))) r2 r1) \<or> ((\<not> (A12 r1)) \<or> (constrained_weak_until_inv t t1_0 (\<lambda> r4 r3 . ((previous A21_1 r4 r3) \<and> (A22_1 r4 r3))) A3_1 r2 r1)))) s) \<and> (b_0 s --> (previous_inv (\<lambda> r4 r3 . (\<not> (A11 r3))) s)) \<and> (b_1 s --> (previous_inv A21_1 s))"
+
+definition P4_3_inv_part where "P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s \<equiv> (P4_3_inv t b_0 b_1 t1_0 A11 A12 (\<lambda> s s1 . (A21 s1)) (\<lambda> s s1 . (A22 s1)) (\<lambda> s s1 . (A3 s1)) s)"
+
+
+
+lemma P4_3_inv_saving_gen: "
+P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+((((True \<and> (True \<and> (((always_imp s0 (A21_1 s0) (A21_1 s)) \<and> (always_imp s0 (\<lambda> r3 . (A22_1 s0 r3)) (\<lambda> r3 . (A22_1 s r3)))) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((((t1_0 s0) < t) \<and> (((A3_1 s s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (((b_1 s) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) = 0) \<and> (((b_1 s) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21_1 s s))) \<Longrightarrow>
+P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s"
+
+lemma P4_3einv_imp_req_gen: "
+P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s0 \<Longrightarrow>
+toEnvP s0 \<Longrightarrow>
+(True \<and> (True \<and> (((always_imp s0 (A21_1 s0) (A21 s0)) \<and> (always_imp s0 (\<lambda> r3 . (A22_1 s0 r3)) (\<lambda> r3 . (A22 s0 r3)))) \<and> (always_imp s0 (A3_1 s0) (A3 s0))))) \<Longrightarrow>
+P4_3 t A11 A12 A21 A22 A3 s0"
+
+lemma P4_3_inv_saving: "
+P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s0 \<Longrightarrow>
+consecutive s0 s \<Longrightarrow>
+(((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((b_1 s) \<and> (A22 s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> ((b_1 s) \<and> (A22 s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21 s))) \<Longrightarrow>
+P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s"
+
+lemma P4_3einv_imp_req: "
+P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s \<Longrightarrow>
+toEnvP s \<Longrightarrow>
+True \<Longrightarrow>
+P4_3_part t A11 A12 A21 A22 A3 s"
+
+lemmas P4_3_used_patterns = always_def weak_previous_def constrained_weak_until_def previous_def 
+
+lemmas P4_3_inv_used_patterns = always_inv_def weak_previous_def constrained_weak_until_inv_def previous_def previous_inv_def previous_inv_def 
+
+definition P6_1 where "P6_1 t A1 A2 A3 A4 s \<equiv> (always (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (dual_since t (\<lambda> r6 r5 . (\<not> (A2 r5))) (\<lambda> r6 r5 . (\<not> (A1 r5))) r4 r3)) r2 r1) \<or> ((\<not> (A3 r1)) \<or> (A4 r2 r1)))) s)"
+
+definition P6_1_part where "P6_1_part t A1 A2 A3 A4 s \<equiv> (P6_1 t A1 A2 A3 (\<lambda> s s1 . (A4 s1)) s)"
+
+definition P6_1_inv where "P6_1_inv t b_0 b_1 t1_0 A1 A2 A3 A4_1 s \<equiv> ((

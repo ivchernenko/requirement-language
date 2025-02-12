@@ -67,7 +67,7 @@ public class CompoundTerm extends Term {
 		su.nsk.iae.rpl.rPL.Term term = null;
 		switch (operator) {
 		case AND:
-			term = factory.createAddTerm(); break;
+			term = factory.createConjunctionTerm(); break;
 		case DIV:
 			MulTerm divTerm = factory.createMulTerm(); divTerm.setMulOp(MulOperator.DIV); term = divTerm;  break;
 		case EQ:

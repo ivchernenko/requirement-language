@@ -95,8 +95,8 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		UpdateStateVariable newCurState = curState== null? null: substitution.getOrDefault(curState.getName(), curState);
 		List<FormulaParameterValue> newFmParams = new ArrayList<>();
 		for (FormulaParameterValue fm: fmParams) {
-			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fm.getFormula();
-			InnerExtraInvariantFormula newFormula = formula.replaceStates(substitution);
+			Formula formula = fm.getFormula();
+			Formula newFormula = formula.replaceStates(substitution);
 			newFmParams.add(new FormulaParameterValue(fm.getStates(), newFormula));
 		}
 		return new PastRequirementPatternInstance(pattern, cParams, newFmParams, boolParam, newFinState, newCurState);
@@ -167,7 +167,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		List<String> usedPatterns = new ArrayList<>();
 		usedPatterns.add(pattern.getName() + "_def");
 		for (FormulaParameterValue param: fmParams) {
-			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) param.getFormula();
+			Formula formula = param.getFormula();
 			usedPatterns.addAll(formula.getUsedPatternNames());
 		}
 		return usedPatterns;

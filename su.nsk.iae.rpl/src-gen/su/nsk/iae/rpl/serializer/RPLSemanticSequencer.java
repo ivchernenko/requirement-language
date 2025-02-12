@@ -14,6 +14,8 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+
+import su.nsk.iae.rpl.invpatterngenerator.TermConverter;
 import su.nsk.iae.rpl.rPL.AddTerm;
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
 import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
