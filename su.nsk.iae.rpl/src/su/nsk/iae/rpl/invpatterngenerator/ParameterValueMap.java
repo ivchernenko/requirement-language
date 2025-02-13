@@ -56,8 +56,12 @@ public class ParameterValueMap {
 		for (int i = 0; i < cVars.size(); i++)
 			cParams.put(cVars.get(i).getName(), cParamValues.get(i));
 		fnParams = new HashMap<>();
-		for (int i = 0; i < fnVars.size(); i++)
-			fnParams.put(fnVars.get(i).getName(), fnParamValues.get(i));
+		if (fnParamValues.isEmpty())
+			for (int i = 0; i < fnVars.size(); i++)
+				fnParams.put(fnVars.get(i).getName(), fnVars.get(i));
+		else
+			for (int i = 0; i < fnVars.size(); i++)
+				fnParams.put(fnVars.get(i).getName(), fnParamValues.get(i));
 		simpleFmParams = new HashMap<>();
 		for (int i = 0; i< simpleFmVars.size(); i++)
 			simpleFmParams.put(simpleFmVars.get(i).getName(), simpleFmParamValues.get(i));

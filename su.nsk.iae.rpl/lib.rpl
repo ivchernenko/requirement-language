@@ -208,7 +208,6 @@ lemmas {
 	};
 	LS4 lemma dual_since_LS4 {
 		const: t
-		fun: t1
 		extra invariant formulas: A_1, A_2
 		init state: s0
 		final state: s
@@ -216,7 +215,6 @@ lemmas {
 	};
 	LS5 lemma dual_since_LS5 {
 		const: t
-		fun: t1
 		extra invariant formulas: A_1, A_2
 		requirement formulas: A1, A2
 		final state: s

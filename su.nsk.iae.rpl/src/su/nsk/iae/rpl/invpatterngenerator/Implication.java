@@ -20,7 +20,7 @@ public class Implication {
 	public String convertToString(UpdateStateVariable finalState) {
 		StringBuilder stringBuilder = new StringBuilder();
 		return stringBuilder.append('(').append(left.getName()).append(' ').append(finalState.getName()).append(" --> ")
-		.append(right.setState(finalState, false))
+		.append(right.setState(finalState, false)).append(')')
 		.toString();
 	}	
 }

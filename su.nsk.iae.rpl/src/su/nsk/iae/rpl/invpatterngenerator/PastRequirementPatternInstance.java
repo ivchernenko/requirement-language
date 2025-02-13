@@ -8,6 +8,7 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.PastLemmas;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -27,13 +28,13 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	}
 
 	private final UpdateStateVariable curState;
-	
-	
-	
+
+
+
 	public FunctionalParameter getBoolParam() {
 		return boolParam;
 	}
-	
+
 	public PastRequirementPattern getPattern() {
 		return pattern;
 	}
@@ -57,7 +58,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		this.finState = finState;
 		this.curState = curState;
 	}
-	
+
 	public PastRequirementPatternInstance(PastRequirementPattern pattern, List<Term> cParams,
 			List<FormulaParameterValue> fmParams, FunctionalParameter boolParam) {
 		this(pattern, cParams, fmParams, boolParam, null, null);
@@ -120,7 +121,10 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
-		Lemma L = pattern.getLemmas().getL7();
+		PastLemmas lemmas = pattern.getLemmas();
+		Lemma L = null;
+		if (lemmas != null)
+			L = lemmas.getL7();
 		if (L == null)
 			L = pattern.getExtraInvPattern().getLemmas().getL7();
 		LemmaPremiseFormula premise = L.getPrem();
@@ -134,23 +138,34 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
-		Lemma L;
+		Lemma L = null;
 		ParameterValueMap params;
 		PastRequirementPatternInstance other = (PastRequirementPatternInstance) right;
-		if (this.finState.equals(other.finState)) {
-			L = pattern.getLemmas().getL5();
-			if (L == null)
-				L = pattern.getExtraInvPattern().getLemmas().getL5();
+
+		if (this.finState.getName().equals(other.finState.getName())) {
+			PastLemmas lemmas = pattern.getLemmas();
+			if (lemmas != null)
+				L = lemmas.getL5();
+			if (L == null) {
+				lemmas = pattern.getExtraInvPattern().getLemmas();
+				if (lemmas != null)
+					L = lemmas.getL5();
+			}
 			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
 					other.getFmParams(), boolParam, null, finState);
 		}
 		else {
-			L = pattern.getLemmas().getL4();
-			if (L == null)
-				L = pattern.getExtraInvPattern().getLemmas().getL4();
+			PastLemmas lemmas = pattern.getLemmas();
+			if (lemmas != null)
+				L = lemmas.getL4();
+			if (L == null) {
+				lemmas = pattern.getExtraInvPattern().getLemmas();
+				if (lemmas != null)
+					L = lemmas.getL4();
+			}
 			params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
 					new ArrayList<>(), boolParam, this.finState, other.finState);
-	}
+		}
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
@@ -172,7 +187,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		}
 		return usedPatterns;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -188,7 +203,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
-	
+
 	@Override
 	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
