@@ -166,7 +166,7 @@ public class LemmaPremiseInstanceCreator {
 				fnParams,
 				fmParams,
 				boolParam,
-				patternInst.getState(),
+				params.getStateSubstitution().get(patternInst.getState().getName()),
 				false);
 	}	
 }

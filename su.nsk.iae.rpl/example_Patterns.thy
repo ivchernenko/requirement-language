@@ -13,7 +13,7 @@ definition always2_inv_part where "always2_inv_part b_0 A11 A12 A2 s \<equiv> (a
 lemma always2_inv_saving_gen: "
 always2_inv b_0 A11 A12 A2_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> (True \<and> (always_imp s0 (\<lambda> r1 . (A2_1 s0 r1)) (\<lambda> r1 . (A2_1 s r1))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> (A2_1 s s)))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((True \<and> (True \<and> (always_imp s0 (\<lambda> r1 . (A2_1 s0 r1)) (\<lambda> r1 . (A2_1 s r1))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> (A2_1 s s)))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 always2_inv b_0 A11 A12 A2_1 s"
 
 lemma always2einv_imp_req_gen: "
@@ -25,7 +25,7 @@ always2 A11 A12 A2 s0"
 lemma always2_inv_saving: "
 always2_inv_part b_0 A11 A12 A2 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((b_0 s) \<or> ((\<not> (A12 s)) \<or> (A2 s))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((b_0 s0) \<or> ((\<not> (A12 s)) \<or> (A2 s))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 always2_inv_part b_0 A11 A12 A2 s"
 
 lemma always2einv_imp_req: "
@@ -89,7 +89,7 @@ definition P1_2_inv_part where "P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s \<equiv
 lemma P1_2_inv_saving_gen: "
 P1_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> (((t1_0 s0) = 0) \<or> (((A3_1 s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2_1 s s) \<and> ((t1_0 s0) < (t1_0 s))))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> ((A2_1 s s) \<and> ((t1_0 s) > 0)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> (((t1_0 s0) = 0) \<or> (((A3_1 s s) \<and> ((t1_0 s0) <= t)) \<or> ((A2_1 s s) \<and> ((t1_0 s0) < (t1_0 s))))))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> ((A2_1 s s) \<and> ((t1_0 s) > 0)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P1_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s"
 
 lemma P1_2einv_imp_req_gen: "
@@ -101,7 +101,7 @@ P1_2 t A11 A12 A2 A3 s0"
 lemma P1_2_inv_saving: "
 P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((t1_0 s0) = 0) \<or> (((A3 s) \<and> ((t1_0 s0) <= t)) \<or> ((A2 s) \<and> ((t1_0 s0) < (t1_0 s))))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((A2 s) \<and> ((t1_0 s) > 0)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((((t1_0 s0) = 0) \<or> (((A3 s) \<and> ((t1_0 s0) <= t)) \<or> ((A2 s) \<and> ((t1_0 s0) < (t1_0 s))))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((A2 s) \<and> ((t1_0 s) > 0)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"
 
 lemma P1_2einv_imp_req: "
@@ -165,7 +165,7 @@ definition P2_2_inv_part where "P2_2_inv_part t b_0 t1_0 A11 A12 A2 s \<equiv> (
 lemma P2_2_inv_saving_gen: "
 P2_2_inv t b_0 t1_0 A11 A12 A2_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> (True \<and> ((t = 0) \<or> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> (((((t1_0 s0) + 1) >= t) \<or> (A2_1 s s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((True \<and> (True \<and> ((t = 0) \<or> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> (((((t1_0 s0) + 1) >= t) \<or> (A2_1 s s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1))))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P2_2_inv t b_0 t1_0 A11 A12 A2_1 s"
 
 lemma P2_2einv_imp_req_gen: "
@@ -177,7 +177,7 @@ P2_2 t A11 A12 A2 s0"
 lemma P2_2_inv_saving: "
 P2_2_inv_part t b_0 t1_0 A11 A12 A2 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((t = 0) \<or> (((((t1_0 s0) + 1) >= t) \<or> (A2 s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+((((t = 0) \<or> (((((t1_0 s0) + 1) >= t) \<or> (A2 s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P2_2_inv_part t b_0 t1_0 A11 A12 A2 s"
 
 lemma P2_2einv_imp_req: "
@@ -241,7 +241,7 @@ definition P3_2_inv_part where "P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s \<equiv> (
 lemma P3_2_inv_saving_gen: "
 P3_2_inv b_0 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s)))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s)))))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P3_2_inv b_0 w_0 A11 A12 A2_1 A3_1 s"
 
 lemma P3_2einv_imp_req_gen: "
@@ -253,7 +253,7 @@ P3_2 A11 A12 A2 A3 s0"
 lemma P3_2_inv_saving: "
 P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s"
 
 lemma P3_2einv_imp_req: "
@@ -279,7 +279,7 @@ definition P3_3_inv_part where "P3_3_inv_part b_0 w_0 A1 A2 A3 s \<equiv> (P3_3_
 lemma P3_3_inv_saving_gen: "
 P3_3_inv b_0 w_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_0 s) \<and> True) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
+(((True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_0 s0) \<and> True) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
 P3_3_inv b_0 w_0 A1 A2_1 A3_1 s"
 
 lemma P3_3einv_imp_req_gen: "
@@ -291,7 +291,7 @@ P3_3 A1 A2 A3 s0"
 lemma P3_3_inv_saving: "
 P3_3_inv_part b_0 w_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
+((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s0) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
 P3_3_inv_part b_0 w_0 A1 A2 A3 s"
 
 lemma P3_3einv_imp_req: "
@@ -317,7 +317,7 @@ definition P3_4_inv_part where "P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s \<equi
 lemma P3_4_inv_saving_gen: "
 P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((True \<and> True) \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_1 s) \<and> (True \<and> True)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_1 s) --> (((b_0 s) \<and> True) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((((True \<and> True) \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))))) \<and> (((b_1 s0) \<and> (True \<and> True)) \<or> ((A3_1 s s) \<or> ((w_0 s) \<and> (A2_1 s s))))) \<and> ((b_1 s) --> (((b_0 s0) \<and> True) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s"
 
 lemma P3_4einv_imp_req_gen: "
@@ -329,7 +329,7 @@ P3_4 A11 A12 A2 A3 s0"
 lemma P3_4_inv_saving: "
 P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_1 s) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_1 s) --> ((b_0 s) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_1 s0) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_1 s) --> ((b_0 s0) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s"
 
 lemma P3_4einv_imp_req: "
@@ -393,7 +393,7 @@ definition P4_2_inv_part where "P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s \<equiv
 lemma P4_2_inv_saving_gen: "
 P4_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((((t1_0 s0) < t) \<and> (((A3_1 s s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2_1 s s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) = 0) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+(((True \<and> (True \<and> ((always_imp s0 (A2_1 s0) (A2_1 s)) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((((t1_0 s0) < t) \<and> (((A3_1 s s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2_1 s s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) = 0) \<and> (A2_1 s s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P4_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s"
 
 lemma P4_2einv_imp_req_gen: "
@@ -405,7 +405,7 @@ P4_2 t A11 A12 A2 A3 s0"
 lemma P4_2_inv_saving: "
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
+((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"
 
 lemma P4_2einv_imp_req: "
@@ -431,7 +431,7 @@ definition P4_3_inv_part where "P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 
 lemma P4_3_inv_saving_gen: "
 P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((True \<and> (True \<and> (((always_imp s0 (A21_1 s0) (A21_1 s)) \<and> (always_imp s0 (\<lambda> r3 . (A22_1 s0 r3)) (\<lambda> r3 . (A22_1 s r3)))) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((((t1_0 s0) < t) \<and> (((A3_1 s s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (((b_1 s) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) = 0) \<and> (((b_1 s) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21_1 s s))) \<Longrightarrow>
+((((True \<and> (True \<and> (((always_imp s0 (A21_1 s0) (A21_1 s)) \<and> (always_imp s0 (\<lambda> r3 . (A22_1 s0 r3)) (\<lambda> r3 . (A22_1 s r3)))) \<and> ((always_imp s0 (A3_1 s0) (A3_1 s)) \<and> ((((t1_0 s0) < t) \<and> (((A3_1 s s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (((b_1 s0) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s0) \<and> True) \<or> ((\<not> (A12 s)) \<or> ((A3_1 s s) \<or> (((t1_0 s) = 0) \<and> (((b_1 s0) \<and> (always_imp s0 (A21_1 s0) (A21_1 s))) \<and> (A22_1 s s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21_1 s s))) \<Longrightarrow>
 P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s"
 
 lemma P4_3einv_imp_req_gen: "
@@ -443,7 +443,7 @@ P4_3 t A11 A12 A21 A22 A3 s0"
 lemma P4_3_inv_saving: "
 P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((b_1 s) \<and> (A22 s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> ((b_1 s) \<and> (A22 s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21 s))) \<Longrightarrow>
+(((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((b_1 s0) \<and> (A22 s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> ((b_1 s0) \<and> (A22 s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21 s))) \<Longrightarrow>
 P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s"
 
 lemma P4_3einv_imp_req: "
@@ -469,7 +469,7 @@ definition P6_1_inv_part where "P6_1_inv_part t b_0 b_1 t1_0 A1 A2 A3 A4 s \<equ
 lemma P6_1_inv_saving_gen: "
 P6_1_inv t b_0 b_1 t1_0 A1 A2 A3 A4_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((True \<and> True) \<and> (True \<and> (always_imp s0 (\<lambda> r1 . (A4_1 s0 r1)) (\<lambda> r1 . (A4_1 s r1))))) \<and> (((b_1 s) \<and> (True \<and> True)) \<or> ((\<not> (A3 s)) \<or> (A4_1 s s)))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1 s0) < t)))))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1_0 s0) < (t1_0 s))))))))) \<Longrightarrow>
+(((((True \<and> True) \<and> (True \<and> (always_imp s0 (\<lambda> r1 . (A4_1 s0 r1)) (\<lambda> r1 . (A4_1 s r1))))) \<and> (((b_1 s0) \<and> (True \<and> True)) \<or> ((\<not> (A3 s)) \<or> (A4_1 s s)))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1 s0) < t)))))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1_0 s0) < (t1_0 s))))))))) \<Longrightarrow>
 P6_1_inv t b_0 b_1 t1_0 A1 A2 A3 A4_1 s"
 
 lemma P6_1einv_imp_req_gen: "
@@ -481,7 +481,7 @@ P6_1 t A1 A2 A3 A4 s0"
 lemma P6_1_inv_saving: "
 P6_1_inv_part t b_0 b_1 t1_0 A1 A2 A3 A4 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((b_1 s) \<or> ((\<not> (A3 s)) \<or> (A4 s))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1 s0) < t)))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s))))))) \<Longrightarrow>
+((((b_1 s0) \<or> ((\<not> (A3 s)) \<or> (A4 s))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1 s0) < t)))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s))))))) \<Longrightarrow>
 P6_1_inv_part t b_0 b_1 t1_0 A1 A2 A3 A4 s"
 
 lemma P6_1einv_imp_req: "
@@ -507,7 +507,7 @@ definition P6_2_inv_part where "P6_2_inv_part t b_0 b_1 w_0 t1_0 A1 A2 A3 A4 A5 
 lemma P6_2_inv_saving_gen: "
 P6_2_inv t b_0 b_1 w_0 t1_0 A1 A2 A3 A4_1 A5_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((True \<and> True) \<and> (True \<and> ((always_imp s0 (A4_1 s0) (A4_1 s)) \<and> ((always_imp s0 (A5_1 s0) (A5_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A5_1 s s) \<or> ((w_0 s) \<and> (A4_1 s s)))))))) \<and> (((b_1 s) \<and> (True \<and> True)) \<or> ((\<not> (A3 s)) \<or> ((A5_1 s s) \<or> ((w_0 s) \<and> (A4_1 s s)))))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1 s0) < t)))))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1_0 s0) < (t1_0 s))))))))) \<Longrightarrow>
+(((((True \<and> True) \<and> (True \<and> ((always_imp s0 (A4_1 s0) (A4_1 s)) \<and> ((always_imp s0 (A5_1 s0) (A5_1 s)) \<and> ((\<not> (w_0 s0)) \<or> ((A5_1 s s) \<or> ((w_0 s) \<and> (A4_1 s s)))))))) \<and> (((b_1 s0) \<and> (True \<and> True)) \<or> ((\<not> (A3 s)) \<or> ((A5_1 s s) \<or> ((w_0 s) \<and> (A4_1 s s)))))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1 s0) < t)))))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> (True \<and> (True \<and> ((t1_0 s0) < (t1_0 s))))))))) \<Longrightarrow>
 P6_2_inv t b_0 b_1 w_0 t1_0 A1 A2 A3 A4_1 A5_1 s"
 
 lemma P6_2einv_imp_req_gen: "
@@ -519,7 +519,7 @@ P6_2 t A1 A2 A3 A4 A5 s0"
 lemma P6_2_inv_saving: "
 P6_2_inv_part t b_0 b_1 w_0 t1_0 A1 A2 A3 A4 A5 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((\<not> (w_0 s0)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))) \<and> ((b_1 s) \<or> ((\<not> (A3 s)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1 s0) < t)))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s))))))) \<Longrightarrow>
+(((((\<not> (w_0 s0)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))) \<and> ((b_1 s0) \<or> ((\<not> (A3 s)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1 s0) < t)))))) \<and> ((b_0 s) --> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s))))))) \<Longrightarrow>
 P6_2_inv_part t b_0 b_1 w_0 t1_0 A1 A2 A3 A4 A5 s"
 
 lemma P6_2einv_imp_req: "

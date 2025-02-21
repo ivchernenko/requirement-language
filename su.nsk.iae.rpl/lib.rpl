@@ -135,7 +135,7 @@ lemmas {
 		extra invariant formulas: A_1
 		init state: s0
 		final state: s
-		premise previous_inv(formulas: A_1 current s) /\ alwaysimp(s0, A_1(s0), A_1(s))
+		premise previous_inv(formulas: A_1 current s0) /\ alwaysimp(s0, A_1(s0), A_1(s))
 	};
 	LS4 lemma previous_LS4 {
 		extra invariant formulas: A_1
@@ -156,7 +156,7 @@ lemmas {
 		extra invariant formulas: A_1
 		init state: s0
 		final state: s
-		premise previous_inv(formulas: A_1 current s) /\ alwaysimp(s0, A_1(s0), A_1(s))
+		premise previous_inv(formulas: A_1 current s0) /\ alwaysimp(s0, A_1(s0), A_1(s))
 	};
 	LS4 lemma weak_previous_LS4 {
 		extra invariant formulas: A_1
