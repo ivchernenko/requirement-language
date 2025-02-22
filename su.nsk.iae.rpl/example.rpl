@@ -71,3 +71,5 @@ derivedreq pattern P6_2(const: t simple formulas : A1, A2, A3 formulas : A4, A5)
 	weak_until(formulas : A4, A5 final : r2 current : r1)
 );
 
+
+

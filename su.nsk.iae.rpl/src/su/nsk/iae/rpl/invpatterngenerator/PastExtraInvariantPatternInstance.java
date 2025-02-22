@@ -107,7 +107,7 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		for (Term cParam: cParams)
 			stringBuilder.append(' ').append(cParam);
 		for (FunctionalParameter fnParam: fnParams)
-			stringBuilder.append(' ').append(fnParam);
+			stringBuilder.append(' ').append(fnParam.getName());
 		for (FormulaParameterValue fmParam: fmParams)
 			stringBuilder.append(' ').append(fmParam);
 		if (state != null)

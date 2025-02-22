@@ -1,0 +1,13 @@
+import "../Derived_Patterns.rpl";
+
+requirement R1 : P1_2_part with einv1;
+extra invariant einv1: P1_2_inv_part;
+
+requirement R2: always2_part with einv2;
+extra invariant einv2: always2_inv_part;
+
+requirement R3: P1_2_part with einv3;
+extra invariant einv3: P1_2_inv_part;
+
+requirement R4: always2_part with einv4;
+extra invariant einv4: always2_inv_part;

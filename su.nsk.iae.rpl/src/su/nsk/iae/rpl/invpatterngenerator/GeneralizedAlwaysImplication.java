@@ -52,11 +52,21 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		AlwaysImplicationParameterValue leftValue = factory.createAlwaysImplicationParameterValue();
 		PrimaryLemmaPremiseFormula leftFormula = (PrimaryLemmaPremiseFormula) left.convertToEObject();
 		leftValue.setFormula(leftFormula.getAtomic());
-		leftValue.setState(state);
+		if (this.left.getStates().size() > 0) {
+			UpdateStateVariable lambdaBound = this.left.getStates().get(0);
+			UpdateStateVariable newLambdaBound = factory.createUpdateStateVariable();
+			newLambdaBound.setName(lambdaBound.getName());
+			leftValue.setState(newLambdaBound);
+		}
 		AlwaysImplicationParameterValue rightValue = factory.createAlwaysImplicationParameterValue();
 		PrimaryLemmaPremiseFormula rightFormula = (PrimaryLemmaPremiseFormula) right.convertToEObject();
 		rightValue.setFormula(rightFormula.getAtomic());
-		rightValue.setState(state);
+		if (this.right.getStates().size() > 0) {
+			UpdateStateVariable lambdaBound = this.right.getStates().get(0);
+			UpdateStateVariable newLambdaBound = factory.createUpdateStateVariable();
+			newLambdaBound.setName(lambdaBound.getName());
+			rightValue.setState(newLambdaBound);
+		}
 		alwaysImp.setLeft(leftValue);
 		alwaysImp.setRight(rightValue);
 		PrimaryLemmaPremiseFormula result = factory.createPrimaryLemmaPremiseFormula();
