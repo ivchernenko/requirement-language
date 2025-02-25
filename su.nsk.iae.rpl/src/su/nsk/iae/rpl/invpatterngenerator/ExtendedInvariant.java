@@ -10,8 +10,9 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	DerivedExtraInvariantPatternInstance mainConj;
-	List<Implication> extraConjs;
-	public ExtendedInvariant(DerivedExtraInvariantPatternInstance mainConj, List<Implication> extraConjs) {
+	List<PastExtraInvariantPatternInstance> extraConjs;
+	public ExtendedInvariant(DerivedExtraInvariantPatternInstance mainConj, 
+			List<PastExtraInvariantPatternInstance> extraConjs) {
 		super();
 		this.mainConj = mainConj;
 		this.extraConjs = extraConjs;
@@ -19,7 +20,7 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	public DerivedExtraInvariantPatternInstance getMainConj() {
 		return mainConj;
 	}
-	public List<Implication> getExtraConjs() {
+	public List<PastExtraInvariantPatternInstance> getExtraConjs() {
 		return extraConjs;
 	}
 	@Override
@@ -35,15 +36,12 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				mainConj.getSimpleFmParams(),
 				mainConj.getRegFmParams(),
 				new ArrayList<>(),
-				null,
 				initState,
 				finalState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		for (var conjunct: extraConjs) {
-			FunctionApplication left = new FunctionApplication(conjunct.getLeft(), finalState);
-			PastExtraInvariantPatternInstance right = conjunct.getRight().setState(finalState, true);
-			ImplicationLemmaPremise extraConj = new ImplicationLemmaPremise(left, right);
-			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, extraConj);
+			PastExtraInvariantPatternInstance premiseConj = conjunct.setState(finalState, true);
+			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, premiseConj);
 		}
 		return premiseInstance.replacePatterns(initState);
 	}
@@ -63,7 +61,6 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				mainConj.getRegFmParams(),
 				reqPatternInst.getRegFmParams(),
 				null,
-				null,
 				state);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		return premiseInstance.replacePatterns(null);
@@ -71,8 +68,8 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	@Override
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = mainConj.getUsedPatternNames();
-		for (Implication extraConj: extraConjs) {
-			usedPatterns.addAll(extraConj.getRight().getUsedPatternNames());
+		for (PastExtraInvariantPatternInstance extraConj: extraConjs) {
+			usedPatterns.addAll(extraConj.getUsedPatternNames());
 		}
 		return usedPatterns;
 	}
@@ -83,7 +80,7 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 		for (int i = 0; i < extraConjs.size(); i++)
 			stringBuilder.append("(");
 		stringBuilder.append(mainConj.toString());
-		for (Implication extraConj: extraConjs) {
+		for (PastExtraInvariantPatternInstance extraConj: extraConjs) {
 			stringBuilder.append(" " + BooleanOperator.CONJUNCTION.toString() + " ")
 			.append(extraConj.toString())
 			.append(")");
@@ -96,9 +93,9 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 		for (int i = 0; i < extraConjs.size(); i++)
 			stringBuilder.append('(');
 		stringBuilder.append(mainConj.convertToString(finalState));
-		for (Implication extraConj: extraConjs) 
+		for (PastExtraInvariantPatternInstance extraConj: extraConjs) 
 			stringBuilder.append(" " + BooleanOperator.CONJUNCTION.toString() + " ")
-			.append(extraConj.convertToString(finalState))
+			.append(extraConj.setState(finalState, false))
 			.append(')');
 		return stringBuilder.toString();
 	}

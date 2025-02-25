@@ -56,10 +56,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<Implication> extraConjs = new ArrayList<>();
+	public List<PastExtraInvariantPatternInstance> generateExtraConjuncts() {
+		List<PastExtraInvariantPatternInstance> extraConjs = new ArrayList<>();
 		for (FormulaParameterValue fmParamValue: fmParams)
-			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
+			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts());
 		return extraConjs;
 	}
 

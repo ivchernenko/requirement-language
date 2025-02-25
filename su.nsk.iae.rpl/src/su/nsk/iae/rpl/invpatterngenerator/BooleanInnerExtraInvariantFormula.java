@@ -6,7 +6,6 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFormula {
@@ -30,9 +29,9 @@ public class BooleanInnerExtraInvariantFormula implements InnerExtraInvariantFor
 		return right;
 	}
 	@Override
-	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<Implication> extraConjs = left.generateExtraConjuncts(fnParamList);
-		extraConjs.addAll(right.generateExtraConjuncts(fnParamList));
+	public List<PastExtraInvariantPatternInstance> generateExtraConjuncts() {
+		List<PastExtraInvariantPatternInstance> extraConjs = left.generateExtraConjuncts();
+		extraConjs.addAll(right.generateExtraConjuncts());
 		return extraConjs;
 	}
 	@Override
