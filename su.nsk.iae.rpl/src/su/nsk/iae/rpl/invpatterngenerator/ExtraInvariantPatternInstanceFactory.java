@@ -51,7 +51,6 @@ public class ExtraInvariantPatternInstanceFactory {
 			PastExtraInvariantPattern pattern,
 			List<Term> cParams,
 			List<FormulaParameterValue> fmParams,
-			FunctionalParameter boolParam,
 			FunctionalParameterList fnParamList
 			) {
 		List<FunctionalParameter> original = pattern.getFnParams();
@@ -62,7 +61,6 @@ public class ExtraInvariantPatternInstanceFactory {
 				cParams, 
 				fnParams,
 				fmParams,
-				boolParam,
 				null,
 				false);	
 	}

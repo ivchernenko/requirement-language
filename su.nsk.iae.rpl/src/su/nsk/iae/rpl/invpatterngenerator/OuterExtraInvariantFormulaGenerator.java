@@ -32,9 +32,9 @@ public class OuterExtraInvariantFormulaGenerator extends OuterFormulaGenerator<O
 			List<FormulaParameterValue> simpleFmParams, List<FormulaParameterValue> regFmParams) {
 		DerivedExtraInvariantPatternInstance mainConj = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
 				pattern.getExtraInvPattern(), cParams, simpleFmParams, regFmParams, fnParamList);
-		List<Implication> extraConjs = new ArrayList<>();
+		List<PastExtraInvariantPatternInstance> extraConjs = new ArrayList<>();
 		for (var fmParamValue: regFmParams)
-			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
+			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts());
 		return new ExtendedInvariant(mainConj, extraConjs);	
 	}
 

@@ -98,7 +98,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams,
-				new ArrayList<>(), null, null, finState);
+				new ArrayList<>(), null, finState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		return premiseInstance.replacePatterns(initState);
 	}
@@ -111,7 +111,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 		ParameterValueMap params;
 		if (right instanceof FutureExtraInvariantPatternInstance fiRight) {
 			L = pattern.getLemmas().getL1();
-			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(), null,
+			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(),
 					this.finState, fiRight.finState);
 		}
 		else {
@@ -120,7 +120,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 			if (L == null)
 				L = frRight.getPattern().getLessas().getL3();
 			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, frRight.getFmParams(), 
-					null, null, finState);
+					null, finState);
 		}
 		LemmaPremiseFormula premise = L.getPrem();	
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);

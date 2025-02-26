@@ -159,13 +159,11 @@ public class LemmaPremiseInstanceCreator {
 			FormulaParameterValue value = fmParamValues.get(fmParam.getName());
 			fmParams.add(value);
 		}
-		FunctionalParameter boolParam = params.getBoolParam();
 		return new su.nsk.iae.rpl.invpatterngenerator.PastExtraInvariantPatternInstance(
 				patternInst.getPattern(),
 				cParams,
 				fnParams,
 				fmParams,
-				boolParam,
 				params.getStateSubstitution().get(patternInst.getState().getName()),
 				false);
 	}	

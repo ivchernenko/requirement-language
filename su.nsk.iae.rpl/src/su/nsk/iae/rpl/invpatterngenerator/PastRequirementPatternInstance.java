@@ -1,7 +1,6 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,19 +64,6 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	@Override
 	public List<PastExtraInvariantPatternInstance> generateExtraConjuncts() {
 		List<PastExtraInvariantPatternInstance> extraConjList = new ArrayList<>();
-		List<FormulaParameterValue> extraConjFmParams;
-		if (curState != null) {
-			extraConjFmParams = new ArrayList<>();
-			for (FormulaParameterValue fmParam: fmParams) {
-				InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
-				Map<String, UpdateStateVariable> substitution = new HashMap<>();
-				substitution.put(curState.getName(), finState);
-				InnerExtraInvariantFormula extraConjFormula = formula.replaceStates(substitution);
-				extraConjFmParams.add(new FormulaParameterValue(fmParam.getStates(), extraConjFormula));
-			}
-		}
-		else
-			extraConjFmParams = fmParams;
 		extraConjList.add(extraInv);
 		for (var fmParamValue: fmParams)
 			extraConjList.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts());
@@ -123,7 +109,7 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 			L = pattern.getExtraInvPattern().getLemmas().getL7();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
-		ParameterValueMap params = new ParameterValueMap(L, cParams, new ArrayList<>(), new ArrayList<>(), fmParams, 
+		ParameterValueMap params = new ParameterValueMap(L, cParams, extraInv.getFnParams(), new ArrayList<>(), fmParams, 
 				new ArrayList<>(), initState, finState);
 		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
 		return premiseInstance.replacePatterns(initState);		
@@ -211,5 +197,4 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	public PastExtraInvariantPatternInstance getExtraInv() {
 		return extraInv;
 	}
-
 }
