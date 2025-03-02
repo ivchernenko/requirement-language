@@ -73,4 +73,13 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		result.setAlwaysImp(alwaysImp);
 		return result;
 	}
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		InnerExtraInvariantFormula left = (InnerExtraInvariantFormula) this.left.getFormula();
+		if (left.equalsToRequirementFormula())
+			return generateForIdenticallyTrueImplication();
+		else {
+			left.generateProofScriptForNotIdenticallyTrueImplication(right.getFormula(), generator);
+		}
+	}
 }

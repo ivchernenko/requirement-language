@@ -101,18 +101,26 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		return generateLemmaPremiseInstance(initState).replacePatterns(initState);		
+	}
+	
+	LemmaPremise generateLemmaPremiseInstance(UpdateStateVariable initState) {
+		Lemma L = getL7();
+		LemmaPremiseFormula premise = L.getPrem();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
+		ParameterValueMap params = new ParameterValueMap(L, cParams, extraInv.getFnParams(), new ArrayList<>(), fmParams, 
+				new ArrayList<>(), initState, finState);
+		return premise.substitiuteParams(instCreator, params);
+	}
+	
+	Lemma getL7() {
 		PastLemmas lemmas = pattern.getLemmas();
 		Lemma L = null;
 		if (lemmas != null)
 			L = lemmas.getL7();
 		if (L == null)
 			L = pattern.getExtraInvPattern().getLemmas().getL7();
-		LemmaPremiseFormula premise = L.getPrem();
-		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
-		ParameterValueMap params = new ParameterValueMap(L, cParams, extraInv.getFnParams(), new ArrayList<>(), fmParams, 
-				new ArrayList<>(), initState, finState);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(initState);		
+		return L;
 	}
 
 	@Override
@@ -196,5 +204,10 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 
 	public PastExtraInvariantPatternInstance getExtraInv() {
 		return extraInv;
+	}
+
+	@Override
+	public String generateProofScript(ProofScriptGenerator generator) {
+		return generator.generateForPastRequirementPatternInstance(this, initState);
 	}
 }

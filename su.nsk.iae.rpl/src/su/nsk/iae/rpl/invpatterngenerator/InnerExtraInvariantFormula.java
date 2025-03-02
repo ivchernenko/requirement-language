@@ -32,4 +32,8 @@ public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
 
 	boolean equalsToRequirementFormula();
 
+	String generateProofScriptForNotIdenticallyTrueImplication(
+			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state,
+			ProofScriptGenerator generator);
+
 }

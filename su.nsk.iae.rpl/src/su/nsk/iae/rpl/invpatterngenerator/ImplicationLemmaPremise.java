@@ -52,5 +52,9 @@ public class ImplicationLemmaPremise implements LemmaPremise {
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateForImplication(this, initState);
+	}
 	
 }

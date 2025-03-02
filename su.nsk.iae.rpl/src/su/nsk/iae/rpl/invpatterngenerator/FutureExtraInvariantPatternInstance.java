@@ -6,6 +6,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.FutureLemmas;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
@@ -109,6 +110,12 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
+		LemmaPremise premiseInstance = replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state);
+		return premiseInstance.replacePatterns(this.finState);
+	}
+	
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplicationStep(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		Lemma L;
 		ParameterValueMap params;
@@ -126,8 +133,22 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 					null, finState);
 		}
 		LemmaPremiseFormula premise = L.getPrem();	
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(this.finState);
+		return premise.substitiuteParams(instCreator, params);
+	}
+	
+	Lemma getLemmaForImplication(Formula right) {
+		if (right instanceof FutureExtraInvariantPatternInstance fiRight)
+			return pattern.getLemmas().getL1();
+		else {
+			FutureRequirementPatternInstance frRight = (FutureRequirementPatternInstance) right;
+			Lemma L = null;
+			FutureLemmas lemmas = frRight.getPattern().getLessas();
+			if(lemmas != null)
+				L = lemmas.getL3();
+			if (l == null)
+				L = pattern.getLemmas().getL3();
+			return L;
+		}
 	}
 
 	@Override
@@ -182,7 +203,13 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public String generateProofScript(ProofScriptGenerator generator) {
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
 		return generator.generateForFutureExtraInvariantPatternInstance(this);
+	}
+
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
+		return generator.generateForFutureInImplication(this, right, lambdaBound, state);
 	}
 }

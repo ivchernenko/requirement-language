@@ -9,7 +9,7 @@ import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise implements InnerExtraInvariantFormula {
-	
+
 	public BooleanInnerExtraInvariantFormula(BooleanOperator operator, InnerExtraInvariantFormula left,
 			InnerExtraInvariantFormula right) {
 		super(operator, left, right);
@@ -41,9 +41,14 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		InnerExtraInvariantFormula aRight = ((InnerExtraInvariantFormula) right).applyToStates(states);
 		return new BooleanInnerExtraInvariantFormula(operator, aLeft, aRight);
 	}
-	
+
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula other, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
+		return split(other, lambdaBound, state).replacePatterns(state);
+	}
+	
+	LemmaPremise split(Formula other, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		Formula otherLeft;
 		Formula otherRight;
@@ -56,10 +61,23 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 			otherLeft = bOther.getLeft();
 			otherRight = bOther.getRight();
 		}
-		LemmaPremise transformedLeft = ((InnerExtraInvariantFormula) left).replacePatternsForImplication(otherLeft, lambdaBound, state);
-		LemmaPremise transformedRight = ((InnerExtraInvariantFormula) right).replacePatternsForImplication(otherRight, lambdaBound, state);
+		LemmaPremise transformedLeft;
+		LemmaPremise transformedRight;
+			transformedLeft = createAlwaysImplication(
+					(InnerExtraInvariantFormula) left, otherLeft, lambdaBound, state);
+			transformedRight = createAlwaysImplication(
+					(InnerExtraInvariantFormula) right, otherRight, lambdaBound, state);
 		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, transformedLeft, transformedRight);
 	}
+	
+	GeneralizedAlwaysImplication createAlwaysImplication(
+			InnerExtraInvariantFormula left, Formula right, List<UpdateStateVariable> lambdaBound, 
+			UpdateStateVariable state) {
+		return new GeneralizedAlwaysImplication(
+				state, new FormulaParameterValue(lambdaBound, left), new FormulaParameterValue(lambdaBound, right));
+				
+	}
+
 	@Override
 	public boolean equalsToRequirementFormula() {
 		return ((InnerExtraInvariantFormula) left).equalsToRequirementFormula() 
@@ -77,7 +95,7 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		usedPatterns.addAll(((Formula) right).getUsedPatternNames());
 		return usedPatterns;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -111,5 +129,12 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		premise.setLeft(eLeft);
 		premise.setRight(eRight);
 		return premise;
+	}
+	
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(
+			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state
+			ProofScriptGenerator generator) {
+		return generator.generateForBooleanCombinationInImplication(this, right, lambdaBound, state);
 	}
 }
