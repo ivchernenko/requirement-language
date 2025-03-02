@@ -25,6 +25,15 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	}
 	@Override
 	public LemmaPremise generateL8(UpdateStateVariable initState, UpdateStateVariable finalState) {
+		LemmaPremise premiseInstance = generateL8PremiseInstance(initState, finalState);
+		for (var conjunct: extraConjs) {
+			PastExtraInvariantPatternInstance premiseConj = conjunct.setState(finalState, true);
+			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, premiseConj);
+		}
+		return premiseInstance.replacePatterns(initState);
+	}
+	
+	LemmaPremise generateL8PremiseInstance(UpdateStateVariable initState, UpdateStateVariable finalState) {
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L8 = pattern.getLemmas().getL8();
 		LemmaPremiseFormula premise = L8.getPrem();
@@ -38,19 +47,19 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				new ArrayList<>(),
 				initState,
 				finalState);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		for (var conjunct: extraConjs) {
-			PastExtraInvariantPatternInstance premiseConj = conjunct.setState(finalState, true);
-			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, premiseConj);
-		}
-		return premiseInstance.replacePatterns(initState);
+		return premise.substitiuteParams(instCreator, params);
 	}
 
 	@Override
 	public LemmaPremise generateL9(OuterRequirementFormula reqFormula, UpdateStateVariable state) {
+		LemmaPremise premiseInstance = generateL9PremiseInstance(reqFormula, state);
+		return premiseInstance.replacePatterns(null);
+	}
+	
+	LemmaPremise generateL9PremiseInstance(OuterRequirementFormula reqFormula, UpdateStateVariable state) {
 		DerivedRequirementPatternInstance reqPatternInst = (DerivedRequirementPatternInstance) reqFormula;
 		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
-		Lemma L9 = pattern.getLemmas().getL9();
+		Lemma L9 = reqPatternInst.getL9();
 		LemmaPremiseFormula premise = L9.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(
@@ -62,9 +71,9 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 				reqPatternInst.getRegFmParams(),
 				null,
 				state);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(null);
+		return premise.substitiuteParams(instCreator, params);
 	}
+	
 	@Override
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = mainConj.getUsedPatternNames();
@@ -98,5 +107,16 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 			.append(extraConj.setState(finalState, false))
 			.append(')');
 		return stringBuilder.toString();
+	}
+	@Override
+	public String generateProofScriptForL8(UpdateStateVariable initState, UpdateStateVariable finalState,
+			ProofScriptGenerator generator) {
+		return generator.generateForExtendedInvariant(this, initState, finalState);
+	}
+	@Override
+	public String generateProofScriptForL9(OuterRequirementFormula reqFormula, UpdateStateVariable state,
+			ProofScriptGenerator generator) {
+		DerivedRequirementPatternInstance other = (DerivedRequirementPatternInstance) reqFormula;
+		return generator.generateForDerivedRequirementPatternInstance(this, other, state);
 	}
 }

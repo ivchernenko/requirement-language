@@ -82,4 +82,29 @@ public class OuterBooleanFormula implements OuterExtraInvariantFormula  {
 		.append(")")
 		.toString();
 	}
+
+	@Override
+	public String generateProofScriptForL8(UpdateStateVariable initState, UpdateStateVariable finalState,
+			ProofScriptGenerator generator) {
+		switch (operator) {
+		case CONJUNCTION:
+			return generator.generateForOuterConjunction(left, right, initState, finalState);
+		case DISJUNCTION:
+			return generator.generateForOuterDisjunction(left, right, initState, finalState);
+			default: return "";
+		}
+	}
+
+	@Override
+	public String generateProofScriptForL9(OuterRequirementFormula reqFormula, UpdateStateVariable state,
+			ProofScriptGenerator generator) {
+		BooleanOuterRequirementFormula other = (BooleanOuterRequirementFormula) reqFormula;
+		switch (operator) {
+		case CONJUNCTION:
+			return generator.generateForOuterConjunction(left, right, other.getLeft(), other.getRight(), state);
+		case DISJUNCTION:
+			return generator.generateForOuterDisjunction(left, right, other.getLeft(), other.getRight(), state);
+			default: return "";
+		}
+	}
 }

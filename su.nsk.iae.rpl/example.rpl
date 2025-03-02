@@ -1,7 +1,8 @@
 import "Lib.rpl";
 
 derivedreq pattern always2(simple formulas: A11, A12 formulas: A2) = 
-always(formulas: lambda r2 r1. weak_previous(formulas: lambda r4 r3. ~A11(r3) final: r2 current: r1) \/ ~A12(r1) \/ A2(r2, r1));
+always(formulas: lambda r2 r1. weak_previous(formulas: lambda r4 r3. ~A11(r3) final: r2 current: r1) \/ ~A12(r1) \/ A2(r2, r1)) /\
+always(formulas: lambda r2 r1. weak_previous(formulas: lambda r4 r3. ~A11(r3) final: r2 current: r1) \/ ~A12(r1) \/ A2(r2, r1))
 
 derivedreq pattern P1_1(const : t simple formulas : A1 formulas : A2, A3) = always(formulas : lambda r2 r1. 
 	~A1(r1) \/ constrained_until(const : t formulas : A2, A3 final : r2 current : r1)

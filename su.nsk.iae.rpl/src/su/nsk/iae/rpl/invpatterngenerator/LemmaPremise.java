@@ -10,6 +10,7 @@ public interface LemmaPremise {
 	default LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		return this;
 	}
+	String generateProofScript(ProofScriptGenerator generator);
 	
 	LemmaPremise generateParticularLemmaPremise();
 	LemmaPremiseFormula convertToEObject();

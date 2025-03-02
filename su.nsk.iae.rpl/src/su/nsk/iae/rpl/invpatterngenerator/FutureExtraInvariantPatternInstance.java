@@ -94,13 +94,16 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		return generateLemmaPremiseInstance().replacePatterns(initState);
+	}
+	
+	LemmaPremise generateLemmaPremiseInstance() {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams,
 				new ArrayList<>(), null, finState);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(initState);
+		return premise.substitiuteParams(instCreator, params);
 	}
 
 	@Override
@@ -176,5 +179,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	@Override
 	public LemmaPremiseFormula convertToEObject() {
 		throw new InvalidTypeException();
+	}
+
+	@Override
+	public String generateProofScript(ProofScriptGenerator generator) {
+		return generator.generateForFutureExtraInvariantPatternInstance(this);
 	}
 }

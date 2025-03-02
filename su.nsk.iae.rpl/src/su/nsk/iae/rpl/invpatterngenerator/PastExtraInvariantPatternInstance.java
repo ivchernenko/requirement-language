@@ -19,6 +19,15 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	private List<FormulaParameterValue> fmParams;
 	private final UpdateStateVariable state;
 	private final boolean finState;
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public UpdateStateVariable getState() {
 		return state;
@@ -68,13 +77,16 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		return generateLemmaPremiseInstance(initState).replacePatterns(initState);
+	}
+	
+	LemmaPremise generateLemmaPremiseInstance(UpdateStateVariable initState) {
 		Lemma L = pattern.getLemmas().getL6();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, 
 				new ArrayList<>(), initState, state);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(initState);
+		return premise.substitiuteParams(instCreator, params);
 	}
 
 	public Collection<? extends String> getUsedPatternNames() {

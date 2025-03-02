@@ -7,28 +7,18 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
-	private final BooleanOperator operator;
-	private final PatternFreeInnerFormula left;
-	private final PatternFreeInnerFormula right;
+public class BooleanPatternFreeFormula extends BooleanInnerExtraInvariantFormula implements PatternFreeInnerFormula {
 	public BooleanPatternFreeFormula(BooleanOperator operator, PatternFreeInnerFormula left,
 			PatternFreeInnerFormula right) {
-		super();
-		this.operator = operator;
-		this.left = left;
-		this.right = right;
-	}
-	public BooleanOperator getOperator() {
-		return operator;
+		super(operator, left, right);
 	}
 	public PatternFreeInnerFormula getLeft() {
-		return left;
+		return (PatternFreeInnerFormula) left;
 	}
 	public PatternFreeInnerFormula getRight() {
-		return right;
+		return (PatternFreeInnerFormula) right;
 	}
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right,
@@ -45,14 +35,14 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 	}
 	@Override
 	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
-		PatternFreeInnerFormula transformedLeft = left.replaceStates(substitution);
-		PatternFreeInnerFormula transformedRight = right.replaceStates(substitution);
+		PatternFreeInnerFormula transformedLeft = ((PatternFreeInnerFormula) left).replaceStates(substitution);
+		PatternFreeInnerFormula transformedRight = ((PatternFreeInnerFormula) right).replaceStates(substitution);
 		return new BooleanPatternFreeFormula(operator, transformedLeft, transformedRight);
 	}
 	@Override
 	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
-		PatternFreeInnerFormula transformedLeft = left.applyToStates(states);
-		PatternFreeInnerFormula transformedRight = right.applyToStates(states);
+		PatternFreeInnerFormula transformedLeft = ((PatternFreeInnerFormula) left).applyToStates(states);
+		PatternFreeInnerFormula transformedRight = ((PatternFreeInnerFormula) right).applyToStates(states);
 		return new BooleanPatternFreeFormula(operator, transformedLeft, transformedRight);
 	}
 	
@@ -94,8 +84,8 @@ public class BooleanPatternFreeFormula implements PatternFreeInnerFormula {
 	}
 	@Override
 	public PatternFreeInnerFormula negate() {
-		PatternFreeInnerFormula negatedLeft  = left.negate();
-		PatternFreeInnerFormula negatedRight = right.negate();
+		PatternFreeInnerFormula negatedLeft  = ((PatternFreeInnerFormula) left).negate();
+		PatternFreeInnerFormula negatedRight = ((PatternFreeInnerFormula) right).negate();
 		BooleanOperator operator = null;
 		switch (this.operator) {
 		case CONJUNCTION:
