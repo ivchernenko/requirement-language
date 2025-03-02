@@ -233,7 +233,7 @@ class ProofScriptGenerator {
 		return '''
 		apply(rule «rule»
 		apply simp
-		  «left.split(right, lambdaBound, state)»
+		  «left.split(right, lambdaBound, state).generateProofScript(state, this)»
 		'''
 	}
 	
@@ -244,7 +244,20 @@ class ProofScriptGenerator {
 		return '''
 		apply(rule «left.getLemmaForImplication(right).getName()»
 		apply simp
-		  «left.replacePatternsForNotIdenticallyTrueImplication(right, lambdaBound, state)»
+		  «left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state)
+		  .generateProofScript(state, this)»
+		'''
+	}
+	
+	def String generateForPastInImplication(
+		PastRequirementPatternInstance left, PastRequirementPatternInstance right, List<UpdateStateVariable> lambdaBound, 
+		UpdateStateVariable state
+	) {
+		return '''
+		apply(rule «left.getLemmaForImplication(right).getName()»
+		apply simp
+		  «left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state)
+		  .generateProofScript(state, this)»
 		'''
 	}
 }
