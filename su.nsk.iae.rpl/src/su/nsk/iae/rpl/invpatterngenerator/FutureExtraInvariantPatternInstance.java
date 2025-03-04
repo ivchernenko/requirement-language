@@ -145,7 +145,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 			FutureLemmas lemmas = frRight.getPattern().getLessas();
 			if(lemmas != null)
 				L = lemmas.getL3();
-			if (l == null)
+			if (L == null)
 				L = pattern.getLemmas().getL3();
 			return L;
 		}
@@ -204,7 +204,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 
 	@Override
 	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
-		return generator.generateForFutureExtraInvariantPatternInstance(this);
+		return generator.generateForFutureExtraInvariantPatternInstance(this, initState);
 	}
 
 	@Override

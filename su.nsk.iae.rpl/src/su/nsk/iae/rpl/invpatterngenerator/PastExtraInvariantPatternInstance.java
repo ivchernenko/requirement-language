@@ -12,7 +12,7 @@ import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class PastExtraInvariantPatternInstance implements LemmaPremise {
+public class PastExtraInvariantPatternInstance {
 	private PastExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;
@@ -75,7 +75,6 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		return finState;
 	}
 
-	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
 		return generateLemmaPremiseInstance(initState).replacePatterns(initState);
 	}
@@ -114,8 +113,7 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
-
-	@Override
+/*
 	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
 		for (FormulaParameterValue fmParam: fmParams) {
@@ -127,9 +125,6 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, state,
 				finState);
 	}
+*/
 
-	@Override
-	public LemmaPremiseFormula convertToEObject() {
-		throw new InvalidTypeException();
-	}
 }

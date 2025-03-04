@@ -47,7 +47,7 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		return split(other, lambdaBound, state).replacePatterns(state);
 	}
-	
+
 	LemmaPremise split(Formula other, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		Formula otherLeft;
@@ -63,19 +63,19 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		}
 		LemmaPremise transformedLeft;
 		LemmaPremise transformedRight;
-			transformedLeft = createAlwaysImplication(
-					(InnerExtraInvariantFormula) left, otherLeft, lambdaBound, state);
-			transformedRight = createAlwaysImplication(
-					(InnerExtraInvariantFormula) right, otherRight, lambdaBound, state);
+		transformedLeft = createAlwaysImplication(
+				(InnerExtraInvariantFormula) left, otherLeft, lambdaBound, state);
+		transformedRight = createAlwaysImplication(
+				(InnerExtraInvariantFormula) right, otherRight, lambdaBound, state);
 		return new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, transformedLeft, transformedRight);
 	}
-	
+
 	GeneralizedAlwaysImplication createAlwaysImplication(
 			InnerExtraInvariantFormula left, Formula right, List<UpdateStateVariable> lambdaBound, 
 			UpdateStateVariable state) {
 		return new GeneralizedAlwaysImplication(
 				state, new FormulaParameterValue(lambdaBound, left), new FormulaParameterValue(lambdaBound, right));
-				
+
 	}
 
 	@Override
@@ -130,10 +130,10 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		premise.setRight(eRight);
 		return premise;
 	}
-	
+
 	@Override
 	public String generateProofScriptForNotIdenticallyTrueImplication(
-			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state
+			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state,
 			ProofScriptGenerator generator) {
 		return generator.generateForBooleanCombinationInImplication(this, right, lambdaBound, state);
 	}

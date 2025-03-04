@@ -28,7 +28,8 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 		LemmaPremise premiseInstance = generateL8PremiseInstance(initState, finalState);
 		for (var conjunct: extraConjs) {
 			PastExtraInvariantPatternInstance premiseConj = conjunct.setState(finalState, true);
-			premiseInstance = new BooleanLemmaPremise(BooleanOperator.CONJUNCTION, premiseInstance, premiseConj);
+			premiseInstance = new BooleanLemmaPremise(
+					BooleanOperator.CONJUNCTION, premiseInstance, premiseConj.replacePatterns(initState));
 		}
 		return premiseInstance.replacePatterns(initState);
 	}
@@ -58,7 +59,6 @@ public class ExtendedInvariant implements OuterExtraInvariantFormula {
 	
 	LemmaPremise generateL9PremiseInstance(OuterRequirementFormula reqFormula, UpdateStateVariable state) {
 		DerivedRequirementPatternInstance reqPatternInst = (DerivedRequirementPatternInstance) reqFormula;
-		DerivedExtraInvariantPattern pattern = mainConj.getPattern();
 		Lemma L9 = reqPatternInst.getL9();
 		LemmaPremiseFormula premise = L9.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();

@@ -12,6 +12,9 @@ class ProofScriptGenerator {
 	static final String ALWAYS_IMP_REFL_RULE = "always_imp_refl";
 	static final String ALWAYS_CONJ_RULE = "always_conj_rule";
 	static final String ALWAYS_DISJ_RULE = "always_disj_rule";
+	static final String DE_MORGAN_CONJ = "de_Morgan_conj";
+	static final String DE_MORGAN_DISJ = "de_Morgan_disj";
+	static final String DOUBLE_NEGATION_RULE = "cnf.clause2raw_not_not";
 	
 	def String generateForOuterConjunction(
 		OuterExtraInvariantFormula left, OuterExtraInvariantFormula right, UpdateStateVariable initState, UpdateStateVariable finalState
@@ -108,7 +111,8 @@ class ProofScriptGenerator {
 			apply(erule conjE)
 			apply(erule conjE)
 			subgoal premises «premisesName»
-			apply(insert «premisesName»(1,2,4)[1]
+			apply(rule conjI)
+			apply(insert «premisesName»(1,2,4))[1]
 			''');
 		}
 		script.append('''
@@ -119,7 +123,7 @@ class ProofScriptGenerator {
 		for (PastExtraInvariantPatternInstance extraConj: extraConjs) {
 			val premisesName = premisesNames.remove(premisesNames.size() -1);
 			script.append('''
-			apply(insert «premisesName»(1,3,5)
+			apply(insert «premisesName»(1,3,5))
 			  apply(erule «extraConj.getPattern().getLemmas().getL6().getName()»
 			  apply simp
 			  «extraConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this)»
@@ -163,12 +167,11 @@ class ProofScriptGenerator {
 		val premisesName = BASE_PREMISES_NAME + premisesNumber;
 		return '''
 		apply(erule conjE)
-		apply(erule conjE)
 		subgoal premises «premisesName»
 		apply(rule conjI)
-		apply(insert «premisesName»(1,2)[1]
+		apply(insert «premisesName»(1,2))[1]
 		  «left.generateProofScript(initState, this)»
-		apply(insert «premisesName»(1,3)
+		apply(insert «premisesName»(1,3))
 		  «right.generateProofScript(initState, this)»
 		done
 		'''
@@ -231,7 +234,7 @@ class ProofScriptGenerator {
 			ALWAYS_DISJ_RULE			
 		};
 		return '''
-		apply(rule «rule»
+		apply(rule «rule»)
 		apply simp
 		  «left.split(right, lambdaBound, state).generateProofScript(state, this)»
 		'''
@@ -242,7 +245,7 @@ class ProofScriptGenerator {
 		UpdateStateVariable state
 	) {
 		return '''
-		apply(rule «left.getLemmaForImplication(right).getName()»
+		apply(rule «left.getLemmaForImplication(right).getName()»)
 		apply simp
 		  «left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state)
 		  .generateProofScript(state, this)»
@@ -254,10 +257,35 @@ class ProofScriptGenerator {
 		UpdateStateVariable state
 	) {
 		return '''
-		apply(rule «left.getLemmaForImplication(right).getName()»
+		apply(rule «left.getLemmaForImplication(right).getName()»)
 		apply simp
 		  «left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state)
 		  .generateProofScript(state, this)»
 		'''
+	}
+	
+	def String generateForNegatedBooleanFormula(UpdateStateVariable initState, BooleanPatternFreeFormula formula) {
+		val deMorgansLow = switch (formula.getOperator()) {
+			case BooleanOperator.CONJUNCTION:
+			DE_MORGAN_CONJ
+			case BooleanOperator.DISJUNCTION:
+			DE_MORGAN_DISJ
+			default: null
+		};
+		return '''
+		apply(subst (1) «deMorgansLow»)
+		  «formula.negate().generateProofScript(initState, this)»
+		'''
+	}
+	
+	def String generateForDoubleNegation(UpdateStateVariable initState, PatternFreeInnerFormula formula) {
+		return '''
+		apply(rule «DOUBLE_NEGATION_RULE»)
+		  «formula.generateProofScript(initState, this)»
+		'''
+	}
+	
+	def String generateProofByAssumption() {
+		return "apply assumption"
 	}
 }

@@ -18,6 +18,12 @@ public class ProofScriptGenerator {
 
   private static final String ALWAYS_DISJ_RULE = "always_disj_rule";
 
+  private static final String DE_MORGAN_CONJ = "de_Morgan_conj";
+
+  private static final String DE_MORGAN_DISJ = "de_Morgan_disj";
+
+  private static final String DOUBLE_NEGATION_RULE = "cnf.clause2raw_not_not";
+
   public String generateForOuterConjunction(final OuterExtraInvariantFormula left, final OuterExtraInvariantFormula right, final UpdateStateVariable initState, final UpdateStateVariable finalState) {
     this.premisesNumber++;
     final String premisesName = (ProofScriptGenerator.BASE_PREMISES_NAME + Integer.valueOf(this.premisesNumber));
@@ -186,9 +192,11 @@ public class ProofScriptGenerator {
         _builder.append("subgoal premises ");
         _builder.append(premisesName);
         _builder.newLineIfNotEmpty();
+        _builder.append("apply(rule conjI)");
+        _builder.newLine();
         _builder.append("apply(insert ");
         _builder.append(premisesName);
-        _builder.append("(1,2,4)[1]");
+        _builder.append("(1,2,4))[1]");
         _builder.newLineIfNotEmpty();
         script.append(_builder);
       }
@@ -305,8 +313,6 @@ public class ProofScriptGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("apply(erule conjE)");
     _builder.newLine();
-    _builder.append("apply(erule conjE)");
-    _builder.newLine();
     _builder.append("subgoal premises ");
     _builder.append(premisesName);
     _builder.newLineIfNotEmpty();
@@ -314,7 +320,7 @@ public class ProofScriptGenerator {
     _builder.newLine();
     _builder.append("apply(insert ");
     _builder.append(premisesName);
-    _builder.append("(1,2)[1]");
+    _builder.append("(1,2))[1]");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
     String _generateProofScript = left.generateProofScript(initState, this);
@@ -322,7 +328,7 @@ public class ProofScriptGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("apply(insert ");
     _builder.append(premisesName);
-    _builder.append("(1,3)");
+    _builder.append("(1,3))");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
     String _generateProofScript_1 = right.generateProofScript(initState, this);
@@ -441,12 +447,13 @@ public class ProofScriptGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("apply(rule ");
     _builder.append(rule);
+    _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("apply simp");
     _builder.newLine();
     _builder.append("  ");
-    LemmaPremise _split = left.split(right, lambdaBound, state);
-    _builder.append(_split, "  ");
+    String _generateProofScript = left.split(right, lambdaBound, state).generateProofScript(state, this);
+    _builder.append(_generateProofScript, "  ");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
@@ -456,13 +463,78 @@ public class ProofScriptGenerator {
     _builder.append("apply(rule ");
     String _name = left.getLemmaForImplication(right).getName();
     _builder.append(_name);
+    _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("apply simp");
     _builder.newLine();
     _builder.append("  ");
-    LemmaPremise _replacePatternsForNotIdenticallyTrueImplication = left.replacePatternsForNotIdenticallyTrueImplication(right, lambdaBound, state);
-    _builder.append(_replacePatternsForNotIdenticallyTrueImplication, "  ");
+    String _generateProofScript = left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state).generateProofScript(state, this);
+    _builder.append(_generateProofScript, "  ");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
+  }
+
+  public String generateForPastInImplication(final PastRequirementPatternInstance left, final PastRequirementPatternInstance right, final List<UpdateStateVariable> lambdaBound, final UpdateStateVariable state) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("apply(rule ");
+    String _name = left.getLemmaForImplication(right).getName();
+    _builder.append(_name);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("apply simp");
+    _builder.newLine();
+    _builder.append("  ");
+    String _generateProofScript = left.replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state).generateProofScript(state, this);
+    _builder.append(_generateProofScript, "  ");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  public String generateForNegatedBooleanFormula(final UpdateStateVariable initState, final BooleanPatternFreeFormula formula) {
+    String _switchResult = null;
+    BooleanOperator _operator = formula.getOperator();
+    if (_operator != null) {
+      switch (_operator) {
+        case CONJUNCTION:
+          _switchResult = ProofScriptGenerator.DE_MORGAN_CONJ;
+          break;
+        case DISJUNCTION:
+          _switchResult = ProofScriptGenerator.DE_MORGAN_DISJ;
+          break;
+        default:
+          _switchResult = null;
+          break;
+      }
+    } else {
+      _switchResult = null;
+    }
+    final String deMorgansLow = _switchResult;
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("apply(subst (1) ");
+    _builder.append(deMorgansLow);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    String _generateProofScript = formula.negate().generateProofScript(initState, this);
+    _builder.append(_generateProofScript, "  ");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  public String generateForDoubleNegation(final UpdateStateVariable initState, final PatternFreeInnerFormula formula) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("apply(rule ");
+    _builder.append(ProofScriptGenerator.DOUBLE_NEGATION_RULE);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    String _generateProofScript = formula.generateProofScript(initState, this);
+    _builder.append(_generateProofScript, "  ");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  public String generateProofByAssumption() {
+    return "apply assumption";
   }
 }

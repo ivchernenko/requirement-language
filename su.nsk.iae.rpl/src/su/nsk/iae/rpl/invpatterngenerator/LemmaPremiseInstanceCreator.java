@@ -7,14 +7,12 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
-import su.nsk.iae.rpl.rPL.ConstantParameter;
 import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.FunApplication;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.NegationFormula;
-import su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
@@ -68,8 +66,9 @@ public class LemmaPremiseInstanceCreator {
 			return new GeneralizedAlwaysImplication(state, instantiatedLeft, instantiatedRight);
 		}
 		else if (premise.getInst() != null) {
-			su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst = premise.getInst();
-			return pastExtraInvariantPatternInstance(patternInst, params);
+			throw new InvalidTypeException();
+			//su.nsk.iae.rpl.rPL.PastExtraInvariantPatternInstance patternInst = premise.getInst();
+			//return pastExtraInvariantPatternInstance(patternInst, params);
 		}
 		else // nested formula
 			return premise.getNestedFormula().substitiuteParams(this, params);
@@ -138,7 +137,7 @@ public class LemmaPremiseInstanceCreator {
 		else 
 			return atomicPremise;
 	}
-
+/*
 	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
 			ParameterValueMap params) {
 		List<Term> cParams = new ArrayList<>();
@@ -166,5 +165,5 @@ public class LemmaPremiseInstanceCreator {
 				fmParams,
 				params.getStateSubstitution().get(patternInst.getState().getName()),
 				false);
-	}	
+	}	*/
 }

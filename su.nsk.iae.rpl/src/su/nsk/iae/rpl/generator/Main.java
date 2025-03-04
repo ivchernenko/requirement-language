@@ -115,7 +115,7 @@ public class Main {
 					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
 					LemmaPremise L8Premise = einvDef.generateL8(s, sPrimed);
-					String script = einvDef.generateProofScriptForL8(s, sPrimed, new ProofScriptGenerator());
+					String L8Script = einvDef.generateProofScriptForL8(s, sPrimed, new ProofScriptGenerator());
 					LS8Lemma L8 = new LS8Lemma(
 							einvPattern.getName() + "_saving_gen",
 							einvPattern.getName(),
@@ -131,6 +131,7 @@ public class Main {
 					sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
 					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
+					String L9Script = einvDef.generateProofScriptForL9(reqDef, s, new ProofScriptGenerator());
 					LS9Lemma L9 = new LS9Lemma(
 							pattern.getName() + "einv_imp_req_gen",
 							einvPattern.getName(),
@@ -197,9 +198,12 @@ public class Main {
 							sPrimed,
 							particularL9Premise);
 					writer.write(L8.toString() + "\n");
-					writer.write(script);
+					writer.write("unfolding " + einvPattern.getName() + "_def\n");
+					writer.write(L8Script);
 					writer.write("\n\n");
 					writer.write(L9.toString());
+					writer.write("unfolding " + einvPattern.getName() + "_def " + reqPattern.getName() + "_def\n");
+					writer.write(L9Script);
 					writer.write("\n\n");
 					writer.write(particularL8.toString());
 					writer.write("\n\n");

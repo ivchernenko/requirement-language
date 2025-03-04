@@ -97,12 +97,12 @@ public class BooleanLemmaPremise implements LemmaPremise {
 		return premise;
 	}
 	@Override
-	public String generateProofScript(ProofScriptGenerator generator) {
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
 		switch (operator) {
 		case CONJUNCTION:
-			return generator.generateForLemmaPremiseConjunction(left, right);
+			return generator.generateForLemmaPremiseConjunction(left, right, initState);
 		case DISJUNCTION:
-			return generator.generateForLemmaPremiseDisjunction(left, right);
+			return generator.generateForLemmaPremiseDisjunction(left, right, initState);
 		default:
 			return "";
 		}

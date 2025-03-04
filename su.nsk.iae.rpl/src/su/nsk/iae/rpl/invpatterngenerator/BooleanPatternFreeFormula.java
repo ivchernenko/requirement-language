@@ -97,4 +97,9 @@ public class BooleanPatternFreeFormula extends BooleanInnerExtraInvariantFormula
 		}
 		return new BooleanPatternFreeFormula(operator, negatedLeft, negatedRight);
 	}
+	
+	@Override
+	public String generateProofScriptForNegation(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateForNegatedBooleanFormula(initState, this);
+	}
 }

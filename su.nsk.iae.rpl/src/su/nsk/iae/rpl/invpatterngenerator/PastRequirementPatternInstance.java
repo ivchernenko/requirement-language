@@ -233,11 +233,10 @@ public class PastRequirementPatternInstance implements InnerExtraInvariantFormul
 	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
 		return generator.generateForPastRequirementPatternInstance(this, initState);
 	}
-	}
 
 	@Override
 	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
-		return generator.generateForPastInImplication(this, right, lambdaBound, state);
+		return generator.generateForPastInImplication(this, (PastRequirementPatternInstance) right, lambdaBound, state);
 	}
 }
