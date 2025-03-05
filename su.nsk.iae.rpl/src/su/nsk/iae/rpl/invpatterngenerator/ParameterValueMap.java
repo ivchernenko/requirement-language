@@ -16,7 +16,6 @@ public class ParameterValueMap {
 	final Map<String, FunctionalParameter> fnParams;
 	final Map<String, FormulaParameterValue> simpleFmParams;
 	final Map<String, FormulaParameterValue> regFmParams;
-	final FunctionalParameter boolParam;
 	final Map<String, UpdateStateVariable> stateSubstitution;
 	public Map<String, UpdateStateVariable> getStateSubstitution() {
 		return stateSubstitution;
@@ -26,14 +25,12 @@ public class ParameterValueMap {
 			Map<String, FunctionalParameter> fnParams,
 			Map<String, FormulaParameterValue> simpleFmParams,
 			Map<String, FormulaParameterValue> regFmParams,
-			FunctionalParameter boolParam,
 			Map<String, UpdateStateVariable> stateSubstitution) {
 		super();
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.simpleFmParams = simpleFmParams;
 		this.regFmParams = regFmParams;
-		this.boolParam = boolParam;
 		this.stateSubstitution = stateSubstitution;
 	}
 
@@ -44,7 +41,6 @@ public class ParameterValueMap {
 			List<FormulaParameterValue> simpleFmParamValues,
 			List<FormulaParameterValue> einvFmParamValues,
 			List<FormulaParameterValue> reqFmParamValues,
-			FunctionalParameter boolParam,
 			UpdateStateVariable initState,
 			UpdateStateVariable finState) {
 		List<ConstantParameter> cVars = lemma.getCVars();
@@ -71,7 +67,6 @@ public class ParameterValueMap {
 		}
 		for (int i = 0; i < reqFmVars.size(); i++)
 			regFmParams.put(reqFmVars.get(i).getName(), reqFmParamValues.get(i));
-		this.boolParam = boolParam;
 		stateSubstitution = new HashMap<>();
 		UpdateStateVariable lemmaInitState = lemma.getInitState();
 		if (lemmaInitState != null)
@@ -90,8 +85,5 @@ public class ParameterValueMap {
 	}
 	public Map<String, FormulaParameterValue> getRegFmParams() {
 		return regFmParams;
-	}
-	public FunctionalParameter getBoolParam() {
-		return boolParam;
 	}
 }

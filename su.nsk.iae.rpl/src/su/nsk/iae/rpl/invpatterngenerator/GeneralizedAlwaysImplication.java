@@ -1,13 +1,10 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-import java.util.Map;
-
 import su.nsk.iae.rpl.rPL.AlwaysImplication;
 import su.nsk.iae.rpl.rPL.AlwaysImplicationParameterValue;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class GeneralizedAlwaysImplication implements LemmaPremise {
@@ -72,5 +69,15 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 		PrimaryLemmaPremiseFormula result = factory.createPrimaryLemmaPremiseFormula();
 		result.setAlwaysImp(alwaysImp);
 		return result;
+	}
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		InnerExtraInvariantFormula left = (InnerExtraInvariantFormula) this.left.getFormula();
+		if (left.equalsToRequirementFormula())
+			return generator.generateForIdenticallyTrueImplication();
+		else {
+			return left.generateProofScriptForNotIdenticallyTrueImplication(
+					right.getFormula(), this.left.getStates(), state, generator);
+		}
 	}
 }

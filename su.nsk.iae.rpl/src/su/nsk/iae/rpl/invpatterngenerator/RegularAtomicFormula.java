@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RPLPackage;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 import su.nsk.iae.rpl.rPL.impl.AtomicFormulaImpl;
@@ -126,6 +124,19 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 	@Override
 	public PatternFreeInnerFormula negate() {
 		return new NegationFormula(this);
+	}
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
+		return generator.generateProofByAssumption();
+	}
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateProofByAssumption();
+	}
+	@Override
+	public String generateProofScriptForNegation(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateProofByAssumption();
 	}
 
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
-	default List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
+	default List<PastExtraInvariantPatternInstance> generateExtraConjuncts() {
 		return new ArrayList<>();
 	}
 
@@ -31,5 +31,9 @@ public interface InnerExtraInvariantFormula extends Formula, LemmaPremise {
 			UpdateStateVariable state);
 
 	boolean equalsToRequirementFormula();
+
+	String generateProofScriptForNotIdenticallyTrueImplication(
+			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state,
+			ProofScriptGenerator generator);
 
 }

@@ -14,4 +14,7 @@ public interface PatternFreeInnerFormula extends InnerRequirementFormula, InnerE
 	PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states);
 	
 	PatternFreeInnerFormula negate();
+	String generateProofScriptForNegation(UpdateStateVariable initState,ProofScriptGenerator generator);
+	
+	
 }

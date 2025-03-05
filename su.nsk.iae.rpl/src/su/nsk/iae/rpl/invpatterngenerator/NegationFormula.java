@@ -7,7 +7,6 @@ import java.util.Map;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class NegationFormula implements PatternFreeInnerFormula  {
@@ -62,7 +61,6 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 
 	@Override
 	public LemmaPremiseFormula convertToEObject() {
-		RPLFactory factory = RPLFactory.eINSTANCE;
 		PrimaryLemmaPremiseFormula atomic = (PrimaryLemmaPremiseFormula) formula.convertToEObject();
 		su.nsk.iae.rpl.rPL.NegationFormula negFormula = atomic.getAtomic();
 		negFormula.setNeg(true);
@@ -72,6 +70,22 @@ public class NegationFormula implements PatternFreeInnerFormula  {
 	@Override
 	public PatternFreeInnerFormula negate() {
 		return formula;
+	}
+
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return formula.generateProofScriptForNegation(initState, generator);
+	}
+
+	@Override
+	public String generateProofScriptForNegation(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateForDoubleNegation(initState, formula);
+	}
+
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
+		return generator.generateForIdenticallyTrueImplication();
 	}
 
 }

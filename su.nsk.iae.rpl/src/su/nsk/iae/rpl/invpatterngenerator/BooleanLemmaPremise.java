@@ -11,9 +11,9 @@ import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanLemmaPremise implements LemmaPremise {
-	private final BooleanOperator operator;
-	private final LemmaPremise  left;
-	private final LemmaPremise right;
+	final BooleanOperator operator;
+	final LemmaPremise  left;
+	final LemmaPremise right;
 	public BooleanLemmaPremise(BooleanOperator operator, LemmaPremise left, LemmaPremise right) {
 		super();
 		this.operator = operator;
@@ -95,5 +95,16 @@ public class BooleanLemmaPremise implements LemmaPremise {
 		premise.setLeft(eLeft);
 		premise.setRight(eRight);
 		return premise;
+	}
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		switch (operator) {
+		case CONJUNCTION:
+			return generator.generateForLemmaPremiseConjunction(left, right, initState);
+		case DISJUNCTION:
+			return generator.generateForLemmaPremiseDisjunction(left, right, initState);
+		default:
+			return "";
+		}
 	}
 }

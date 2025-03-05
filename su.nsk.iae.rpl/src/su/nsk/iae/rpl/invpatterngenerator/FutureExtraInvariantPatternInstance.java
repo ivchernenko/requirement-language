@@ -6,6 +6,7 @@ import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureExtraInvariantPattern;
+import su.nsk.iae.rpl.rPL.FutureLemmas;
 import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
@@ -56,10 +57,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public List<Implication> generateExtraConjuncts(FunctionalParameterList fnParamList) {
-		List<Implication> extraConjs = new ArrayList<>();
+	public List<PastExtraInvariantPatternInstance> generateExtraConjuncts() {
+		List<PastExtraInvariantPatternInstance> extraConjs = new ArrayList<>();
 		for (FormulaParameterValue fmParamValue: fmParams)
-			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts(fnParamList));
+			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts());
 		return extraConjs;
 	}
 
@@ -94,24 +95,33 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
+		return generateLemmaPremiseInstance().replacePatterns(initState);
+	}
+	
+	LemmaPremise generateLemmaPremiseInstance() {
 		Lemma L = pattern.getLemmas().getL2();
 		LemmaPremiseFormula premise = L.getPrem();
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams,
-				new ArrayList<>(), null, null, finState);
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(initState);
+				new ArrayList<>(), null, finState);
+		return premise.substitiuteParams(instCreator, params);
 	}
 
 	@Override
 	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
+		LemmaPremise premiseInstance = replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state);
+		return premiseInstance.replacePatterns(this.finState);
+	}
+	
+	public LemmaPremise replacePatternsForNotIdenticallyTrueImplicationStep(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
 		Lemma L;
 		ParameterValueMap params;
 		if (right instanceof FutureExtraInvariantPatternInstance fiRight) {
 			L = pattern.getLemmas().getL1();
-			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(), null,
+			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, new ArrayList<>(),
 					this.finState, fiRight.finState);
 		}
 		else {
@@ -120,11 +130,25 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 			if (L == null)
 				L = frRight.getPattern().getLessas().getL3();
 			params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, frRight.getFmParams(), 
-					null, null, finState);
+					null, finState);
 		}
 		LemmaPremiseFormula premise = L.getPrem();	
-		LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-		return premiseInstance.replacePatterns(this.finState);
+		return premise.substitiuteParams(instCreator, params);
+	}
+	
+	Lemma getLemmaForImplication(Formula right) {
+		if (right instanceof FutureExtraInvariantPatternInstance fiRight)
+			return pattern.getLemmas().getL1();
+		else {
+			FutureRequirementPatternInstance frRight = (FutureRequirementPatternInstance) right;
+			Lemma L = null;
+			FutureLemmas lemmas = frRight.getPattern().getLessas();
+			if(lemmas != null)
+				L = lemmas.getL3();
+			if (L == null)
+				L = pattern.getLemmas().getL3();
+			return L;
+		}
 	}
 
 	@Override
@@ -176,5 +200,16 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	@Override
 	public LemmaPremiseFormula convertToEObject() {
 		throw new InvalidTypeException();
+	}
+
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateForFutureExtraInvariantPatternInstance(this, initState);
+	}
+
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
+		return generator.generateForFutureInImplication(this, right, lambdaBound, state);
 	}
 }

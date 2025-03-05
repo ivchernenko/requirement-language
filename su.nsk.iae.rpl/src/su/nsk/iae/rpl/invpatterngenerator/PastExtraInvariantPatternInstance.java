@@ -12,55 +12,55 @@ import su.nsk.iae.rpl.rPL.PastExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class PastExtraInvariantPatternInstance implements LemmaPremise {
+public class PastExtraInvariantPatternInstance {
 	private PastExtraInvariantPattern pattern;
 	private List<Term> cParams;
 	private List<FunctionalParameter> fnParams;
 	private List<FormulaParameterValue> fmParams;
-	private FunctionalParameter boolParam;
 	private final UpdateStateVariable state;
 	private final boolean finState;
-	
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public UpdateStateVariable getState() {
 		return state;
 	}
 
 	public PastExtraInvariantPatternInstance(PastExtraInvariantPattern pattern, List<Term> cParams,
 			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams, FunctionalParameter boolParam) {
-		this(pattern, cParams, fnParams, fmParams, boolParam, null, false);
+		this(pattern, cParams, fnParams, fmParams, null, false);
 	}
-	
+
 	public PastExtraInvariantPatternInstance(PastExtraInvariantPattern pattern, List<Term> cParams,
-			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams, FunctionalParameter boolParam,
+			List<FunctionalParameter> fnParams, List<FormulaParameterValue> fmParams,
 			UpdateStateVariable state, boolean finState) {
 		this.pattern = pattern;
 		this.cParams = cParams;
 		this.fnParams = fnParams;
 		this.fmParams = fmParams;
-		this.boolParam = boolParam;
 		this.state = state;
 		this.finState = finState;
 	}
-	
+
 	PastExtraInvariantPatternInstance setState(UpdateStateVariable state, boolean finState) {
-		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, boolParam, state, finState);
-	}
-	
-	public FunctionalParameter getBoolParam() {
-		return boolParam;
-	}
-	public void setBoolParam(FunctionalParameter boolParam) {
-		this.boolParam = boolParam;
+		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, fmParams, state, finState);
 	}
 
 	public PastExtraInvariantPattern getPattern() {
 		return pattern;
 	}
-	
+
 	public List<Term> getcParams() {
 		return cParams;
 	}
-	
+
 	public List<FunctionalParameter> getFnParams() {
 		return fnParams;
 	}
@@ -70,24 +70,22 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 	public List<FormulaParameterValue> getFmParams() {
 		return fmParams;
 	}
-	
+
 	public boolean isFinal() {
 		return finState;
 	}
 
-	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
-		if (finState) {
-			Lemma L = pattern.getLemmas().getL6();
-			LemmaPremiseFormula premise = L.getPrem();
-			LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
-			ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, 
-					new ArrayList<>(), boolParam, initState, state);
-			LemmaPremise premiseInstance = premise.substitiuteParams(instCreator, params);
-			return premiseInstance.replacePatterns(initState);
-		}
-		else
-			return new FunctionApplication(boolParam, state);
+		return generateLemmaPremiseInstance(initState).replacePatterns(initState);
+	}
+	
+	LemmaPremise generateLemmaPremiseInstance(UpdateStateVariable initState) {
+		Lemma L = pattern.getLemmas().getL6();
+		LemmaPremiseFormula premise = L.getPrem();
+		LemmaPremiseInstanceCreator instCreator = new LemmaPremiseInstanceCreator();
+		ParameterValueMap params = new ParameterValueMap(L, cParams, fnParams, new ArrayList<>(), fmParams, 
+				new ArrayList<>(), initState, state);
+		return premise.substitiuteParams(instCreator, params);
 	}
 
 	public Collection<? extends String> getUsedPatternNames() {
@@ -99,7 +97,7 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		}
 		return usedPatterns;
 	}
-	
+
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -115,8 +113,7 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 		stringBuilder.append(')');
 		return stringBuilder.toString();
 	}
-
-	@Override
+/*
 	public LemmaPremise generateParticularLemmaPremise() {
 		List<FormulaParameterValue> simplifiedFmParams = new ArrayList<>();
 		for (FormulaParameterValue fmParam: fmParams) {
@@ -125,12 +122,9 @@ public class PastExtraInvariantPatternInstance implements LemmaPremise {
 					formula.generateParticularLemmaPremise();
 			simplifiedFmParams.add(new FormulaParameterValue(fmParam.getStates(), simplifiedFormula));
 		}
-		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, boolParam, state,
+		return new PastExtraInvariantPatternInstance(pattern, cParams, fnParams, simplifiedFmParams, state,
 				finState);
 	}
+*/
 
-	@Override
-	public LemmaPremiseFormula convertToEObject() {
-		throw new InvalidTypeException();
-	}
 }

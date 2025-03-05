@@ -104,4 +104,20 @@ public class SimpleAtomicFormula implements PatternFreeInnerFormula {
 	public PatternFreeInnerFormula negate() {
 		return new NegationFormula(this);
 	}
+
+	@Override
+	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
+			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
+		return generator.generateForIdenticallyTrueImplication();
+	}
+
+	@Override
+	public String generateProofScript(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateProofByAssumption();
+	}
+
+	@Override
+	public String generateProofScriptForNegation(UpdateStateVariable initState, ProofScriptGenerator generator) {
+		return generator.generateProofByAssumption();
+	}
 }

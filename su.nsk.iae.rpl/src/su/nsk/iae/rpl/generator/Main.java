@@ -21,6 +21,7 @@ import su.nsk.iae.rpl.invpatterngenerator.DerivedRequirementPatternInstance;
 import su.nsk.iae.rpl.invpatterngenerator.ExtendedInvariant;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPattern;
 import su.nsk.iae.rpl.invpatterngenerator.PatternGenerator;
+import su.nsk.iae.rpl.invpatterngenerator.ProofScriptGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.RequirementPattern;
 import su.nsk.iae.rpl.invpatterngenerator.LS8Lemma;
 import su.nsk.iae.rpl.invpatterngenerator.LS9Lemma;
@@ -109,12 +110,12 @@ public class Main {
 					writer.write(particularEinvPattern.toString() + "\n\n");
 					OuterRequirementFormula reqDef = reqPattern.getDefinition();
 					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
-					//RPLFactory factory = RPLFactoryImpl.init();
 					UpdateStateVariable s = factory.createUpdateStateVariable();
 					s.setName("s0");
 					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
 					LemmaPremise L8Premise = einvDef.generateL8(s, sPrimed);
+					String L8Script = einvDef.generateProofScriptForL8(s, sPrimed, new ProofScriptGenerator());
 					LS8Lemma L8 = new LS8Lemma(
 							einvPattern.getName() + "_saving_gen",
 							einvPattern.getName(),
@@ -130,6 +131,7 @@ public class Main {
 					sPrimed = factory.createUpdateStateVariable();
 					sPrimed.setName("s");
 					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
+					String L9Script = einvDef.generateProofScriptForL9(reqDef, s, new ProofScriptGenerator());
 					LS9Lemma L9 = new LS9Lemma(
 							pattern.getName() + "einv_imp_req_gen",
 							einvPattern.getName(),
@@ -152,7 +154,6 @@ public class Main {
 							partEinvPatternDef.getSimpleFmParams(),
 							partEinvPatternDef.getRegFmParams(),
 							new ArrayList<>(),
-							null,
 							s,
 							sPrimed
 							);
@@ -180,7 +181,6 @@ public class Main {
 							partEinvPatternDef.getSimpleFmParams(),
 							partEinvPatternDef.getRegFmParams(),
 							partReqPatternDef.getRegFmParams(),
-							null,
 							s,
 							sPrimed
 							);
@@ -197,14 +197,27 @@ public class Main {
 							particularReqPattern.getRegFmParams(),
 							sPrimed,
 							particularL9Premise);
-					writer.write("\n\n");
-					writer.write(L8.toString());
+					writer.write(L8.toString() + "\n");
+					writer.write("unfolding " + einvPattern.getName() + "_def\n");
+					writer.write(L8Script);
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(L9.toString());
+					writer.write("unfolding " + einvPattern.getName() + "_def " + reqPattern.getName() + "_def\n");
+					writer.write(L9Script);
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(particularL8.toString());
+					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
+					+ particularReqPattern.getName() + "_def\n");
+					writer.write("apply(simp add: " + L8.getLemmaName() + " always_imp_refl)\n");
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(particularL9.toString());
+					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
+							+ particularReqPattern.getName() + "_def\n");
+					writer.write("apply(simp add: " + L9.getLemmaName() + " always_imp_refl)\n");
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write("lemmas " + reqPattern.getName() + "_used_patterns = " 
 					+ reqPattern.getName() + "_def ");

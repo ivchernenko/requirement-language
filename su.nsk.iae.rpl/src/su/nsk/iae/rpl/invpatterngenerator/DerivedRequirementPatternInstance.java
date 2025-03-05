@@ -3,7 +3,9 @@ package su.nsk.iae.rpl.invpatterngenerator;
 import java.util.ArrayList;
 import java.util.List;
 
+import su.nsk.iae.rpl.rPL.DerivedLemmas;
 import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
+import su.nsk.iae.rpl.rPL.Lemma;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class DerivedRequirementPatternInstance implements OuterRequirementFormula {
@@ -51,6 +53,16 @@ public class DerivedRequirementPatternInstance implements OuterRequirementFormul
 		for (FormulaParameterValue fmParam: regFmParams)
 			usedPatterns.addAll(fmParam.getFormula().getUsedPatternNames());
 		return usedPatterns;
+	}
+	
+	Lemma getL9() {
+		Lemma L9 = null;
+		DerivedLemmas lemmas = pattern.getLemmas();
+		if (lemmas != null)
+			L9 = lemmas.getL9();
+		if (L9 == null)
+			L9 = pattern.getExtraInvPattern().getLemmas().getL9();
+		return L9;
 	}
 	
 }

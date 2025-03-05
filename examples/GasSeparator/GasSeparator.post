@@ -1,0 +1,205 @@
+PROGRAM GasSeparator
+  VAR_INPUT
+    //Buttons
+    AutoBtn, ManualBtn, SafetyStopBtn, EmergencyBtn: BOOL;
+    //Sensors
+    Thigh, Tlow: BOOL;
+    Phigh, Plow: BOOL;
+    Lfull, Ldeg, Llow, Lempty: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    //Valves
+    filling, release, inert, purge, emptying, heater: BOOL;
+    //Indicators
+    AutoLED, SafetyLED, EmergencyLED: BOOL;
+    FillingLED, DegasLED, EmptyingLED: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+    PRESSED: BOOL:= TRUE;
+    TURN_ON: BOOL := TRUE;
+    TURN_OFF: BOOL := FALSE;
+    
+    DEGASSING_TIMEOUT: TIME:= T#1m;
+    HEATING_TIMEOUT: TIME:= T#1s;
+    ACCUMULATING_TIMEOUT: TIME:= T#3s;
+    RELEASE_TIMEOUT: TIME:= T#2s;
+    PURGE_TIMEOUT: TIME := T#30s;
+  END_VAR
+  
+  VAR
+    ManualBtnPressed: BOOL;
+  END_VAR
+  
+  PROCESS ButtonPressControl
+    STATE waiting
+      IF AutoBtn = PRESSED THEN
+        AutoLED := TURN_ON;
+        START PROCESS AutoModeControl;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE autoMode
+      IF EmergencyBtn = PRESSED THEN
+        AutoLED := TURN_OFF;
+        DegasLED := TURN_OFF;
+        EmergencyLED := TURN_ON;
+        EmptyingLED := TURN_ON;
+        STOP PROCESS AutoModeControl;
+        SET NEXT;
+      ELSIF ManualBtn = PRESSED THEN
+        ManualBtnPressed := TRUE;
+        SET STATE waitingForStageCompletion;
+      ELSIF SafetyStopBtn = PRESSED THEN
+        AutoLED := TURN_OFF;
+        SafetyLED := TURN_ON;
+        SET STATE waitingForEmptying;
+      END_IF
+    END_STATE
+    
+    STATE emptying
+       filling := TURN_OFF;
+       release := TURN_OFF;
+       heater := TURN_OFF;
+       emptying := TURN_ON;
+       inert := TURN_ON;
+       IF NOT Llow THEN
+         inert := TURN_OFF;
+         IF Lempty THEN
+           emptying := TURN_OFF;
+           EmptyingLED := TURN_OFF;
+           SET STATE purge;
+         END_IF
+       END_IF
+    END_STATE
+    
+    STATE waitingForEmptying
+      IF PROCESS AutoModeControl IN STATE INACTIVE THEN
+        purge := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE purge
+      purge := TURN_ON;
+      TIMEOUT PURGE_TIMEOUT THEN
+        purge := TURN_OFF;
+        EmergencyLED := TURN_OFF;
+        SafetyLED := TURN_OFF;
+        SET STATE waiting;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE waitingForStageCompletion
+      IF PROCESS AutoModeControl IN STATE INACTIVE THEN
+        AutoLED := TURN_OFF;
+        SafetyLED := TURN_OFF;
+        SET STATE waiting;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS AutoModeControl
+    STATE filling
+      filling := TURN_ON;
+      release := TURN_ON;
+      FillingLED := TURN_ON;
+      IF Lfull THEN
+        filling := TURN_OFF;
+        release := TURN_OFF;
+        FillingLED := TURN_ON;
+        IF NOT ManualBtnPressed THEN
+          DegasLED := TURN_ON;
+          START PROCESS DegassingControl;
+          SET NEXT;
+        ELSE
+          STOP;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE degassing
+      IF NOT Ldeg THEN
+        DegasLED := TURN_OFF;
+        STOP PROCESS DegassingControl;
+        IF NOT ManualBtnPressed THEN
+          SET NEXT;
+        ELSE
+          STOP;
+        END_IF
+      END_IF
+      TIMEOUT DEGASSING_TIMEOUT THEN
+        DegasLED := TURN_OFF;
+        STOP PROCESS DegassingControl;
+        IF NOT ManualBtnPressed THEN
+          SET NEXT;
+        ELSE
+          STOP;
+        END_IF
+      END_TIMEOUT
+    END_STATE
+    
+    STATE emptying
+      heater := TURN_OFF;
+      release := TURN_OFF;
+      emptying := TURN_ON;
+      inert := TURN_ON;
+      EmptyingLED := TURN_ON;
+      IF NOT Llow THEN
+        inert := TURN_OFF;
+        IF Lempty THEN
+          emptying := TURN_OFF;
+          EmptyingLED := TURN_OFF;
+          IF ManualBtnPressed OR SafetyLED THEN
+            STOP;
+          ELSE
+            filling := TURN_ON;
+            release := TURN_ON;
+            FillingLED := TURN_ON;
+            SET STATE filling;
+          END_IF
+        END_IF
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS DegassingControl
+    STATE heating
+      heater := TURN_ON;
+      IF Thigh OR Phigh THEN
+        heater := TURN_OFF;
+        SET NEXT;
+      END_IF
+      TIMEOUT HEATING_TIMEOUT THEN
+        heater := TURN_OFF;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE accumulating
+      IF Phigh THEN
+        release := TURN_ON;
+        SET NEXT;
+      END_IF
+      TIMEOUT ACCUMULATING_TIMEOUT THEN
+        release := TURN_ON;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE releasing
+      IF NOT Plow THEN
+        release := TURN_OFF;
+        heater := TURN_ON;
+        SET STATE heating;
+      END_IF
+      TIMEOUT RELEASE_TIMEOUT THEN
+        release := TURN_OFF;
+        heater := TURN_ON;
+        SET STATE heating;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+END_PROGRAM

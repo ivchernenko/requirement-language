@@ -1,15 +1,14 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureRequirementPattern;
 import su.nsk.iae.rpl.rPL.PastRequirementPattern;
-import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
-import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public class InnerExtraInvariantFormulaGenerator extends InnerFormulaGenerator<InnerExtraInvariantFormula> {
 	FunctionalParameterList fnParamList;
@@ -44,15 +43,27 @@ public class InnerExtraInvariantFormulaGenerator extends InnerFormulaGenerator<I
 	InnerExtraInvariantFormula createPastPatternInstance(PastRequirementPattern pattern, List<Term> cParams,
 			List<FormulaParameterValue> transformedFmParams, UpdateStateVariable finState,
 			UpdateStateVariable curState) {
-		RPLFactory factory = RPLFactoryImpl.init();
-		FunctionalParameter newParam = factory.createFunctionalParameter();
-		newParam.setName("b");
-		newParam = fnParamList.renemeAndAddFnParam(newParam);
+		List<FormulaParameterValue> extraConjFmParams;
+		if (curState != null) {
+			extraConjFmParams = new ArrayList<>();
+			for (FormulaParameterValue fmParam: transformedFmParams) {
+				InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) fmParam.getFormula();
+				Map<String, UpdateStateVariable> substitution = new HashMap<>();
+				substitution.put(curState.getName(), finState);
+				InnerExtraInvariantFormula extraConjFormula = formula.replaceStates(substitution);
+				extraConjFmParams.add(new FormulaParameterValue(fmParam.getStates(), extraConjFormula));
+			}
+		}
+		else
+			extraConjFmParams = transformedFmParams;
+		PastExtraInvariantPatternInstance extraInv = 
+				ExtraInvariantPatternInstanceFactory.generatePatternInstance(
+						pattern.getExtraInvPattern(), cParams, extraConjFmParams, fnParamList);
 		return new PastRequirementPatternInstance(
 				pattern,
 				cParams,
 				transformedFmParams,
-				newParam,
+				extraInv,
 				finState,
 				curState);
 	}
