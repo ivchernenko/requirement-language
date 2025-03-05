@@ -200,14 +200,24 @@ public class Main {
 					writer.write(L8.toString() + "\n");
 					writer.write("unfolding " + einvPattern.getName() + "_def\n");
 					writer.write(L8Script);
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(L9.toString());
 					writer.write("unfolding " + einvPattern.getName() + "_def " + reqPattern.getName() + "_def\n");
 					writer.write(L9Script);
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(particularL8.toString());
+					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
+					+ particularReqPattern.getName() + "_def\n");
+					writer.write("apply(simp add: " + L8.getLemmaName() + " always_imp_refl)\n");
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write(particularL9.toString());
+					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
+							+ particularReqPattern.getName() + "_def\n");
+					writer.write("apply(simp add: " + L9.getLemmaName() + " always_imp_refl)\n");
+					writer.write("done");
 					writer.write("\n\n");
 					writer.write("lemmas " + reqPattern.getName() + "_used_patterns = " 
 					+ reqPattern.getName() + "_def ");

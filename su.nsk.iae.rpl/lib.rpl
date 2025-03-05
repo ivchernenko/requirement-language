@@ -225,14 +225,14 @@ lemmas {
 			 alwaysimp(s0, A_2(s0), A_2(s)) /\ frm(t1(s0) < t)
 		)
 	};
-	LS4 lemma dual_since_LS4 {
+	LS4 lemma dual_since_L4 {
 		const: t
 		extra invariant formulas: A_1, A_2
 		init state: s0
 		final state: s
 		premise alwaysimp(s0, A_1(s0), A_1(s)) /\ alwaysimp(s0, A_2(s0), A_2(s))
 	};
-	LS5 lemma dual_since_LS5 {
+	LS5 lemma dual_since_L5 {
 		const: t
 		extra invariant formulas: A_1, A_2
 		requirement formulas: A1, A2

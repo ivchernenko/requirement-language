@@ -223,12 +223,13 @@ public class ProofScriptGenerator {
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("apply(insert ");
         _builder_1.append(premisesName);
-        _builder_1.append("(1,3,5)");
+        _builder_1.append("(1,3,5))");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("  ");
         _builder_1.append("apply(erule ");
         String _name_1 = extraConj.getPattern().getLemmas().getL6().getName();
         _builder_1.append(_name_1, "  ");
+        _builder_1.append(")");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("  ");
         _builder_1.append("apply simp");
@@ -287,6 +288,7 @@ public class ProofScriptGenerator {
     _builder.append("apply(erule ");
     String _name = reqFormula.getL9().getName();
     _builder.append(_name);
+    _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("apply simp");
     _builder.newLine();
@@ -399,7 +401,7 @@ public class ProofScriptGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("apply(rule impI)");
     _builder.newLine();
-    _builder.append("apply(rule impE)");
+    _builder.append("apply(erule impE)");
     _builder.newLine();
     _builder.append("apply assumption");
     _builder.newLine();

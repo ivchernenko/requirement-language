@@ -13,6 +13,10 @@ import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class DerivedLemma {
 	String lemmaName;
+	public String getLemmaName() {
+		return lemmaName;
+	}
+
 	String extraInvPattern;
 	private List<ConstantParameter> cVars;
 	List<FunctionalParameter> fnVars;

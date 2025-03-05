@@ -1,4 +1,4 @@
-theory example_Patterns imports Patterns
+theory Derived_Patterns imports Patterns
  begin
 definition always2 where "always2 A11 A12 A2 s \<equiv> (always (\<lambda> r2 r1 . ((weak_previous (\<lambda> r4 r3 . (\<not> (A11 r3))) r2 r1) \<or> ((\<not> (A12 r1)) \<or> (A2 r2 r1)))) s)"
 
@@ -31,7 +31,7 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
@@ -66,18 +66,18 @@ apply(erule always_rule)
       apply(rule disjI2)
         apply assumption
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems6
   apply(insert prems6(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma always2einv_imp_req_gen: "
 always2_inv b_0 A11 A12 A2_1 s0 \<Longrightarrow>
@@ -89,7 +89,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -97,7 +97,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -114,19 +114,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma always2_inv_saving: "
 always2_inv_part b_0 A11 A12 A2 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((b_0 s0) \<or> ((\<not> (A12 s)) \<or> (A2 s))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-always2_inv_part b_0 A11 A12 A2 s"
+always2_inv_part b_0 A11 A12 A2 s"unfolding always2_inv_part_def always2_part_def
+apply(simp add: always2_inv_saving_gen always_imp_refl)
+done
 
 lemma always2einv_imp_req: "
 always2_inv_part b_0 A11 A12 A2 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-always2_part A11 A12 A2 s"
+always2_part A11 A12 A2 s"unfolding always2_inv_part_def always2_part_def
+apply(simp add: always2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas always2_used_patterns = always2_def always_def weak_previous_def 
 
@@ -164,7 +168,7 @@ apply(erule always_rule)
       apply(insert prems2(1,2))[1]
         apply(rule always_imp_refl)
       apply(insert prems2(1,3))
-        apply(rule constrained_until_rule
+        apply(rule constrained_until_rule)
         apply simp
           apply(erule conjE)
           subgoal premises prems3
@@ -224,14 +228,14 @@ apply(erule always_rule)
             apply assumption
           done
   done
-
+done
 
 lemma P1_1einv_imp_req_gen: "
 P1_1_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 toEnvP s0 \<Longrightarrow>
 (True \<and> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> ((always_imp s0 (A3_1 s0) (A3 s0)) \<and> ((t1_0 s0) <= t)))) \<Longrightarrow>
 P1_1 t A1 A2 A3 s0"unfolding P1_1_inv_def P1_1_def
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -241,7 +245,7 @@ apply simp
     apply(insert prems3(1,2))[1]
       apply(rule always_imp_refl)
     apply(insert prems3(1,3))
-      apply(rule constrained_until_einv2req
+      apply(rule constrained_until_einv2req)
       apply simp
         apply(erule conjE)
         subgoal premises prems4
@@ -259,19 +263,23 @@ apply simp
           done
         done
     done
-
+done
 
 lemma P1_1_inv_saving: "
 P1_1_inv_part t t1_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((t1_0 s0) = 0) \<or> (((A3 s) \<and> ((t1_0 s0) <= t)) \<or> ((A2 s) \<and> ((t1_0 s0) < (t1_0 s))))) \<and> ((\<not> (A1 s)) \<or> ((A3 s) \<or> ((A2 s) \<and> ((t1_0 s) > 0))))) \<Longrightarrow>
-P1_1_inv_part t t1_0 A1 A2 A3 s"
+P1_1_inv_part t t1_0 A1 A2 A3 s"unfolding P1_1_inv_part_def P1_1_part_def
+apply(simp add: P1_1_inv_saving_gen always_imp_refl)
+done
 
 lemma P1_1einv_imp_req: "
 P1_1_inv_part t t1_0 A1 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 ((t1_0 s) <= t) \<Longrightarrow>
-P1_1_part t A1 A2 A3 s"
+P1_1_part t A1 A2 A3 s"unfolding P1_1_inv_part_def P1_1_part_def
+apply(simp add: P1_1einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P1_1_used_patterns = P1_1_def always_def constrained_until_def 
 
@@ -312,7 +320,7 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
@@ -324,7 +332,7 @@ apply(erule always_rule)
           apply(insert prems4(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems4(1,3))
-            apply(rule constrained_until_rule
+            apply(rule constrained_until_rule)
             apply simp
               apply(erule conjE)
               subgoal premises prems5
@@ -398,18 +406,18 @@ apply(erule always_rule)
               apply assumption
             done
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems11
   apply(insert prems11(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P1_2einv_imp_req_gen: "
 P1_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
@@ -421,7 +429,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -429,7 +437,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -441,7 +449,7 @@ apply simp
         apply(insert prems4(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems4(1,3))
-          apply(rule constrained_until_einv2req
+          apply(rule constrained_until_einv2req)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -462,19 +470,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P1_2_inv_saving: "
 P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((((t1_0 s0) = 0) \<or> (((A3 s) \<and> ((t1_0 s0) <= t)) \<or> ((A2 s) \<and> ((t1_0 s0) < (t1_0 s))))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((A2 s) \<and> ((t1_0 s) > 0)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"
+P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"unfolding P1_2_inv_part_def P1_2_part_def
+apply(simp add: P1_2_inv_saving_gen always_imp_refl)
+done
 
 lemma P1_2einv_imp_req: "
 P1_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 ((t1_0 s) <= t) \<Longrightarrow>
-P1_2_part t A11 A12 A2 A3 s"
+P1_2_part t A11 A12 A2 A3 s"unfolding P1_2_inv_part_def P1_2_part_def
+apply(simp add: P1_2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P1_2_used_patterns = P1_2_def always_def weak_previous_def constrained_until_def 
 
@@ -512,7 +524,7 @@ apply(erule always_rule)
       apply(insert prems2(1,2))[1]
         apply(rule always_imp_refl)
       apply(insert prems2(1,3))
-        apply(rule constrained_always_rule
+        apply(rule constrained_always_rule)
         apply simp
           apply(erule disjE)
           apply(rule disjI1)
@@ -558,14 +570,14 @@ apply(erule always_rule)
             apply assumption
           done
   done
-
+done
 
 lemma P2_1einv_imp_req_gen: "
 P2_1_inv t t1_0 A1 A2_1 s0 \<Longrightarrow>
 toEnvP s0 \<Longrightarrow>
 (True \<and> (always_imp s0 (A2_1 s0) (A2 s0))) \<Longrightarrow>
 P2_1 t A1 A2 s0"unfolding P2_1_inv_def P2_1_def
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -575,23 +587,27 @@ apply simp
     apply(insert prems3(1,2))[1]
       apply(rule always_imp_refl)
     apply(insert prems3(1,3))
-      apply(rule constrained_always_einv2req
+      apply(rule constrained_always_einv2req)
       apply simp
         apply assumption
     done
-
+done
 
 lemma P2_1_inv_saving: "
 P2_1_inv_part t t1_0 A1 A2 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((t = 0) \<or> (((((t1_0 s0) + 1) >= t) \<or> (A2 s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((\<not> (A1 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2 s))))) \<Longrightarrow>
-P2_1_inv_part t t1_0 A1 A2 s"
+P2_1_inv_part t t1_0 A1 A2 s"unfolding P2_1_inv_part_def P2_1_part_def
+apply(simp add: P2_1_inv_saving_gen always_imp_refl)
+done
 
 lemma P2_1einv_imp_req: "
 P2_1_inv_part t t1_0 A1 A2 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P2_1_part t A1 A2 s"
+P2_1_part t A1 A2 s"unfolding P2_1_inv_part_def P2_1_part_def
+apply(simp add: P2_1einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P2_1_used_patterns = P2_1_def always_def constrained_always_def 
 
@@ -632,7 +648,7 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
@@ -644,7 +660,7 @@ apply(erule always_rule)
           apply(insert prems4(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems4(1,3))
-            apply(rule constrained_always_rule
+            apply(rule constrained_always_rule)
             apply simp
               apply(erule disjE)
               apply(rule disjI1)
@@ -704,18 +720,18 @@ apply(erule always_rule)
               apply assumption
             done
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems9
   apply(insert prems9(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P2_2einv_imp_req_gen: "
 P2_2_inv t b_0 t1_0 A11 A12 A2_1 s0 \<Longrightarrow>
@@ -727,7 +743,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -735,7 +751,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -747,26 +763,30 @@ apply simp
         apply(insert prems4(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems4(1,3))
-          apply(rule constrained_always_einv2req
+          apply(rule constrained_always_einv2req)
           apply simp
             apply assumption
         done
     done
 done
 done
-
+done
 
 lemma P2_2_inv_saving: "
 P2_2_inv_part t b_0 t1_0 A11 A12 A2 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((t = 0) \<or> (((((t1_0 s0) + 1) >= t) \<or> (A2 s)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((t = 0) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-P2_2_inv_part t b_0 t1_0 A11 A12 A2 s"
+P2_2_inv_part t b_0 t1_0 A11 A12 A2 s"unfolding P2_2_inv_part_def P2_2_part_def
+apply(simp add: P2_2_inv_saving_gen always_imp_refl)
+done
 
 lemma P2_2einv_imp_req: "
 P2_2_inv_part t b_0 t1_0 A11 A12 A2 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P2_2_part t A11 A12 A2 s"
+P2_2_part t A11 A12 A2 s"unfolding P2_2_inv_part_def P2_2_part_def
+apply(simp add: P2_2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P2_2_used_patterns = P2_2_def always_def weak_previous_def constrained_always_def 
 
@@ -804,7 +824,7 @@ apply(erule always_rule)
       apply(insert prems2(1,2))[1]
         apply(rule always_imp_refl)
       apply(insert prems2(1,3))
-        apply(rule weak_until_rule
+        apply(rule weak_until_rule)
         apply simp
           apply(erule conjE)
           subgoal premises prems3
@@ -857,14 +877,14 @@ apply(erule always_rule)
             apply assumption
           done
   done
-
+done
 
 lemma P3_1einv_imp_req_gen: "
 P3_1_inv w_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 toEnvP s0 \<Longrightarrow>
 (True \<and> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> (always_imp s0 (A3_1 s0) (A3 s0)))) \<Longrightarrow>
 P3_1 A1 A2 A3 s0"unfolding P3_1_inv_def P3_1_def
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -874,7 +894,7 @@ apply simp
     apply(insert prems3(1,2))[1]
       apply(rule always_imp_refl)
     apply(insert prems3(1,3))
-      apply(rule weak_until_einv2req
+      apply(rule weak_until_einv2req)
       apply simp
         apply(erule conjE)
         subgoal premises prems4
@@ -885,19 +905,23 @@ apply simp
           apply assumption
         done
     done
-
+done
 
 lemma P3_1_inv_saving: "
 P3_1_inv_part w_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((\<not> (A1 s)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<Longrightarrow>
-P3_1_inv_part w_0 A1 A2 A3 s"
+P3_1_inv_part w_0 A1 A2 A3 s"unfolding P3_1_inv_part_def P3_1_part_def
+apply(simp add: P3_1_inv_saving_gen always_imp_refl)
+done
 
 lemma P3_1einv_imp_req: "
 P3_1_inv_part w_0 A1 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P3_1_part A1 A2 A3 s"
+P3_1_part A1 A2 A3 s"unfolding P3_1_inv_part_def P3_1_part_def
+apply(simp add: P3_1einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P3_1_used_patterns = P3_1_def always_def weak_until_def 
 
@@ -938,7 +962,7 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
@@ -950,7 +974,7 @@ apply(erule always_rule)
           apply(insert prems4(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems4(1,3))
-            apply(rule weak_until_rule
+            apply(rule weak_until_rule)
             apply simp
               apply(erule conjE)
               subgoal premises prems5
@@ -1017,18 +1041,18 @@ apply(erule always_rule)
               apply assumption
             done
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems10
   apply(insert prems10(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P3_2einv_imp_req_gen: "
 P3_2_inv b_0 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
@@ -1040,7 +1064,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -1048,7 +1072,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -1060,7 +1084,7 @@ apply simp
         apply(insert prems4(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems4(1,3))
-          apply(rule weak_until_einv2req
+          apply(rule weak_until_einv2req)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -1074,19 +1098,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P3_2_inv_saving: "
 P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s"
+P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s"unfolding P3_2_inv_part_def P3_2_part_def
+apply(simp add: P3_2_inv_saving_gen always_imp_refl)
+done
 
 lemma P3_2einv_imp_req: "
 P3_2_inv_part b_0 w_0 A11 A12 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P3_2_part A11 A12 A2 A3 s"
+P3_2_part A11 A12 A2 A3 s"unfolding P3_2_inv_part_def P3_2_part_def
+apply(simp add: P3_2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P3_2_used_patterns = P3_2_def always_def weak_previous_def weak_until_def 
 
@@ -1127,11 +1155,11 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
-        apply(rule weak_until_rule
+        apply(rule weak_until_rule)
         apply simp
           apply(erule conjE)
           subgoal premises prems4
@@ -1193,18 +1221,18 @@ apply(erule always_rule)
             apply assumption
           done
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems9
   apply(insert prems9(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P3_3einv_imp_req_gen: "
 P3_3_inv b_0 w_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
@@ -1216,7 +1244,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -1224,11 +1252,11 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
-      apply(rule weak_until_einv2req
+      apply(rule weak_until_einv2req)
       apply simp
         apply(erule conjE)
         subgoal premises prems4
@@ -1241,19 +1269,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P3_3_inv_saving: "
 P3_3_inv_part b_0 w_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_0 s0) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_0 s) --> (\<not> (A1 s)))) \<Longrightarrow>
-P3_3_inv_part b_0 w_0 A1 A2 A3 s"
+P3_3_inv_part b_0 w_0 A1 A2 A3 s"unfolding P3_3_inv_part_def P3_3_part_def
+apply(simp add: P3_3_inv_saving_gen always_imp_refl)
+done
 
 lemma P3_3einv_imp_req: "
 P3_3_inv_part b_0 w_0 A1 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P3_3_part A1 A2 A3 s"
+P3_3_part A1 A2 A3 s"unfolding P3_3_inv_part_def P3_3_part_def
+apply(simp add: P3_3einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P3_3_used_patterns = P3_3_def always_def weak_previous_def weak_until_def 
 
@@ -1299,7 +1331,7 @@ apply(erule always_rule)
       subgoal premises prems4
       apply(rule conjI)
       apply(insert prems4(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_disj_rule)
           apply simp
@@ -1307,14 +1339,14 @@ apply(erule always_rule)
             subgoal premises prems5
             apply(rule conjI)
             apply(insert prems5(1,2))[1]
-              apply(rule weak_previous_LS4
+              apply(rule weak_previous_LS4)
               apply simp
                 apply(rule always_imp_refl)
             apply(insert prems5(1,3))
               apply(rule always_imp_refl)
             done
       apply(insert prems4(1,3))
-        apply(rule weak_until_rule
+        apply(rule weak_until_rule)
         apply simp
           apply(erule conjE)
           subgoal premises prems6
@@ -1364,7 +1396,7 @@ apply(erule always_rule)
             subgoal premises prems10
             apply(rule conjI)
             apply(insert prems10(1,2))[1]
-              apply(rule weak_previous_LS4
+              apply(rule weak_previous_LS4)
               apply simp
                 apply(rule always_imp_refl)
             apply(insert prems10(1,3))
@@ -1387,11 +1419,11 @@ apply(erule always_rule)
             apply assumption
           done
   done
-apply(insert prems2(1,3,5)
-  apply(erule previous_rule
+apply(insert prems2(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems12
   apply(insert prems12(1,3))
@@ -1411,18 +1443,18 @@ apply(insert prems2(1,3,5)
       apply assumption
   done
 done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems14
   apply(insert prems14(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P3_4einv_imp_req_gen: "
 P3_4_inv b_0 b_1 w_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
@@ -1435,7 +1467,7 @@ apply(simp only: conj_assoc)
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -1443,7 +1475,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_disj_rule)
         apply simp
@@ -1451,14 +1483,14 @@ apply simp
           subgoal premises prems4
           apply(rule conjI)
           apply(insert prems4(1,2))[1]
-            apply(rule weak_previous_LS5
+            apply(rule weak_previous_LS5)
             apply simp
               apply(rule always_imp_refl)
           apply(insert prems4(1,3))
             apply(rule always_imp_refl)
           done
     apply(insert prems3(1,3))
-      apply(rule weak_until_einv2req
+      apply(rule weak_until_einv2req)
       apply simp
         apply(erule conjE)
         subgoal premises prems5
@@ -1471,19 +1503,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P3_4_inv_saving: "
 P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((((\<not> (w_0 s0)) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s)))) \<and> ((b_1 s0) \<or> ((A3 s) \<or> ((w_0 s) \<and> (A2 s))))) \<and> ((b_1 s) --> ((b_0 s0) \<or> (\<not> (A12 s))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s"
+P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s"unfolding P3_4_inv_part_def P3_4_part_def
+apply(simp add: P3_4_inv_saving_gen always_imp_refl)
+done
 
 lemma P3_4einv_imp_req: "
 P3_4_inv_part b_0 b_1 w_0 A11 A12 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P3_4_part A11 A12 A2 A3 s"
+P3_4_part A11 A12 A2 A3 s"unfolding P3_4_inv_part_def P3_4_part_def
+apply(simp add: P3_4einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P3_4_used_patterns = P3_4_def always_def weak_previous_def weak_previous_def weak_until_def 
 
@@ -1521,7 +1557,7 @@ apply(erule always_rule)
       apply(insert prems2(1,2))[1]
         apply(rule always_imp_refl)
       apply(insert prems2(1,3))
-        apply(rule constrained_weak_until_rule
+        apply(rule constrained_weak_until_rule)
         apply simp
           apply(erule conjE)
           subgoal premises prems3
@@ -1588,14 +1624,14 @@ apply(erule always_rule)
             apply assumption
           done
   done
-
+done
 
 lemma P4_1einv_imp_req_gen: "
 P4_1_inv t t1_0 A1 A2_1 A3_1 s0 \<Longrightarrow>
 toEnvP s0 \<Longrightarrow>
 (True \<and> ((always_imp s0 (A2_1 s0) (A2 s0)) \<and> (always_imp s0 (A3_1 s0) (A3 s0)))) \<Longrightarrow>
 P4_1 t A1 A2 A3 s0"unfolding P4_1_inv_def P4_1_def
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -1605,7 +1641,7 @@ apply simp
     apply(insert prems3(1,2))[1]
       apply(rule always_imp_refl)
     apply(insert prems3(1,3))
-      apply(rule constrained_weak_until_einv2req
+      apply(rule constrained_weak_until_einv2req)
       apply simp
         apply(erule conjE)
         subgoal premises prems4
@@ -1616,19 +1652,23 @@ apply simp
           apply assumption
         done
     done
-
+done
 
 lemma P4_1_inv_saving: "
 P4_1_inv_part t t1_0 A1 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((\<not> (A1 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s))))) \<Longrightarrow>
-P4_1_inv_part t t1_0 A1 A2 A3 s"
+P4_1_inv_part t t1_0 A1 A2 A3 s"unfolding P4_1_inv_part_def P4_1_part_def
+apply(simp add: P4_1_inv_saving_gen always_imp_refl)
+done
 
 lemma P4_1einv_imp_req: "
 P4_1_inv_part t t1_0 A1 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P4_1_part t A1 A2 A3 s"
+P4_1_part t A1 A2 A3 s"unfolding P4_1_inv_part_def P4_1_part_def
+apply(simp add: P4_1einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P4_1_used_patterns = P4_1_def always_def constrained_weak_until_def 
 
@@ -1669,7 +1709,7 @@ apply(erule always_rule)
       subgoal premises prems3
       apply(rule conjI)
       apply(insert prems3(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems3(1,3))
@@ -1681,7 +1721,7 @@ apply(erule always_rule)
           apply(insert prems4(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems4(1,3))
-            apply(rule constrained_weak_until_rule
+            apply(rule constrained_weak_until_rule)
             apply simp
               apply(erule conjE)
               subgoal premises prems5
@@ -1762,18 +1802,18 @@ apply(erule always_rule)
               apply assumption
             done
   done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems12
   apply(insert prems12(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P4_2einv_imp_req_gen: "
 P4_2_inv t b_0 t1_0 A11 A12 A2_1 A3_1 s0 \<Longrightarrow>
@@ -1785,7 +1825,7 @@ apply(insert prems1(1,2))
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -1793,7 +1833,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -1805,7 +1845,7 @@ apply simp
         apply(insert prems4(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems4(1,3))
-          apply(rule constrained_weak_until_einv2req
+          apply(rule constrained_weak_until_einv2req)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -1819,19 +1859,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P4_2_inv_saving: "
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> (A2 s)))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> (A2 s)))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<Longrightarrow>
-P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"
+P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s"unfolding P4_2_inv_part_def P4_2_part_def
+apply(simp add: P4_2_inv_saving_gen always_imp_refl)
+done
 
 lemma P4_2einv_imp_req: "
 P4_2_inv_part t b_0 t1_0 A11 A12 A2 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P4_2_part t A11 A12 A2 A3 s"
+P4_2_part t A11 A12 A2 A3 s"unfolding P4_2_inv_part_def P4_2_part_def
+apply(simp add: P4_2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P4_2_used_patterns = P4_2_def always_def weak_previous_def constrained_weak_until_def 
 
@@ -1877,7 +1921,7 @@ apply(erule always_rule)
       subgoal premises prems4
       apply(rule conjI)
       apply(insert prems4(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
           apply(rule always_imp_refl)
       apply(insert prems4(1,3))
@@ -1889,7 +1933,7 @@ apply(erule always_rule)
           apply(insert prems5(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems5(1,3))
-            apply(rule constrained_weak_until_rule
+            apply(rule constrained_weak_until_rule)
             apply simp
               apply(erule conjE)
               subgoal premises prems6
@@ -1901,7 +1945,7 @@ apply(erule always_rule)
                   subgoal premises prems7
                   apply(rule conjI)
                   apply(insert prems7(1,2))[1]
-                    apply(rule previous_LS4
+                    apply(rule previous_LS4)
                     apply simp
                       apply assumption
                   apply(insert prems7(1,3))
@@ -2013,29 +2057,29 @@ apply(erule always_rule)
               done
             done
   done
-apply(insert prems2(1,3,5)
-  apply(erule previous_rule
+apply(insert prems2(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems18
   apply(insert prems18(1,3))
     apply assumption
   done
 done
-apply(insert prems1(1,3,5)
-  apply(erule previous_rule
+apply(insert prems1(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems19
   apply(insert prems19(1,3))
     apply assumption
   done
 done
-
+done
 
 lemma P4_3einv_imp_req_gen: "
 P4_3_inv t b_0 b_1 t1_0 A11 A12 A21_1 A22_1 A3_1 s0 \<Longrightarrow>
@@ -2048,7 +2092,7 @@ apply(simp only: conj_assoc)
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -2056,7 +2100,7 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
         apply(rule always_imp_refl)
     apply(insert prems3(1,3))
@@ -2068,7 +2112,7 @@ apply simp
         apply(insert prems4(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems4(1,3))
-          apply(rule constrained_weak_until_einv2req
+          apply(rule constrained_weak_until_einv2req)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -2080,7 +2124,7 @@ apply simp
                 subgoal premises prems6
                 apply(rule conjI)
                 apply(insert prems6(1,2))[1]
-                  apply(rule previous_LS5
+                  apply(rule previous_LS5)
                   apply simp
                     apply assumption
                 apply(insert prems6(1,3))
@@ -2093,19 +2137,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P4_3_inv_saving: "
 P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((((((t1_0 s0) < t) \<and> (((A3 s) \<and> ((t1_0 s) <= (t + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((b_1 s0) \<and> (A22 s))))) \<or> (((t1_0 s0) >= t) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((\<not> (A12 s)) \<or> ((A3 s) \<or> (((t1_0 s) = 0) \<and> ((b_1 s0) \<and> (A22 s))))))) \<and> ((b_0 s) --> (\<not> (A11 s)))) \<and> ((b_1 s) --> (A21 s))) \<Longrightarrow>
-P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s"
+P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s"unfolding P4_3_inv_part_def P4_3_part_def
+apply(simp add: P4_3_inv_saving_gen always_imp_refl)
+done
 
 lemma P4_3einv_imp_req: "
 P4_3_inv_part t b_0 b_1 t1_0 A11 A12 A21 A22 A3 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P4_3_part t A11 A12 A21 A22 A3 s"
+P4_3_part t A11 A12 A21 A22 A3 s"unfolding P4_3_inv_part_def P4_3_part_def
+apply(simp add: P4_3einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P4_3_used_patterns = P4_3_def always_def weak_previous_def constrained_weak_until_def previous_def 
 
@@ -2151,9 +2199,9 @@ apply(erule always_rule)
       subgoal premises prems4
       apply(rule conjI)
       apply(insert prems4(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
-          apply(rule dual_since_LS4
+          apply(rule dual_since_L4)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -2186,7 +2234,7 @@ apply(erule always_rule)
         apply(insert prems7(1,2))[1]
           apply assumption
         apply(insert prems7(1,3))
-          apply(rule dual_since_LS4
+          apply(rule dual_since_L4)
           apply simp
             apply(erule conjE)
             subgoal premises prems8
@@ -2204,11 +2252,11 @@ apply(erule always_rule)
       apply(rule disjI2)
         apply assumption
   done
-apply(insert prems2(1,3,5)
-  apply(erule previous_rule
+apply(insert prems2(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems9
   apply(insert prems9(1,3))
@@ -2253,8 +2301,8 @@ apply(insert prems2(1,3,5)
       done
   done
 done
-apply(insert prems1(1,3,5)
-  apply(erule dual_since_one_point
+apply(insert prems1(1,3,5))
+  apply(erule dual_since_one_point)
   apply simp
   apply(erule conjE)
   subgoal premises prems14
@@ -2294,7 +2342,7 @@ apply(insert prems1(1,3,5)
       done
   done
 done
-
+done
 
 lemma P6_1einv_imp_req_gen: "
 P6_1_inv t b_0 t1_0 b_1 A1 A2 A3 A4_1 s0 \<Longrightarrow>
@@ -2307,7 +2355,7 @@ apply(simp only: conj_assoc)
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -2315,9 +2363,9 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
-        apply(rule dual_since_LS5
+        apply(rule dual_since_L5)
         apply simp
           apply(erule conjE)
           subgoal premises prems4
@@ -2341,19 +2389,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P6_1_inv_saving: "
 P6_1_inv_part t b_0 t1_0 b_1 A1 A2 A3 A4 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 ((((b_1 s0) \<or> ((\<not> (A3 s)) \<or> (A4 s))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < t)))))) \<and> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s)))))) \<Longrightarrow>
-P6_1_inv_part t b_0 t1_0 b_1 A1 A2 A3 A4 s"
+P6_1_inv_part t b_0 t1_0 b_1 A1 A2 A3 A4 s"unfolding P6_1_inv_part_def P6_1_part_def
+apply(simp add: P6_1_inv_saving_gen always_imp_refl)
+done
 
 lemma P6_1einv_imp_req: "
 P6_1_inv_part t b_0 t1_0 b_1 A1 A2 A3 A4 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P6_1_part t A1 A2 A3 A4 s"
+P6_1_part t A1 A2 A3 A4 s"unfolding P6_1_inv_part_def P6_1_part_def
+apply(simp add: P6_1einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P6_1_used_patterns = P6_1_def always_def weak_previous_def dual_since_def 
 
@@ -2399,9 +2451,9 @@ apply(erule always_rule)
       subgoal premises prems4
       apply(rule conjI)
       apply(insert prems4(1,2))[1]
-        apply(rule weak_previous_LS4
+        apply(rule weak_previous_LS4)
         apply simp
-          apply(rule dual_since_LS4
+          apply(rule dual_since_L4)
           apply simp
             apply(erule conjE)
             subgoal premises prems5
@@ -2420,7 +2472,7 @@ apply(erule always_rule)
           apply(insert prems6(1,2))[1]
             apply(rule always_imp_refl)
           apply(insert prems6(1,3))
-            apply(rule weak_until_rule
+            apply(rule weak_until_rule)
             apply simp
               apply(erule conjE)
               subgoal premises prems7
@@ -2465,7 +2517,7 @@ apply(erule always_rule)
         apply(insert prems10(1,2))[1]
           apply assumption
         apply(insert prems10(1,3))
-          apply(rule dual_since_LS4
+          apply(rule dual_since_L4)
           apply simp
             apply(erule conjE)
             subgoal premises prems11
@@ -2496,11 +2548,11 @@ apply(erule always_rule)
               apply assumption
             done
   done
-apply(insert prems2(1,3,5)
-  apply(erule previous_rule
+apply(insert prems2(1,3,5))
+  apply(erule previous_rule)
   apply simp
   apply(rule impI)
-  apply(rule impE)
+  apply(erule impE)
   apply assumption
   subgoal premises prems13
   apply(insert prems13(1,3))
@@ -2545,8 +2597,8 @@ apply(insert prems2(1,3,5)
       done
   done
 done
-apply(insert prems1(1,3,5)
-  apply(erule dual_since_one_point
+apply(insert prems1(1,3,5))
+  apply(erule dual_since_one_point)
   apply simp
   apply(erule conjE)
   subgoal premises prems18
@@ -2586,7 +2638,7 @@ apply(insert prems1(1,3,5)
       done
   done
 done
-
+done
 
 lemma P6_2einv_imp_req_gen: "
 P6_2_inv t b_0 t1_0 b_1 w_0 A1 A2 A3 A4_1 A5_1 s0 \<Longrightarrow>
@@ -2599,7 +2651,7 @@ apply(simp only: conj_assoc)
 apply(erule conjE)
 subgoal premises prems2
 apply(insert prems2(1,2) prems1(3))
-apply(erule always_einv2req
+apply(erule always_einv2req)
 apply simp
   apply(rule always_disj_rule)
   apply simp
@@ -2607,9 +2659,9 @@ apply simp
     subgoal premises prems3
     apply(rule conjI)
     apply(insert prems3(1,2))[1]
-      apply(rule weak_previous_LS5
+      apply(rule weak_previous_LS5)
       apply simp
-        apply(rule dual_since_LS5
+        apply(rule dual_since_L5)
         apply simp
           apply(erule conjE)
           subgoal premises prems4
@@ -2628,7 +2680,7 @@ apply simp
         apply(insert prems5(1,2))[1]
           apply(rule always_imp_refl)
         apply(insert prems5(1,3))
-          apply(rule weak_until_einv2req
+          apply(rule weak_until_einv2req)
           apply simp
             apply(erule conjE)
             subgoal premises prems6
@@ -2642,19 +2694,23 @@ apply simp
     done
 done
 done
-
+done
 
 lemma P6_2_inv_saving: "
 P6_2_inv_part t b_0 t1_0 b_1 w_0 A1 A2 A3 A4 A5 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
 (((((\<not> (w_0 s0)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))) \<and> ((b_1 s0) \<or> ((\<not> (A3 s)) \<or> ((A5 s) \<or> ((w_0 s) \<and> (A4 s)))))) \<and> ((b_1 s) --> (((t > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < t)))))) \<and> ((((t1_0 s) > 0) \<or> (\<not> (A1 s))) \<and> ((\<not> (A2 s)) \<or> ((b_0 s0) \<and> ((t1_0 s0) < (t1_0 s)))))) \<Longrightarrow>
-P6_2_inv_part t b_0 t1_0 b_1 w_0 A1 A2 A3 A4 A5 s"
+P6_2_inv_part t b_0 t1_0 b_1 w_0 A1 A2 A3 A4 A5 s"unfolding P6_2_inv_part_def P6_2_part_def
+apply(simp add: P6_2_inv_saving_gen always_imp_refl)
+done
 
 lemma P6_2einv_imp_req: "
 P6_2_inv_part t b_0 t1_0 b_1 w_0 A1 A2 A3 A4 A5 s \<Longrightarrow>
 toEnvP s \<Longrightarrow>
 True \<Longrightarrow>
-P6_2_part t A1 A2 A3 A4 A5 s"
+P6_2_part t A1 A2 A3 A4 A5 s"unfolding P6_2_inv_part_def P6_2_part_def
+apply(simp add: P6_2einv_imp_req_gen always_imp_refl)
+done
 
 lemmas P6_2_used_patterns = P6_2_def always_def weak_previous_def dual_since_def weak_until_def 
 

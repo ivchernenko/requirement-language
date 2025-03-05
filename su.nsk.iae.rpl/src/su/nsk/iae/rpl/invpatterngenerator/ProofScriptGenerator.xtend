@@ -124,7 +124,7 @@ class ProofScriptGenerator {
 			val premisesName = premisesNames.remove(premisesNames.size() -1);
 			script.append('''
 			apply(insert «premisesName»(1,3,5))
-			  apply(erule «extraConj.getPattern().getLemmas().getL6().getName()»
+			  apply(erule «extraConj.getPattern().getLemmas().getL6().getName()»)
 			  apply simp
 			  «extraConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this)»
 			done
@@ -152,7 +152,7 @@ class ProofScriptGenerator {
 		subgoal premises «premises2»
 		apply(insert «premises2»(1,2) «premises1»(3))
 		«ENDIF»
-		apply(erule «reqFormula.getL9().getName()»
+		apply(erule «reqFormula.getL9().getName()»)
 		apply simp
 		  «extraInvFormula.generateL9PremiseInstance(reqFormula, state).generateProofScript(null, this)»
 		«IF extraConjs.size() > 0»
@@ -208,7 +208,7 @@ class ProofScriptGenerator {
 		val premisesName = BASE_PREMISES_NAME + premisesNumber;
 		return '''
 		apply(rule impI)
-		apply(rule impE)
+		apply(erule impE)
 		apply assumption
 		subgoal premises «premisesName»
 		apply(insert «premisesName»(1,3))
