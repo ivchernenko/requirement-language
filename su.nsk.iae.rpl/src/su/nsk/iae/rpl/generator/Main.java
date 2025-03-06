@@ -82,15 +82,19 @@ public class Main {
 			String name = fileName.substring(0, index);
 			String outputFileName = name + "_Patterns";
 			FileWriter writer = new FileWriter(outputFileName + ".thy");
-			writer.write("theory " + outputFileName + " imports Patterns\n begin\n");
 			RPLFactory factory = RPLFactory.eINSTANCE;
 			Model genModel = factory.createModel();
 			List<Import> imports = genModel.getImports();
+			List<String> importedTheories = new ArrayList<>();
 			for (Import importElement: model.getImports()) {
 				Import importCopy = factory.createImport();
+				String importURI = importElement.getImportURI();
 				importCopy.setImportURI(importElement.getImportURI());
 				imports.add(importCopy);
+				String throryName = importURI.substring(0, importURI.lastIndexOf('.'));
+				importedTheories.add(throryName);
 			}
+			generateTheoryName(writer,  outputFileName,  importedTheories);
 			List<Element> genElements = genModel.getElements();
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
@@ -280,7 +284,7 @@ public class Main {
 			List<Element> elements = model.getElements();
 			String ceiOutputFileName = "CommonExtraInv_Proofs";
 			FileWriter ceiWriter = new FileWriter(ceiOutputFileName + ".thy");
-			generateTheoryName(ceiWriter, ceiOutputFileName, "CommonExtraInv");
+			generateTheoryName(ceiWriter, ceiOutputFileName, List.of("CommonExtraInv"));
 			generateInitVcProofForCommonExtraInvariant(ceiWriter);
 			for (int i =2; i<= numVCs; i++)
 				generateLoopPathForCommonExtraInvariant(ceiWriter, i, inputVars);
@@ -290,7 +294,7 @@ public class Main {
 				if (element instanceof  ExtraInvariant einv) {
 					String outputFileName = einv.getName() + "_Proofs";
 					FileWriter writer = new FileWriter(outputFileName + ".thy");
-					generateTheoryName(writer, outputFileName, importedTheory + " CommonExtraInv_Proofs");
+					generateTheoryName(writer, outputFileName, List.of(importedTheory + " CommonExtraInv_Proofs"));
 					generateInitVcProofForExtraInvariant(writer, einv);
 					for (int i =2; i<= numVCs; i++)
 						generateLoopPathForExtraInvariant(writer, i, einv, inputVars);
@@ -301,7 +305,7 @@ public class Main {
 					ExtraInvariant einv = req.getExtraInv();
 					String outputFileName = req.getName() + "_Proofs";
 					FileWriter writer = new FileWriter(outputFileName + ".thy");
-					generateTheoryName(writer, outputFileName, req.getExtraInv().getName() + "_Proofs");
+					generateTheoryName(writer, outputFileName, List.of(req.getExtraInv().getName() + "_Proofs"));
 					writer.write(generateExtendedInvDefinition(req));
 					writer.write("\n\n");
 					String extendedInv = req.getName() + "_extended_inv";
@@ -390,8 +394,11 @@ public class Main {
 		writer.write("by auto\n\n");
 	}
 	
-	private void generateTheoryName(FileWriter writer, String theoryName, String imports) throws IOException {
-		writer.write("theory " + theoryName + " imports " + imports + "\n begin\n");
+	private void generateTheoryName(FileWriter writer, String theoryName, List<String> imports) throws IOException {
+		writer.write("theory " + theoryName + " imports ");
+		for (String theory: imports)
+			writer.write(theory + ' ');
+		writer.write("\nbegin\n");
 	}
 	
 	private String generateExtendedInvDefinition(Requirement requirement) {

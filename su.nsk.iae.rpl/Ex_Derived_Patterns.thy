@@ -1,5 +1,5 @@
-theory Ex_Derived_Patterns imports Patterns
- begin
+theory Ex_Derived_Patterns imports Lib Derived_Patterns 
+begin
 definition P_constrained_always_after_max_delay where "P_constrained_always_after_max_delay t1 t2 A11 A12 A2 A3 s \<equiv> (P1_2 t1 A11 A12 (\<lambda> r2 r1 . (\<not> (A2 r1))) (\<lambda> r2 r1 . ((A2 r1) \<and> (constrained_always t2 A3 r2 r1))) s)"
 
 definition P_constrained_always_after_max_delay_part where "P_constrained_always_after_max_delay_part t1 t2 A11 A12 A2 A3 s \<equiv> (P_constrained_always_after_max_delay t1 t2 A11 A12 A2 (\<lambda> s s1 . (A3 s1)) s)"
