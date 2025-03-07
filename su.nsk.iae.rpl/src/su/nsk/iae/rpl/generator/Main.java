@@ -360,7 +360,7 @@ public class Main {
 				+ "   apply simp\r\n"
 				+ "  apply(unfold " + einv + "_def commonExtraInv_def)\r\n"
 				+ "  apply(erule conjE)+\r\n"
-				+ "  apply(auto simp add: " + L9.getName() +")\r\n"
+				+ "  apply(auto intro: " + L9.getName() +")\r\n"
 				+ "  done\r\n"
 				+ "";
 		writer.write(proofScript + "\n");		
