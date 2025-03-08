@@ -1,4 +1,4 @@
-import "Lib.rpl" ; 
+import "Basic_Patterns.rpl" ; 
 derivedeinv pattern always2_inv ( fun : b_0 simple formulas : A11 , A12 formulas : A2_1 ) 
 lemmas {
  LS8 lemma always2_inv_saving_gen { 

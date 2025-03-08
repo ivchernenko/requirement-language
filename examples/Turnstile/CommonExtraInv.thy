@@ -1,10 +1,10 @@
 theory CommonExtraInv
-  imports Turnstile "../VCTheoryLemmas"
+  imports Turnstile "VCProving.VCTheoryLemmas"
 begin
 
 definition commonExtraInv where "commonExtraInv s \<equiv> toEnvP s \<and>
 (getPstate s Controller' \<in> {Controller'isClosed', STOP} \<longrightarrow> getVarBool s open' = False) \<and>
-(getPstate s Controller' \<in> {Controller'minimalOpened', Controller'isClosed'} \<longrightarrow> getVarBool s open' = True) \<and>
+(getPstate s Controller' \<in> {Controller'minimalOpened', Controller'isOpened'} \<longrightarrow> getVarBool s open' = True) \<and>
 (getPstate s Controller' = Controller'minimalOpened' \<longrightarrow> ltime s Controller' \<le> 10) \<and>
 (getPstate s Controller' = Controller'isOpened' \<longrightarrow> ltime s Controller' \<le> 90) \<and>
 getPstate s Controller' \<in> {Controller'isClosed', Controller'minimalOpened', Controller'isOpened', STOP} \<and>

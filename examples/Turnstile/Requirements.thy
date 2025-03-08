@@ -1,5 +1,5 @@
 theory Requirements
-  imports "../Derived_Patterns" CommonExtraInv
+  imports "VCProving.Derived_Patterns" CommonExtraInv
 begin
 
 definition R1 where "R1 s \<equiv> toEnvP s \<and>
