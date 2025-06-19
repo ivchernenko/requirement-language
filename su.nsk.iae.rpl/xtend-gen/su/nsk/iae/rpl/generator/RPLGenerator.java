@@ -3,10 +3,23 @@
  */
 package su.nsk.iae.rpl.generator;
 
+import com.google.common.collect.Iterators;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import su.nsk.iae.rpl.rPL.DerivedLemmas;
+import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
+import su.nsk.iae.rpl.rPL.Lemma;
+import su.nsk.iae.rpl.rPL.Requirement;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +28,424 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class RPLGenerator extends AbstractGenerator {
+  private static final String LEMMA_THEORY = "VCProving.VCTheoryLemmas";
+
+  private static final String THEORY_EXTENSION = ".thy";
+
+  private String commonExtraInv;
+
+  private String VCTheoryName;
+
+  private int start;
+
+  private int end;
+
+  private String inputVars;
+
+  private String requirementTheory;
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final String commonExtraInvTheory = this.capitalizeWords(this.commonExtraInv);
+    final String commonExtraInvProofTheory = ((commonExtraInvTheory + "_") + this.VCTheoryName);
+    fsa.generateFile((commonExtraInvTheory + RPLGenerator.THEORY_EXTENSION), 
+      this.generateCommonExtraInvariantProofs(commonExtraInvTheory, commonExtraInvProofTheory));
+    final Procedure1<Requirement> _function = (Requirement requirement) -> {
+      String _name = requirement.getExtraInv().getName();
+      String _plus = (_name + "_");
+      final String extraInvariantProofTheory = (_plus + this.VCTheoryName);
+      fsa.generateFile((extraInvariantProofTheory + RPLGenerator.THEORY_EXTENSION), 
+        this.generateExtraInvariantProofs(requirement, commonExtraInvProofTheory, extraInvariantProofTheory));
+      String _name_1 = requirement.getName();
+      String _plus_1 = (_name_1 + "_");
+      final String requirementProofTheory = (_plus_1 + this.VCTheoryName);
+      fsa.generateFile((requirementProofTheory + RPLGenerator.THEORY_EXTENSION), 
+        this.generateRequirementProofs(requirement, extraInvariantProofTheory, requirementProofTheory));
+    };
+    IteratorExtensions.<Requirement>forEach(Iterators.<Requirement>filter(resource.getAllContents(), Requirement.class), _function);
+  }
+
+  public String generateExtraInvariantProofs(final Requirement requirement, final String commonExtraInvProofTheory, final String extraInvariantProofTheory) {
+    try {
+      final StringBuilder theoryContent = new StringBuilder();
+      final List<String> importedTheories = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(this.requirementTheory, commonExtraInvProofTheory));
+      theoryContent.append(this.generateTheoryName(extraInvariantProofTheory, importedTheories));
+      if ((this.start == 1)) {
+        theoryContent.append(this.generateInitVcProofForExtraInvariant(requirement));
+      }
+      {
+        int _xifexpression = (int) 0;
+        if ((this.start == 1)) {
+          _xifexpression = 2;
+        } else {
+          _xifexpression = this.start;
+        }
+        int i = _xifexpression;
+        boolean _while = (i <= this.end);
+        while (_while) {
+          theoryContent.append(this.generateLoopPathForExtraInvariant(i, requirement));
+          i++;
+          _while = (i <= this.end);
+        }
+      }
+      theoryContent.append("done\n");
+      return theoryContent.toString();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  public String generateRequirementProofs(final Requirement requirement, final String extraInvariantProofTheory, final String requirementProofTheory) {
+    try {
+      final StringBuilder theoryContent = new StringBuilder();
+      final List<String> importedTheories = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(extraInvariantProofTheory));
+      theoryContent.append(this.generateTheoryName(requirementProofTheory, importedTheories));
+      String _name = requirement.getName();
+      final String extendedInvName = (_name + "_extended_inv");
+      theoryContent.append(this.generateExtendedInvDefinition(requirement, extendedInvName));
+      if ((this.start == 1)) {
+        theoryContent.append(this.generateInitVcProofForRequirement(requirement, extendedInvName));
+      }
+      {
+        int _xifexpression = (int) 0;
+        if ((this.start == 1)) {
+          _xifexpression = 2;
+        } else {
+          _xifexpression = this.start;
+        }
+        int i = _xifexpression;
+        boolean _while = (i <= this.end);
+        while (_while) {
+          theoryContent.append(this.generateLoopPathForRequirement(i, requirement, extendedInvName));
+          i++;
+          _while = (i <= this.end);
+        }
+      }
+      theoryContent.append("done\n");
+      return theoryContent.toString();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  public String generateCommonExtraInvariantProofs(final String commonExtraInvTheory, final String commonExtraInvProofTheory) {
+    try {
+      final StringBuilder theoryContent = new StringBuilder();
+      final List<String> importedTheories = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(commonExtraInvTheory, RPLGenerator.LEMMA_THEORY));
+      theoryContent.append(this.generateTheoryName(commonExtraInvProofTheory, importedTheories));
+      if ((this.start == 1)) {
+        theoryContent.append(this.generateInitVcProofForCommonExtraInvariant());
+      }
+      {
+        int _xifexpression = (int) 0;
+        if ((this.start == 1)) {
+          _xifexpression = 2;
+        } else {
+          _xifexpression = this.start;
+        }
+        int i = _xifexpression;
+        boolean _while = (i <= this.end);
+        while (_while) {
+          theoryContent.append(this.generateLoopPathForCommonExtraInvariant(i));
+          i++;
+          _while = (i <= this.end);
+        }
+      }
+      theoryContent.append("done\n");
+      return theoryContent.toString();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+
+  public String capitalizeWords(final String string) {
+    final String[] words = string.split("_");
+    final StringBuilder capitalized = new StringBuilder();
+    for (int i = 0; (i < words.length); i++) {
+      {
+        String _upperCase = (words[i]).substring(0, 1).toUpperCase();
+        String _substring = (words[i]).substring(1);
+        final String word = (_upperCase + _substring);
+        capitalized.append(word);
+        int _length = words.length;
+        int _minus = (_length - 1);
+        boolean _lessThan = (i < _minus);
+        if (_lessThan) {
+          capitalized.append("_");
+        }
+      }
+    }
+    return capitalized.toString();
+  }
+
+  private String generateLoopPathForExtraInvariant(final int i, final Requirement requirement) {
+    final DerivedRequirementPattern reqPattern = requirement.getPattern();
+    final String einv = requirement.getExtraInv().getName();
+    Lemma L8 = ((Lemma) null);
+    DerivedLemmas lemmas = reqPattern.getLemmas();
+    if ((lemmas != null)) {
+      L8 = lemmas.getL8();
+    }
+    if ((L8 == null)) {
+      L8 = reqPattern.getExtraInvPattern().getLemmas().getL8();
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem extra");
+    _builder.append(i);
+    _builder.append(": \"VC");
+    _builder.append(i);
+    _builder.append(" ");
+    _builder.append(einv);
+    _builder.append(" env s0 ");
+    _builder.append(this.inputVars);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("unfolding VC");
+    _builder.append(i, "  ");
+    _builder.append("_def ");
+    _builder.append(einv, "  ");
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(rule impI)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply(rule conjI)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("using cei");
+    _builder.append(i, "  ");
+    _builder.append(" apply((auto simp add: VC");
+    _builder.append(i, "  ");
+    _builder.append("_def)[1];fastforce)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(unfold ");
+    _builder.append(this.commonExtraInv, "  ");
+    _builder.append("_def)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(erule conjE)+");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply(erule ");
+    String _name = L8.getName();
+    _builder.append(_name, "  ");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(auto split: if_splits)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("done");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateLoopPathForRequirement(final int i, final Requirement req, final String extendedInvName) {
+    final String einv = req.getExtraInv().getName();
+    DerivedLemmas lemmas = req.getPattern().getLemmas();
+    Lemma L9 = ((Lemma) null);
+    if ((lemmas != null)) {
+      L9 = lemmas.getL9();
+    }
+    if ((L9 == null)) {
+      L9 = req.getPattern().getExtraInvPattern().getLemmas().getL9();
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem extendedInv");
+    _builder.append(i);
+    _builder.append(": \"VC");
+    _builder.append(i);
+    _builder.append(" ");
+    _builder.append(extendedInvName);
+    _builder.append(" env s0 ");
+    _builder.append(this.inputVars);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("unfolding VC");
+    _builder.append(i, "  ");
+    _builder.append("_def ");
+    _builder.append(extendedInvName, "  ");
+    _builder.append("_def ");
+    String _name = req.getName();
+    _builder.append(_name, "  ");
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(rule impI)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply(rule context_conjI)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("using extra");
+    _builder.append(i, "  ");
+    _builder.append(" apply((auto simp add: VC");
+    _builder.append(i, "  ");
+    _builder.append("_def)[1];fastforce)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(rule conjI)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply simp");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply(unfold ");
+    _builder.append(einv, "  ");
+    _builder.append("_def ");
+    _builder.append(this.commonExtraInv, "  ");
+    _builder.append("_def)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(erule conjE)+");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("apply(erule ");
+    String _name_1 = L9.getName();
+    _builder.append(_name_1, "  ");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("apply(auto split: if_splits)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("done");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateLoopPathForCommonExtraInvariant(final int i) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem cei");
+    _builder.append(i);
+    _builder.append(": VC");
+    _builder.append(i);
+    _builder.append(" ");
+    _builder.append(this.commonExtraInv);
+    _builder.append(" env s0 ");
+    _builder.append(this.inputVars);
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("unfolding VC");
+    _builder.append(i);
+    _builder.append("_def ");
+    _builder.append(this.commonExtraInv);
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("by force");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateInitVcProofForExtraInvariant(final Requirement requirement) {
+    final String einv = requirement.getExtraInv().getName();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem extra1: \"VC1 ");
+    _builder.append(einv);
+    _builder.append(" + \"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("unfolding VC1_def ");
+    _builder.append(einv);
+    _builder.append("_def ");
+    String _name = requirement.getPattern().getExtraInvPattern().getName();
+    _builder.append(_name);
+    _builder.append("_used_patterns ");
+    _builder.append(this.commonExtraInv);
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("by auto");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateInitVcProofForRequirement(final Requirement requirement, final String extendedInvName) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem extra1: \"VC1 ");
+    _builder.append(extendedInvName);
+    _builder.append(" s0\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("unfolding VC1_def ");
+    _builder.append(extendedInvName);
+    _builder.append("_def ");
+    String _name = requirement.getExtraInv().getName();
+    _builder.append(_name);
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    String _name_1 = requirement.getName();
+    _builder.append(_name_1);
+    _builder.append("_def ");
+    String _name_2 = requirement.getPattern().getExtraInvPattern().getName();
+    _builder.append(_name_2);
+    _builder.append("_used_patterns ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    String _name_3 = requirement.getPattern().getName();
+    _builder.append(_name_3, "  ");
+    _builder.append("_used_patterns ");
+    _builder.append(this.commonExtraInv, "  ");
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("by auto");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateInitVcProofForCommonExtraInvariant() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theorem cei1: \"VC1 ");
+    _builder.append(this.commonExtraInv);
+    _builder.append(" s0\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("unfolding VC1_def ");
+    _builder.append(this.commonExtraInv);
+    _builder.append("_def");
+    _builder.newLineIfNotEmpty();
+    _builder.append("by auto");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateTheoryName(final String theoryName, final List<String> imports) throws IOException {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("theory ");
+    _builder.append(theoryName);
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("imports");
+    _builder.newLine();
+    {
+      for(final String theory : imports) {
+        _builder.append("  ");
+        _builder.append(theory, "  ");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("begin");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  private String generateExtendedInvDefinition(final Requirement requirement, final String extendedInv) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("definition ");
+    _builder.append(extendedInv);
+    _builder.newLineIfNotEmpty();
+    _builder.append(" ");
+    _builder.append("where \"");
+    _builder.append(extendedInv, " ");
+    _builder.append(" s \\<equiv> ");
+    String _name = requirement.getExtraInv().getName();
+    _builder.append(_name, " ");
+    _builder.append(" s \\<and> ");
+    String _name_1 = requirement.getName();
+    _builder.append(_name_1, " ");
+    _builder.append(" s\"");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
   }
 }

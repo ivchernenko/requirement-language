@@ -11,6 +11,7 @@ import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
+import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public abstract class Term implements PatternFreeInnerFormula {
@@ -22,14 +23,11 @@ public abstract class Term implements PatternFreeInnerFormula {
 		return this;
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+	public LemmaPremise replacePatternsForImplication(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		return BooleanLiteral.TRUE;
 	}
-	@Override
-	public boolean equalsToRequirementFormula() {
-		return true;
-	}
+	
 	@Override
 	public List<String> getUsedPatternNames() {
 		return new ArrayList<>();
@@ -70,6 +68,10 @@ public abstract class Term implements PatternFreeInnerFormula {
 	@Override
 	public String generateProofScriptForNegation(UpdateStateVariable initState, ProofScriptGenerator generator) {
 		return generator.generateProofByAssumption();
+	}
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return true;
 	}
 	
 }

@@ -1,13 +1,10 @@
 package su.nsk.iae.rpl.invpatterngenerator;
 
-import java.util.Map;
-
 import su.nsk.iae.rpl.rPL.ConjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.DisjunctionLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
-import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
 public class BooleanLemmaPremise implements LemmaPremise {

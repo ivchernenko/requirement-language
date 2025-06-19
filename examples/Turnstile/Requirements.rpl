@@ -1,4 +1,4 @@
-import "../Patterns.rpl";
+import "../Basic_Patterns.rpl";
 import "../Derived_Patterns.rpl";
 
 requirement R1 : P1_2_part with Einv1;

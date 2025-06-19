@@ -14,8 +14,7 @@ unfolding VC2_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv3: "VC3 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -26,8 +25,7 @@ unfolding VC3_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv4: "VC4 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -38,8 +36,7 @@ unfolding VC4_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv5: "VC5 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -50,8 +47,7 @@ unfolding VC5_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv6: "VC6 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -62,8 +58,7 @@ unfolding VC6_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv7: "VC7 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -74,8 +69,7 @@ unfolding VC7_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv8: "VC8 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -86,8 +80,7 @@ unfolding VC8_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv9: "VC9 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -98,8 +91,7 @@ unfolding VC9_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv10: "VC10 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -110,8 +102,7 @@ unfolding VC10_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv11: "VC11 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -122,8 +113,7 @@ unfolding VC11_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv12: "VC12 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -134,8 +124,7 @@ unfolding VC12_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv13: "VC13 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -146,8 +135,7 @@ unfolding VC13_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv14: "VC14 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -158,8 +146,7 @@ unfolding VC14_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv15: "VC15 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -170,8 +157,7 @@ unfolding VC15_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv16: "VC16 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -182,8 +168,7 @@ unfolding VC16_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv17: "VC17 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -194,8 +179,7 @@ unfolding VC17_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv18: "VC18 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -206,8 +190,7 @@ unfolding VC18_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv19: "VC19 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -218,8 +201,7 @@ unfolding VC19_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv20: "VC20 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -230,8 +212,7 @@ unfolding VC20_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv21: "VC21 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -242,8 +223,7 @@ unfolding VC21_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv22: "VC22 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -254,8 +234,7 @@ unfolding VC22_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv23: "VC23 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -266,8 +245,7 @@ unfolding VC23_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv24: "VC24 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -278,8 +256,7 @@ unfolding VC24_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv25: "VC25 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -290,8 +267,7 @@ unfolding VC25_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv26: "VC26 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -302,8 +278,7 @@ unfolding VC26_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv27: "VC27 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -314,8 +289,7 @@ unfolding VC27_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv28: "VC28 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -326,8 +300,7 @@ unfolding VC28_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv29: "VC29 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -338,8 +311,7 @@ unfolding VC29_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv30: "VC30 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -350,8 +322,7 @@ unfolding VC30_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv31: "VC31 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -362,8 +333,7 @@ unfolding VC31_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv32: "VC32 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -374,8 +344,7 @@ unfolding VC32_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv33: "VC33 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -386,8 +355,7 @@ unfolding VC33_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv34: "VC34 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -398,8 +366,7 @@ unfolding VC34_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv35: "VC35 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -410,8 +377,7 @@ unfolding VC35_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv36: "VC36 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -422,8 +388,7 @@ unfolding VC36_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv37: "VC37 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -434,8 +399,7 @@ unfolding VC37_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv38: "VC38 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -446,8 +410,7 @@ unfolding VC38_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv39: "VC39 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -458,8 +421,7 @@ unfolding VC39_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv40: "VC40 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -470,8 +432,7 @@ unfolding VC40_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv41: "VC41 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -482,8 +443,7 @@ unfolding VC41_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv42: "VC42 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -494,8 +454,7 @@ unfolding VC42_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv43: "VC43 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -506,8 +465,7 @@ unfolding VC43_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv44: "VC44 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -518,8 +476,7 @@ unfolding VC44_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv45: "VC45 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -530,8 +487,7 @@ unfolding VC45_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv46: "VC46 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -542,8 +498,7 @@ unfolding VC46_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv47: "VC47 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -554,8 +509,7 @@ unfolding VC47_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv48: "VC48 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -566,8 +520,7 @@ unfolding VC48_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv49: "VC49 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -578,8 +531,7 @@ unfolding VC49_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv50: "VC50 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -590,8 +542,7 @@ unfolding VC50_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv51: "VC51 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -602,8 +553,7 @@ unfolding VC51_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv52: "VC52 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -614,8 +564,7 @@ unfolding VC52_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv53: "VC53 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -626,8 +575,7 @@ unfolding VC53_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv54: "VC54 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -638,8 +586,7 @@ unfolding VC54_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv55: "VC55 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -650,8 +597,7 @@ unfolding VC55_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv56: "VC56 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -662,8 +608,7 @@ unfolding VC56_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv57: "VC57 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -674,8 +619,7 @@ unfolding VC57_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv58: "VC58 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -686,8 +630,7 @@ unfolding VC58_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv59: "VC59 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -698,8 +641,7 @@ unfolding VC59_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv60: "VC60 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -710,8 +652,7 @@ unfolding VC60_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv61: "VC61 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -722,8 +663,7 @@ unfolding VC61_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv62: "VC62 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -734,8 +674,7 @@ unfolding VC62_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv63: "VC63 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -746,8 +685,7 @@ unfolding VC63_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv64: "VC64 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -758,8 +696,7 @@ unfolding VC64_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv65: "VC65 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -770,8 +707,7 @@ unfolding VC65_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv66: "VC66 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -782,8 +718,7 @@ unfolding VC66_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv67: "VC67 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -794,8 +729,7 @@ unfolding VC67_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv68: "VC68 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -806,8 +740,7 @@ unfolding VC68_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv69: "VC69 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -818,8 +751,7 @@ unfolding VC69_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv70: "VC70 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -830,8 +762,7 @@ unfolding VC70_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv71: "VC71 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -842,8 +773,7 @@ unfolding VC71_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv72: "VC72 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -854,8 +784,7 @@ unfolding VC72_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv73: "VC73 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -866,8 +795,7 @@ unfolding VC73_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv74: "VC74 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -878,8 +806,7 @@ unfolding VC74_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv75: "VC75 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -890,8 +817,7 @@ unfolding VC75_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv76: "VC76 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -902,8 +828,7 @@ unfolding VC76_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv77: "VC77 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -914,8 +839,7 @@ unfolding VC77_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv78: "VC78 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -926,8 +850,7 @@ unfolding VC78_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv79: "VC79 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -938,8 +861,7 @@ unfolding VC79_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv80: "VC80 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -950,8 +872,7 @@ unfolding VC80_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv81: "VC81 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -962,8 +883,7 @@ unfolding VC81_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv82: "VC82 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -974,8 +894,7 @@ unfolding VC82_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv83: "VC83 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -986,8 +905,7 @@ unfolding VC83_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv84: "VC84 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -998,8 +916,7 @@ unfolding VC84_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv85: "VC85 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1010,8 +927,7 @@ unfolding VC85_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv86: "VC86 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1022,8 +938,7 @@ unfolding VC86_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv87: "VC87 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1034,8 +949,7 @@ unfolding VC87_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv88: "VC88 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1046,8 +960,7 @@ unfolding VC88_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv89: "VC89 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1058,8 +971,7 @@ unfolding VC89_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv90: "VC90 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1070,8 +982,7 @@ unfolding VC90_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv91: "VC91 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1082,8 +993,7 @@ unfolding VC91_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv92: "VC92 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1094,8 +1004,7 @@ unfolding VC92_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv93: "VC93 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1106,8 +1015,7 @@ unfolding VC93_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv94: "VC94 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1118,8 +1026,7 @@ unfolding VC94_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv95: "VC95 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1130,8 +1037,7 @@ unfolding VC95_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv96: "VC96 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1142,8 +1048,7 @@ unfolding VC96_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv97: "VC97 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1154,8 +1059,7 @@ unfolding VC97_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv98: "VC98 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1166,8 +1070,7 @@ unfolding VC98_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv99: "VC99 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1178,8 +1081,7 @@ unfolding VC99_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv100: "VC100 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1190,8 +1092,7 @@ unfolding VC100_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv101: "VC101 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1202,8 +1103,7 @@ unfolding VC101_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv102: "VC102 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1214,8 +1114,7 @@ unfolding VC102_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv103: "VC103 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1226,8 +1125,7 @@ unfolding VC103_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv104: "VC104 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1238,8 +1136,7 @@ unfolding VC104_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv105: "VC105 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1250,8 +1147,7 @@ unfolding VC105_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv106: "VC106 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1262,8 +1158,7 @@ unfolding VC106_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv107: "VC107 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1274,8 +1169,7 @@ unfolding VC107_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv108: "VC108 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1286,8 +1180,7 @@ unfolding VC108_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv109: "VC109 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1298,8 +1191,7 @@ unfolding VC109_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv110: "VC110 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1310,8 +1202,7 @@ unfolding VC110_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv111: "VC111 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1322,8 +1213,7 @@ unfolding VC111_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv112: "VC112 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1334,8 +1224,7 @@ unfolding VC112_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv113: "VC113 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1346,8 +1235,7 @@ unfolding VC113_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv114: "VC114 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1358,8 +1246,7 @@ unfolding VC114_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv115: "VC115 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1370,8 +1257,7 @@ unfolding VC115_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv116: "VC116 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1382,8 +1268,7 @@ unfolding VC116_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv117: "VC117 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1394,8 +1279,7 @@ unfolding VC117_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv118: "VC118 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1406,8 +1290,7 @@ unfolding VC118_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv119: "VC119 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1418,8 +1301,7 @@ unfolding VC119_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv120: "VC120 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1430,8 +1312,7 @@ unfolding VC120_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv121: "VC121 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1442,8 +1323,7 @@ unfolding VC121_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv122: "VC122 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1454,8 +1334,7 @@ unfolding VC122_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv123: "VC123 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1466,8 +1345,7 @@ unfolding VC123_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv124: "VC124 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1478,8 +1356,7 @@ unfolding VC124_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv125: "VC125 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1490,8 +1367,7 @@ unfolding VC125_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv126: "VC126 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1502,8 +1378,7 @@ unfolding VC126_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv127: "VC127 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1514,8 +1389,7 @@ unfolding VC127_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv128: "VC128 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1526,8 +1400,7 @@ unfolding VC128_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv129: "VC129 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1538,8 +1411,7 @@ unfolding VC129_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv130: "VC130 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1550,8 +1422,7 @@ unfolding VC130_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv131: "VC131 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1562,8 +1433,7 @@ unfolding VC131_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv132: "VC132 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1574,8 +1444,7 @@ unfolding VC132_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv133: "VC133 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1586,8 +1455,7 @@ unfolding VC133_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv134: "VC134 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1598,8 +1466,7 @@ unfolding VC134_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv135: "VC135 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1610,8 +1477,7 @@ unfolding VC135_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv136: "VC136 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1622,8 +1488,7 @@ unfolding VC136_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv137: "VC137 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1634,8 +1499,7 @@ unfolding VC137_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv138: "VC138 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1646,8 +1510,7 @@ unfolding VC138_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv139: "VC139 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1658,8 +1521,7 @@ unfolding VC139_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv140: "VC140 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1670,8 +1532,7 @@ unfolding VC140_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv141: "VC141 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1682,8 +1543,7 @@ unfolding VC141_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv142: "VC142 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1694,8 +1554,7 @@ unfolding VC142_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv143: "VC143 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1706,8 +1565,7 @@ unfolding VC143_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv144: "VC144 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1718,8 +1576,7 @@ unfolding VC144_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv145: "VC145 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1730,8 +1587,7 @@ unfolding VC145_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv146: "VC146 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1742,8 +1598,7 @@ unfolding VC146_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv147: "VC147 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1754,8 +1609,7 @@ unfolding VC147_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv148: "VC148 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1766,8 +1620,7 @@ unfolding VC148_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv149: "VC149 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1778,8 +1631,7 @@ unfolding VC149_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv150: "VC150 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1790,8 +1642,7 @@ unfolding VC150_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv151: "VC151 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1802,8 +1653,7 @@ unfolding VC151_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv152: "VC152 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1814,8 +1664,7 @@ unfolding VC152_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv153: "VC153 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1826,8 +1675,7 @@ unfolding VC153_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv154: "VC154 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1838,8 +1686,7 @@ unfolding VC154_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv155: "VC155 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1850,8 +1697,7 @@ unfolding VC155_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv156: "VC156 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1862,8 +1708,7 @@ unfolding VC156_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv157: "VC157 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1874,8 +1719,7 @@ unfolding VC157_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv158: "VC158 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1886,8 +1730,7 @@ unfolding VC158_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv159: "VC159 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1898,8 +1741,7 @@ unfolding VC159_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv160: "VC160 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1910,8 +1752,7 @@ unfolding VC160_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv161: "VC161 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1922,8 +1763,7 @@ unfolding VC161_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv162: "VC162 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1934,8 +1774,7 @@ unfolding VC162_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv163: "VC163 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1946,8 +1785,7 @@ unfolding VC163_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv164: "VC164 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1958,8 +1796,7 @@ unfolding VC164_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv165: "VC165 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1970,8 +1807,7 @@ unfolding VC165_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv166: "VC166 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1982,8 +1818,7 @@ unfolding VC166_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv167: "VC167 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -1994,8 +1829,7 @@ unfolding VC167_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv168: "VC168 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2006,8 +1840,7 @@ unfolding VC168_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv169: "VC169 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2018,8 +1851,7 @@ unfolding VC169_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv170: "VC170 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2030,8 +1862,7 @@ unfolding VC170_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv171: "VC171 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2042,8 +1873,7 @@ unfolding VC171_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv172: "VC172 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2054,8 +1884,7 @@ unfolding VC172_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv173: "VC173 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2066,8 +1895,7 @@ unfolding VC173_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv174: "VC174 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2078,8 +1906,7 @@ unfolding VC174_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv175: "VC175 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2090,8 +1917,7 @@ unfolding VC175_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv176: "VC176 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2102,8 +1928,7 @@ unfolding VC176_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv177: "VC177 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2114,8 +1939,7 @@ unfolding VC177_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv178: "VC178 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2126,8 +1950,7 @@ unfolding VC178_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv179: "VC179 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2138,8 +1961,7 @@ unfolding VC179_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv180: "VC180 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2150,8 +1972,7 @@ unfolding VC180_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv181: "VC181 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2162,8 +1983,7 @@ unfolding VC181_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv182: "VC182 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2174,8 +1994,7 @@ unfolding VC182_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv183: "VC183 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2186,8 +2005,7 @@ unfolding VC183_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv184: "VC184 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2198,8 +2016,7 @@ unfolding VC184_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv185: "VC185 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2210,8 +2027,7 @@ unfolding VC185_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv186: "VC186 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2222,8 +2038,7 @@ unfolding VC186_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv187: "VC187 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2234,8 +2049,7 @@ unfolding VC187_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv188: "VC188 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2246,8 +2060,7 @@ unfolding VC188_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv189: "VC189 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2258,8 +2071,7 @@ unfolding VC189_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv190: "VC190 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2270,8 +2082,7 @@ unfolding VC190_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv191: "VC191 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2282,8 +2093,7 @@ unfolding VC191_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv192: "VC192 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2294,8 +2104,7 @@ unfolding VC192_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv193: "VC193 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2306,8 +2115,7 @@ unfolding VC193_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv194: "VC194 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2318,8 +2126,7 @@ unfolding VC194_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv195: "VC195 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2330,8 +2137,7 @@ unfolding VC195_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv196: "VC196 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2342,8 +2148,7 @@ unfolding VC196_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv197: "VC197 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2354,8 +2159,7 @@ unfolding VC197_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv198: "VC198 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2366,8 +2170,7 @@ unfolding VC198_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv199: "VC199 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2378,8 +2181,7 @@ unfolding VC199_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv200: "VC200 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2390,8 +2192,7 @@ unfolding VC200_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv201: "VC201 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2402,8 +2203,7 @@ unfolding VC201_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv202: "VC202 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2414,8 +2214,7 @@ unfolding VC202_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv203: "VC203 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2426,8 +2225,7 @@ unfolding VC203_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv204: "VC204 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2438,8 +2236,7 @@ unfolding VC204_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv205: "VC205 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2450,8 +2247,7 @@ unfolding VC205_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv206: "VC206 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2462,8 +2258,7 @@ unfolding VC206_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv207: "VC207 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2474,8 +2269,7 @@ unfolding VC207_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv208: "VC208 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2486,8 +2280,7 @@ unfolding VC208_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv209: "VC209 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2498,8 +2291,7 @@ unfolding VC209_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv210: "VC210 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2510,8 +2302,7 @@ unfolding VC210_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv211: "VC211 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2522,8 +2313,7 @@ unfolding VC211_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv212: "VC212 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2534,8 +2324,7 @@ unfolding VC212_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv213: "VC213 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2546,8 +2335,7 @@ unfolding VC213_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv214: "VC214 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2558,8 +2346,7 @@ unfolding VC214_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv215: "VC215 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2570,8 +2357,7 @@ unfolding VC215_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv216: "VC216 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2582,8 +2368,7 @@ unfolding VC216_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv217: "VC217 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2594,8 +2379,7 @@ unfolding VC217_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv218: "VC218 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2606,8 +2390,7 @@ unfolding VC218_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv219: "VC219 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2618,8 +2401,7 @@ unfolding VC219_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv220: "VC220 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2630,8 +2412,7 @@ unfolding VC220_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv221: "VC221 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2642,8 +2423,7 @@ unfolding VC221_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv222: "VC222 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2654,8 +2434,7 @@ unfolding VC222_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv223: "VC223 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2666,8 +2445,7 @@ unfolding VC223_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv224: "VC224 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2678,8 +2456,7 @@ unfolding VC224_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv225: "VC225 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2690,8 +2467,7 @@ unfolding VC225_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv226: "VC226 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2702,8 +2478,7 @@ unfolding VC226_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv227: "VC227 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2714,8 +2489,7 @@ unfolding VC227_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv228: "VC228 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2726,8 +2500,7 @@ unfolding VC228_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv229: "VC229 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2738,8 +2511,7 @@ unfolding VC229_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv230: "VC230 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2750,8 +2522,7 @@ unfolding VC230_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv231: "VC231 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2762,8 +2533,7 @@ unfolding VC231_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv232: "VC232 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2774,8 +2544,7 @@ unfolding VC232_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv233: "VC233 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2786,8 +2555,7 @@ unfolding VC233_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv234: "VC234 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2798,8 +2566,7 @@ unfolding VC234_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv235: "VC235 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2810,8 +2577,7 @@ unfolding VC235_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv236: "VC236 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2822,8 +2588,7 @@ unfolding VC236_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv237: "VC237 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2834,8 +2599,7 @@ unfolding VC237_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv238: "VC238 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2846,8 +2610,7 @@ unfolding VC238_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv239: "VC239 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2858,8 +2621,7 @@ unfolding VC239_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv240: "VC240 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2870,8 +2632,7 @@ unfolding VC240_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv241: "VC241 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2882,8 +2643,7 @@ unfolding VC241_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv242: "VC242 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2894,8 +2654,7 @@ unfolding VC242_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv243: "VC243 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2906,8 +2665,7 @@ unfolding VC243_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv244: "VC244 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2918,8 +2676,7 @@ unfolding VC244_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv245: "VC245 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2930,8 +2687,7 @@ unfolding VC245_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv246: "VC246 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2942,8 +2698,7 @@ unfolding VC246_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv247: "VC247 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2954,8 +2709,7 @@ unfolding VC247_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv248: "VC248 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2966,8 +2720,7 @@ unfolding VC248_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv249: "VC249 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2978,8 +2731,7 @@ unfolding VC249_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv250: "VC250 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -2990,8 +2742,7 @@ unfolding VC250_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv251: "VC251 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3002,8 +2753,7 @@ unfolding VC251_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv252: "VC252 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3014,8 +2764,7 @@ unfolding VC252_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv253: "VC253 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3026,8 +2775,7 @@ unfolding VC253_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv254: "VC254 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3038,8 +2786,7 @@ unfolding VC254_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv255: "VC255 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3050,8 +2797,7 @@ unfolding VC255_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv256: "VC256 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3062,8 +2808,7 @@ unfolding VC256_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv257: "VC257 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3074,8 +2819,7 @@ unfolding VC257_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv258: "VC258 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3086,8 +2830,7 @@ unfolding VC258_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv259: "VC259 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3098,8 +2841,7 @@ unfolding VC259_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv260: "VC260 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3110,8 +2852,7 @@ unfolding VC260_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv261: "VC261 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3122,8 +2863,7 @@ unfolding VC261_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv262: "VC262 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3134,8 +2874,7 @@ unfolding VC262_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv263: "VC263 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3146,8 +2885,7 @@ unfolding VC263_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv264: "VC264 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3158,8 +2896,7 @@ unfolding VC264_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv265: "VC265 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3170,8 +2907,7 @@ unfolding VC265_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv266: "VC266 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3182,8 +2918,7 @@ unfolding VC266_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv267: "VC267 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3194,8 +2929,7 @@ unfolding VC267_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv268: "VC268 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3206,8 +2940,7 @@ unfolding VC268_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv269: "VC269 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3218,8 +2951,7 @@ unfolding VC269_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv270: "VC270 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3230,8 +2962,7 @@ unfolding VC270_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv271: "VC271 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3242,8 +2973,7 @@ unfolding VC271_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv272: "VC272 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3254,8 +2984,7 @@ unfolding VC272_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv273: "VC273 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3266,8 +2995,7 @@ unfolding VC273_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv274: "VC274 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3278,8 +3006,7 @@ unfolding VC274_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv275: "VC275 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3290,8 +3017,7 @@ unfolding VC275_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv276: "VC276 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3302,8 +3028,7 @@ unfolding VC276_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv277: "VC277 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3314,8 +3039,7 @@ unfolding VC277_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv278: "VC278 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3326,8 +3050,7 @@ unfolding VC278_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv279: "VC279 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3338,8 +3061,7 @@ unfolding VC279_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv280: "VC280 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3350,8 +3072,7 @@ unfolding VC280_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv281: "VC281 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3362,8 +3083,7 @@ unfolding VC281_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv282: "VC282 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3374,8 +3094,7 @@ unfolding VC282_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv283: "VC283 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3386,8 +3105,7 @@ unfolding VC283_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv284: "VC284 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3398,8 +3116,7 @@ unfolding VC284_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv285: "VC285 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3410,8 +3127,7 @@ unfolding VC285_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv286: "VC286 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3422,8 +3138,7 @@ unfolding VC286_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv287: "VC287 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3434,8 +3149,7 @@ unfolding VC287_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv288: "VC288 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3446,8 +3160,7 @@ unfolding VC288_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv289: "VC289 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3458,8 +3171,7 @@ unfolding VC289_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv290: "VC290 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3470,8 +3182,7 @@ unfolding VC290_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv291: "VC291 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3482,8 +3193,7 @@ unfolding VC291_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv292: "VC292 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3494,8 +3204,7 @@ unfolding VC292_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv293: "VC293 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3506,8 +3215,7 @@ unfolding VC293_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv294: "VC294 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3518,8 +3226,7 @@ unfolding VC294_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv295: "VC295 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3530,8 +3237,7 @@ unfolding VC295_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv296: "VC296 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3542,8 +3248,7 @@ unfolding VC296_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv297: "VC297 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3554,8 +3259,7 @@ unfolding VC297_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv298: "VC298 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3566,8 +3270,7 @@ unfolding VC298_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv299: "VC299 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3578,8 +3281,7 @@ unfolding VC299_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv300: "VC300 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3590,8 +3292,7 @@ unfolding VC300_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv301: "VC301 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3602,8 +3303,7 @@ unfolding VC301_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv302: "VC302 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3614,8 +3314,7 @@ unfolding VC302_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv303: "VC303 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3626,8 +3325,7 @@ unfolding VC303_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv304: "VC304 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3638,8 +3336,7 @@ unfolding VC304_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv305: "VC305 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3650,8 +3347,7 @@ unfolding VC305_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv306: "VC306 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3662,8 +3358,7 @@ unfolding VC306_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv307: "VC307 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3674,8 +3369,7 @@ unfolding VC307_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv308: "VC308 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3686,8 +3380,7 @@ unfolding VC308_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv309: "VC309 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3698,8 +3391,7 @@ unfolding VC309_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv310: "VC310 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3710,8 +3402,7 @@ unfolding VC310_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv311: "VC311 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3722,8 +3413,7 @@ unfolding VC311_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv312: "VC312 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3734,8 +3424,7 @@ unfolding VC312_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv313: "VC313 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3746,8 +3435,7 @@ unfolding VC313_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv314: "VC314 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3758,8 +3446,7 @@ unfolding VC314_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv315: "VC315 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3770,8 +3457,7 @@ unfolding VC315_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv316: "VC316 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3782,8 +3468,7 @@ unfolding VC316_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv317: "VC317 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3794,8 +3479,7 @@ unfolding VC317_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv318: "VC318 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3806,8 +3490,7 @@ unfolding VC318_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv319: "VC319 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3818,8 +3501,7 @@ unfolding VC319_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv320: "VC320 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3830,8 +3512,7 @@ unfolding VC320_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv321: "VC321 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3842,8 +3523,7 @@ unfolding VC321_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv322: "VC322 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3854,8 +3534,7 @@ unfolding VC322_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv323: "VC323 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3866,8 +3545,7 @@ unfolding VC323_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv324: "VC324 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3878,8 +3556,7 @@ unfolding VC324_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv325: "VC325 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3890,8 +3567,7 @@ unfolding VC325_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv326: "VC326 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3902,8 +3578,7 @@ unfolding VC326_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv327: "VC327 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3914,8 +3589,7 @@ unfolding VC327_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv328: "VC328 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3926,8 +3600,7 @@ unfolding VC328_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv329: "VC329 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3938,8 +3611,7 @@ unfolding VC329_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv330: "VC330 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3950,8 +3622,7 @@ unfolding VC330_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv331: "VC331 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3962,8 +3633,7 @@ unfolding VC331_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv332: "VC332 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3974,8 +3644,7 @@ unfolding VC332_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv333: "VC333 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3986,8 +3655,7 @@ unfolding VC333_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv334: "VC334 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -3998,8 +3666,7 @@ unfolding VC334_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv335: "VC335 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4010,8 +3677,7 @@ unfolding VC335_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv336: "VC336 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4022,8 +3688,7 @@ unfolding VC336_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv337: "VC337 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4034,8 +3699,7 @@ unfolding VC337_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv338: "VC338 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4046,8 +3710,7 @@ unfolding VC338_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv339: "VC339 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4058,8 +3721,7 @@ unfolding VC339_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv340: "VC340 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4070,8 +3732,7 @@ unfolding VC340_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv341: "VC341 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4082,8 +3743,7 @@ unfolding VC341_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv342: "VC342 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4094,8 +3754,7 @@ unfolding VC342_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv343: "VC343 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4106,8 +3765,7 @@ unfolding VC343_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv344: "VC344 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4118,8 +3776,7 @@ unfolding VC344_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv345: "VC345 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4130,8 +3787,7 @@ unfolding VC345_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv346: "VC346 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4142,8 +3798,7 @@ unfolding VC346_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv347: "VC347 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4154,8 +3809,7 @@ unfolding VC347_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv348: "VC348 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4166,8 +3820,7 @@ unfolding VC348_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv349: "VC349 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4178,8 +3831,7 @@ unfolding VC349_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv350: "VC350 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4190,8 +3842,7 @@ unfolding VC350_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv351: "VC351 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4202,8 +3853,7 @@ unfolding VC351_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv352: "VC352 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4214,8 +3864,7 @@ unfolding VC352_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv353: "VC353 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4226,8 +3875,7 @@ unfolding VC353_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv354: "VC354 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4238,8 +3886,7 @@ unfolding VC354_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv355: "VC355 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4250,8 +3897,7 @@ unfolding VC355_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv356: "VC356 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4262,8 +3908,7 @@ unfolding VC356_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv357: "VC357 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4274,8 +3919,7 @@ unfolding VC357_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv358: "VC358 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4286,8 +3930,7 @@ unfolding VC358_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv359: "VC359 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4298,8 +3941,7 @@ unfolding VC359_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv360: "VC360 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4310,8 +3952,7 @@ unfolding VC360_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv361: "VC361 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4322,8 +3963,7 @@ unfolding VC361_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv362: "VC362 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4334,8 +3974,7 @@ unfolding VC362_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv363: "VC363 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4346,8 +3985,7 @@ unfolding VC363_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv364: "VC364 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4358,8 +3996,7 @@ unfolding VC364_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv365: "VC365 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4370,8 +4007,7 @@ unfolding VC365_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv366: "VC366 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4382,8 +4018,7 @@ unfolding VC366_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv367: "VC367 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4394,8 +4029,7 @@ unfolding VC367_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv368: "VC368 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4406,8 +4040,7 @@ unfolding VC368_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv369: "VC369 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4418,8 +4051,7 @@ unfolding VC369_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv370: "VC370 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4430,8 +4062,7 @@ unfolding VC370_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv371: "VC371 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4442,8 +4073,7 @@ unfolding VC371_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv372: "VC372 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4454,8 +4084,7 @@ unfolding VC372_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv373: "VC373 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4466,8 +4095,7 @@ unfolding VC373_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv374: "VC374 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4478,8 +4106,7 @@ unfolding VC374_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv375: "VC375 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4490,8 +4117,7 @@ unfolding VC375_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv376: "VC376 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4502,8 +4128,7 @@ unfolding VC376_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv377: "VC377 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4514,8 +4139,7 @@ unfolding VC377_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv378: "VC378 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4526,8 +4150,7 @@ unfolding VC378_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv379: "VC379 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4538,8 +4161,7 @@ unfolding VC379_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv380: "VC380 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4550,8 +4172,7 @@ unfolding VC380_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv381: "VC381 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4562,8 +4183,7 @@ unfolding VC381_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv382: "VC382 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4574,8 +4194,7 @@ unfolding VC382_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv383: "VC383 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4586,8 +4205,7 @@ unfolding VC383_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv384: "VC384 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4598,8 +4216,7 @@ unfolding VC384_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv385: "VC385 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4610,8 +4227,7 @@ unfolding VC385_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv386: "VC386 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4622,8 +4238,7 @@ unfolding VC386_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv387: "VC387 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4634,8 +4249,7 @@ unfolding VC387_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv388: "VC388 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4646,8 +4260,7 @@ unfolding VC388_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv389: "VC389 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4658,8 +4271,7 @@ unfolding VC389_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv390: "VC390 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4670,8 +4282,7 @@ unfolding VC390_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv391: "VC391 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4682,8 +4293,7 @@ unfolding VC391_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv392: "VC392 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4694,8 +4304,7 @@ unfolding VC392_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv393: "VC393 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4706,8 +4315,7 @@ unfolding VC393_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv394: "VC394 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4718,8 +4326,7 @@ unfolding VC394_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv395: "VC395 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4730,8 +4337,7 @@ unfolding VC395_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv396: "VC396 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4742,8 +4348,7 @@ unfolding VC396_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv397: "VC397 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4754,8 +4359,7 @@ unfolding VC397_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv398: "VC398 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4766,8 +4370,7 @@ unfolding VC398_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv399: "VC399 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4778,8 +4381,7 @@ unfolding VC399_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv400: "VC400 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4790,8 +4392,7 @@ unfolding VC400_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv401: "VC401 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4802,8 +4403,7 @@ unfolding VC401_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv402: "VC402 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4814,8 +4414,7 @@ unfolding VC402_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv403: "VC403 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4826,8 +4425,7 @@ unfolding VC403_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv404: "VC404 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4838,8 +4436,7 @@ unfolding VC404_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv405: "VC405 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4850,8 +4447,7 @@ unfolding VC405_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv406: "VC406 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4862,8 +4458,7 @@ unfolding VC406_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv407: "VC407 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4874,8 +4469,7 @@ unfolding VC407_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv408: "VC408 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4886,8 +4480,7 @@ unfolding VC408_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv409: "VC409 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4898,8 +4491,7 @@ unfolding VC409_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv410: "VC410 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4910,8 +4502,7 @@ unfolding VC410_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv411: "VC411 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4922,8 +4513,7 @@ unfolding VC411_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv412: "VC412 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4934,8 +4524,7 @@ unfolding VC412_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv413: "VC413 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4946,8 +4535,7 @@ unfolding VC413_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv414: "VC414 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4958,8 +4546,7 @@ unfolding VC414_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv415: "VC415 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4970,8 +4557,7 @@ unfolding VC415_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv416: "VC416 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4982,8 +4568,7 @@ unfolding VC416_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv417: "VC417 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -4994,8 +4579,7 @@ unfolding VC417_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv418: "VC418 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5006,8 +4590,7 @@ unfolding VC418_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv419: "VC419 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5018,8 +4601,7 @@ unfolding VC419_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv420: "VC420 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5030,8 +4612,7 @@ unfolding VC420_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv421: "VC421 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5042,8 +4623,7 @@ unfolding VC421_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv422: "VC422 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5054,8 +4634,7 @@ unfolding VC422_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv423: "VC423 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5066,8 +4645,7 @@ unfolding VC423_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv424: "VC424 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5078,8 +4656,7 @@ unfolding VC424_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv425: "VC425 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5090,8 +4667,7 @@ unfolding VC425_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv426: "VC426 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5102,8 +4678,7 @@ unfolding VC426_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv427: "VC427 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5114,8 +4689,7 @@ unfolding VC427_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv428: "VC428 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5126,8 +4700,7 @@ unfolding VC428_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv429: "VC429 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5138,8 +4711,7 @@ unfolding VC429_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv430: "VC430 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5150,8 +4722,7 @@ unfolding VC430_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv431: "VC431 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5162,8 +4733,7 @@ unfolding VC431_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv432: "VC432 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5174,8 +4744,7 @@ unfolding VC432_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv433: "VC433 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5186,8 +4755,7 @@ unfolding VC433_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv434: "VC434 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5198,8 +4766,7 @@ unfolding VC434_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv435: "VC435 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5210,8 +4777,7 @@ unfolding VC435_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv436: "VC436 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5222,8 +4788,7 @@ unfolding VC436_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv437: "VC437 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5234,8 +4799,7 @@ unfolding VC437_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv438: "VC438 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5246,8 +4810,7 @@ unfolding VC438_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv439: "VC439 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5258,8 +4821,7 @@ unfolding VC439_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv440: "VC440 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5270,8 +4832,7 @@ unfolding VC440_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv441: "VC441 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5282,8 +4843,7 @@ unfolding VC441_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv442: "VC442 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5294,8 +4854,7 @@ unfolding VC442_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv443: "VC443 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5306,8 +4865,7 @@ unfolding VC443_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv444: "VC444 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5318,8 +4876,7 @@ unfolding VC444_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv445: "VC445 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5330,8 +4887,7 @@ unfolding VC445_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv446: "VC446 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5342,8 +4898,7 @@ unfolding VC446_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv447: "VC447 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5354,8 +4909,7 @@ unfolding VC447_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv448: "VC448 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5366,8 +4920,7 @@ unfolding VC448_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv449: "VC449 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5378,8 +4931,7 @@ unfolding VC449_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv450: "VC450 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5390,8 +4942,7 @@ unfolding VC450_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv451: "VC451 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5402,8 +4953,7 @@ unfolding VC451_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv452: "VC452 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5414,8 +4964,7 @@ unfolding VC452_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv453: "VC453 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5426,8 +4975,7 @@ unfolding VC453_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv454: "VC454 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5438,8 +4986,7 @@ unfolding VC454_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv455: "VC455 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5450,8 +4997,7 @@ unfolding VC455_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv456: "VC456 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5462,8 +5008,7 @@ unfolding VC456_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv457: "VC457 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5474,8 +5019,7 @@ unfolding VC457_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv458: "VC458 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5486,8 +5030,7 @@ unfolding VC458_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv459: "VC459 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5498,8 +5041,7 @@ unfolding VC459_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv460: "VC460 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5510,8 +5052,7 @@ unfolding VC460_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv461: "VC461 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5522,8 +5063,7 @@ unfolding VC461_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv462: "VC462 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5534,8 +5074,7 @@ unfolding VC462_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv463: "VC463 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5546,8 +5085,7 @@ unfolding VC463_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv464: "VC464 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5558,8 +5096,7 @@ unfolding VC464_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv465: "VC465 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5570,8 +5107,7 @@ unfolding VC465_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv466: "VC466 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5582,8 +5118,7 @@ unfolding VC466_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv467: "VC467 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5594,8 +5129,7 @@ unfolding VC467_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv468: "VC468 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5606,8 +5140,7 @@ unfolding VC468_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv469: "VC469 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5618,8 +5151,7 @@ unfolding VC469_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv470: "VC470 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5630,8 +5162,7 @@ unfolding VC470_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv471: "VC471 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5642,8 +5173,7 @@ unfolding VC471_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv472: "VC472 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5654,8 +5184,7 @@ unfolding VC472_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv473: "VC473 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5666,8 +5195,7 @@ unfolding VC473_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv474: "VC474 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5678,8 +5206,7 @@ unfolding VC474_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv475: "VC475 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5690,8 +5217,7 @@ unfolding VC475_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv476: "VC476 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5702,8 +5228,7 @@ unfolding VC476_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv477: "VC477 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5714,8 +5239,7 @@ unfolding VC477_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv478: "VC478 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5726,8 +5250,7 @@ unfolding VC478_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv479: "VC479 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5738,8 +5261,7 @@ unfolding VC479_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv480: "VC480 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5750,8 +5272,7 @@ unfolding VC480_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv481: "VC481 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5762,8 +5283,7 @@ unfolding VC481_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv482: "VC482 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5774,8 +5294,7 @@ unfolding VC482_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv483: "VC483 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5786,8 +5305,7 @@ unfolding VC483_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv484: "VC484 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5798,8 +5316,7 @@ unfolding VC484_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv485: "VC485 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5810,8 +5327,7 @@ unfolding VC485_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv486: "VC486 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5822,8 +5338,7 @@ unfolding VC486_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv487: "VC487 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5834,8 +5349,7 @@ unfolding VC487_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv488: "VC488 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5846,8 +5360,7 @@ unfolding VC488_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv489: "VC489 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5858,8 +5371,7 @@ unfolding VC489_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv490: "VC490 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5870,8 +5382,7 @@ unfolding VC490_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv491: "VC491 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5882,8 +5393,7 @@ unfolding VC491_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv492: "VC492 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5894,8 +5404,7 @@ unfolding VC492_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv493: "VC493 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5906,8 +5415,7 @@ unfolding VC493_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv494: "VC494 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5918,8 +5426,7 @@ unfolding VC494_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv495: "VC495 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5930,8 +5437,7 @@ unfolding VC495_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv496: "VC496 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5942,8 +5448,7 @@ unfolding VC496_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv497: "VC497 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5954,8 +5459,7 @@ unfolding VC497_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv498: "VC498 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5966,8 +5470,7 @@ unfolding VC498_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv499: "VC499 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5978,8 +5481,7 @@ unfolding VC499_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv500: "VC500 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -5990,8 +5492,7 @@ unfolding VC500_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv501: "VC501 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6002,8 +5503,7 @@ unfolding VC501_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv502: "VC502 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6014,8 +5514,7 @@ unfolding VC502_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv503: "VC503 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6026,8 +5525,7 @@ unfolding VC503_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv504: "VC504 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6038,8 +5536,7 @@ unfolding VC504_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv505: "VC505 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6050,8 +5547,7 @@ unfolding VC505_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv506: "VC506 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6062,8 +5558,7 @@ unfolding VC506_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv507: "VC507 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6074,8 +5569,7 @@ unfolding VC507_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv508: "VC508 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6086,8 +5580,7 @@ unfolding VC508_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv509: "VC509 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6098,8 +5591,7 @@ unfolding VC509_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv510: "VC510 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6110,8 +5602,7 @@ unfolding VC510_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv511: "VC511 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6122,8 +5613,7 @@ unfolding VC511_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv512: "VC512 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6134,8 +5624,7 @@ unfolding VC512_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv513: "VC513 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6146,8 +5635,7 @@ unfolding VC513_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv514: "VC514 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6158,8 +5646,7 @@ unfolding VC514_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv515: "VC515 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6170,8 +5657,7 @@ unfolding VC515_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv516: "VC516 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6182,8 +5668,7 @@ unfolding VC516_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv517: "VC517 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6194,8 +5679,7 @@ unfolding VC517_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv518: "VC518 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6206,8 +5690,7 @@ unfolding VC518_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv519: "VC519 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6218,8 +5701,7 @@ unfolding VC519_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv520: "VC520 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6230,8 +5712,7 @@ unfolding VC520_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv521: "VC521 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6242,8 +5723,7 @@ unfolding VC521_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv522: "VC522 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6254,8 +5734,7 @@ unfolding VC522_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv523: "VC523 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6266,8 +5745,7 @@ unfolding VC523_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv524: "VC524 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6278,8 +5756,7 @@ unfolding VC524_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv525: "VC525 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6290,8 +5767,7 @@ unfolding VC525_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv526: "VC526 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6302,8 +5778,7 @@ unfolding VC526_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv527: "VC527 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6314,8 +5789,7 @@ unfolding VC527_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv528: "VC528 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6326,8 +5800,7 @@ unfolding VC528_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv529: "VC529 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6338,8 +5811,7 @@ unfolding VC529_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv530: "VC530 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6350,8 +5822,7 @@ unfolding VC530_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv531: "VC531 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6362,8 +5833,7 @@ unfolding VC531_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv532: "VC532 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6374,8 +5844,7 @@ unfolding VC532_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv533: "VC533 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6386,8 +5855,7 @@ unfolding VC533_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv534: "VC534 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6398,8 +5866,7 @@ unfolding VC534_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv535: "VC535 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6410,8 +5877,7 @@ unfolding VC535_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv536: "VC536 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6422,8 +5888,7 @@ unfolding VC536_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv537: "VC537 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6434,8 +5899,7 @@ unfolding VC537_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv538: "VC538 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6446,8 +5910,7 @@ unfolding VC538_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv539: "VC539 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6458,8 +5921,7 @@ unfolding VC539_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv540: "VC540 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6470,8 +5932,7 @@ unfolding VC540_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv541: "VC541 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6482,8 +5943,7 @@ unfolding VC541_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv542: "VC542 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6494,8 +5954,7 @@ unfolding VC542_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv543: "VC543 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6506,8 +5965,7 @@ unfolding VC543_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv544: "VC544 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6518,8 +5976,7 @@ unfolding VC544_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv545: "VC545 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6530,8 +5987,7 @@ unfolding VC545_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv546: "VC546 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6542,8 +5998,7 @@ unfolding VC546_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv547: "VC547 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6554,8 +6009,7 @@ unfolding VC547_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv548: "VC548 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6566,8 +6020,7 @@ unfolding VC548_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv549: "VC549 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6578,8 +6031,7 @@ unfolding VC549_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv550: "VC550 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6590,8 +6042,7 @@ unfolding VC550_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv551: "VC551 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6602,8 +6053,7 @@ unfolding VC551_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv552: "VC552 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6614,8 +6064,7 @@ unfolding VC552_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv553: "VC553 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6626,8 +6075,7 @@ unfolding VC553_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv554: "VC554 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6638,8 +6086,7 @@ unfolding VC554_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv555: "VC555 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6650,8 +6097,7 @@ unfolding VC555_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv556: "VC556 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6662,8 +6108,7 @@ unfolding VC556_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv557: "VC557 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6674,8 +6119,7 @@ unfolding VC557_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv558: "VC558 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6686,8 +6130,7 @@ unfolding VC558_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv559: "VC559 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6698,8 +6141,7 @@ unfolding VC559_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv560: "VC560 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6710,8 +6152,7 @@ unfolding VC560_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv561: "VC561 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6722,8 +6163,7 @@ unfolding VC561_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv562: "VC562 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6734,8 +6174,7 @@ unfolding VC562_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv563: "VC563 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6746,8 +6185,7 @@ unfolding VC563_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv564: "VC564 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6758,8 +6196,7 @@ unfolding VC564_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv565: "VC565 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6770,8 +6207,7 @@ unfolding VC565_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv566: "VC566 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6782,8 +6218,7 @@ unfolding VC566_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv567: "VC567 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6794,8 +6229,7 @@ unfolding VC567_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv568: "VC568 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6806,8 +6240,7 @@ unfolding VC568_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv569: "VC569 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6818,8 +6251,7 @@ unfolding VC569_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv570: "VC570 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6830,8 +6262,7 @@ unfolding VC570_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv571: "VC571 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6842,8 +6273,7 @@ unfolding VC571_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv572: "VC572 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6854,8 +6284,7 @@ unfolding VC572_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv573: "VC573 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6866,8 +6295,7 @@ unfolding VC573_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv574: "VC574 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6878,8 +6306,7 @@ unfolding VC574_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv575: "VC575 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6890,8 +6317,7 @@ unfolding VC575_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv576: "VC576 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6902,8 +6328,7 @@ unfolding VC576_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv577: "VC577 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6914,8 +6339,7 @@ unfolding VC577_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv578: "VC578 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6926,8 +6350,7 @@ unfolding VC578_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv579: "VC579 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6938,8 +6361,7 @@ unfolding VC579_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv580: "VC580 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6950,8 +6372,7 @@ unfolding VC580_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv581: "VC581 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6962,8 +6383,7 @@ unfolding VC581_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv582: "VC582 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6974,8 +6394,7 @@ unfolding VC582_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv583: "VC583 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6986,8 +6405,7 @@ unfolding VC583_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv584: "VC584 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -6998,8 +6416,7 @@ unfolding VC584_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv585: "VC585 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7010,8 +6427,7 @@ unfolding VC585_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv586: "VC586 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7022,8 +6438,7 @@ unfolding VC586_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv587: "VC587 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7034,8 +6449,7 @@ unfolding VC587_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv588: "VC588 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7046,8 +6460,7 @@ unfolding VC588_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv589: "VC589 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7058,8 +6471,7 @@ unfolding VC589_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv590: "VC590 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7070,8 +6482,7 @@ unfolding VC590_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv591: "VC591 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7082,8 +6493,7 @@ unfolding VC591_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv592: "VC592 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7094,8 +6504,7 @@ unfolding VC592_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv593: "VC593 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7106,8 +6515,7 @@ unfolding VC593_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv594: "VC594 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7118,8 +6526,7 @@ unfolding VC594_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv595: "VC595 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7130,8 +6537,7 @@ unfolding VC595_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv596: "VC596 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7142,8 +6548,7 @@ unfolding VC596_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv597: "VC597 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7154,8 +6559,7 @@ unfolding VC597_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv598: "VC598 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7166,8 +6570,7 @@ unfolding VC598_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv599: "VC599 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7178,8 +6581,7 @@ unfolding VC599_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv600: "VC600 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7190,8 +6592,7 @@ unfolding VC600_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv601: "VC601 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7202,8 +6603,7 @@ unfolding VC601_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv602: "VC602 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7214,8 +6614,7 @@ unfolding VC602_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv603: "VC603 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7226,8 +6625,7 @@ unfolding VC603_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv604: "VC604 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7238,8 +6636,7 @@ unfolding VC604_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv605: "VC605 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7250,8 +6647,7 @@ unfolding VC605_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv606: "VC606 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7262,8 +6658,7 @@ unfolding VC606_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv607: "VC607 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7274,8 +6669,7 @@ unfolding VC607_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv608: "VC608 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7286,8 +6680,7 @@ unfolding VC608_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv609: "VC609 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7298,8 +6691,7 @@ unfolding VC609_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv610: "VC610 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7310,8 +6702,7 @@ unfolding VC610_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv611: "VC611 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7322,8 +6713,7 @@ unfolding VC611_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv612: "VC612 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7334,8 +6724,7 @@ unfolding VC612_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv613: "VC613 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7346,8 +6735,7 @@ unfolding VC613_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv614: "VC614 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7358,8 +6746,7 @@ unfolding VC614_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv615: "VC615 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7370,8 +6757,7 @@ unfolding VC615_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv616: "VC616 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7382,8 +6768,7 @@ unfolding VC616_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv617: "VC617 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7394,8 +6779,7 @@ unfolding VC617_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv618: "VC618 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7406,8 +6790,7 @@ unfolding VC618_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv619: "VC619 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7418,8 +6801,7 @@ unfolding VC619_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv620: "VC620 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7430,8 +6812,7 @@ unfolding VC620_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv621: "VC621 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7442,8 +6823,7 @@ unfolding VC621_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv622: "VC622 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7454,8 +6834,7 @@ unfolding VC622_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv623: "VC623 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7466,8 +6845,7 @@ unfolding VC623_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv624: "VC624 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7478,8 +6856,7 @@ unfolding VC624_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv625: "VC625 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7490,8 +6867,7 @@ unfolding VC625_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv626: "VC626 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7502,8 +6878,7 @@ unfolding VC626_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv627: "VC627 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7514,8 +6889,7 @@ unfolding VC627_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv628: "VC628 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7526,8 +6900,7 @@ unfolding VC628_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv629: "VC629 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7538,8 +6911,7 @@ unfolding VC629_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv630: "VC630 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7550,8 +6922,7 @@ unfolding VC630_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv631: "VC631 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7562,8 +6933,7 @@ unfolding VC631_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv632: "VC632 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7574,8 +6944,7 @@ unfolding VC632_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv633: "VC633 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7586,8 +6955,7 @@ unfolding VC633_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv634: "VC634 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7598,8 +6966,7 @@ unfolding VC634_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv635: "VC635 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7610,8 +6977,7 @@ unfolding VC635_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv636: "VC636 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7622,8 +6988,7 @@ unfolding VC636_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv637: "VC637 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7634,8 +6999,7 @@ unfolding VC637_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv638: "VC638 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7646,8 +7010,7 @@ unfolding VC638_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv639: "VC639 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7658,8 +7021,7 @@ unfolding VC639_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv640: "VC640 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7670,8 +7032,7 @@ unfolding VC640_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv641: "VC641 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7682,8 +7043,7 @@ unfolding VC641_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv642: "VC642 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7694,8 +7054,7 @@ unfolding VC642_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv643: "VC643 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7706,8 +7065,7 @@ unfolding VC643_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv644: "VC644 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7718,8 +7076,7 @@ unfolding VC644_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv645: "VC645 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7730,8 +7087,7 @@ unfolding VC645_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv646: "VC646 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7742,8 +7098,7 @@ unfolding VC646_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv647: "VC647 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7754,8 +7109,7 @@ unfolding VC647_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv648: "VC648 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7766,8 +7120,7 @@ unfolding VC648_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv649: "VC649 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7778,8 +7131,7 @@ unfolding VC649_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv650: "VC650 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7790,8 +7142,7 @@ unfolding VC650_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv651: "VC651 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7802,8 +7153,7 @@ unfolding VC651_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv652: "VC652 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7814,8 +7164,7 @@ unfolding VC652_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv653: "VC653 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7826,8 +7175,7 @@ unfolding VC653_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv654: "VC654 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7838,8 +7186,7 @@ unfolding VC654_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv655: "VC655 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7850,8 +7197,7 @@ unfolding VC655_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv656: "VC656 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7862,8 +7208,7 @@ unfolding VC656_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv657: "VC657 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7874,8 +7219,7 @@ unfolding VC657_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv658: "VC658 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7886,8 +7230,7 @@ unfolding VC658_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv659: "VC659 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7898,8 +7241,7 @@ unfolding VC659_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv660: "VC660 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7910,8 +7252,7 @@ unfolding VC660_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv661: "VC661 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7922,8 +7263,7 @@ unfolding VC661_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv662: "VC662 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7934,8 +7274,7 @@ unfolding VC662_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv663: "VC663 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7946,8 +7285,7 @@ unfolding VC663_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv664: "VC664 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7958,8 +7296,7 @@ unfolding VC664_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv665: "VC665 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7970,8 +7307,7 @@ unfolding VC665_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv666: "VC666 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7982,8 +7318,7 @@ unfolding VC666_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv667: "VC667 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -7994,8 +7329,7 @@ unfolding VC667_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv668: "VC668 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8006,8 +7340,7 @@ unfolding VC668_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv669: "VC669 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8018,8 +7351,7 @@ unfolding VC669_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv670: "VC670 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8030,8 +7362,7 @@ unfolding VC670_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv671: "VC671 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8042,8 +7373,7 @@ unfolding VC671_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv672: "VC672 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8054,8 +7384,7 @@ unfolding VC672_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv673: "VC673 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8066,8 +7395,7 @@ unfolding VC673_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv674: "VC674 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8078,8 +7406,7 @@ unfolding VC674_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv675: "VC675 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8090,8 +7417,7 @@ unfolding VC675_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv676: "VC676 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8102,8 +7428,7 @@ unfolding VC676_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv677: "VC677 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8114,8 +7439,7 @@ unfolding VC677_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv678: "VC678 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8126,8 +7450,7 @@ unfolding VC678_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv679: "VC679 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8138,8 +7461,7 @@ unfolding VC679_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv680: "VC680 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8150,8 +7472,7 @@ unfolding VC680_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv681: "VC681 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8162,8 +7483,7 @@ unfolding VC681_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv682: "VC682 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8174,8 +7494,7 @@ unfolding VC682_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv683: "VC683 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8186,8 +7505,7 @@ unfolding VC683_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv684: "VC684 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8198,8 +7516,7 @@ unfolding VC684_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv685: "VC685 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8210,8 +7527,7 @@ unfolding VC685_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv686: "VC686 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8222,8 +7538,7 @@ unfolding VC686_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv687: "VC687 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8234,8 +7549,7 @@ unfolding VC687_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv688: "VC688 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8246,8 +7560,7 @@ unfolding VC688_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv689: "VC689 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8258,8 +7571,7 @@ unfolding VC689_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv690: "VC690 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8270,8 +7582,7 @@ unfolding VC690_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv691: "VC691 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8282,8 +7593,7 @@ unfolding VC691_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv692: "VC692 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8294,8 +7604,7 @@ unfolding VC692_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv693: "VC693 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8306,8 +7615,7 @@ unfolding VC693_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv694: "VC694 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8318,8 +7626,7 @@ unfolding VC694_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv695: "VC695 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8330,8 +7637,7 @@ unfolding VC695_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv696: "VC696 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8342,8 +7648,7 @@ unfolding VC696_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv697: "VC697 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8354,8 +7659,7 @@ unfolding VC697_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv698: "VC698 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8366,8 +7670,7 @@ unfolding VC698_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv699: "VC699 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8378,8 +7681,7 @@ unfolding VC699_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv700: "VC700 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8390,8 +7692,7 @@ unfolding VC700_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv701: "VC701 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8402,8 +7703,7 @@ unfolding VC701_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv702: "VC702 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8414,8 +7714,7 @@ unfolding VC702_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv703: "VC703 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8426,8 +7725,7 @@ unfolding VC703_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv704: "VC704 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8438,8 +7736,7 @@ unfolding VC704_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv705: "VC705 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8450,8 +7747,7 @@ unfolding VC705_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv706: "VC706 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8462,8 +7758,7 @@ unfolding VC706_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv707: "VC707 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8474,8 +7769,7 @@ unfolding VC707_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv708: "VC708 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8486,8 +7780,7 @@ unfolding VC708_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv709: "VC709 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8498,8 +7791,7 @@ unfolding VC709_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv710: "VC710 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8510,8 +7802,7 @@ unfolding VC710_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv711: "VC711 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8522,8 +7813,7 @@ unfolding VC711_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv712: "VC712 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8534,8 +7824,7 @@ unfolding VC712_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv713: "VC713 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8546,8 +7835,7 @@ unfolding VC713_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv714: "VC714 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8558,8 +7846,7 @@ unfolding VC714_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv715: "VC715 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8570,8 +7857,7 @@ unfolding VC715_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv716: "VC716 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8582,8 +7868,7 @@ unfolding VC716_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv717: "VC717 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8594,8 +7879,7 @@ unfolding VC717_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv718: "VC718 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8606,8 +7890,7 @@ unfolding VC718_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv719: "VC719 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8618,8 +7901,7 @@ unfolding VC719_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv720: "VC720 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8630,8 +7912,7 @@ unfolding VC720_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv721: "VC721 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8642,8 +7923,7 @@ unfolding VC721_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv722: "VC722 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8654,8 +7934,7 @@ unfolding VC722_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv723: "VC723 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8666,8 +7945,7 @@ unfolding VC723_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv724: "VC724 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8678,8 +7956,7 @@ unfolding VC724_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv725: "VC725 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8690,8 +7967,7 @@ unfolding VC725_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv726: "VC726 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8702,8 +7978,7 @@ unfolding VC726_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv727: "VC727 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8714,8 +7989,7 @@ unfolding VC727_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv728: "VC728 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8726,8 +8000,7 @@ unfolding VC728_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv729: "VC729 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8738,8 +8011,7 @@ unfolding VC729_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv730: "VC730 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8750,8 +8022,7 @@ unfolding VC730_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv731: "VC731 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8762,8 +8033,7 @@ unfolding VC731_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv732: "VC732 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8774,8 +8044,7 @@ unfolding VC732_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv733: "VC733 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8786,8 +8055,7 @@ unfolding VC733_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv734: "VC734 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8798,8 +8066,7 @@ unfolding VC734_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv735: "VC735 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8810,8 +8077,7 @@ unfolding VC735_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv736: "VC736 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8822,8 +8088,7 @@ unfolding VC736_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv737: "VC737 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8834,8 +8099,7 @@ unfolding VC737_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv738: "VC738 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8846,8 +8110,7 @@ unfolding VC738_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv739: "VC739 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8858,8 +8121,7 @@ unfolding VC739_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv740: "VC740 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8870,8 +8132,7 @@ unfolding VC740_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv741: "VC741 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8882,8 +8143,7 @@ unfolding VC741_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv742: "VC742 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8894,8 +8154,7 @@ unfolding VC742_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv743: "VC743 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8906,8 +8165,7 @@ unfolding VC743_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv744: "VC744 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8918,8 +8176,7 @@ unfolding VC744_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv745: "VC745 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8930,8 +8187,7 @@ unfolding VC745_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv746: "VC746 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8942,8 +8198,7 @@ unfolding VC746_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv747: "VC747 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8954,8 +8209,7 @@ unfolding VC747_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv748: "VC748 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8966,8 +8220,7 @@ unfolding VC748_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv749: "VC749 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8978,8 +8231,7 @@ unfolding VC749_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv750: "VC750 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -8990,8 +8242,7 @@ unfolding VC750_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv751: "VC751 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9002,8 +8253,7 @@ unfolding VC751_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv752: "VC752 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9014,8 +8264,7 @@ unfolding VC752_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv753: "VC753 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9026,8 +8275,7 @@ unfolding VC753_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv754: "VC754 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9038,8 +8286,7 @@ unfolding VC754_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv755: "VC755 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9050,8 +8297,7 @@ unfolding VC755_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv756: "VC756 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9062,8 +8308,7 @@ unfolding VC756_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv757: "VC757 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9074,8 +8319,7 @@ unfolding VC757_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv758: "VC758 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9086,8 +8330,7 @@ unfolding VC758_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv759: "VC759 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9098,8 +8341,7 @@ unfolding VC759_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv760: "VC760 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9110,8 +8352,7 @@ unfolding VC760_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv761: "VC761 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9122,8 +8363,7 @@ unfolding VC761_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv762: "VC762 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9134,8 +8374,7 @@ unfolding VC762_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv763: "VC763 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9146,8 +8385,7 @@ unfolding VC763_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv764: "VC764 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9158,8 +8396,7 @@ unfolding VC764_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv765: "VC765 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9170,8 +8407,7 @@ unfolding VC765_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv766: "VC766 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9182,8 +8418,7 @@ unfolding VC766_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv767: "VC767 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9194,8 +8429,7 @@ unfolding VC767_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv768: "VC768 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9206,8 +8440,7 @@ unfolding VC768_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv769: "VC769 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9218,8 +8451,7 @@ unfolding VC769_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv770: "VC770 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9230,8 +8462,7 @@ unfolding VC770_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv771: "VC771 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9242,8 +8473,7 @@ unfolding VC771_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv772: "VC772 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9254,8 +8484,7 @@ unfolding VC772_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv773: "VC773 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9266,8 +8495,7 @@ unfolding VC773_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv774: "VC774 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9278,8 +8506,7 @@ unfolding VC774_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv775: "VC775 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9290,8 +8517,7 @@ unfolding VC775_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv776: "VC776 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9302,8 +8528,7 @@ unfolding VC776_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv777: "VC777 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9314,8 +8539,7 @@ unfolding VC777_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv778: "VC778 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9326,8 +8550,7 @@ unfolding VC778_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv779: "VC779 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9338,8 +8561,7 @@ unfolding VC779_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv780: "VC780 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9350,8 +8572,7 @@ unfolding VC780_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv781: "VC781 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9362,8 +8583,7 @@ unfolding VC781_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv782: "VC782 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9374,8 +8594,7 @@ unfolding VC782_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv783: "VC783 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9386,8 +8605,7 @@ unfolding VC783_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv784: "VC784 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9398,8 +8616,7 @@ unfolding VC784_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv785: "VC785 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9410,8 +8627,7 @@ unfolding VC785_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv786: "VC786 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9422,8 +8638,7 @@ unfolding VC786_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv787: "VC787 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9434,8 +8649,7 @@ unfolding VC787_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv788: "VC788 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9446,8 +8660,7 @@ unfolding VC788_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv789: "VC789 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9458,8 +8671,7 @@ unfolding VC789_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv790: "VC790 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9470,8 +8682,7 @@ unfolding VC790_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv791: "VC791 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9482,8 +8693,7 @@ unfolding VC791_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv792: "VC792 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9494,8 +8704,7 @@ unfolding VC792_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv793: "VC793 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9506,8 +8715,7 @@ unfolding VC793_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv794: "VC794 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9518,8 +8726,7 @@ unfolding VC794_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv795: "VC795 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9530,8 +8737,7 @@ unfolding VC795_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv796: "VC796 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9542,8 +8748,7 @@ unfolding VC796_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv797: "VC797 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9554,8 +8759,7 @@ unfolding VC797_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv798: "VC798 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9566,8 +8770,7 @@ unfolding VC798_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv799: "VC799 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9578,8 +8781,7 @@ unfolding VC799_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv800: "VC800 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9590,8 +8792,7 @@ unfolding VC800_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv801: "VC801 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9602,8 +8803,7 @@ unfolding VC801_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv802: "VC802 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9614,8 +8814,7 @@ unfolding VC802_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv803: "VC803 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9626,8 +8825,7 @@ unfolding VC803_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv804: "VC804 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9638,8 +8836,7 @@ unfolding VC804_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv805: "VC805 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9650,8 +8847,7 @@ unfolding VC805_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv806: "VC806 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9662,8 +8858,7 @@ unfolding VC806_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv807: "VC807 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9674,8 +8869,7 @@ unfolding VC807_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv808: "VC808 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9686,8 +8880,7 @@ unfolding VC808_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv809: "VC809 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9698,8 +8891,7 @@ unfolding VC809_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv810: "VC810 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9710,8 +8902,7 @@ unfolding VC810_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv811: "VC811 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9722,8 +8913,7 @@ unfolding VC811_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv812: "VC812 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9734,8 +8924,7 @@ unfolding VC812_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv813: "VC813 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9746,8 +8935,7 @@ unfolding VC813_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv814: "VC814 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9758,8 +8946,7 @@ unfolding VC814_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv815: "VC815 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9770,8 +8957,7 @@ unfolding VC815_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv816: "VC816 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9782,8 +8968,7 @@ unfolding VC816_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv817: "VC817 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9794,8 +8979,7 @@ unfolding VC817_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv818: "VC818 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9806,8 +8990,7 @@ unfolding VC818_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv819: "VC819 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9818,8 +9001,7 @@ unfolding VC819_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv820: "VC820 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9830,8 +9012,7 @@ unfolding VC820_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv821: "VC821 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9842,8 +9023,7 @@ unfolding VC821_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv822: "VC822 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9854,8 +9034,7 @@ unfolding VC822_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv823: "VC823 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9866,8 +9045,7 @@ unfolding VC823_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv824: "VC824 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9878,8 +9056,7 @@ unfolding VC824_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv825: "VC825 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9890,8 +9067,7 @@ unfolding VC825_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv826: "VC826 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9902,8 +9078,7 @@ unfolding VC826_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv827: "VC827 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9914,8 +9089,7 @@ unfolding VC827_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv828: "VC828 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9926,8 +9100,7 @@ unfolding VC828_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv829: "VC829 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9938,8 +9111,7 @@ unfolding VC829_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv830: "VC830 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9950,8 +9122,7 @@ unfolding VC830_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv831: "VC831 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9962,8 +9133,7 @@ unfolding VC831_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv832: "VC832 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9974,8 +9144,7 @@ unfolding VC832_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv833: "VC833 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9986,8 +9155,7 @@ unfolding VC833_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv834: "VC834 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -9998,8 +9166,7 @@ unfolding VC834_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv835: "VC835 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10010,8 +9177,7 @@ unfolding VC835_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv836: "VC836 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10022,8 +9188,7 @@ unfolding VC836_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv837: "VC837 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10034,8 +9199,7 @@ unfolding VC837_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv838: "VC838 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10046,8 +9210,7 @@ unfolding VC838_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv839: "VC839 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10058,8 +9221,7 @@ unfolding VC839_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv840: "VC840 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10070,8 +9232,7 @@ unfolding VC840_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv841: "VC841 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10082,8 +9243,7 @@ unfolding VC841_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv842: "VC842 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10094,8 +9254,7 @@ unfolding VC842_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv843: "VC843 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10106,8 +9265,7 @@ unfolding VC843_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv844: "VC844 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10118,8 +9276,7 @@ unfolding VC844_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv845: "VC845 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10130,8 +9287,7 @@ unfolding VC845_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv846: "VC846 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10142,8 +9298,7 @@ unfolding VC846_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv847: "VC847 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10154,8 +9309,7 @@ unfolding VC847_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv848: "VC848 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10166,8 +9320,7 @@ unfolding VC848_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv849: "VC849 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10178,8 +9331,7 @@ unfolding VC849_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv850: "VC850 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10190,8 +9342,7 @@ unfolding VC850_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv851: "VC851 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10202,8 +9353,7 @@ unfolding VC851_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv852: "VC852 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10214,8 +9364,7 @@ unfolding VC852_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv853: "VC853 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10226,8 +9375,7 @@ unfolding VC853_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv854: "VC854 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10238,8 +9386,7 @@ unfolding VC854_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv855: "VC855 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10250,8 +9397,7 @@ unfolding VC855_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv856: "VC856 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10262,8 +9408,7 @@ unfolding VC856_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv857: "VC857 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10274,8 +9419,7 @@ unfolding VC857_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv858: "VC858 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10286,8 +9430,7 @@ unfolding VC858_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv859: "VC859 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10298,8 +9441,7 @@ unfolding VC859_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv860: "VC860 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10310,8 +9452,7 @@ unfolding VC860_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv861: "VC861 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10322,8 +9463,7 @@ unfolding VC861_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv862: "VC862 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10334,8 +9474,7 @@ unfolding VC862_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv863: "VC863 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10346,8 +9485,7 @@ unfolding VC863_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv864: "VC864 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10358,8 +9496,7 @@ unfolding VC864_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv865: "VC865 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10370,8 +9507,7 @@ unfolding VC865_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv866: "VC866 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10382,8 +9518,7 @@ unfolding VC866_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv867: "VC867 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10394,8 +9529,7 @@ unfolding VC867_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv868: "VC868 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10406,8 +9540,7 @@ unfolding VC868_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv869: "VC869 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10418,8 +9551,7 @@ unfolding VC869_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv870: "VC870 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10430,8 +9562,7 @@ unfolding VC870_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv871: "VC871 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10442,8 +9573,7 @@ unfolding VC871_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv872: "VC872 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10454,8 +9584,7 @@ unfolding VC872_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv873: "VC873 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10466,8 +9595,7 @@ unfolding VC873_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv874: "VC874 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10478,8 +9606,7 @@ unfolding VC874_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv875: "VC875 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10490,8 +9617,7 @@ unfolding VC875_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv876: "VC876 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10502,8 +9628,7 @@ unfolding VC876_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv877: "VC877 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10514,8 +9639,7 @@ unfolding VC877_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv878: "VC878 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10526,8 +9650,7 @@ unfolding VC878_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv879: "VC879 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10538,8 +9661,7 @@ unfolding VC879_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv880: "VC880 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10550,8 +9672,7 @@ unfolding VC880_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv881: "VC881 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10562,8 +9683,7 @@ unfolding VC881_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv882: "VC882 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10574,8 +9694,7 @@ unfolding VC882_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv883: "VC883 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10586,8 +9705,7 @@ unfolding VC883_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv884: "VC884 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10598,8 +9716,7 @@ unfolding VC884_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv885: "VC885 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10610,8 +9727,7 @@ unfolding VC885_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv886: "VC886 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10622,8 +9738,7 @@ unfolding VC886_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv887: "VC887 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10634,8 +9749,7 @@ unfolding VC887_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv888: "VC888 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10646,8 +9760,7 @@ unfolding VC888_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv889: "VC889 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10658,8 +9771,7 @@ unfolding VC889_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv890: "VC890 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10670,8 +9782,7 @@ unfolding VC890_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv891: "VC891 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10682,8 +9793,7 @@ unfolding VC891_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv892: "VC892 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10694,8 +9804,7 @@ unfolding VC892_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv893: "VC893 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10706,8 +9815,7 @@ unfolding VC893_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv894: "VC894 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10718,8 +9826,7 @@ unfolding VC894_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv895: "VC895 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10730,8 +9837,7 @@ unfolding VC895_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv896: "VC896 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10742,8 +9848,7 @@ unfolding VC896_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv897: "VC897 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10754,8 +9859,7 @@ unfolding VC897_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv898: "VC898 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10766,8 +9870,7 @@ unfolding VC898_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv899: "VC899 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10778,8 +9881,7 @@ unfolding VC899_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv900: "VC900 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10790,8 +9892,7 @@ unfolding VC900_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv901: "VC901 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10802,8 +9903,7 @@ unfolding VC901_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv902: "VC902 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10814,8 +9914,7 @@ unfolding VC902_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv903: "VC903 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10826,8 +9925,7 @@ unfolding VC903_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv904: "VC904 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10838,8 +9936,7 @@ unfolding VC904_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv905: "VC905 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10850,8 +9947,7 @@ unfolding VC905_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv906: "VC906 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10862,8 +9958,7 @@ unfolding VC906_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv907: "VC907 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10874,8 +9969,7 @@ unfolding VC907_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv908: "VC908 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10886,8 +9980,7 @@ unfolding VC908_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv909: "VC909 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10898,8 +9991,7 @@ unfolding VC909_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv910: "VC910 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10910,8 +10002,7 @@ unfolding VC910_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv911: "VC911 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10922,8 +10013,7 @@ unfolding VC911_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv912: "VC912 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10934,8 +10024,7 @@ unfolding VC912_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv913: "VC913 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10946,8 +10035,7 @@ unfolding VC913_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv914: "VC914 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10958,8 +10046,7 @@ unfolding VC914_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv915: "VC915 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10970,8 +10057,7 @@ unfolding VC915_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv916: "VC916 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10982,8 +10068,7 @@ unfolding VC916_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv917: "VC917 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -10994,8 +10079,7 @@ unfolding VC917_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv918: "VC918 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11006,8 +10090,7 @@ unfolding VC918_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv919: "VC919 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11018,8 +10101,7 @@ unfolding VC919_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv920: "VC920 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11030,8 +10112,7 @@ unfolding VC920_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv921: "VC921 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11042,8 +10123,7 @@ unfolding VC921_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv922: "VC922 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11054,8 +10134,7 @@ unfolding VC922_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv923: "VC923 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11066,8 +10145,7 @@ unfolding VC923_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv924: "VC924 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11078,8 +10156,7 @@ unfolding VC924_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv925: "VC925 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11090,8 +10167,7 @@ unfolding VC925_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv926: "VC926 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11102,8 +10178,7 @@ unfolding VC926_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv927: "VC927 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11114,8 +10189,7 @@ unfolding VC927_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv928: "VC928 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11126,8 +10200,7 @@ unfolding VC928_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv929: "VC929 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11138,8 +10211,7 @@ unfolding VC929_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv930: "VC930 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11150,8 +10222,7 @@ unfolding VC930_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv931: "VC931 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11162,8 +10233,7 @@ unfolding VC931_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv932: "VC932 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11174,8 +10244,7 @@ unfolding VC932_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv933: "VC933 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11186,8 +10255,7 @@ unfolding VC933_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv934: "VC934 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11198,8 +10266,7 @@ unfolding VC934_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv935: "VC935 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11210,8 +10277,7 @@ unfolding VC935_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv936: "VC936 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11222,8 +10288,7 @@ unfolding VC936_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv937: "VC937 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11234,8 +10299,7 @@ unfolding VC937_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv938: "VC938 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11246,8 +10310,7 @@ unfolding VC938_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv939: "VC939 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11258,8 +10321,7 @@ unfolding VC939_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv940: "VC940 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11270,8 +10332,7 @@ unfolding VC940_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv941: "VC941 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11282,8 +10343,7 @@ unfolding VC941_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv942: "VC942 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11294,8 +10354,7 @@ unfolding VC942_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv943: "VC943 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11306,8 +10365,7 @@ unfolding VC943_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv944: "VC944 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11318,8 +10376,7 @@ unfolding VC944_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv945: "VC945 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11330,8 +10387,7 @@ unfolding VC945_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv946: "VC946 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11342,8 +10398,7 @@ unfolding VC946_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv947: "VC947 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11354,8 +10409,7 @@ unfolding VC947_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv948: "VC948 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11366,8 +10420,7 @@ unfolding VC948_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv949: "VC949 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11378,8 +10431,7 @@ unfolding VC949_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv950: "VC950 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11390,8 +10442,7 @@ unfolding VC950_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv951: "VC951 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11402,8 +10453,7 @@ unfolding VC951_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv952: "VC952 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11414,8 +10464,7 @@ unfolding VC952_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv953: "VC953 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11426,8 +10475,7 @@ unfolding VC953_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv954: "VC954 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11438,8 +10486,7 @@ unfolding VC954_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv955: "VC955 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11450,8 +10497,7 @@ unfolding VC955_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv956: "VC956 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11462,8 +10508,7 @@ unfolding VC956_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv957: "VC957 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11474,8 +10519,7 @@ unfolding VC957_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv958: "VC958 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11486,8 +10530,7 @@ unfolding VC958_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv959: "VC959 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11498,8 +10541,7 @@ unfolding VC959_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv960: "VC960 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11510,8 +10552,7 @@ unfolding VC960_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv961: "VC961 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11522,8 +10563,7 @@ unfolding VC961_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv962: "VC962 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11534,8 +10574,7 @@ unfolding VC962_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv963: "VC963 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11546,8 +10585,7 @@ unfolding VC963_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv964: "VC964 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11558,8 +10596,7 @@ unfolding VC964_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv965: "VC965 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11570,8 +10607,7 @@ unfolding VC965_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv966: "VC966 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11582,8 +10618,7 @@ unfolding VC966_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv967: "VC967 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11594,8 +10629,7 @@ unfolding VC967_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv968: "VC968 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11606,8 +10640,7 @@ unfolding VC968_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv969: "VC969 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11618,8 +10651,7 @@ unfolding VC969_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv970: "VC970 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11630,8 +10662,7 @@ unfolding VC970_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv971: "VC971 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11642,8 +10673,7 @@ unfolding VC971_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv972: "VC972 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11654,8 +10684,7 @@ unfolding VC972_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv973: "VC973 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11666,8 +10695,7 @@ unfolding VC973_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv974: "VC974 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11678,8 +10706,7 @@ unfolding VC974_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv975: "VC975 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11690,8 +10717,7 @@ unfolding VC975_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv976: "VC976 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11702,8 +10728,7 @@ unfolding VC976_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv977: "VC977 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11714,8 +10739,7 @@ unfolding VC977_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv978: "VC978 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11726,8 +10750,7 @@ unfolding VC978_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv979: "VC979 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11738,8 +10761,7 @@ unfolding VC979_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv980: "VC980 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11750,8 +10772,7 @@ unfolding VC980_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv981: "VC981 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11762,8 +10783,7 @@ unfolding VC981_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv982: "VC982 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11774,8 +10794,7 @@ unfolding VC982_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv983: "VC983 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11786,8 +10805,7 @@ unfolding VC983_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv984: "VC984 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11798,8 +10816,7 @@ unfolding VC984_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv985: "VC985 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11810,8 +10827,7 @@ unfolding VC985_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv986: "VC986 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11822,8 +10838,7 @@ unfolding VC986_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv987: "VC987 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11834,8 +10849,7 @@ unfolding VC987_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv988: "VC988 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11846,8 +10860,7 @@ unfolding VC988_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv989: "VC989 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11858,8 +10871,7 @@ unfolding VC989_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv990: "VC990 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11870,8 +10882,7 @@ unfolding VC990_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv991: "VC991 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11882,8 +10893,7 @@ unfolding VC991_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv992: "VC992 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11894,8 +10904,7 @@ unfolding VC992_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv993: "VC993 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11906,8 +10915,7 @@ unfolding VC993_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv994: "VC994 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11918,8 +10926,7 @@ unfolding VC994_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv995: "VC995 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11930,8 +10937,7 @@ unfolding VC995_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv996: "VC996 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11942,8 +10948,7 @@ unfolding VC996_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv997: "VC997 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11954,8 +10959,7 @@ unfolding VC997_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv998: "VC998 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11966,8 +10970,7 @@ unfolding VC998_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv999: "VC999 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11978,8 +10981,7 @@ unfolding VC999_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1000: "VC1000 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -11990,8 +10992,7 @@ unfolding VC1000_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1001: "VC1001 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12002,8 +11003,7 @@ unfolding VC1001_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1002: "VC1002 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12014,8 +11014,7 @@ unfolding VC1002_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1003: "VC1003 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12026,8 +11025,7 @@ unfolding VC1003_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1004: "VC1004 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12038,8 +11036,7 @@ unfolding VC1004_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1005: "VC1005 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12050,8 +11047,7 @@ unfolding VC1005_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1006: "VC1006 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12062,8 +11058,7 @@ unfolding VC1006_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1007: "VC1007 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12074,8 +11069,7 @@ unfolding VC1007_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1008: "VC1008 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12086,8 +11080,7 @@ unfolding VC1008_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 theorem extendedInv1009: "VC1009 R3_extended_inv env s0  PdOut'value paid'value opened'value"
@@ -12098,8 +11091,7 @@ unfolding VC1009_def R3_extended_inv_def R3_def  apply(rule impI)
    apply simp
   apply(unfold Einv3_def commonExtraInv_def)
   apply(erule conjE)+
-  apply(erule always2einv_imp_req)
-  apply(auto split: if_splits)
+  apply(auto simp add: always2einv_imp_req split: if_splits)
   done
 
 end

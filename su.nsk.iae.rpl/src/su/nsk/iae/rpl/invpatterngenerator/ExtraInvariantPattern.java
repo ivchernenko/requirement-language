@@ -121,7 +121,7 @@ public class ExtraInvariantPattern {
 		List<SimpleFormulaParameter> particularParams = new ArrayList<>(simpleFmParams);
 		for (SimpleFormulaParameter fmParam: simpleFmParams)
 			simpleParamValues.add(new FormulaParameterValue(new ArrayList<>(),
-					new SimpleAtomicFormula(fmParam, new ArrayList<>())));
+					new Atomic(fmParam, new ArrayList<>())));
 		UpdateStateVariable current = factory.createUpdateStateVariable();
 		current.setName("s1");
 		for (int i = 0; i < regFmParams.size(); i++) {
@@ -130,7 +130,7 @@ public class ExtraInvariantPattern {
 			sParam.setName(reqParams.get(i).getName());
 			particularParams.add(sParam);
 			regParamValues.add(new FormulaParameterValue(List.of(state, current),
-					new SimpleAtomicFormula(sParam, List.of(current))));
+					new Atomic(sParam, List.of(current))));
 		}
 		DerivedExtraInvariantPatternInstance patternInstance =  
 				new DerivedExtraInvariantPatternInstance(pattern,

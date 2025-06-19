@@ -17,7 +17,8 @@ class ProofScriptGenerator {
 	static final String DOUBLE_NEGATION_RULE = "cnf.clause2raw_not_not";
 	
 	def String generateForOuterConjunction(
-		OuterExtraInvariantFormula left, OuterExtraInvariantFormula right, UpdateStateVariable initState, UpdateStateVariable finalState
+		OuterExtraInvariantFormula left, OuterExtraInvariantFormula right, UpdateStateVariable initState,
+		 UpdateStateVariable finalState
 	) {
 		premisesNumber++;
 		val premisesName = BASE_PREMISES_NAME + premisesNumber;
@@ -265,16 +266,26 @@ class ProofScriptGenerator {
 	}
 	
 	def String generateForNegatedBooleanFormula(UpdateStateVariable initState, BooleanPatternFreeFormula formula) {
-		val deMorgansLow = switch (formula.getOperator()) {
-			case BooleanOperator.CONJUNCTION:
-			DE_MORGAN_CONJ
-			case BooleanOperator.DISJUNCTION:
-			DE_MORGAN_DISJ
-			default: null
-		};
+		var deMorgansLow = "";
+		var dualOperator = null as BooleanOperator;
+		switch (formula.getOperator()) {
+			case BooleanOperator.CONJUNCTION: {
+				deMorgansLow = DE_MORGAN_CONJ
+				dualOperator = BooleanOperator.DISJUNCTION;
+			}
+			case BooleanOperator.DISJUNCTION: {
+				deMorgansLow = DE_MORGAN_DISJ
+				dualOperator = BooleanOperator.CONJUNCTION;
+			}			
+		}
+		val negatedFormula = new BooleanPatternFreeFormula(
+			dualOperator, 
+			new NegationFormula(formula.getLeft()), 
+			new NegationFormula(formula.getLeft())
+		)
 		return '''
 		apply(subst (1) «deMorgansLow»)
-		  «formula.negate().generateProofScript(initState, this)»
+		  «negatedFormula.generateProofScript(initState, this)»
 		'''
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.DerivedExtraInvariantPattern;
 import su.nsk.iae.rpl.rPL.DerivedRequirementPattern;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 
@@ -30,16 +31,19 @@ public class OuterExtraInvariantFormulaGenerator extends OuterFormulaGenerator<O
 	@Override
 	OuterExtraInvariantFormula createPatternInstance(DerivedRequirementPattern pattern, List<Term> cParams,
 			List<FormulaParameterValue> simpleFmParams, List<FormulaParameterValue> regFmParams) {
+		DerivedExtraInvariantPattern extraInvPattern = pattern.getExtraInvPattern();
+		if (extraInvPattern == null)
+			extraInvPattern = generatedPatterns.get(pattern.getName()).getExtraInvPattern();
 		DerivedExtraInvariantPatternInstance mainConj = ExtraInvariantPatternInstanceFactory.generatePatternInstance(
-				pattern.getExtraInvPattern(), cParams, simpleFmParams, regFmParams, fnParamList);
+				extraInvPattern, cParams, simpleFmParams, regFmParams, fnParamList);
 		List<PastExtraInvariantPatternInstance> extraConjs = new ArrayList<>();
 		for (var fmParamValue: regFmParams)
 			extraConjs.addAll(((InnerExtraInvariantFormula) fmParamValue.getFormula()).generateExtraConjuncts());
 		return new ExtendedInvariant(mainConj, extraConjs);	
 	}
 
-	public OuterExtraInvariantFormulaGenerator(Map<RegularFormulaParameter, RegularFormulaParameter> regParamMapping) {
-		super();
+	public OuterExtraInvariantFormulaGenerator(Map<String, DerivedRequirementPattern> generatedPatterns, Map<RegularFormulaParameter, RegularFormulaParameter> regParamMapping) {
+		super(generatedPatterns);
 		this.fnParamList = new FunctionalParameterList();
 		this.regParamMapping = regParamMapping;
 	}

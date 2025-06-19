@@ -16,7 +16,8 @@ getPstate s EntranceController' \<in> {EntranceController'isClosed', EntranceCon
 (getPstate s Unlocker' = Unlocker'unlock' \<longrightarrow> ltime s Unlocker' \<le> 10) \<and>
 getPstate s Unlocker' \<in> {Unlocker'unlock', STOP} \<and>
 (getPstate s Init' = Init'init' \<longrightarrow> getPstate s Controller' = STOP \<and> getPstate s EntranceController' = STOP) \<and>
-(getPstate s Init' = STOP \<longrightarrow> getPstate s Controller' \<noteq> STOP \<and> getPstate s EntranceController' \<noteq> STOP)
+(getPstate s Init' = STOP \<longrightarrow> getPstate s Controller' \<noteq> STOP \<and> getPstate s EntranceController' \<noteq> STOP) \<and>
+(getPstate s Init' \<in> {Init'init', STOP})
 "
 
 end

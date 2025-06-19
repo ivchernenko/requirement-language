@@ -38,7 +38,7 @@ P1_2_part 100 (\<lambda> s1. getVarBool s1 open' = False) (\<lambda> s2. getVarB
 definition Einv4 where "Einv4 s \<equiv> commonExtraInv s \<and>
 P1_2_inv_part 100  (\<lambda> s. getPstate s Controller' \<in> {Controller'minimalOpened', Controller'isOpened'})
 (\<lambda> s. if getPstate s Controller' = Controller'minimalOpened' then ltime s Controller'
- else if getPstate s Controller' = Controller'isOpened' then ltime s Controller' + 90 else 0)
+ else if getPstate s Controller' = Controller'isOpened' then ltime s Controller' + 10 else 0)
  (\<lambda> s1. getVarBool s1 open' = False) (\<lambda> s2. getVarBool s2 open' = True)
  (\<lambda> s3. getVarBool s3 open' = True) (\<lambda> s4. getVarBool s4 open' = False) s"
 

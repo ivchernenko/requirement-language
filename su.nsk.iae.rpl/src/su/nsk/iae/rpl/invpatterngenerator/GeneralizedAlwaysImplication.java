@@ -25,8 +25,9 @@ public class GeneralizedAlwaysImplication implements LemmaPremise {
 	}
 	@Override
 	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
-		return ((InnerExtraInvariantFormula) left.getFormula()).replacePatternsForImplication(right.getFormula(), 
+		var result = ((InnerExtraInvariantFormula) left.getFormula()).replacePatternsForImplication(right.getFormula(), 
 				left.getStates(), state);
+		return result;
 	}
 	
 	@Override

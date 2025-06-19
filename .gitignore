@@ -25,3 +25,4 @@ replay_pid*
 
 # Isabelle/HOL files
 *~
+*_VC_*.thy

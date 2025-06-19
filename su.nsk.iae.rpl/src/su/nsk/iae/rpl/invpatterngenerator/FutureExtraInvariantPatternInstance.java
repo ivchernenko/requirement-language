@@ -108,7 +108,7 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+	public LemmaPremise replacePatternsForImplication(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
 		LemmaPremise premiseInstance = replacePatternsForNotIdenticallyTrueImplicationStep(right, lambdaBound, state);
 		return premiseInstance.replacePatterns(this.finState);
@@ -149,11 +149,6 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 				L = pattern.getLemmas().getL3();
 			return L;
 		}
-	}
-
-	@Override
-	public boolean equalsToRequirementFormula() {
-		return false;
 	}
 
 	@Override
@@ -211,5 +206,10 @@ public class FutureExtraInvariantPatternInstance implements InnerExtraInvariantF
 	public String generateProofScriptForNotIdenticallyTrueImplication(Formula right,
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state, ProofScriptGenerator generator) {
 		return generator.generateForFutureInImplication(this, right, lambdaBound, state);
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return false;
 	}
 }

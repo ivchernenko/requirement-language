@@ -4,54 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import su.nsk.iae.rpl.rPL.FormulaParameter;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
+import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 import su.nsk.iae.rpl.rPL.impl.AtomicFormulaImpl;
 import su.nsk.iae.rpl.rPL.impl.UpdateStateVariableImpl;
 
-public class RegularAtomicFormula implements PatternFreeInnerFormula {
-	private final RegularFormulaParameter renamed;
-	private final RegularFormulaParameter original;
+public class Atomic implements PatternFreeInnerFormula {
+	private final FormulaParameter renamed;
+
 	private final List<UpdateStateVariable> states;
 	public List<UpdateStateVariable> getStates() {
 		return states;
 	}
-	public RegularAtomicFormula(
-			RegularFormulaParameter renamed,
-			RegularFormulaParameter original,
+	public Atomic(
+			FormulaParameter renamed,
 			List<UpdateStateVariable> states) {
 		super();
 		this.renamed = renamed;
-		this.original = original;
 		this.states = states;
 	}
 
-	public RegularAtomicFormula(
-			RegularFormulaParameter renamed,
-			RegularFormulaParameter original) {
-		super();
-		this.renamed = renamed;
-		this.original = original;
-		this.states = new ArrayList<>();
-	}
 
-	public RegularFormulaParameter getRenamed() {
+	public FormulaParameter getRenamed() {
 		return renamed;
 	}
-	public RegularFormulaParameter getOriginal() {
-		return original;
-	}
+
 
 	public String getName() {
 		return renamed.getName();
 	}
 
-	public String getOriginalName() {
-		return original.getName();
-	}
 	@Override
 	public PatternFreeInnerFormula replaceStates(Map<String, UpdateStateVariable> substitution) {
 		List<UpdateStateVariable> newStates = new ArrayList<>();
@@ -60,17 +47,19 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 			s = substitution.getOrDefault(s.getName(),  s);
 			newStates.add(s);
 		}
-		return new RegularAtomicFormula(renamed, original, newStates);
+		return new Atomic(renamed, newStates);
 	}
 	@Override
 	public PatternFreeInnerFormula applyToStates(List<UpdateStateVariable> states) {
 		List<UpdateStateVariable> newStates = new ArrayList<>(this.states);
 		newStates.addAll(states);
-		return new RegularAtomicFormula(renamed, original, newStates);
+		return new Atomic(renamed, newStates);
 	}
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula right, 
+	public LemmaPremise replacePatternsForImplication(Formula right, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
+		if (renamed instanceof SimpleFormulaParameter)
+			return BooleanLiteral.TRUE;
 		return new GeneralizedAlwaysImplication(
 				state,
 				new FormulaParameterValue(lambdaBound, this),
@@ -78,7 +67,7 @@ public class RegularAtomicFormula implements PatternFreeInnerFormula {
 	}
 	@Override
 	public boolean equalsToRequirementFormula() {
-		return false;
+		return renamed instanceof SimpleFormulaParameter;
 	}
 	@Override
 	public List<String> getUsedPatternNames() {

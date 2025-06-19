@@ -14,12 +14,13 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 			InnerExtraInvariantFormula right) {
 		super(operator, left, right);
 	}
-	public BooleanOperator getOperator() {
-		return operator;
-	}
+	
+	@Override
 	public InnerExtraInvariantFormula getLeft() {
 		return (InnerExtraInvariantFormula) left;
 	}
+	
+	@Override
 	public InnerExtraInvariantFormula getRight() {
 		return (InnerExtraInvariantFormula) right;
 	}
@@ -43,9 +44,13 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 	}
 
 	@Override
-	public LemmaPremise replacePatternsForNotIdenticallyTrueImplication(Formula other, 
+	public LemmaPremise replacePatternsForImplication(Formula other, 
 			List<UpdateStateVariable> lambdaBound, UpdateStateVariable state) {
-		return split(other, lambdaBound, state).replacePatterns(state);
+		if (equalsToRequirementFormula())
+			return BooleanLiteral.TRUE;
+		BooleanLemmaPremise premise = (BooleanLemmaPremise) split(other, lambdaBound, state);
+		premise = (BooleanLemmaPremise) premise.replacePatterns(state);
+		return premise;
 	}
 
 	LemmaPremise split(Formula other, 
@@ -79,17 +84,6 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 	}
 
 	@Override
-	public boolean equalsToRequirementFormula() {
-		return ((InnerExtraInvariantFormula) left).equalsToRequirementFormula() 
-				&& ((InnerExtraInvariantFormula) right).equalsToRequirementFormula();
-	}
-	@Override
-	public LemmaPremise replacePatterns(UpdateStateVariable initState) {
-		LemmaPremise transformedLeft = left.replacePatterns(initState);
-		LemmaPremise transformedRight = right.replacePatterns(initState);
-		return new BooleanLemmaPremise(operator, transformedLeft, transformedRight);
-	}
-	@Override
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = ((Formula) left).getUsedPatternNames();
 		usedPatterns.addAll(((Formula) right).getUsedPatternNames());
@@ -102,39 +96,16 @@ public class BooleanInnerExtraInvariantFormula extends BooleanLemmaPremise imple
 		return stringBuilder.append('(').append(left).append(' ').append(operator).append(' ').append(right).append(')')
 				.toString();
 	}
-	@Override
-	public LemmaPremise generateParticularLemmaPremise() {
-		LemmaPremise simplifiedLeft = left.generateParticularLemmaPremise();
-		LemmaPremise simplifiedRight = right.generateParticularLemmaPremise();
-		if (simplifiedLeft.equals(BooleanLiteral.TRUE) || simplifiedLeft instanceof GeneralizedAlwaysImplication)
-			if (operator == BooleanOperator.CONJUNCTION)
-				return simplifiedRight;
-			else return BooleanLiteral.TRUE;
-		if (simplifiedRight.equals(BooleanLiteral.TRUE) || simplifiedRight instanceof GeneralizedAlwaysImplication)
-			if (operator == BooleanOperator.CONJUNCTION)
-				return simplifiedLeft;
-			else return BooleanLiteral.TRUE;
-		return new BooleanLemmaPremise(operator, simplifiedLeft, simplifiedRight);
-	}
-	@Override
-	public LemmaPremiseFormula convertToEObject() {
-		RPLFactory factory = RPLFactory.eINSTANCE;
-		LemmaPremiseFormula eLeft = left.convertToEObject();
-		LemmaPremiseFormula eRight = right.convertToEObject();
-		DisjunctionLemmaPremiseFormula premise = null;
-		switch (operator) {
-		case DISJUNCTION: premise = factory.createDisjunctionLemmaPremiseFormula(); break;
-		case CONJUNCTION: premise = factory.createConjunctionLemmaPremiseFormula(); break;
-		}
-		premise.setLeft(eLeft);
-		premise.setRight(eRight);
-		return premise;
-	}
 
 	@Override
 	public String generateProofScriptForNotIdenticallyTrueImplication(
 			Formula right, List<UpdateStateVariable> lambdaBound, UpdateStateVariable state,
 			ProofScriptGenerator generator) {
 		return generator.generateForBooleanCombinationInImplication(this, right, lambdaBound, state);
+	}
+
+	@Override
+	public boolean equalsToRequirementFormula() {
+		return getLeft().equalsToRequirementFormula() && getRight().equalsToRequirementFormula();
 	}
 }

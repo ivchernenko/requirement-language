@@ -2,7 +2,6 @@ package su.nsk.iae.rpl.invpatterngenerator;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import su.nsk.iae.rpl.rPL.AtomicFormula;
 import su.nsk.iae.rpl.rPL.BasicRequirementPattern;
@@ -10,7 +9,6 @@ import su.nsk.iae.rpl.rPL.BasicRequirementPatternInstance;
 import su.nsk.iae.rpl.rPL.ConjunctionInnerFormula;
 import su.nsk.iae.rpl.rPL.ConjunctionPatternFreeFormula;
 import su.nsk.iae.rpl.rPL.FormulaParameter;
-import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.FutureRequirementPattern;
 import su.nsk.iae.rpl.rPL.InnerFormula;
 import su.nsk.iae.rpl.rPL.NegationFormula;
@@ -116,10 +114,10 @@ public abstract class InnerFormulaGenerator<T extends Formula> {
 				RPLFactory factory = RPLFactoryImpl.init();
 				RegularFormulaParameter renamed = factory.createRegularFormulaParameter();
 				renamed.setName(original.getName() + "'");
-				return new RegularAtomicFormula(getCorrespondingFormulaParameter(original), original, atomic.getStates());
+				return new Atomic(getCorrespondingFormulaParameter(original), atomic.getStates());
 			} else {
 				SimpleFormulaParameter simpleFmParam = (SimpleFormulaParameter) fmParam;
-				SimpleAtomicFormula A = new SimpleAtomicFormula(simpleFmParam, atomic.getStates());
+				Atomic A = new Atomic(simpleFmParam, atomic.getStates());
 				return A;
 			}
 		} else {

@@ -7,6 +7,14 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import su.nsk.iae.rpl.rPL.DerivedLemmas
+import su.nsk.iae.rpl.rPL.ExtraInvariant
+import su.nsk.iae.rpl.rPL.Lemma
+import java.io.FileWriter
+import java.io.IOException
+import su.nsk.iae.rpl.rPL.Requirement
+import java.util.List
+import su.nsk.iae.rpl.rPL.DerivedRequirementPattern
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +22,196 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class RPLGenerator extends AbstractGenerator {
+	static final String LEMMA_THEORY = "VCProving.VCTheoryLemmas";
+	static final String THEORY_EXTENSION = ".thy";
 
+	String commonExtraInv;
+	String VCTheoryName;
+	int start; 
+	int end;
+	String inputVars;
+	String requirementTheory;
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		val commonExtraInvTheory = capitalizeWords(commonExtraInv);
+		val commonExtraInvProofTheory = commonExtraInvTheory + '_' + VCTheoryName;
+		fsa.generateFile(commonExtraInvTheory + THEORY_EXTENSION, 
+			generateCommonExtraInvariantProofs(commonExtraInvTheory, commonExtraInvProofTheory)
+		);
+		resource.allContents
+		.filter(Requirement)
+		.forEach([requirement |
+			val extraInvariantProofTheory = requirement.getExtraInv().getName() + '_' + VCTheoryName;
+			fsa.generateFile(extraInvariantProofTheory + THEORY_EXTENSION, 
+				generateExtraInvariantProofs(requirement, commonExtraInvProofTheory, extraInvariantProofTheory)
+			);
+			val requirementProofTheory = requirement.getName() + '_' + VCTheoryName;
+			fsa.generateFile(requirementProofTheory + THEORY_EXTENSION,
+				generateRequirementProofs(requirement, extraInvariantProofTheory, requirementProofTheory)
+			)
+		])
+		
+	}
+	
+	def String generateExtraInvariantProofs(Requirement requirement, String commonExtraInvProofTheory, 
+		String extraInvariantProofTheory
+	) {
+		val theoryContent = new StringBuilder();
+		val importedTheories = #[requirementTheory, commonExtraInvProofTheory];
+		theoryContent.append(generateTheoryName(extraInvariantProofTheory, importedTheories))
+		if (start == 1) {
+			theoryContent.append(generateInitVcProofForExtraInvariant(requirement));
+		}
+		for (var i = (start==1 ? 2 : start); i <= end; i++) {
+			theoryContent.append(generateLoopPathForExtraInvariant(i, requirement))
+		}
+		theoryContent.append("done\n");
+		return theoryContent.toString();
+	}
+	
+	def String generateRequirementProofs(Requirement requirement, String extraInvariantProofTheory, 
+		String requirementProofTheory
+	) {
+		val theoryContent = new StringBuilder();
+		val importedTheories = #[extraInvariantProofTheory];
+		theoryContent.append(generateTheoryName(requirementProofTheory, importedTheories));
+		val extendedInvName = requirement.getName() + "_extended_inv";
+		theoryContent.append(generateExtendedInvDefinition(requirement, extendedInvName));
+		if (start == 1) {
+			theoryContent.append(generateInitVcProofForRequirement(requirement, extendedInvName));
+		}
+		for (var i = (start==1 ? 2 : start); i <= end; i++) {
+			theoryContent.append(generateLoopPathForRequirement(i, requirement, extendedInvName))
+		}
+		theoryContent.append("done\n");
+		return theoryContent.toString();
+	}
+	
+	def String generateCommonExtraInvariantProofs(String commonExtraInvTheory, String commonExtraInvProofTheory) {
+		val theoryContent = new StringBuilder();
+		val importedTheories = #[commonExtraInvTheory, LEMMA_THEORY];
+		theoryContent.append(generateTheoryName(commonExtraInvProofTheory, importedTheories))
+		if (start == 1) {
+			theoryContent.append(generateInitVcProofForCommonExtraInvariant());
+		}
+		for (var i = (start==1 ? 2 : start); i <= end; i++) {
+			theoryContent.append(generateLoopPathForCommonExtraInvariant(i))
+		}
+		theoryContent.append("done\n");
+		return theoryContent.toString();
+	}
+	
+	def String capitalizeWords(String string) {
+		val words = string.split('_');
+		val capitalized = new StringBuilder();
+		for (var i = 0; i < words.length; i++) {
+			val word = words.get(i).substring(0, 1).toUpperCase() + words.get(i).substring(1);
+			capitalized.append(word);
+			if (i < words.length - 1) {
+				capitalized.append('_');
+			}
+		}
+		return capitalized.toString();
+	}
+	
+	private def String generateLoopPathForExtraInvariant(int i, Requirement requirement) {
+		val reqPattern = requirement.getPattern();
+		val einv = requirement.getExtraInv().getName();
+		var L8 = null as Lemma;
+		var lemmas = reqPattern.getLemmas();
+		if (lemmas !== null) 
+			L8 = lemmas.getL8();
+		if (L8 === null)
+			L8 = reqPattern.getExtraInvPattern().getLemmas().getL8();
+		return '''
+		theorem extra«i»: "VC«i» «einv» env s0 «inputVars»"
+		  unfolding VC«i»_def «einv»_def
+		  apply(rule impI)
+		  apply(rule conjI)
+		  using cei«i» apply((auto simp add: VC«i»_def)[1];fastforce)
+		  apply(unfold «commonExtraInv»_def)
+		  apply(erule conjE)+
+		  apply(erule «L8.getName()»)
+		  apply(auto split: if_splits)
+		  done
+		'''	
+	}
+	
+	private def String generateLoopPathForRequirement(int i, Requirement req, String extendedInvName) {
+		val einv = req.getExtraInv().getName();
+		var lemmas = req.getPattern().getLemmas();
+		var L9 = null as Lemma;
+		if (lemmas !== null) 
+			L9 = lemmas.getL9();
+		if (L9 === null)
+			L9 = req.getPattern().getExtraInvPattern().getLemmas().getL9();
+		return '''
+		theorem extendedInv«i»: "VC«i» «extendedInvName» env s0 «inputVars»"
+		  unfolding VC«i»_def «extendedInvName»_def «req.getName()»_def
+		  apply(rule impI)
+		  apply(rule context_conjI)
+		  using extra«i» apply((auto simp add: VC«i»_def)[1];fastforce)
+		  apply(rule conjI)
+		  apply simp
+		  apply(unfold «einv»_def «commonExtraInv»_def)
+		  apply(erule conjE)+
+		  apply(erule «L9.getName()»)
+		  apply(auto split: if_splits)
+		  done
+		'''	
+	}
+	
+	private def String generateLoopPathForCommonExtraInvariant(int i) {
+		return '''
+		theorem cei«i»: VC«i» «commonExtraInv» env s0 «inputVars»"
+		unfolding VC«i»_def «commonExtraInv»_def
+		by force
+		'''
+	}
+
+	private def String generateInitVcProofForExtraInvariant(Requirement requirement) {
+		val einv = requirement.getExtraInv().getName();
+		return '''
+		theorem extra1: "VC1 «einv» + "
+		unfolding VC1_def «einv»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns «commonExtraInv»_def
+		by auto
+		'''
+	}
+	
+	private def String generateInitVcProofForRequirement(Requirement requirement, String extendedInvName) {
+		return '''
+		theorem extra1: "VC1 «extendedInvName» s0"
+		unfolding VC1_def «extendedInvName»_def «requirement.getExtraInv().getName()»_def
+		«requirement.getName()»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns 
+		  «requirement.getPattern().getName()»_used_patterns «commonExtraInv»_def
+		by auto
+		'''
+	}
+	
+	private def String generateInitVcProofForCommonExtraInvariant() {
+		return '''
+		theorem cei1: "VC1 «commonExtraInv» s0"
+		unfolding VC1_def «commonExtraInv»_def
+		by auto
+		'''
+	}
+	
+	private def String generateTheoryName(String theoryName, List<String> imports) throws IOException {
+		return '''
+		theory «theoryName»
+		  imports
+		  «FOR theory: imports»
+		  «theory»
+		  «ENDFOR»
+		begin
+		
+		'''
+	}
+	
+	private def String generateExtendedInvDefinition(Requirement requirement, String extendedInv) {		
+		return '''
+		definition «extendedInv»
+		 where "«extendedInv» s \<equiv> «requirement.getExtraInv().getName()» s \<and> «requirement.getName()» s"
+		 '''
 	}
 }

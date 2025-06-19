@@ -25,6 +25,12 @@ import su.nsk.iae.rpl.rPL.Term;
 import su.nsk.iae.rpl.rPL.impl.RPLFactoryImpl;
 
 public abstract class OuterFormulaGenerator<T> {
+	Map<String, DerivedRequirementPattern> generatedPatterns;
+	
+	public OuterFormulaGenerator(Map<String, DerivedRequirementPattern> generatedPatterns2) {
+		generatedPatterns = generatedPatterns2;
+	}
+	
 	public T generateFormula(su.nsk.iae.rpl.rPL.Formula reqFormula) {
 		T left = reqFormula.getLeft().generateFormula(this);
 		T right = reqFormula.getRight().generateFormula(this);

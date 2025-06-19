@@ -81,7 +81,7 @@ public class RequirementPattern {
 		List<SimpleFormulaParameter> particularParams = new ArrayList<>(simpleFmParams);
 		for (SimpleFormulaParameter fmParam: simpleFmParams)
 			simpleParamValues.add(new FormulaParameterValue(new ArrayList<>(),
-					new SimpleAtomicFormula(fmParam, new ArrayList<>())));
+					new Atomic(fmParam, new ArrayList<>())));
 		UpdateStateVariable current = factory.createUpdateStateVariable();
 		current.setName("s1");
 		for (RegularFormulaParameter fmParam: regFmParams) {
@@ -89,7 +89,7 @@ public class RequirementPattern {
 			sParam.setName(fmParam.getName());
 			particularParams.add(sParam);
 			regParamValues.add(new FormulaParameterValue(List.of(state, current),
-					new SimpleAtomicFormula(sParam, List.of(current))));
+					new Atomic(sParam, List.of(current))));
 		}
 		DerivedRequirementPatternInstance particularDefinition =  
 				new DerivedRequirementPatternInstance(pattern,

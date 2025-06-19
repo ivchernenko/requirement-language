@@ -13,7 +13,7 @@ import su.nsk.iae.rpl.rPL.PrimaryTerm;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
-public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
+public class BooleanLiteral extends Term {
 	private final boolean value;
 	
 	 private BooleanLiteral(boolean value) {
@@ -61,11 +61,6 @@ public class BooleanLiteral extends Term implements PatternFreeInnerFormula {
 	@Override
 	public int hashCode() {
 		return value ? 1 : 0;
-	}
-
-	@Override
-	public boolean equalsToRequirementFormula() {
-		return true;
 	}
 	
 	@Override

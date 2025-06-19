@@ -493,31 +493,35 @@ public class ProofScriptGenerator {
   }
 
   public String generateForNegatedBooleanFormula(final UpdateStateVariable initState, final BooleanPatternFreeFormula formula) {
-    String _switchResult = null;
+    String deMorgansLow = "";
+    BooleanOperator dualOperator = ((BooleanOperator) null);
     BooleanOperator _operator = formula.getOperator();
     if (_operator != null) {
       switch (_operator) {
         case CONJUNCTION:
-          _switchResult = ProofScriptGenerator.DE_MORGAN_CONJ;
+          deMorgansLow = ProofScriptGenerator.DE_MORGAN_CONJ;
+          dualOperator = BooleanOperator.DISJUNCTION;
           break;
         case DISJUNCTION:
-          _switchResult = ProofScriptGenerator.DE_MORGAN_DISJ;
+          deMorgansLow = ProofScriptGenerator.DE_MORGAN_DISJ;
+          dualOperator = BooleanOperator.CONJUNCTION;
           break;
         default:
-          _switchResult = null;
           break;
       }
-    } else {
-      _switchResult = null;
     }
-    final String deMorgansLow = _switchResult;
+    PatternFreeInnerFormula _left = formula.getLeft();
+    NegationFormula _negationFormula = new NegationFormula(_left);
+    PatternFreeInnerFormula _left_1 = formula.getLeft();
+    NegationFormula _negationFormula_1 = new NegationFormula(_left_1);
+    final BooleanPatternFreeFormula negatedFormula = new BooleanPatternFreeFormula(dualOperator, _negationFormula, _negationFormula_1);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("apply(subst (1) ");
     _builder.append(deMorgansLow);
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
-    String _generateProofScript = formula.negate().generateProofScript(initState, this);
+    String _generateProofScript = negatedFormula.generateProofScript(initState, this);
     _builder.append(_generateProofScript, "  ");
     _builder.newLineIfNotEmpty();
     return _builder.toString();

@@ -20,6 +20,8 @@ import su.nsk.iae.rpl.invpatterngenerator.DerivedExtraInvariantPatternInstance;
 import su.nsk.iae.rpl.invpatterngenerator.DerivedRequirementPatternInstance;
 import su.nsk.iae.rpl.invpatterngenerator.ExtendedInvariant;
 import su.nsk.iae.rpl.invpatterngenerator.ExtraInvariantPattern;
+import su.nsk.iae.rpl.invpatterngenerator.ImportedTheory;
+import su.nsk.iae.rpl.invpatterngenerator.IsabelleTheoryGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.PatternGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.ProofScriptGenerator;
 import su.nsk.iae.rpl.invpatterngenerator.RequirementPattern;
@@ -81,185 +83,28 @@ public class Main {
 			int index = fileName.indexOf('.');
 			String name = fileName.substring(0, index);
 			String outputFileName = name + "_Patterns";
-			FileWriter writer = new FileWriter(outputFileName + ".thy");
 			RPLFactory factory = RPLFactory.eINSTANCE;
 			Model genModel = factory.createModel();
 			List<Import> imports = genModel.getImports();
-			List<String> importedTheories = new ArrayList<>();
+			IsabelleTheoryGenerator theoryGenerator = new IsabelleTheoryGenerator(outputFileName);
 			for (Import importElement: model.getImports()) {
 				Import importCopy = factory.createImport();
 				String importURI = importElement.getImportURI();
 				importCopy.setImportURI(importElement.getImportURI());
 				imports.add(importCopy);
-				String throryName = importURI.substring(0, importURI.lastIndexOf('.'));
-				importedTheories.add(throryName);
+				String theoryName = importURI.substring(0, importURI.lastIndexOf('.'));
+				String session = importElement.getSession();
+				theoryGenerator.addImportedTheory(new ImportedTheory(session, theoryName));
 			}
-			generateTheoryName(writer,  outputFileName,  importedTheories);
 			List<Element> genElements = genModel.getElements();
+			PatternGenerator.setGeneratedASTElements(genElements);
+			PatternGenerator.setTheoryGenerator(theoryGenerator);
 			for (Element element: elements) {
 				if (element instanceof DerivedRequirementPattern pattern && pattern.getDefinition() != null) {
-					RequirementPattern reqPattern = PatternGenerator.generateRequirementPattern(pattern);
-					RequirementPattern particularReqPattern = reqPattern
-							.generateParticularPattern(reqPattern.getName() + "_part");
-					ExtraInvariantPattern einvPattern = PatternGenerator.generateExtraInvariantPattern(pattern);
-					ExtraInvariantPattern particularEinvPattern =einvPattern
-							.generateParticularPattern(einvPattern.getName() + "_part", reqPattern.getRegFmParams());
-					DerivedExtraInvariantPatternInstance partEinvPatternDef = 
-							((ExtendedInvariant) particularEinvPattern.getDefinition()).getMainConj();
-					DerivedRequirementPatternInstance partReqPatternDef = 
-							(DerivedRequirementPatternInstance) particularReqPattern.getDefinition();
-					writer.write(reqPattern.toString() + "\n\n");
-					writer.write(particularReqPattern.toString() + "\n\n");
-					writer.write(einvPattern.toString() + "\n\n");
-					writer.write(particularEinvPattern.toString() + "\n\n");
-					OuterRequirementFormula reqDef = reqPattern.getDefinition();
-					OuterExtraInvariantFormula einvDef = einvPattern.getDefinition();
-					UpdateStateVariable s = factory.createUpdateStateVariable();
-					s.setName("s0");
-					UpdateStateVariable sPrimed = factory.createUpdateStateVariable();
-					sPrimed.setName("s");
-					LemmaPremise L8Premise = einvDef.generateL8(s, sPrimed);
-					String L8Script = einvDef.generateProofScriptForL8(s, sPrimed, new ProofScriptGenerator());
-					LS8Lemma L8 = new LS8Lemma(
-							einvPattern.getName() + "_saving_gen",
-							einvPattern.getName(),
-							einvPattern.getcParams(),
-							einvPattern.getFnParams(),
-							einvPattern.getSimpleFmParams(),
-							einvPattern.getRegFmParams(),
-							s,
-							sPrimed,
-							L8Premise);
-					s = factory.createUpdateStateVariable();
-					s.setName("s0");
-					sPrimed = factory.createUpdateStateVariable();
-					sPrimed.setName("s");
-					LemmaPremise L9Premise = einvDef.generateL9(reqDef, s);
-					String L9Script = einvDef.generateProofScriptForL9(reqDef, s, new ProofScriptGenerator());
-					LS9Lemma L9 = new LS9Lemma(
-							pattern.getName() + "einv_imp_req_gen",
-							einvPattern.getName(),
-							pattern.getName(),
-							einvPattern.getcParams(),
-							einvPattern.getFnParams(),
-							einvPattern.getSimpleFmParams(),
-							einvPattern.getRegFmParams(),
-							pattern.getFmParams(),
-							s,
-							L9Premise);
-					s = factory.createUpdateStateVariable();
-					s.setName("s0");
-					sPrimed = factory.createUpdateStateVariable();
-					sPrimed.setName("s");
-					ParameterValueMap L8Params = new ParameterValueMap(
-							L8.convertToEObject(),
-							partEinvPatternDef.getcParams(),
-							partEinvPatternDef.getFnParams(),
-							partEinvPatternDef.getSimpleFmParams(),
-							partEinvPatternDef.getRegFmParams(),
-							new ArrayList<>(),
-							s,
-							sPrimed
-							);
-					LemmaPremiseInstanceCreator creator = new LemmaPremiseInstanceCreator();
-					LemmaPremise particularL8Premise = L8Premise.convertToEObject()
-							.substitiuteParams(creator, L8Params).generateParticularLemmaPremise();
-					LS8Lemma particularL8 = new LS8Lemma(
-							einvPattern.getName() + "_saving",
-							particularEinvPattern.getName(),
-							particularEinvPattern.getcParams(),
-							particularEinvPattern.getFnParams(),
-							particularEinvPattern.getSimpleFmParams(),
-							particularEinvPattern.getRegFmParams(),
-							s,
-							sPrimed,
-							particularL8Premise);
-					s = factory.createUpdateStateVariable();
-					s.setName("s0");
-					sPrimed = factory.createUpdateStateVariable();
-					sPrimed.setName("s");
-					ParameterValueMap L9Params = new ParameterValueMap(
-							L9.convertToEObject(),
-							partEinvPatternDef.getcParams(),
-							partEinvPatternDef.getFnParams(),
-							partEinvPatternDef.getSimpleFmParams(),
-							partEinvPatternDef.getRegFmParams(),
-							partReqPatternDef.getRegFmParams(),
-							s,
-							sPrimed
-							);
-					LemmaPremise particularL9Premise = 
-							L9Premise.convertToEObject().substitiuteParams(creator, L9Params).generateParticularLemmaPremise();
-					LS9Lemma particularL9 = new LS9Lemma(
-							pattern.getName() + "einv_imp_req",
-							particularEinvPattern.getName(),
-							particularReqPattern.getName(),
-							particularEinvPattern.getcParams(),
-							particularEinvPattern.getFnParams(),
-							particularEinvPattern.getSimpleFmParams(),
-							particularEinvPattern.getRegFmParams(),
-							particularReqPattern.getRegFmParams(),
-							sPrimed,
-							particularL9Premise);
-					writer.write(L8.toString() + "\n");
-					writer.write("unfolding " + einvPattern.getName() + "_def\n");
-					writer.write(L8Script);
-					writer.write("done");
-					writer.write("\n\n");
-					writer.write(L9.toString());
-					writer.write("unfolding " + einvPattern.getName() + "_def " + reqPattern.getName() + "_def\n");
-					writer.write(L9Script);
-					writer.write("done");
-					writer.write("\n\n");
-					writer.write(particularL8.toString());
-					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
-					+ particularReqPattern.getName() + "_def\n");
-					writer.write("apply(simp add: " + L8.getLemmaName() + " always_imp_refl)\n");
-					writer.write("done");
-					writer.write("\n\n");
-					writer.write(particularL9.toString());
-					writer.write("unfolding " + particularEinvPattern.getName() + "_def " 
-							+ particularReqPattern.getName() + "_def\n");
-					writer.write("apply(simp add: " + L9.getLemmaName() + " always_imp_refl)\n");
-					writer.write("done");
-					writer.write("\n\n");
-					writer.write("lemmas " + reqPattern.getName() + "_used_patterns = " 
-					+ reqPattern.getName() + "_def ");
-					List<String> usedReqPatterns = reqPattern.getUsedPatternNames();
-					for (String usedPattern: usedReqPatterns)
-						writer.write(usedPattern + ' ');
-					writer.write("\n\n");
-					writer.write("lemmas " + einvPattern.getName() + "_used_patterns = "
-					+ einvPattern.getName() + "_def ");
-					List<String> usedEinvPatterns = einvPattern.getUsedPatternNames();
-					for (String usedPattern: usedEinvPatterns)
-						writer.write(usedPattern + ' ');
-					writer.write("\n\n");
-					writer.write("lemmas " + particularEinvPattern.getName() + "_used_patterns = ");
-					writer.write(particularEinvPattern.getName() +"_def " + einvPattern.getName() + "_used_patterns");
-					writer.write("\n\n");
-					writer.write("lemmas " + particularReqPattern.getName() + "_used_patterns = ");
-					writer.write(particularReqPattern.getName() +"_def " + reqPattern.getName() + "_used_patterns");
-					writer.write("\n\n");
-					//saving generated patterns and lemmas in the requirement pattern language
-					Lemma rplL8 = L8.convertToEObject();
-					Lemma rplL9 = L9.convertToEObject();
-					Lemma rplParticularL8 = particularL8.convertToEObject();
-					Lemma rplParticularL9 = particularL9.convertToEObject();
-					DerivedExtraInvariantPattern rplEinvPattern = einvPattern.convertToEObject(rplL8, rplL9);
-					DerivedExtraInvariantPattern rplParticularEinvPattern = particularEinvPattern
-							.convertToEObject(rplParticularL8, rplParticularL9);
-					DerivedRequirementPattern rplReqPattern = reqPattern.convertToEObject(rplEinvPattern);
-					DerivedRequirementPattern rplParticularReqPattern = particularReqPattern
-							.convertToEObject(rplParticularEinvPattern);
-					genElements.add(rplEinvPattern);
-					genElements.add(rplParticularEinvPattern);
-					genElements.add(rplReqPattern);
-					genElements.add(rplParticularReqPattern);
+					PatternGenerator.generatePatternsAndLemmas(pattern);
 				}				
 			}
-			writer.write("end\n");
-			writer.close();
+			theoryGenerator.generateTheory();
 			URI genUri = URI.createFileURI(outputFileName + ".rpl");
 			Resource genResource = set.createResource(genUri);
 			genResource.getContents().add(genModel);
@@ -360,7 +205,7 @@ public class Main {
 				+ "   apply simp\r\n"
 				+ "  apply(unfold " + einv + "_def commonExtraInv_def)\r\n"
 				+ "  apply(erule conjE)+\r\n"
-				+ "  apply(erule " + L9.getName() +")\r\n"
+				+ "  apply(erule " + L9.getName() + ")"
 				+ "  apply(auto split: if_splits)\r\n"
 				+ "  done\r\n"
 				+ "";
