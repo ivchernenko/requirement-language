@@ -24,6 +24,11 @@ import su.nsk.iae.rpl.rPL.DerivedRequirementPattern
 class RPLGenerator extends AbstractGenerator {
 	static final String LEMMA_THEORY = "VCProving.VCTheoryLemmas";
 	static final String THEORY_EXTENSION = ".thy";
+	
+	new() {
+		start = 0;
+		end = -1;
+	}
 
 	String commonExtraInv;
 	String VCTheoryName;
@@ -32,10 +37,23 @@ class RPLGenerator extends AbstractGenerator {
 	String inputVars;
 	String requirementTheory;
 	
+	def void setGlobalParameters(String commonExtraInv, String inputVars, String requirementTheory) {
+		this.commonExtraInv = commonExtraInv;
+		this.inputVars = inputVars;
+		this.requirementTheory = requirementTheory;
+	}
+	
+	def void setVCTheory(String VCTheory, int start, int end) {
+		this.VCTheoryName = VCTheory;
+		this.start = start;
+		this.end = end;
+	}
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		if (end < start) return;
 		val commonExtraInvTheory = capitalizeWords(commonExtraInv);
 		val commonExtraInvProofTheory = commonExtraInvTheory + '_' + VCTheoryName;
-		fsa.generateFile(commonExtraInvTheory + THEORY_EXTENSION, 
+		fsa.generateFile(commonExtraInvProofTheory + THEORY_EXTENSION, 
 			generateCommonExtraInvariantProofs(commonExtraInvTheory, commonExtraInvProofTheory)
 		);
 		resource.allContents
@@ -65,7 +83,7 @@ class RPLGenerator extends AbstractGenerator {
 		for (var i = (start==1 ? 2 : start); i <= end; i++) {
 			theoryContent.append(generateLoopPathForExtraInvariant(i, requirement))
 		}
-		theoryContent.append("done\n");
+		theoryContent.append("end\n");
 		return theoryContent.toString();
 	}
 	
@@ -83,13 +101,13 @@ class RPLGenerator extends AbstractGenerator {
 		for (var i = (start==1 ? 2 : start); i <= end; i++) {
 			theoryContent.append(generateLoopPathForRequirement(i, requirement, extendedInvName))
 		}
-		theoryContent.append("done\n");
+		theoryContent.append("end\n");
 		return theoryContent.toString();
 	}
 	
 	def String generateCommonExtraInvariantProofs(String commonExtraInvTheory, String commonExtraInvProofTheory) {
 		val theoryContent = new StringBuilder();
-		val importedTheories = #[commonExtraInvTheory, LEMMA_THEORY];
+		val importedTheories = #[commonExtraInvTheory, VCTheoryName, LEMMA_THEORY];
 		theoryContent.append(generateTheoryName(commonExtraInvProofTheory, importedTheories))
 		if (start == 1) {
 			theoryContent.append(generateInitVcProofForCommonExtraInvariant());
@@ -97,7 +115,7 @@ class RPLGenerator extends AbstractGenerator {
 		for (var i = (start==1 ? 2 : start); i <= end; i++) {
 			theoryContent.append(generateLoopPathForCommonExtraInvariant(i))
 		}
-		theoryContent.append("done\n");
+		theoryContent.append("end\n");
 		return theoryContent.toString();
 	}
 	
@@ -134,6 +152,7 @@ class RPLGenerator extends AbstractGenerator {
 		  apply(erule «L8.getName()»)
 		  apply(auto split: if_splits)
 		  done
+		
 		'''	
 	}
 	
@@ -151,30 +170,31 @@ class RPLGenerator extends AbstractGenerator {
 		  apply(rule impI)
 		  apply(rule context_conjI)
 		  using extra«i» apply((auto simp add: VC«i»_def)[1];fastforce)
-		  apply(rule conjI)
-		  apply simp
 		  apply(unfold «einv»_def «commonExtraInv»_def)
 		  apply(erule conjE)+
 		  apply(erule «L9.getName()»)
 		  apply(auto split: if_splits)
 		  done
+		
 		'''	
 	}
 	
 	private def String generateLoopPathForCommonExtraInvariant(int i) {
 		return '''
-		theorem cei«i»: VC«i» «commonExtraInv» env s0 «inputVars»"
+		theorem cei«i»: "VC«i» «commonExtraInv» env s0 «inputVars»"
 		unfolding VC«i»_def «commonExtraInv»_def
 		by force
+		
 		'''
 	}
 
 	private def String generateInitVcProofForExtraInvariant(Requirement requirement) {
 		val einv = requirement.getExtraInv().getName();
 		return '''
-		theorem extra1: "VC1 «einv» + "
+		theorem extra1: "VC1 «einv» s0"
 		unfolding VC1_def «einv»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns «commonExtraInv»_def
 		by auto
+		
 		'''
 	}
 	
@@ -185,6 +205,7 @@ class RPLGenerator extends AbstractGenerator {
 		«requirement.getName()»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns 
 		  «requirement.getPattern().getName()»_used_patterns «commonExtraInv»_def
 		by auto
+		
 		'''
 	}
 	
@@ -193,6 +214,7 @@ class RPLGenerator extends AbstractGenerator {
 		theorem cei1: "VC1 «commonExtraInv» s0"
 		unfolding VC1_def «commonExtraInv»_def
 		by auto
+		
 		'''
 	}
 	
@@ -211,7 +233,8 @@ class RPLGenerator extends AbstractGenerator {
 	private def String generateExtendedInvDefinition(Requirement requirement, String extendedInv) {		
 		return '''
 		definition «extendedInv»
-		 where "«extendedInv» s \<equiv> «requirement.getExtraInv().getName()» s \<and> «requirement.getName()» s"
+		  where "«extendedInv» s \<equiv> «requirement.getExtraInv().getName()» s \<and> «requirement.getName()» s"
+		
 		 '''
 	}
 }

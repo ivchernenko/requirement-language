@@ -32,6 +32,11 @@ public class RPLGenerator extends AbstractGenerator {
 
   private static final String THEORY_EXTENSION = ".thy";
 
+  public RPLGenerator() {
+    this.start = 0;
+    this.end = (-1);
+  }
+
   private String commonExtraInv;
 
   private String VCTheoryName;
@@ -44,11 +49,26 @@ public class RPLGenerator extends AbstractGenerator {
 
   private String requirementTheory;
 
+  public void setGlobalParameters(final String commonExtraInv, final String inputVars, final String requirementTheory) {
+    this.commonExtraInv = commonExtraInv;
+    this.inputVars = inputVars;
+    this.requirementTheory = requirementTheory;
+  }
+
+  public void setVCTheory(final String VCTheory, final int start, final int end) {
+    this.VCTheoryName = VCTheory;
+    this.start = start;
+    this.end = end;
+  }
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    if ((this.end < this.start)) {
+      return;
+    }
     final String commonExtraInvTheory = this.capitalizeWords(this.commonExtraInv);
     final String commonExtraInvProofTheory = ((commonExtraInvTheory + "_") + this.VCTheoryName);
-    fsa.generateFile((commonExtraInvTheory + RPLGenerator.THEORY_EXTENSION), 
+    fsa.generateFile((commonExtraInvProofTheory + RPLGenerator.THEORY_EXTENSION), 
       this.generateCommonExtraInvariantProofs(commonExtraInvTheory, commonExtraInvProofTheory));
     final Procedure1<Requirement> _function = (Requirement requirement) -> {
       String _name = requirement.getExtraInv().getName();
@@ -88,7 +108,7 @@ public class RPLGenerator extends AbstractGenerator {
           _while = (i <= this.end);
         }
       }
-      theoryContent.append("done\n");
+      theoryContent.append("end\n");
       return theoryContent.toString();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -121,7 +141,7 @@ public class RPLGenerator extends AbstractGenerator {
           _while = (i <= this.end);
         }
       }
-      theoryContent.append("done\n");
+      theoryContent.append("end\n");
       return theoryContent.toString();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -131,7 +151,7 @@ public class RPLGenerator extends AbstractGenerator {
   public String generateCommonExtraInvariantProofs(final String commonExtraInvTheory, final String commonExtraInvProofTheory) {
     try {
       final StringBuilder theoryContent = new StringBuilder();
-      final List<String> importedTheories = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(commonExtraInvTheory, RPLGenerator.LEMMA_THEORY));
+      final List<String> importedTheories = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(commonExtraInvTheory, this.VCTheoryName, RPLGenerator.LEMMA_THEORY));
       theoryContent.append(this.generateTheoryName(commonExtraInvProofTheory, importedTheories));
       if ((this.start == 1)) {
         theoryContent.append(this.generateInitVcProofForCommonExtraInvariant());
@@ -151,7 +171,7 @@ public class RPLGenerator extends AbstractGenerator {
           _while = (i <= this.end);
         }
       }
-      theoryContent.append("done\n");
+      theoryContent.append("end\n");
       return theoryContent.toString();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -240,6 +260,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("  ");
     _builder.append("done");
     _builder.newLine();
+    _builder.newLine();
     return _builder.toString();
   }
 
@@ -315,6 +336,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("  ");
     _builder.append("done");
     _builder.newLine();
+    _builder.newLine();
     return _builder.toString();
   }
 
@@ -322,7 +344,7 @@ public class RPLGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("theorem cei");
     _builder.append(i);
-    _builder.append(": VC");
+    _builder.append(": \"VC");
     _builder.append(i);
     _builder.append(" ");
     _builder.append(this.commonExtraInv);
@@ -338,6 +360,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("by force");
     _builder.newLine();
+    _builder.newLine();
     return _builder.toString();
   }
 
@@ -346,7 +369,7 @@ public class RPLGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("theorem extra1: \"VC1 ");
     _builder.append(einv);
-    _builder.append(" + \"");
+    _builder.append(" s0\"");
     _builder.newLineIfNotEmpty();
     _builder.append("unfolding VC1_def ");
     _builder.append(einv);
@@ -358,6 +381,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("_def");
     _builder.newLineIfNotEmpty();
     _builder.append("by auto");
+    _builder.newLine();
     _builder.newLine();
     return _builder.toString();
   }
@@ -391,6 +415,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("by auto");
     _builder.newLine();
+    _builder.newLine();
     return _builder.toString();
   }
 
@@ -405,6 +430,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("_def");
     _builder.newLineIfNotEmpty();
     _builder.append("by auto");
+    _builder.newLine();
     _builder.newLine();
     return _builder.toString();
   }
@@ -435,17 +461,18 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("definition ");
     _builder.append(extendedInv);
     _builder.newLineIfNotEmpty();
-    _builder.append(" ");
+    _builder.append("  ");
     _builder.append("where \"");
-    _builder.append(extendedInv, " ");
+    _builder.append(extendedInv, "  ");
     _builder.append(" s \\<equiv> ");
     String _name = requirement.getExtraInv().getName();
-    _builder.append(_name, " ");
+    _builder.append(_name, "  ");
     _builder.append(" s \\<and> ");
     String _name_1 = requirement.getName();
-    _builder.append(_name_1, " ");
+    _builder.append(_name_1, "  ");
     _builder.append(" s\"");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     return _builder.toString();
   }
 }

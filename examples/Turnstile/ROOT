@@ -1,4 +1,4 @@
-session Einv4 = HOL +
+session Einv1 = HOL +
   options [timeout=3000]
   sessions VCProving
-  theories R4_Proofs
+  theories R1_Turnstile
