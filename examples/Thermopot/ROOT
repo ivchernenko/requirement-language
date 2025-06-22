@@ -1,0 +1,3 @@
+session R5 = VCProving +
+  options [timeout=300]
+  theories R5_Thermopot_VC_1_181

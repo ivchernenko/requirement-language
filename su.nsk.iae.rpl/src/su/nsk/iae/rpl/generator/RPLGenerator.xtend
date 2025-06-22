@@ -142,7 +142,7 @@ class RPLGenerator extends AbstractGenerator {
 		if (L8 === null)
 			L8 = reqPattern.getExtraInvPattern().getLemmas().getL8();
 		return '''
-		theorem extra«i»: "VC«i» «einv» env s0 «inputVars»"
+		theorem extra«i»: "VC«i» «einv» env «inputVars»"
 		  unfolding VC«i»_def «einv»_def
 		  apply(rule impI)
 		  apply(rule conjI)
@@ -165,7 +165,7 @@ class RPLGenerator extends AbstractGenerator {
 		if (L9 === null)
 			L9 = req.getPattern().getExtraInvPattern().getLemmas().getL9();
 		return '''
-		theorem extendedInv«i»: "VC«i» «extendedInvName» env s0 «inputVars»"
+		theorem extendedInv«i»: "VC«i» «extendedInvName» env «inputVars»"
 		  unfolding VC«i»_def «extendedInvName»_def «req.getName()»_def
 		  apply(rule impI)
 		  apply(rule context_conjI)
@@ -181,7 +181,7 @@ class RPLGenerator extends AbstractGenerator {
 	
 	private def String generateLoopPathForCommonExtraInvariant(int i) {
 		return '''
-		theorem cei«i»: "VC«i» «commonExtraInv» env s0 «inputVars»"
+		theorem cei«i»: "VC«i» «commonExtraInv» env «inputVars»"
 		unfolding VC«i»_def «commonExtraInv»_def
 		by force
 		

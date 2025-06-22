@@ -216,7 +216,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(i);
     _builder.append(" ");
     _builder.append(einv);
-    _builder.append(" env s0 ");
+    _builder.append(" env ");
     _builder.append(this.inputVars);
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
@@ -281,7 +281,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(i);
     _builder.append(" ");
     _builder.append(extendedInvName);
-    _builder.append(" env s0 ");
+    _builder.append(" env ");
     _builder.append(this.inputVars);
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
@@ -342,7 +342,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(i);
     _builder.append(" ");
     _builder.append(this.commonExtraInv);
-    _builder.append(" env s0 ");
+    _builder.append(" env ");
     _builder.append(this.inputVars);
     _builder.append("\"");
     _builder.newLineIfNotEmpty();

@@ -1,26 +1,51 @@
 theory Requirements
-  imports Thermopot
+  imports Thermopot VCProving.Basic_Patterns VCProving.Derived_Patterns Common_ExtraInv
 begin
 
-definition R1 where "R1 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
-getVarBool s1 boilingMode' \<and> getVarInt s2 temperature' < BOILING_POINT' \<longrightarrow>
-getVarBool s2 lid' = LOCKED')"
+definition R1 where "R1 s \<equiv>
+   always2_part (\<lambda> s1. getVarBool s1 v_boilingMode' = True) (\<lambda> s2. getVarInt s2 v_temperature' < v_BOILING_POINT')
+ (\<lambda> s2. getVarBool s2 v_lid' = v_LOCKED') s"
 
-definition R2 where "R2 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
-getVarBool s1 maintainingMode' \<and> \<not> (getVarBool s2 boilingButton' = PRESSED') \<and> getVarInt s2 temperature' \<ge> getVarInt s2 selectedTemp' \<longrightarrow> getVarBool s2 heater' = False)"
+definition Einv1 where "Einv1 s \<equiv> common_extraInv s \<and>
+   always2_inv_part  (\<lambda> s. getPstate s p_HeaterController' \<noteq> p_HeaterController's_heating')
+ (\<lambda> s1. getVarBool s1 v_boilingMode' = True) (\<lambda> s2. getVarInt s2 v_temperature' < v_BOILING_POINT')
+ (\<lambda> s2. getVarBool s2 v_lid' = v_LOCKED') s"
 
-definition R3 where "R3 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and>
-getVarBool s1 maintainingMode' \<and> \<not> getVarBool s2 boilingButton' = PRESSED' \<and> getVarInt s2 temperature' < getVarInt s2 selectedTemp' - 5 \<longrightarrow>
-getVarBool s2 heater' = True)"
+definition R2 where "R2 s \<equiv> 
+always2_part (\<lambda> s1. getVarBool s1 v_maintainingMode' = True)
+ (\<lambda> s2. getVarBool s2 v_boilingButton' \<noteq> v_PRESSED' \<and> getVarInt s2 v_temperature' \<ge> getVarInt s2 v_selectedTemp')
+ (\<lambda> s2. getVarBool s2 v_heater' = False) s"
 
-definition R4 where "R4 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 button1' \<longrightarrow> getVarInt s1 selectedTemp' = TEMP1')"
+definition Einv2 where "Einv2 s \<equiv> common_extraInv s \<and>
+always2_inv_part (\<lambda> s. getPstate s p_HeaterController' \<noteq> p_HeaterController's_maintaining')
+ (\<lambda> s1. getVarBool s1 v_maintainingMode' = True)
+ (\<lambda> s2. getVarBool s2 v_boilingButton' \<noteq> v_PRESSED' \<and> getVarInt s2 v_temperature' \<ge> getVarInt s2 v_selectedTemp')
+ (\<lambda> s2. getVarBool s2 v_heater' = False) s"
 
-definition R5 where "R5 s \<equiv> toEnvP s \<and>
-(\<forall> s1 s2. substate s1 s2 \<and> substate s2 s \<and> toEnvP s1 \<and> toEnvP s2 \<and> toEnvNum s1 s2 = 1 \<and> 
-\<not> getVarBool s1 boilingMode' \<and> \<not> getVarBool s1 maintainingMode' \<longrightarrow> getVarBool s2 heater' = False)"
+definition R3 where "R3 s \<equiv> 
+always2_part (\<lambda> s1. getVarBool s1 v_maintainingMode' = True)
+ (\<lambda> s2. getVarBool s2 v_boilingButton' \<noteq> v_PRESSED' \<and> getVarInt s2 v_temperature' < getVarInt s2 v_selectedTemp' - 5)
+ (\<lambda> s2. getVarBool s2 v_heater' = True) s"
+
+definition Einv3 where "Einv3 s \<equiv> common_extraInv s \<and>
+always2_inv_part (\<lambda> s. getPstate s p_HeaterController' \<noteq> p_HeaterController's_maintaining')
+ (\<lambda> s1. getVarBool s1 v_maintainingMode' = True)
+ (\<lambda> s2. getVarBool s2 v_boilingButton' \<noteq> v_PRESSED' \<and> getVarInt s2 v_temperature' < getVarInt s2 v_selectedTemp' - 5)
+ (\<lambda> s2. getVarBool s2 v_heater' = True) s"
+
+definition R4 where "R4 s \<equiv> 
+always_part (\<lambda> s1. getVarBool s1 v_button1' = v_PRESSED' \<longrightarrow> getVarInt s1 v_selectedTemp' = v_TEMP1') s"
+
+definition Einv4 where "Einv4 s \<equiv> common_extraInv s \<and>
+always_inv_part (\<lambda> s1. getVarBool s1 v_button1' = v_PRESSED' \<longrightarrow> getVarInt s1 v_selectedTemp' = v_TEMP1') s"
+
+definition R5 where "R5 s \<equiv> 
+always2_part (\<lambda> s1. getVarBool s1 v_boilingMode' = False \<and> getVarBool s1 v_maintainingMode' = False) (\<lambda> s2. True)
+ (\<lambda> s2. getVarBool s2 v_heater' = False) s"
+
+definition Einv5 where "Einv5 s \<equiv> common_extraInv s \<and>
+always2_inv_part (\<lambda> s. getPstate s p_HeaterController' \<in> {p_HeaterController's_heating', p_HeaterController's_maintaining'})
+ (\<lambda> s1. getVarBool s1 v_boilingMode' = False \<and> getVarBool s1 v_maintainingMode' = False) (\<lambda> s2. True)
+ (\<lambda> s2. getVarBool s2 v_heater' = False) s"
 
 end
