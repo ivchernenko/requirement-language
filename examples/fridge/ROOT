@@ -1,3 +1,3 @@
-session R4 = VCProving +
+session R2 = VCProving +
   options [timeout=300]
-  theories R4_Fridge_VC_1_751
+  theories R2_Fridge_VC_1_751

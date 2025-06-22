@@ -2,7 +2,7 @@ theory Requirements
   imports Common_Extra_Inv VCProving.Derived_Patterns
 begin
 
-definition R1 where "R1 s \<equiv> toEnvP s \<and>
+definition R1 where "R1 s \<equiv> 
   always2_part (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED') (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_OPEN')
    (\<lambda> s1. getVarBool s1 v_lighting' = True) s"
 
@@ -11,7 +11,7 @@ definition Einv1 where "Einv1 s \<equiv> common_extra_inv s \<and>
  (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED') (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_OPEN')
    (\<lambda> s1. getVarBool s1 v_lighting' = True) s"
 
-definition R2 where "R2 s \<equiv> toEnvP s \<and>
+definition R2 where "R2 s \<equiv> 
   always2_part (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_OPEN') (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED')
    (\<lambda> s1. getVarBool s1 v_lighting' = False) s"
 
@@ -20,7 +20,7 @@ definition Einv2 where "Einv2 s \<equiv> common_extra_inv s \<and>
   (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_OPEN') (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED')
    (\<lambda> s1. getVarBool s1 v_lighting' = False) s"
 
-definition R3 where "R3 s \<equiv> toEnvP s \<and>
+definition R3 where "R3 s \<equiv> 
 P1_1_part v_OPEN_DOOR_TIME_LIMIT'TIMEOUT (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_OPEN')
  (\<lambda> s2. getVarBool s2 v_doorSignal' = False \<and> getVarBool s2 v_fridgeDoor' = v_OPEN') 
  (\<lambda> s2. getVarBool s2 v_doorSignal' = True \<or> getVarBool s2 v_fridgeDoor' = v_CLOSED') s"
@@ -32,7 +32,7 @@ P1_1_inv_part v_OPEN_DOOR_TIME_LIMIT'TIMEOUT
  (\<lambda> s2. getVarBool s2 v_doorSignal' = False \<and> getVarBool s2 v_fridgeDoor' = v_OPEN') 
  (\<lambda> s2. getVarBool s2 v_doorSignal' = True \<or> getVarBool s2 v_fridgeDoor' = v_CLOSED') s"
 
-definition R4 where "R4 s \<equiv> toEnvP s \<and>
+definition R4 where "R4 s \<equiv>
 P2_2_part v_OPEN_DOOR_TIME_LIMIT'TIMEOUT (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED')
  (\<lambda> s2. getVarBool s2 v_fridgeDoor' = v_OPEN') (\<lambda> s3. getVarBool s3 v_doorSignal' = False) s"
 
@@ -45,7 +45,7 @@ P2_2_inv_part v_OPEN_DOOR_TIME_LIMIT'TIMEOUT
  (\<lambda> s1. getVarBool s1 v_fridgeDoor' = v_CLOSED')
  (\<lambda> s2. getVarBool s2 v_fridgeDoor' = v_OPEN') (\<lambda> s3. getVarBool s3 v_doorSignal' = False) s"
 
-definition R5 where "R5 s \<equiv> toEnvP s \<and>
+definition R5 where "R5 s \<equiv> 
 always2_part (\<lambda> s1. getVarBool s1 v_fridgeCompressor' = False) (\<lambda> s2. getVarBool s2 v_fridgeTempGreaterMax' = True)
  (\<lambda> s2. getVarBool s2 v_fridgeCompressor' = True) s"
 

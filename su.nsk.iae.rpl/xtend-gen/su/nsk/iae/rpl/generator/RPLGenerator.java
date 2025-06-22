@@ -309,12 +309,6 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append("_def)[1];fastforce)");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
-    _builder.append("apply(rule conjI)");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("apply simp");
-    _builder.newLine();
-    _builder.append("  ");
     _builder.append("apply(unfold ");
     _builder.append(einv, "  ");
     _builder.append("_def ");
