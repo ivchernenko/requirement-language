@@ -49,7 +49,7 @@ public class DerivedRequirementPatternInstance implements OuterRequirementFormul
 	@Override
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = new ArrayList<>();
-		usedPatterns.add(pattern.getName() + "_def");
+		usedPatterns.add(pattern.getName() + "_used_patterns");
 		for (FormulaParameterValue fmParam: regFmParams)
 			usedPatterns.addAll(fmParam.getFormula().getUsedPatternNames());
 		return usedPatterns;

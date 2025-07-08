@@ -123,10 +123,10 @@ P3_4_inv_part (\<lambda> s. getPstate s p_Washing' \<noteq> p_Washing's_idle') (
 (\<lambda> s4. getVarBool s4 v_locked' = True) s"
 
 (*Запрещена одновременная подача сигналов left и right*)
-definition R12 where "R12 s \<equiv> toEnvP s \<and>
+definition R12 where "R12 s \<equiv> 
 always_part (\<lambda> s1. \<not> (getVarBool s1 v_left' = True \<and> getVarBool s1 v_right' = True)) s"
 
-definition Einv12 where "Einv12 s \<equiv> toEnvP s \<and>
+definition Einv12 where "Einv12 s \<equiv> commonExtraInv s \<and>
 always_inv_part (\<lambda> s1. \<not> (getVarBool s1 v_left' = True \<and> getVarBool s1 v_right' = True)) s"
 
 (*Если только что включилось вращение, то не более, чем через минуту оно отключится.*)
@@ -149,7 +149,7 @@ P4_3_part (v_DIRECTION_CHANGE_PERIOD'TIMEOUT - 1)
 
 definition Einv13b where "Einv13b s \<equiv> commonExtraInv s \<and>
 P4_3_inv_part (v_DIRECTION_CHANGE_PERIOD'TIMEOUT - 1) (\<lambda> s. getPstate s p_Drum' = p_Drum's_leftRotation')
-  (\<lambda> s. getPstate s p_Washing' \<noteq> p_Washing's_draining')
+  (\<lambda> s. getPstate s p_Washing' = p_Washing's_draining')
   (\<lambda> s. if getPstate s p_Drum' = p_Drum's_leftRotation' then ltime s p_Drum' - 1 else v_DIRECTION_CHANGE_PERIOD'TIMEOUT - 1)
    (\<lambda> s1. getVarBool s1 v_left' = False) (\<lambda> s2. getVarBool s2 v_left' = True)
    (\<lambda> s3. getVarBool s3 v_left' = True) (\<lambda> s2. getVarBool s2 v_drain' = True) (\<lambda> s3. getVarBool s3 v_drain' = False) s"

@@ -57,7 +57,7 @@ public class DerivedExtraInvariantPatternInstance {
 
 	public List<String> getUsedPatternNames() {
 		List<String> usedPatterns = new ArrayList<>();
-		usedPatterns.add(pattern.getName() + "_def");
+		usedPatterns.add(pattern.getName() + "_used_patterns");
 		for (FormulaParameterValue param: regFmParams) {
 			InnerExtraInvariantFormula formula = (InnerExtraInvariantFormula) param.getFormula();
 			usedPatterns.addAll(formula.getUsedPatternNames());

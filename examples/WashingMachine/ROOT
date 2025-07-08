@@ -1,0 +1,3 @@
+session R13b = VCProving +
+  options [timeout=300]
+  theories R13b_WashingMachine_VC_1_161

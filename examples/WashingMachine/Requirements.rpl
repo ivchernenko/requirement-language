@@ -32,7 +32,7 @@ requirement R9: always2_part with Einv9;
 extra invariant Einv9: always2_inv_part;
 
 requirement R10: always_part with Einv10;
-extra invariant Einv5: always2_inv_part;
+extra invariant Einv10: always_inv_part;
 
 requirement R11: P3_4_part with Einv11;
 extra invariant Einv11: P3_4_inv_part;
@@ -40,5 +40,11 @@ extra invariant Einv11: P3_4_inv_part;
 requirement R12: always_part with Einv12;
 extra invariant Einv12: always_inv_part;
 
-requirement R13: P1_2_part with Einv13;
-extra invariant Einv13: P1_2_inv_part;
+requirement R13a: P1_2_part with Einv13a;
+extra invariant Einv13a: P1_2_inv_part;
+
+requirement R13b: P4_3_part with Einv13b;
+extra invariant Einv13b: P4_3_inv_part;
+
+requirement R14: P5_part with Einv14;
+extra invariant Einv14: P5_inv_part;
