@@ -150,7 +150,7 @@ class RPLGenerator extends AbstractGenerator {
 		  apply(unfold «commonExtraInv»_def)
 		  apply(erule conjE)+
 		  apply(erule «L8.getName()»)
-		  apply(auto split: if_splits)
+		  apply(auto simp add: Let_def split: if_splits)
 		  done
 		
 		'''	
@@ -173,7 +173,7 @@ class RPLGenerator extends AbstractGenerator {
 		  apply(unfold «einv»_def «commonExtraInv»_def)
 		  apply(erule conjE)+
 		  apply(erule «L9.getName()»)
-		  apply(auto split: if_splits)
+		  apply(auto simp add: Let_def split: if_splits)
 		  done
 		
 		'''	
@@ -192,7 +192,7 @@ class RPLGenerator extends AbstractGenerator {
 		val einv = requirement.getExtraInv().getName();
 		return '''
 		theorem extra1: "VC1 «einv» s0"
-		unfolding VC1_def «einv»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns «commonExtraInv»_def
+		unfolding VC1_def «einv»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns «commonExtraInv»_def Let_def
 		by auto
 		
 		'''
@@ -203,7 +203,7 @@ class RPLGenerator extends AbstractGenerator {
 		theorem extra1: "VC1 «extendedInvName» s0"
 		unfolding VC1_def «extendedInvName»_def «requirement.getExtraInv().getName()»_def
 		«requirement.getName()»_def «requirement.getPattern().getExtraInvPattern().getName()»_used_patterns 
-		  «requirement.getPattern().getName()»_used_patterns «commonExtraInv»_def
+		  «requirement.getPattern().getName()»_used_patterns «commonExtraInv»_def Let_def
 		by auto
 		
 		'''

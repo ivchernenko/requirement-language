@@ -157,13 +157,23 @@ P4_3_inv_part (v_DIRECTION_CHANGE_PERIOD'TIMEOUT - 1) (\<lambda> s. getPstate s 
 (*Если вращение только что выключилось, то после остановки вращения должно включиться вращение в противоположную сторону, если к этому времени вода не была выпущена полностью
 *)
 definition R14 where "R14 s \<equiv> 
-P5_part (\<lambda> s1. getVarBool s1 v_left' = True) (\<lambda> s2. getVarBool s2 v_left' = False) (\<lambda> s3. getVarInt s3 v_freq' = 0)
+P5_part (\<lambda> s1. getVarBool s1 v_left' = True)
+ (\<lambda> s2. getVarBool s2 v_left' = False \<and>
+    \<not> (let s1 = pred s2 in toEnvP s1 \<and> getVarBool s1 v_drain' = True \<and> getVarBool s2 v_drain' = False))
+ (\<lambda> s3. getVarInt s3 v_freq' = 0)
   (\<lambda> s2. getVarBool s2 v_drain' = True) (\<lambda> s3. getVarBool s3 v_drain' = False) (\<lambda> s4. getVarBool s4 v_right') s"
 
+thm P5_inv_saving
 definition Einv14 where "Einv14 s \<equiv> commonExtraInv s \<and>
-P5_inv_part (\<lambda> s. getPstate s p_Washing' \<noteq> p_Washing's_draining') (\<lambda> s. getPstate s p_Drum' \<noteq> p_Drum's_leftRotation')
-  (\<lambda> s. getPstate s p_Drum' \<noteq> p_Drum's_leftToRight') (\<lambda> s. getPstate s p_Drum' = p_Drum's_leftToRight')
- (\<lambda> s1. getVarBool s1 v_left' = True) (\<lambda> s2. getVarBool s2 v_left' = False) (\<lambda> s3. getVarInt s3 v_freq' = 0)
+P5_inv_part (\<lambda> s. getPstate s p_Washing' = p_Washing's_draining') (\<lambda> s. getPstate s p_Drum' \<noteq> p_Drum's_leftRotation')
+  (\<lambda> s. getPstate s p_Drum' = p_Drum's_leftRotation' \<or> getPstate s p_Drum' = p_Drum's_rightRotation' \<or>
+    getPstate s p_Drum' = p_Drum's_rightToLeft' \<or> getPstate s p_Washing' = p_Washing's_idle' \<or>
+     getPstate s p_Washing' = p_Washing's_locking')
+ (\<lambda> s. getPstate s p_Drum' = p_Drum's_leftToRight')
+ (\<lambda> s1. getVarBool s1 v_left' = True) 
+ (\<lambda> s2. getVarBool s2 v_left' = False \<and>
+    \<not> (let s1 = pred s2 in toEnvP s1 \<and> getVarBool s1 v_drain' = True \<and> getVarBool s2 v_drain' = False))
+ (\<lambda> s3. getVarInt s3 v_freq' = 0)
   (\<lambda> s2. getVarBool s2 v_drain' = True) (\<lambda> s3. getVarBool s3 v_drain' = False) (\<lambda> s4. getVarBool s4 v_right') s"
 
 end

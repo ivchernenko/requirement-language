@@ -1,12 +1,13 @@
 theory Requirements
-  imports MassageChair "../Pattern1_Def" "../Pattern6_Def" "../Pattern12_Def" "../Pattern2_Def"
+  imports CommonExtraInv VCProving.Basic_Patterns VCProving.Derived_Patterns
 begin
 
-definition R1 where "R1 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 up' = True \<longrightarrow> getVarBool s1 down' = False)"
+definition R1 where "R1 s \<equiv> 
+always_part (\<lambda> s1. \<not> (getVarBool s1 v_up' = True \<and> getVarBool s1 v_down' = True)) s"
 
-definition R2 where "R2 s \<equiv> toEnvP s \<and>
-(\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> (getVarBool s1 buttonDown' = False \<or> getVarBool s1 lower' = True) \<longrightarrow> getVarBool s1 down'= False)"
+definition R2 where "R2 s \<equiv>
+always_part
+   (\<lambda> s1. getVarBool s1 v_buttonDown' = False \<or> getVarBool s1 v_upper' = True \<longrightarrow> getVarBool s1 v_down' = False) s"
 
 definition R3 where "R3 s \<equiv> toEnvP s \<and>
 (\<forall> s1. substate s1 s \<and> toEnvP s1 \<and> getVarBool s1 enabled' = False \<longrightarrow>  getVarBool s1 down' = False)"

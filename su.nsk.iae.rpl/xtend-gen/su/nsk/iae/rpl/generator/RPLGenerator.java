@@ -255,7 +255,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
-    _builder.append("apply(auto split: if_splits)");
+    _builder.append("apply(auto simp add: Let_def split: if_splits)");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("done");
@@ -325,7 +325,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(")");
     _builder.newLineIfNotEmpty();
     _builder.append("  ");
-    _builder.append("apply(auto split: if_splits)");
+    _builder.append("apply(auto simp add: Let_def split: if_splits)");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("done");
@@ -372,7 +372,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("_used_patterns ");
     _builder.append(this.commonExtraInv);
-    _builder.append("_def");
+    _builder.append("_def Let_def");
     _builder.newLineIfNotEmpty();
     _builder.append("by auto");
     _builder.newLine();
@@ -405,7 +405,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(_name_3, "  ");
     _builder.append("_used_patterns ");
     _builder.append(this.commonExtraInv, "  ");
-    _builder.append("_def");
+    _builder.append("_def Let_def");
     _builder.newLineIfNotEmpty();
     _builder.append("by auto");
     _builder.newLine();
