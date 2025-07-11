@@ -1,0 +1,3 @@
+session R1 = VCProving +
+  options [timeout=1200]
+  theories  R1_MassageChair_VC_1001_2000

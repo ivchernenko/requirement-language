@@ -16,6 +16,11 @@ definition commonExtraInv where "commonExtraInv s \<equiv> toEnvP s \<and>
 (getPstate s p_Vibration' = p_Vibration's_massaging' \<longrightarrow> ltime s p_Vibration' \<le> v_VIBRATION_MASSAGE_TIME'TIMEOUT) \<and>
 (getPstate s p_Roller' \<in> {p_Roller's_waiting', p_Roller's_massaging', STOP}) \<and>
 (getPstate s p_Vibration' \<in> {p_Vibration's_waiting', p_Vibration's_massaging', STOP}) \<and>
-(getPstate s p_Controller' = p_Controller's_turnedOn' \<longrightarrow> ltime s p_Controller' \<le> v_ON_OFF_TIME'TIMEOUT)"
+(getPstate s p_Controller' = p_Controller's_turnedOn' \<longrightarrow> ltime s p_Controller' \<le> v_ON_OFF_TIME'TIMEOUT) \<and>
+getPstate s p_Controller' \<in> {p_Controller's_turnedOff', p_Controller's_turningOn', p_Controller's_turnedOn', p_Controller's_turningOff',
+  p_Controller's_backLifting'} \<and>
+getPstate s p_BackMovement' \<in> {p_BackMovement's_ctrl', STOP} \<and>
+(getPstate s p_Controller' \<in> {p_Controller's_turnedOff', p_Controller's_turningOn'} \<longrightarrow> getVarBool s v_up' = False \<and> getVarBool s v_down' = False) \<and>
+(getPstate s p_Controller' = p_Controller's_backLifting' \<longrightarrow>  getVarBool s v_down' = False)"
 
 end

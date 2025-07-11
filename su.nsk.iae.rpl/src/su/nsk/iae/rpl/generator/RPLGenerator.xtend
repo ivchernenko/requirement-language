@@ -183,7 +183,7 @@ class RPLGenerator extends AbstractGenerator {
 		return '''
 		theorem cei«i»: "VC«i» «commonExtraInv» env «inputVars»"
 		unfolding VC«i»_def «commonExtraInv»_def
-		by force
+		by (simp;force)
 		
 		'''
 	}

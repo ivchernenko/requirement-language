@@ -352,7 +352,7 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(this.commonExtraInv);
     _builder.append("_def");
     _builder.newLineIfNotEmpty();
-    _builder.append("by force");
+    _builder.append("by (simp;force)");
     _builder.newLine();
     _builder.newLine();
     return _builder.toString();

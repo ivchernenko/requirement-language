@@ -68,6 +68,7 @@ PROGRAM MassageChair
         STOP PROCESS Vibration;
         STOP PROCESS BackMovement;
         down := TURN_OFF;
+		up := TURN_OFF;
         IF NOT upper THEN
           up := TURN_ON;
         END_IF
@@ -123,6 +124,9 @@ PROGRAM MassageChair
       ELSIF buttonDown = PRESSED AND NOT lower THEN
         up := TURN_OFF;
         down := TURN_ON;
+      ELSE
+	    up := TURN_OFF;
+		down := TURN_OFF;
       END_IF
     END_STATE
   END_PROCESS
