@@ -211,7 +211,7 @@ lemmas {
 		final state: s
 		premise b(s) --> (frm(t1(s) > 0) \/ A_2(s, s)) /\ 
 		(A_1(s, s) \/ frm(b(s0)) /\ alwaysimp(s0, A_1(s0), A_1(s)) /\
-			 alwaysimp(s0, A_2(s0), A_2(s)) /\ frm(t1(s0) < t1(s))
+			 alwaysimp(s0, A_2(s0), A_2(s)) /\ (frm(t1(s0) = 0) /\ A_2(s, s) \/ frm(t1(s0) < t1(s)))
 		)
 	};
 	LS7 lemma dual_since_L7 {
@@ -222,7 +222,7 @@ lemmas {
 		final state: s
 		premise (frm(t > 0) \/ A_2(s, s)) /\ 
 		(A_1(s, s) \/ frm(b(s0)) /\ alwaysimp(s0, A_1(s0), A_1(s)) /\
-			 alwaysimp(s0, A_2(s0), A_2(s)) /\ frm(t1(s0) < t)
+			 alwaysimp(s0, A_2(s0), A_2(s)) /\ (frm(t1(s0) = 0) /\ A_2(s, s) \/ frm(t1(s0) < t))
 		)
 	};
 	LS4 lemma dual_since_L4 {

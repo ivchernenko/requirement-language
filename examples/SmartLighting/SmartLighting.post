@@ -55,6 +55,7 @@ END_PROCESS
 
 PROCESS Lighting
   STATE night
+    timeOfDay = NIGHT;
     TIMEOUT T#6h THEN
       timeOfDay := EARLY_MORNING;
       START PROCESS Motion;

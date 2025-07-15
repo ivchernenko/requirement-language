@@ -1,3 +1,9 @@
-session R1 = VCProving +
-  options [timeout=1200]
-  theories  R1_MassageChair_VC_1001_2000
+session MassageChair = VCProving +
+ (* theories [timeout=1200]  R1_MassageChair_VC_1001_2000
+  theories [timeout=1200]  R2_MassageChair_VC_1001_2000
+  theories [timeout=1200]  R3_MassageChair_VC_1001_2000
+  theories [timeout=1200]  R4_MassageChair_VC_1001_2000*)
+  theories [timeout=1200]  R5_MassageChair_VC_1001_2000
+
+
+

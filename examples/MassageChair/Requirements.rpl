@@ -13,8 +13,8 @@ extra invariant Einv3: always_inv_part;
 requirement R4: always2_part with Einv4;
 extra invariant Einv4: always2_inv_part;
 
-requirement R5 : always_part with Einv5;
-extra invariant Einv5: always_inv_part;
+requirement R5 : P5_part with Einv5;
+extra invariant Einv5: P5_inv_part;
 
 requirement R6: P1_1_part with Einv6;
 extra invariant Einv6: P1_inv_part;

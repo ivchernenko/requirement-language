@@ -1,0 +1,9 @@
+session SmartLighting = VCProving +
+  theories [timeout=1200]  R1_SmartLighting_VC_1_433
+  theories [timeout=1200]  R2_SmartLighting_VC_1_433
+  theories [timeout=1200]  R3_SmartLighting_VC_1_433
+  theories [timeout=1200]  R4_SmartLighting_VC_1_433
+  theories [timeout=1200]  R5_SmartLighting_VC_1_433
+  theories [timeout=1200]  R6_SmartLighting_VC_1_433
+  theories [timeout=1200]  R7_SmartLighting_VC_1_433
+  theories [timeout=1200]  R8_SmartLighting_VC_1_433
