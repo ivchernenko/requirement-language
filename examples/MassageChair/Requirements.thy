@@ -35,16 +35,13 @@ always2_inv_part (\<lambda> s. getPstate s p_Controller' \<in> {p_Controller's_t
 
 definition R5 where "R5 s \<equiv> 
 P5_part (\<lambda> s1. getVarBool s1 v_enabled' = False) (\<lambda> s2. getVarBool s2 v_enabled' = True \<and> getVarBool s2 v_rollerButton' = False)
-  (\<lambda> s3. getVarBool s3 v_rollerButton' = True) (\<lambda> s4. True) (\<lambda> s5. False) (\<lambda> s6. getVarBool s6 v_roller' = True) s"
-
-thm P3_4_inv_def
-
+  (\<lambda> s3. getVarBool s3 v_rollerButton' = True) (\<lambda> s4. True) (\<lambda> s5. getVarBool s5 v_enabled' = False) (\<lambda> s6. getVarBool s6 v_roller' = True) s"
 
 definition Einv5 where "Einv5 s \<equiv> commonExtraInv s \<and>
 P5_inv_part (\<lambda> s. True) (\<lambda> s. getPstate s p_Controller' \<in> {p_Controller's_turnedOn', p_Controller's_turningOff'})
-   (\<lambda> s. getPstate s p_Controller' \<noteq> p_Controller's_turnedOn') (\<lambda> s. getPstate s p_Roller' = p_Roller's_waiting')
+   (\<lambda> s. getPstate s p_Controller' \<noteq> p_Controller's_turnedOn' \<or> getPstate s p_Roller' \<noteq> p_Roller's_waiting') (\<lambda> s. getPstate s p_Roller' = p_Roller's_waiting')
    (\<lambda> s1. getVarBool s1 v_enabled' = False) (\<lambda> s2. getVarBool s2 v_enabled' = True \<and> getVarBool s2 v_rollerButton' = False)
-  (\<lambda> s3. getVarBool s3 v_rollerButton' = True) (\<lambda> s4. True) (\<lambda> s5. False) (\<lambda> s6. getVarBool s6 v_roller' = True) s"
+  (\<lambda> s3. getVarBool s3 v_rollerButton' = True) (\<lambda> s4. True) (\<lambda> s5. getVarBool s5 v_enabled' = False) (\<lambda> s6. getVarBool s6 v_roller' = True) s"
 
 abbreviation MASSAGE_TIME where "MASSAGE_TIME \<equiv> v_ROLLER_MASSAGE_TIME'TIMEOUT + v_VIBRATION_MASSAGE_TIME'TIMEOUT"
 

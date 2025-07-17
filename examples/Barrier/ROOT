@@ -1,0 +1,16 @@
+session Barrier = VCProving +
+  theories [timeout=1200] R1_Barrier_VC_1_73
+  theories [timeout=1200] R2_Barrier_VC_1_73
+  theories [timeout=1200] R3_Barrier_VC_1_73
+  theories [timeout=1200] R4_Barrier_VC_1_73
+  theories [timeout=1200] R5_Barrier_VC_1_73
+  theories [timeout=1200] R6_Barrier_VC_1_73
+  theories [timeout=1200] R7_Barrier_VC_1_73
+  theories [timeout=1200] R8_Barrier_VC_1_73
+  theories [timeout=1200] R9_Barrier_VC_1_73
+  theories [timeout=1200] R10_Barrier_VC_1_73
+  theories [timeout=1200] R11_Barrier_VC_1_73
+  theories [timeout=1200] R12_Barrier_VC_1_73
+
+
+
