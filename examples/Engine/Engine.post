@@ -23,7 +23,7 @@ PROGRAM Engine
   
   PROCESS EngineController
     STATE turnedOff
-      IF onOffButton = PRESSED THEN
+      IF onOffButton = PRESSED AND liquidLevel = HIGH THEN
         ignition := TURN_ON;
         START PROCESS CoolingAgentController;
         START PROCESS IdleController;
