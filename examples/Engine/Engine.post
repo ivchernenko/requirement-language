@@ -1,0 +1,102 @@
+PROGRAM Engine
+  VAR_INPUT
+    accelerator: BOOL;
+    liquidLevel: BOOL;
+    onOffButton: BOOL;
+  END_VAR
+  
+  VAR_OUTPUT
+    ignition: BOOL;
+    sound: BOOL;
+  END_VAR
+  
+  VAR CONSTANT
+    TURN_ON: BOOL := TRUE;
+    TURN_OFF: BOOL:= FALSE;
+    PRESSED: BOOL:= TRUE;
+    NOT_PRESSED: BOOL:= FALSE;
+    HIGH: BOOL:= TRUE;
+    LOW: BOOL:= FALSE;
+    IDLE_TIMEOUT: TIME:= T#30s;
+    WARN_LIQUID_LACK_TIMEOUT: TIME:= T#1m;
+  END_VAR
+  
+  PROCESS EngineController
+    STATE turnedOff
+      IF onOffButton = PRESSED THEN
+        ignition := TURN_ON;
+        START PROCESS CoolingAgentController;
+        START PROCESS IdleController;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE turningOn
+      IF onOffButton = NOT_PRESSED THEN
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE turnedOn
+      IF onOffButton = PRESSED THEN
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE turningOff
+      IF onOffButton = NOT_PRESSED THEN
+        START PROCESS StopEngine;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS CoolingAgentController
+    STATE normal
+      IF liquidLevel = LOW THEN
+        sound := TURN_ON;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE lack
+      IF liquidLevel = HIGH THEN
+        sound := TURN_OFF;
+        SET STATE normal;
+      END_IF
+      TIMEOUT WARN_LIQUID_LACK_TIMEOUT THEN
+        START PROCESS StopEngine;
+      END_TIMEOUT
+    END_STATE
+  END_PROCESS
+  
+  PROCESS IdleController
+    STATE work
+      IF accelerator = PRESSED THEN
+        RESET TIMER;
+      END_IF
+      TIMEOUT IDLE_TIMEOUT THEN
+        ignition:= TURN_OFF;
+        SET NEXT;
+      END_TIMEOUT
+    END_STATE
+    
+    STATE idle
+      IF accelerator = PRESSED THEN
+        ignition := TURN_ON;
+        SET STATE work;
+      END_IF
+    END_STATE
+  END_PROCESS
+  
+  PROCESS StopEngine
+    STATE stopEngine
+      ignition:= TURN_OFF;
+      sound:= TURN_OFF;
+      STOP PROCESS CoolingAgentController;
+      STOP PROCESS IdleController;
+      START PROCESS EngineController;
+      STOP;
+    END_STATE
+   END_PROCESS
+ END_PROGRAM
+      

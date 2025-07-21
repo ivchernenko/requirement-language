@@ -3,6 +3,7 @@ theory CommonExtraInv
 begin
 
 definition commonExtraInv where  "commonExtraInv s \<equiv> toEnvP s \<and>
+(getPstate s p_Opening' = p_Opening's_opening' \<longrightarrow> getVarBool s v_green' = False \<and> getVarBool s v_red' = True \<and> getVarBool s v_down' = False) \<and>
 (getPstate s p_Opening' = p_Opening's_open' \<longrightarrow> getVarBool s v_green' = True \<and> getVarBool s v_red' = False \<and> getVarBool s v_up' = False \<and>
    getVarBool s v_down' = False) \<and>
 (getPstate s p_Opening' = p_Opening's_closing' \<longrightarrow> getVarBool s v_green' = False \<and> getVarBool s v_red' = True \<and> getVarBool s v_up' = False \<and>

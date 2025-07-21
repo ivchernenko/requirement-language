@@ -33,6 +33,8 @@ PROGRAM Barrier
     STATE opening
       up := TRUE;
       down := FALSE;
+	  green := FALSE;
+	  red := TRUE;
       IF opened = TRUE THEN
         up := FALSE;
         red := FALSE;
