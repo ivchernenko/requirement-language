@@ -81,7 +81,8 @@ public class Main {
 				String importURI = importElement.getImportURI();
 				importCopy.setImportURI(importElement.getImportURI());
 				imports.add(importCopy);
-				String theoryName = importURI.substring(0, importURI.lastIndexOf('.'));
+				String importedFileName = importURI.substring(importURI.lastIndexOf('/') + 1);
+				String theoryName = importedFileName.substring(0, importedFileName.lastIndexOf('.'));
 				String session = importElement.getSession();
 				theoryGenerator.addImportedTheory(new ImportedTheory(session, theoryName));
 			}

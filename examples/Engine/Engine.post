@@ -37,12 +37,15 @@ PROGRAM Engine
         IF liquidLevel = HIGH THEN
           ignition := TURN_ON;
           pump := TURN_ON;
+		  sound := TURN_OFF;
           START PROCESS CoolingAgentController;
           START PROCESS Cooling;
+          STOP PROCESS Sound;
           SET NEXT;
         ELSE
           sound := TURN_ON;
           START PROCESS Sound;
+          SET STATE turningOff;
         END_IF
       END_IF
     END_STATE

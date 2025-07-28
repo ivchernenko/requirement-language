@@ -11,7 +11,46 @@ definition since where "since t A1 A2 s s1 \<equiv>
 \<exists>  r1. toEnvP r1 \<and> r1 \<le> s1 \<and> toEnvNum r1 s1 \<ge> t \<and> A2 s r1 \<and>
 (\<forall> r2. toEnvP r2 \<and> r1 < r2 \<and> r2 \<le> s1  \<longrightarrow> A1 s r2)"
 
+definition since_inv where "since_inv (t::nat) b t1 A1 A2 s \<equiv> b s \<longrightarrow> since (t1 s) A1 A2 s s"
+
 definition dual_since_inv where "dual_since_inv (t::nat) b t1 A1 A2 s \<equiv> b s \<longrightarrow> dual_since (t1 s) A1 A2 s s"
+
+lemma since_one_point[pastinv]: "since_inv t b t1 A1' A2' s \<Longrightarrow> consecutive s s' \<Longrightarrow>
+b s' \<longrightarrow>(t1 s' = 0 \<and> A2' s' s' \<or> always_imp s (A1' s) (A1' s') \<and> always_imp s (A2' s) (A2' s') \<and> b s \<and> t1 s' \<le> t1 s + 1 \<and> A1' s' s') \<Longrightarrow>
+since_inv t b  t1 A1' A2' s' "
+  unfolding since_inv_def since_def always_imp_def less_state.simps less_eq_state.simps
+  apply(rule impI)
+  apply(rotate_tac 2)
+  apply(erule impE)
+   apply assumption
+  subgoal premises prems1
+    apply(insert prems1(2-4))
+    apply(erule disjE)
+     apply (metis bot_nat_0.extremum consecutive.simps substate_antisym substate_refl)
+    by (smt (verit) add_le_cancel_right consecutive.elims(2) le_trans substate_noteq_imp_substate_of_pred substate_trans toEnvNum3)
+  done
+
+lemma since_L7: "since_inv t b t1 A1' A2' s \<Longrightarrow> consecutive s s' \<Longrightarrow>
+(t = 0 \<and> A2' s' s' \<or> always_imp s (A1' s) (A1' s') \<and> always_imp s (A2' s) (A2' s') \<and> b s \<and> t \<le> t1 s + 1 \<and> A1' s' s') \<Longrightarrow>
+since t A1' A2' s' s' "
+  unfolding since_inv_def since_def always_imp_def less_state.simps less_eq_state.simps
+    apply(erule disjE)
+     apply (metis bot_nat_0.extremum consecutive.simps substate_antisym substate_refl)
+  by (smt (verit) add_le_cancel_right consecutive.elims(2) le_trans substate_noteq_imp_substate_of_pred substate_trans toEnvNum3)
+
+lemma since_L4[invsaving]: "
+consecutive s s' \<Longrightarrow>
+always_imp s (A1' s) (A1' s') \<and> always_imp s (A2' s) (A2' s') \<Longrightarrow>
+always_imp s (since t A1' A2' s) (since t A1' A2' s')"
+  unfolding always_imp_def since_def  less_state.simps less_eq_state.simps
+  by (metis substate_trans)
+  
+lemma since_L5[inv_req]: "
+toEnvP s \<Longrightarrow>
+always_imp s (A1' s) (A1 s) \<and> always_imp s (A2' s) (A2 s) \<Longrightarrow>
+always_imp s (since t A1' A2' s) (since t A1 A2 s)" 
+  unfolding always_imp_def since_def  less_state.simps less_eq_state.simps
+  by (metis substate_trans)
 
 lemma dual_since_one_point[pastinv]: "dual_since_inv t b t1 A1' A2' s \<Longrightarrow> consecutive s s' \<Longrightarrow>
 b s' \<longrightarrow>(t1 s' > 0 \<or> A2' s' s') \<and> (A1' s' s' \<or> b s \<and> always_imp s (A1' s) (A1' s') \<and>
