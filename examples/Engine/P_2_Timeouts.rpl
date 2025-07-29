@@ -1,8 +1,8 @@
 import "../Basic_Patterns.rpl" from "VCProving";
 
-derivedreq pattern P_2_timeouts(const: t1, t2 simple formulas: A1 formulas: A2, A3, A4) = 
+derivedreq pattern P_release_2_timeouts(const: t1, t2 simple formulas: A1 formulas: A2, A3, A4, A5) = 
   always(formulas: lambda r2 r1. 
   	weak_previous(formulas: lambda r4 r3. ~ A1(r3) final: r2 current: r1) 
   	\/ since(const: t1 formulas: A3, A2 final: r2 current: r1) 
-  	\/ since(const: t2 formulas: A4, True final: r2 current: r1)
+  	\/ since(const: t2 formulas: A4, lambda r4 r3. True final: r2 current: r1) \/ A5(r2, r1)
   );

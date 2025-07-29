@@ -1,5 +1,5 @@
 theory Requirements
-  imports Common_Extra_Invariant VCProving.Basic_Patterns VCProving.Derived_Patterns
+  imports Common_Extra_Invariant VCProving.Basic_Patterns VCProving.Derived_Patterns P_2_Timeouts_Patterns
 begin
 
 definition R1 where "R1 s \<equiv>
@@ -37,6 +37,11 @@ definition R8 where "R8 s \<equiv>
 always2_part (\<lambda> s1. getVarBool s1 v_ignition' = True \<and> getVarBool s1 v_onOffButton' = v_NOT_PRESSED') 
   (\<lambda> s2. getVarBool s2 v_onOffButton' = v_PRESSED' \<and>  getVarBool s2 v_speed' = v_LOW') 
   (\<lambda> s2. getVarBool s2 v_ignition' = False) s"
+
+definition R9 where "R9 s \<equiv>
+P_release_2_timeouts_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT + 1) (\<lambda> s1. getVarBool s1 v_ignition' = True)
+  (\<lambda> s2. getVarBool s2 v_ignition' = True \<and> getVarBool s2 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s3. getVarBool s3 v_onOffButton' = v_PRESSED') 
+  (\<lambda> s4. getVarBool s4 v_liquidLevel' = v_LOW') (\<lambda> s5. getVarBool s5 v_ignition' = True) s"
 
 definition R10 where "R10 s \<equiv>
 P1_2_part v_EMERGENCY_STOP_TIME'TIMEOUT (\<lambda> s1. getVarBool s1 v_ignition' = True \<and> getVarBool s1 v_onOffButton' = v_NOT_PRESSED') 
