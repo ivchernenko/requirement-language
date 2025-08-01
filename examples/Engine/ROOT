@@ -1,0 +1,14 @@
+session Engine = VCProving +
+ theories [timeout=1200] R1_Engine_VC_1_2000
+ (* theories [timeout=1200] R2_Engine_VC_1_2000
+  theories [timeout=1200] R3_Engine_VC_1_2000
+  theories [timeout=1200] R4_Engine_VC_1_2000
+  theories [timeout=1200] R5_Engine_VC_1_2000
+  theories [timeout=1200] R6_Engine_VC_1_2000
+  theories [timeout=1200] R7_Engine_VC_1_2000
+   theories [timeout=1200] R8_Engine_VC_1_2000
+   theories [timeout=1200] R9_Engine_VC_1_2000
+  theories [timeout=1200] R10_Engine_VC_1_2000
+  theories [timeout=1200] R11a_Engine_VC_1_2000
+  theories [timeout=1200] R11b_Engine_VC_1_2000
+  theories [timeout=1200] R12_Engine_VC_1_2000*)
