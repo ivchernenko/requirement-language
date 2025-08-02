@@ -541,6 +541,6 @@ public class ProofScriptGenerator {
   }
 
   public String generateProofByAssumption() {
-    return "apply assumption";
+    return "apply simp";
   }
 }

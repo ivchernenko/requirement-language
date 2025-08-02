@@ -297,6 +297,6 @@ class ProofScriptGenerator {
 	}
 	
 	def String generateProofByAssumption() {
-		return "apply assumption"
+		return "apply simp"
 	}
 }

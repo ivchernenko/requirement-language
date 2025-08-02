@@ -25,13 +25,7 @@ PROGRAM Engine
     WARN_LIQUID_LACK_TIMEOUT: TIME:= T#1m;
   END_VAR
   
-  PROCESS EngineController
-    STATE turningOff
-      IF onOffButton = NOT_PRESSED THEN
-        SET NEXT;
-      END_IF
-    END_STATE
-    
+  PROCESS EngineController    
     STATE turnedOff
       IF onOffButton = PRESSED THEN
         IF liquidLevel = HIGH THEN
@@ -45,7 +39,7 @@ PROGRAM Engine
         ELSE
           sound := TURN_ON;
           START PROCESS Sound;
-          SET STATE turningOff;
+          START PROCESS StopEngine;
         END_IF
       END_IF
     END_STATE
@@ -100,8 +94,12 @@ PROGRAM Engine
       pump := TURN_OFF;
       valve := TURN_OFF;
       STOP PROCESS Cooling;
-      START PROCESS EngineController;
-      STOP;
+      IF onOffButton = NOT_PRESSED THEN
+        START PROCESS EngineController;
+        STOP;
+      ELSE
+        STOP PROCESS EngineController;
+      END_IF
     END_STATE
    END_PROCESS
    

@@ -1,0 +1,8 @@
+ import "../Basic_Patterns.rpl" from "VCProving";
+ import "../Derived_Patterns.rpl" from "VCProving";
+
+  derivedreq pattern R5_pattern(const: t simple formulas: A11, A12, A2 formulas: A3, A4) =
+    P5(simple formulas: A11, A12, A2 formulas: lambda r2 r1. True, lambda r2 r1. False, lambda r2 r1. constrained_weak_until(const: t formulas: A3, A4 final: r2 current: r1));
+  
+  derivedreq pattern R6_pattern(simple formulas: A1 formulas: A2, A3, A4) =
+  always(formulas: lambda r2 r1. ~ A1(r1) \/ since(const: 0 formulas: A3, A2 final: r2 current: r1) \/ A4(r2, r1));
