@@ -37,7 +37,6 @@ PROGRAM Engine
           STOP PROCESS Sound;
           SET NEXT;
         ELSE
-          sound := TURN_ON;
           START PROCESS Sound;
           START PROCESS StopEngine;
         END_IF
@@ -115,6 +114,7 @@ PROGRAM Engine
    
    PROCESS Sound
      STATE sound
+	   sound := TURN_ON;
        TIMEOUT SOUND_TIME THEN
          sound := TURN_OFF;
          STOP;
