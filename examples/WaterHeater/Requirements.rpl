@@ -1,0 +1,26 @@
+import "../Basic_Patterns.rpl";
+import "../Derived_Patterns.rpl";
+
+requirement R1 : always2_part with Einv1;
+extra invariant Einv1: always2_inv_part;
+
+requirement R2: always2_part with Einv2;
+extra invariant Einv2: always2_inv_part;
+
+requirement R3 : always2_part with Einv3;
+extra invariant Einv3: always2_inv_part;
+
+requirement R4: always2_part with Einv4;
+extra invariant Einv4: always2_inv_part;
+
+requirement R5: always_part with Einv5;
+extra invariant Einv5: always_inv_part;
+
+requirement R6: always2_part with Einv6;
+extra invariant Einv6: always2_inv_part;
+
+requirement R7: always2_part with Einv7;
+extra invariant Einv7: always2_inv_part;
+
+requirement R8: always2_part with Einv8;
+extra invariant Einv8: always2_inv_part;

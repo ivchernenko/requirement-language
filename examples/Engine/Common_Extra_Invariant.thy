@@ -5,6 +5,8 @@ begin
 definition common_extra_invariant where "common_extra_invariant s == toEnvP s \<and>
 (getPstate s p_EngineController' \<in> {STOP, p_EngineController's_turnedOff'} \<longrightarrow>
   getPstate s p_CoolingAgentController' = STOP \<and> getVarBool s v_ignition' = False) \<and>
+(getPstate s p_EngineController' = p_EngineController's_turnedOff' \<longrightarrow> getVarBool s v_onOffButton' = v_NOT_PRESSED') \<and>
+(getPstate s p_CoolingAgentController' = STOP \<and> getPstate s p_Sound' = STOP \<longrightarrow> getVarBool s v_sound' = False) \<and>
 (getPstate s p_EngineController' \<in> {p_EngineController's_turningOn', p_EngineController's_turnedOn'} \<longrightarrow> 
   getPstate s p_CoolingAgentController' \<noteq> STOP \<and> getPstate s p_Sound' = STOP \<and> getVarBool s v_ignition' = True) \<and>
 (getPstate s p_StopEngine' = p_StopEngine's_stopEngine' \<longrightarrow> getPstate s p_EngineController' = STOP) \<and>
