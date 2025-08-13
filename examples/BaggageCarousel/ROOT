@@ -1,0 +1,5 @@
+session BaggageCarousel = VCProving +
+ theories [timeout=1200] R1_BaggageCarousel_VC_1_49
+  theories [timeout=1200] R2_BaggageCarousel_VC_1_49
+  theories [timeout=1200] R3_BaggageCarousel_VC_1_49
+  theories [timeout=1200] R4_BaggageCarousel_VC_1_49

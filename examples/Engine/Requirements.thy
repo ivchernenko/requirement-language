@@ -95,8 +95,8 @@ P_release_2_timeouts_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_TIME
 definition Einv9 where "Einv9 s \<equiv> common_extra_invariant s \<and>
 P_release_2_timeouts_inv_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT + 1)
 (\<lambda> s. getPstate s p_EngineController'\<in> {STOP, p_EngineController's_turnedOff'}) 
-   (\<lambda> s. getPstate s p_EngineController' \<in> {p_EngineController's_turnedOn', STOP})
-  (\<lambda> s. if getPstate s p_EngineController' = p_EngineController's_turnedOn' then ltime s p_EngineController' else 0)
+   (\<lambda> s. getPstate s p_EngineController' \<in> {p_EngineController's_turnedOn'})
+  (\<lambda> s. if getPstate s p_EngineController' = p_EngineController's_turnedOn' then ltime s p_EngineController' - 1 else 0)
   (\<lambda> s. True)
   (\<lambda> s. if getPstate s p_CoolingAgentController' = p_CoolingAgentController's_lack' then ltime s p_CoolingAgentController' else 0)
    (\<lambda> s1. getVarBool s1 v_ignition' = True)
