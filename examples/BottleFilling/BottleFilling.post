@@ -23,6 +23,7 @@ PROGRAM BottleFilling
   PROCESS Initialization
     STATE begin
       oFillTank := TURNED_ON;
+	  oSteam := TURNED_OFF;
       IF iHighLevel THEN
         oFillTank := TURNED_OFF;
         START PROCESS ForceSterilization;
@@ -60,7 +61,7 @@ PROGRAM BottleFilling
     
     STATE waitForFilling
       oFillBottle := TURNED_ON;
-      IF iBottleLevel THEN
+      IF iBottleLevel OR NOT iLowLevel THEN
         oFillBottle := TURNED_OFF;
         IF NOT iLowLevel THEN //no liquid
           START PROCESS Initialization;
