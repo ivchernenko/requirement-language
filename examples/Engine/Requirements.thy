@@ -137,14 +137,14 @@ P1_2_inv_part v_SOUND_TIME'TIMEOUT
     (let s3 = pred s4 in toEnvP s3 \<and> getVarBool s3 v_onOffButton' = v_NOT_PRESSED' \<and> getVarBool s4 v_onOffButton' = v_PRESSED'))) s"
 
 definition R11b where "R11b s \<equiv>
-P4_2_part v_SOUND_TIME'TIMEOUT (\<lambda> s1. getVarBool s1 v_ignition' = False \<and> getVarBool s1 v_onOffButton' = v_NOT_PRESSED')
+P4_2_part (v_SOUND_TIME'TIMEOUT - 1) (\<lambda> s1. getVarBool s1 v_ignition' = False \<and> getVarBool s1 v_onOffButton' = v_NOT_PRESSED')
   (\<lambda> s2. getVarBool s2 v_onOffButton' = v_PRESSED' \<and> getVarBool s2 v_liquidLevel' = v_LOW')
 (\<lambda> s3. getVarBool s3 v_sound' = True) (\<lambda> s4. getVarBool s4 v_ignition' = True) s"
 
 definition Einv11b where "Einv11b s \<equiv> common_extra_invariant s \<and>
-P4_2_inv_part v_SOUND_TIME'TIMEOUT
+P4_2_inv_part (v_SOUND_TIME'TIMEOUT - 1)
   (\<lambda> s. getPstate s  p_EngineController' \<noteq> p_EngineController's_turnedOff')
-  (\<lambda> s. if getPstate s p_Sound' = p_Sound's_sound' then ltime s p_Sound' - 1 else v_SOUND_TIME'TIMEOUT)
+  (\<lambda> s. if getPstate s p_Sound' = p_Sound's_sound' then ltime s p_Sound' - 1 else (v_SOUND_TIME'TIMEOUT -1))
    (\<lambda> s1. getVarBool s1 v_ignition' = False \<and> getVarBool s1 v_onOffButton' = v_NOT_PRESSED')
   (\<lambda> s2. getVarBool s2 v_onOffButton' = v_PRESSED' \<and> getVarBool s2 v_liquidLevel' = v_LOW')
 (\<lambda> s3. getVarBool s3 v_sound' = True) (\<lambda> s4. getVarBool s4 v_ignition' = True) s"

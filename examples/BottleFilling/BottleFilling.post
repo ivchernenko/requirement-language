@@ -61,7 +61,7 @@ PROGRAM BottleFilling
     
     STATE waitForFilling
       oFillBottle := TURNED_ON;
-      IF iBottleLevel OR NOT iLowLevel THEN
+      IF iBottleLevel THEN
         oFillBottle := TURNED_OFF;
         IF NOT iLowLevel THEN //no liquid
           START PROCESS Initialization;
