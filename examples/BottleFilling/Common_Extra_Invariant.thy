@@ -14,3 +14,4 @@ definition common_extra_invariant where "common_extra_invariant s \<equiv> toEnv
 (getPstate s p_NextBottle' \<noteq> STOP \<longrightarrow> getVarBool s v_oConveyor' = True) \<and>
 (getPstate s p_NextBottle' = STOP \<longrightarrow> getVarBool s v_oConveyor' = False)
 "
+end
