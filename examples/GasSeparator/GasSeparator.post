@@ -25,7 +25,7 @@ PROGRAM GasSeparator
     RELEASE_TIMEOUT : TIME := T#10s;
     PURGE_TIMEOUT : TIME := T#10s;
   END_VAR
-
+ 
 
   // Процесс обработки нажатий кнопок и переходов между режимами
   PROCESS ButtonPressControl
@@ -34,22 +34,14 @@ PROGRAM GasSeparator
       SafetyLED := TURN_OFF;
       IF AutoBtn = PRESSED THEN
         AutoLED := TURN_ON;
+        START PROCESS EmergencyControl;
         START PROCESS AutoModeControl;
-        START PROCESS IndicatorControl;
         SET NEXT;
       END_IF
     END_STATE
-
-
+    
     STATE autoMode
-      IF EmergencyBtn = PRESSED OR ThighAbnormally OR PhighAbnormally THEN
-        AutoLED := TURN_OFF;
-        DegasLED := TURN_OFF;
-        EmergencyLED := TURN_ON;
-        EmptyingLED := TURN_ON;
-        STOP PROCESS AutoModeControl;
-        SET NEXT;
-      ELSIF ManualBtn = PRESSED THEN
+      IF ManualBtn = PRESSED THEN
         AutoLED := TURN_OFF;
         ManualLED := TRUE;
         SET STATE waitingForStageCompletion;
@@ -60,35 +52,14 @@ PROGRAM GasSeparator
       END_IF
     END_STATE
 
-
-    STATE emptying
-      filling := TURN_OFF;
-      release := TURN_OFF;
-      heater := TURN_OFF;
-     HeatingLED := TURN_OFF;
-     GasAccumulatingLED := TURN_OFF;
-     ReleasingLED := TURN_OFF;
-      emptying := TURN_ON;
-      inert := TURN_ON;
-      IF NOT Llow THEN
-        inert := TURN_OFF;
-        IF Lempty THEN
-          emptying := TURN_OFF;
-          EmptyingLED := TURN_OFF;
-          SET STATE purge;
-        END_IF
-      END_IF
-    END_STATE
-
-
     STATE waitingForEmptying
       IF PROCESS AutoModeControl IN STATE INACTIVE THEN
         purge := TURN_ON;
         release := TURN_ON;
+        STOP PROCESS EmergencyControl;
         SET NEXT;
       END_IF
     END_STATE
-
 
     STATE purge
       purge := TURN_ON;
@@ -104,11 +75,9 @@ PROGRAM GasSeparator
         TlowLED := TURN_OFF;
         PhighLED := TURN_OFF;
         PlowLED := TURN_OFF;
-        STOP PROCESS IndicatorControl;
         SET STATE waiting;
       END_TIMEOUT
     END_STATE
-
 
     STATE waitingForStageCompletion
       IF PROCESS AutoModeControl IN STATE INACTIVE THEN
@@ -120,11 +89,65 @@ PROGRAM GasSeparator
         AutoLED := TURN_OFF;
         ManualLED := TURN_OFF;
         SafetyLED := TURN_OFF;
+        STOP PROCESS EmergencyControl;
         SET STATE waiting;
       END_IF
     END_STATE
   END_PROCESS
 
+  //Процесс контроля аварийных ситуаций
+  PROCESS EmergencyControl    
+    STATE autoMode
+      IF EmergencyBtn = PRESSED OR ThighAbnormally OR PhighAbnormally THEN
+        AutoLED := TURN_OFF;
+        DegasLED := TURN_OFF;
+        EmergencyLED := TURN_ON;
+        EmptyingLED := TURN_ON;
+        STOP PROCESS ButtonPressControl;
+        STOP PROCESS AutoModeControl;
+        STOP PROCESS DegassingControl;
+        SET NEXT;
+      END_IF
+    END_STATE
+    
+    STATE emptying
+      filling := TURN_OFF;
+      release := TURN_OFF;
+      heater := TURN_OFF;
+      HeatingLED := TURN_OFF;
+      GasAccumulatingLED := TURN_OFF;
+      ReleasingLED := TURN_OFF;
+      emptying := TURN_ON;
+      inert := TURN_ON;
+      IF NOT Llow THEN
+        inert := TURN_OFF;
+        IF Lempty THEN
+          emptying := TURN_OFF;
+          EmptyingLED := TURN_OFF;
+          SET STATE purge;
+        END_IF
+      END_IF
+    END_STATE
+    
+    STATE purge
+      purge := TURN_ON;
+      release := TURN_ON;
+      TIMEOUT PURGE_TIMEOUT THEN
+        purge := TURN_OFF;
+        release := TURN_OFF;
+        LfullLED := TURN_OFF;
+        LdegLED := TURN_OFF;
+        LlowLED := TURN_OFF;
+        LemptyLED := TURN_OFF;
+        ThighLED := TURN_OFF;
+        TlowLED := TURN_OFF;
+        PhighLED := TURN_OFF;
+        PlowLED := TURN_OFF;
+		START PROCESS ButtonPressControl;
+        STOP;
+      END_TIMEOUT
+    END_STATE      
+  END_PROCESS
 
   // Процесс автоматического режима работы газосепаратора
   PROCESS AutoModeControl
@@ -145,7 +168,6 @@ PROGRAM GasSeparator
         END_IF
       END_IF
     END_STATE
-
 
     STATE degassing
       IF NOT Ldeg THEN
@@ -197,7 +219,6 @@ PROGRAM GasSeparator
     END_STATE
   END_PROCESS
 
-
   // Процесс управления операциями дегазации (нагрев, накопление и выведение газа)
   PROCESS DegassingControl
     STATE heating
@@ -217,7 +238,6 @@ PROGRAM GasSeparator
       END_TIMEOUT
     END_STATE
 
-
     STATE accumulating
       IF Phigh THEN
         release := TURN_ON;
@@ -232,7 +252,6 @@ PROGRAM GasSeparator
         SET NEXT;
       END_TIMEOUT
     END_STATE
-
 
     STATE releasing
       IF NOT Plow THEN
@@ -249,30 +268,6 @@ PROGRAM GasSeparator
         HeatingLED := TURN_ON;
         SET STATE heating;
       END_TIMEOUT
-    END_STATE
-  END_PROCESS
-
-
-  // Процесс управления индикаторами
-  PROCESS IndicatorControl
-    STATE ctrl LOOPED
-      LfullLED := TURN_OFF;
-      LdegLED := TURN_OFF;
-      LlowLED := TURN_OFF;
-      LemptyLED := TURN_OFF;
-      IF Lfull THEN
-        LfullLED := TURN_ON;
-      ELSIF Ldeg THEN
-        LdegLED := TURN_ON;
-      ELSIF Llow THEN
-        LlowLED := TURN_ON;
-      ELSE
-        LemptyLED := TURN_ON;
-      END_IF
-      ThighLED := Thigh;
-      TlowLED := Tlow;
-      PhighLED := Phigh;
-      PlowLED := Plow;
     END_STATE
   END_PROCESS
 END_PROGRAM

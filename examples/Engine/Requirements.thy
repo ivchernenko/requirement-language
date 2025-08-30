@@ -27,22 +27,6 @@ definition Einv3 where "Einv3 s \<equiv> common_extra_invariant s \<and>
 always2_inv_part (\<lambda> s. getPstate s p_EngineController' \<in> {p_EngineController's_turningOn', p_EngineController's_turnedOn'})
   (\<lambda> s1. getVarBool s1 v_ignition' = False) (\<lambda> s2. getVarBool s2 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s2. getVarBool s2 v_ignition' = False) s"
 
-definition R4 where "R4 s \<equiv>
-P4_3_part (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT)
-   (\<lambda>  s1. getVarBool s1 v_ignition' = True)
-   (\<lambda> s2.  getVarBool s2 v_liquidLevel' = v_HIGH')
-  (\<lambda> s2. getVarBool s2 v_ignition' = True) (\<lambda> s4. getVarBool s4 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s5. getVarBool s5 v_onOffButton' = v_PRESSED') s"
-
-definition Einv4 where "Einv4 s \<equiv> common_extra_invariant s \<and>
-P4_3_inv_part (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT)
-  (\<lambda> s. getPstate s p_EngineController' \<in> {STOP, p_EngineController's_turnedOff'})
-  (\<lambda> s. getPstate s p_EngineController' = p_EngineController's_turnedOff') 
-  (\<lambda> s. if getPstate s p_CoolingAgentController' = STOP then v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT
-    else if getPstate s p_CoolingAgentController' = p_CoolingAgentController's_normal' then 0 else ltime s p_CoolingAgentController')
-   (\<lambda>  s1. getVarBool s1 v_ignition' = True)
-   (\<lambda> s2.  getVarBool s2 v_liquidLevel' = v_HIGH')
-  (\<lambda> s2. getVarBool s2 v_ignition' = True) (\<lambda> s4. getVarBool s4 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s5. getVarBool s5 v_onOffButton' = v_PRESSED') s"
-
 definition R5 where "R5 s \<equiv>
 always2_part (\<lambda> s1. getVarBool s1 v_ignition' = False \<and> getVarBool s1 v_sound' = False) 
   (\<lambda> s2. \<not> (getVarBool s2 v_liquidLevel' = v_LOW' \<and>
