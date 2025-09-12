@@ -101,6 +101,8 @@ PROGRAM GasSeparator
       IF EmergencyBtn = PRESSED OR ThighAbnormally OR PhighAbnormally THEN
         AutoLED := TURN_OFF;
         DegasLED := TURN_OFF;
+		ManualLED := TURN_OFF;
+		SafetyLED := TURN_OFF;
         EmergencyLED := TURN_ON;
         EmptyingLED := TURN_ON;
         STOP PROCESS ButtonPressControl;
