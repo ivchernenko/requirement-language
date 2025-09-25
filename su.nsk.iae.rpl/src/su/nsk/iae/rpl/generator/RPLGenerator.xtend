@@ -149,8 +149,7 @@ class RPLGenerator extends AbstractGenerator {
 		  using cei«i» apply((auto simp add: VC«i»_def)[1];fastforce)
 		  apply(unfold «commonExtraInv»_def)
 		  apply(erule conjE)+
-		  apply(erule «L8.getName()»)
-		  apply(auto simp add: Let_def split: if_splits)
+		  apply(simp add: Let_def;erule «L8.getName()»;(auto split: if_splits))
 		  done
 		
 		'''	
@@ -172,8 +171,7 @@ class RPLGenerator extends AbstractGenerator {
 		  using extra«i» apply((auto simp add: VC«i»_def)[1];fastforce)
 		  apply(unfold «einv»_def «commonExtraInv»_def)
 		  apply(erule conjE)+
-		  apply(erule «L9.getName()»)
-		  apply(auto simp add: Let_def split: if_splits)
+		  apply(simp add: Let_def;erule «L9.getName()»;(simp split: if_splits))
 		  done
 		
 		'''	
