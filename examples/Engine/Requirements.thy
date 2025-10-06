@@ -74,7 +74,7 @@ always2_inv_part (\<lambda> s. getPstate s p_EngineController' \<noteq> p_Engine
 definition R9 where "R9 s \<equiv>
 P_release_2_timeouts_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT + 1) (\<lambda> s1. getVarBool s1 v_ignition' = True)
   (\<lambda> s2. getVarBool s2 v_ignition' = True \<and> getVarBool s2 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s3. getVarBool s3 v_onOffButton' = v_PRESSED') 
-  (\<lambda> s4. getVarBool s4 v_liquidLevel' = v_LOW') (\<lambda> s5. getVarBool s5 v_ignition' = True) s"
+  (\<lambda> s4. getVarBool s4 v_liquidLevel' = v_LOW') (\<lambda> s5. getVarBool s5 v_speed' = v_HIGH' \<longrightarrow> getVarBool s5 v_ignition' = True) s"
 
 definition Einv9 where "Einv9 s \<equiv> common_extra_invariant s \<and>
 P_release_2_timeouts_inv_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_TIMEOUT'TIMEOUT + 1)
@@ -85,7 +85,7 @@ P_release_2_timeouts_inv_part v_EMERGENCY_STOP_TIME'TIMEOUT (v_WARN_LIQUID_LACK_
   (\<lambda> s. if getPstate s p_CoolingAgentController' = p_CoolingAgentController's_lack' then ltime s p_CoolingAgentController' else 0)
    (\<lambda> s1. getVarBool s1 v_ignition' = True)
   (\<lambda> s2. getVarBool s2 v_ignition' = True \<and> getVarBool s2 v_onOffButton' = v_NOT_PRESSED') (\<lambda> s3. getVarBool s3 v_onOffButton' = v_PRESSED') 
-  (\<lambda> s4. getVarBool s4 v_liquidLevel' = v_LOW') (\<lambda> s5. getVarBool s5 v_ignition' = True) s"
+  (\<lambda> s4. getVarBool s4 v_liquidLevel' = v_LOW') (\<lambda> s5. getVarBool s5 v_speed' = v_HIGH' \<longrightarrow> getVarBool s5 v_ignition' = True) s"
 
 
 definition R10 where "R10 s \<equiv>
