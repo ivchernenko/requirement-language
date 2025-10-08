@@ -130,7 +130,7 @@ let final =  v_PURGE_TIMEOUT'TIMEOUT in
 let delay = 1 in
 let trigger =  (\<lambda> s2. let s1 = pred s2 in let s0 = pred s1 in  toEnvP s0 \<and> getVarBool s0 v_purge' =False \<and> getVarBool s1 v_purge' = True) in
 let invariant = (\<lambda> s3. let s2 = pred s3 in toEnvP s2 \<and> getVarBool s2 v_purge' = True \<and> getVarBool s2 v_release' = True) in
-let reaction = (\<lambda> s3. let s2 = pred s3 in toEnvP s2 \<and> getVarBool s2 v_purge' = False \<and> getVarBool s2 v_release' = False) in
+let reaction = (\<lambda> s3. getVarBool s3 v_purge' = False \<and> getVarBool s3 v_release' = False) in
 EDTL_release_false_final_tau_delay_tau_part final delay trigger invariant reaction s"
 
 definition R18 where "R18 s \<equiv>
@@ -160,3 +160,16 @@ definition R20 where "R20 s \<equiv>
 definition R21 where "R21 s \<equiv>
 always_part (\<lambda> s1. getVarBool s1 v_DegasLED' = False \<and> getVarBool s1 v_emptying'=  False \<or> getVarBool s1 v_filling' = False) s"
 
+definition R22 where "R22 s \<equiv>
+always_part (\<lambda> s1. getVarBool s1 v_filling' = False \<and> getVarBool s1 v_emptying'=  False \<or> getVarBool s1 v_DegasLED' = False) s"
+
+definition R23 where "R23 s \<equiv>
+always_part (\<lambda> s1. getVarBool s1 v_filling' = False \<and> getVarBool s1 v_DegasLED' = False \<or> getVarBool s1 v_emptying'=  False) s"
+
+definition R24 where "R24 s \<equiv>
+let trigger =  (\<lambda> s2. let s1 = pred s2 in let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_purge' = True \<and> getVarBool s1 v_purge' = False) in
+let final = (\<lambda> s3. False) in
+let release = (\<lambda> s4. getVarBool s4 v_AutoBtn' = True) in
+let invariant = (\<lambda> s3. let s2 = pred s3 in toEnvP s2 \<and> getVarBool s2 v_filling' = False \<and> getVarBool s2 v_DegasLED' = False \<and> getVarBool s2 v_emptying' = False) in
+let reaction = (\<lambda> s3. True) in
+ EDTL_delay_true_part trigger final release invariant reaction s"
