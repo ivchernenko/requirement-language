@@ -143,7 +143,7 @@ definition constrained_until3_inv where "constrained_until3_inv t1 t2 P1 t2_1 A1
 toEnvNum s1 s \<ge> t1_2 \<and> toEnvNum s1 s < t2_1 s \<and>
 (\<forall> r1. toEnvP r1 \<and> s1 \<le> r1 \<and> r1 \<le> s \<longrightarrow> A1' s r1))"
 
-lemma constrained_until2_rule: "
+lemma constrained_until3_rule: "
 consecutive s s' \<Longrightarrow>
 always_imp s (A1' s) (A1' s') \<and>
 always_imp s (A2' s) (A2' s') \<and>
@@ -156,17 +156,79 @@ always_imp s (\<lambda> s1. constrained_until3_inv t1 t2 P1 t2_1 A1' A2' s s1) (
   subgoal for s1
     apply(rule impI)
     apply(rule allI)
-    subgoal for t1_2
+    subgoal for t1_2'
       apply(erule conjE)
       apply(rotate_tac -1)
       apply(erule conjE)
       apply(rotate_tac -1)
       apply(rule impI)
-      apply(erule allE[of _ t1_2])
+      apply(erule allE[of _ t1_2'])
       apply(rotate_tac -1)
       apply(erule impE)
-      apply assumption
+       apply assumption
+      apply(erule exE)
+      subgoal for t1_2
+        apply(erule conjE)+
+        apply(rotate_tac -1)
+        apply(erule allE[of _ t1_2])
+        apply(erule impE)
+         apply assumption
+        apply(rotate_tac -1)
+        apply(erule disjE)
+         apply (metis consecutive.simps substate_trans)
+        apply(erule disjE)
+         apply simp
+        apply(erule disjE)
+         apply simp
+        apply(erule disjE)
+         apply(rule disjI1)
+         apply(rule exI[of _ s'])
+         apply(rule conjI)
+          apply simp
+         apply(rule conjI)
+          apply simp
+          apply (meson substate_trans)
+         apply(rule conjI)
+          apply simp
+         apply(rule conjI)
+        using toEnvNum3 apply auto[1]
+         apply(rule conjI)
+        using toEnvNum3 apply auto[1]
+         apply (metis consecutive.elims(2) substate_noteq_imp_substate_of_pred)
+        apply(rule disjI2)
+        apply(rule conjI)
+        using toEnvNum3 apply auto[1]
+        apply(rule conjI)
+        using toEnvNum3 apply auto[1]
+   using toEnvNum3
+    by (smt (verit, ccfv_SIG) consecutive.elims(2) less_imp_add_positive less_numeral_extra(3) less_one linorder_neqE_nat nat_add_left_cancel_less substate_noteq_imp_substate_of_pred trans_less_add1 zero_less_one)
+  done
+  done
+  done
 
+lemma constrained_until3_einv2req: "
+toEnvP s \<Longrightarrow>
+always_imp s (A1' s) (A1 s) \<and>
+always_imp s (A2' s) (A2 s) \<and>
+(\<exists> t1_2. P1 s t1_2) \<and> t2_1 s \<le> t2 \<Longrightarrow>
+always_imp s (\<lambda> s1. constrained_until3_inv t1 t2 P1 t2_1 A1' A2' s s1) (\<lambda> s1. constrained_until3  t1 t2 A1 A2 s s1)"
+  unfolding constrained_until3_inv_def constrained_until3_def always_imp_def less_eq_state.simps less_state.simps
+  apply(erule conjE)+
+  apply(erule exE)
+  subgoal for t1_2
+    apply(rule allI)
+    subgoal for s1
+      apply(rule impI)
+      apply(erule conjE)+
+      apply(erule allE[of _ t1_2])
+      by (metis dual_order.trans substate_trans verit_comp_simplify1(3))
+    done
+  done
+
+lemma constrained_until3_one_point: "
+toEnvP s \<Longrightarrow>t1 = 0 \<and>A2' s s \<or> A1' s s \<and> (\<forall> t1_2. P1 s t1_2 \<longleftrightarrow> t1_2 = 0) \<and> t2_1 s > 0 \<Longrightarrow> constrained_until3_inv t1 t2 P1 t2_1 A1' A2' s s"
+  unfolding constrained_until3_inv_def always_imp_def
+  by (metis bot_nat_0.extremum dual_order.refl leD order_le_imp_less_or_eq toEnvNum_id)
 
 end
  

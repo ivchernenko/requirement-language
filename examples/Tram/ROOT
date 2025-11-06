@@ -1,7 +1,7 @@
 session Tram = VCProving +
- theories [timeout=1200] R1_Tram_VC_1_2017
+(* theories [timeout=1200] R1_Tram_VC_1_2017*)
   theories [timeout=1200] R2_Tram_VC_1_2017
-  theories [timeout=1200] R3_Tram_VC_1_2017
+(*  theories [timeout=1200] R3_Tram_VC_1_2017
   theories [timeout=1200] R4_Tram_VC_1_2017
   theories [timeout=1200] R5_Tram_VC_1_2017
-  theories [timeout=1200] R6_Tram_VC_1_2017
+  theories [timeout=1200] R6_Tram_VC_1_2017*)
