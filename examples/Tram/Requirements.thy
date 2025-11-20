@@ -13,7 +13,7 @@ always2_part (\<lambda> s1. getVarBool s1 v_open' = False \<and> getVarBool s1 v
    (\<lambda> s2. getVarBool s2 v_open' = False) s"
 
 definition Einv2 where "Einv2 s \<equiv>common_extra_invariant s \<and>
-always2_inv_part (\<lambda> s. getPstate s p_AutoDoors' = p_AutoDoors's_opening')  (\<lambda> s1. getVarBool s1 v_open' = False \<and> getVarBool s1 v_antiClamp' = False) (\<lambda> s2. getVarBool s2 v_openCloseButton' \<noteq> v_PRESSED')
+always2_inv_part (\<lambda> s. getPstate s p_AutoDoors' = p_AutoDoors's_opening' \<or> getPstate s p_Closing' = p_Closing's_opening')  (\<lambda> s1. getVarBool s1 v_open' = False \<and> getVarBool s1 v_antiClamp' = False) (\<lambda> s2. getVarBool s2 v_openCloseButton' \<noteq> v_PRESSED')
    (\<lambda> s2. getVarBool s2 v_open' = False) s"
 
 definition R3 where "R3 s \<equiv>
