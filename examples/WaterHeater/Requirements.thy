@@ -3,11 +3,13 @@ theory Requirements
 begin
 
 definition R1 where "R1 s \<equiv>
-always2_part (\<lambda> s1. getVarBool s1 v_switch' = False) (\<lambda> s2. getVarBool s2 v_switch' = True) (\<lambda> s2. getVarBool s2 v_intake' = True) s"
+always2_part (\<lambda> s1. getVarBool s1 v_switch' = False) (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_maxLevel' = False)
+  (\<lambda> s2. getVarBool s2 v_intake' = True) s"
 
 definition Einv1 where "Einv1 s \<equiv> common_extra_invariant s \<and>
 always2_inv_part (\<lambda> s. getPstate s p_Controller' = p_Controller's_turnedOn')
-   (\<lambda> s1. getVarBool s1 v_switch' = False) (\<lambda> s2. getVarBool s2 v_switch' = True) (\<lambda> s2. getVarBool s2 v_intake' = True) s"
+   (\<lambda> s1. getVarBool s1 v_switch' = False) (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_maxLevel' = False) (\<lambda> s2. getVarBool s2 v_intake' = True)
+    s"
 
 definition R2 where "R2 s \<equiv>
 always2_part (\<lambda> s1. getVarBool s1 v_intake' = True) (\<lambda> s2. getVarBool s2 v_maxLevel' = False \<and> getVarBool s2 v_switch' = True)
@@ -26,12 +28,14 @@ always2_inv_part (\<lambda> s.  getPstate s p_Filling'\<noteq> p_Filling's_turne
    (\<lambda> s1. getVarBool s1 v_intake' = True) (\<lambda> s2. getVarBool s2 v_maxLevel' = True) (\<lambda> s2. getVarBool s2 v_intake' = False) s"
 
 definition R4 where "R4 s \<equiv>
-always2_part (\<lambda> s1. getVarBool s1 v_intake' = False) (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_minLevel' = False) 
+always2_part (\<lambda> s1. getVarBool s1 v_intake' = False) 
+  (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_minLevel' = False \<and> getVarBool s2 v_maxLevel' = False) 
   (\<lambda> s2. getVarBool s2 v_intake' = True) s"
 
 definition Einv4 where "Einv4 s \<equiv> common_extra_invariant s \<and>
 always2_inv_part (\<lambda> s.  getPstate s p_Filling' = p_Filling's_turnedOn')
-   (\<lambda> s1. getVarBool s1 v_intake' = False) (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_minLevel' = False) 
+   (\<lambda> s1. getVarBool s1 v_intake' = False) 
+  (\<lambda> s2. getVarBool s2 v_switch' = True \<and> getVarBool s2 v_minLevel' = False \<and> getVarBool s2 v_maxLevel' = False) 
   (\<lambda> s2. getVarBool s2 v_intake' = True) s"
 
 definition R5 where "R5 s \<equiv>

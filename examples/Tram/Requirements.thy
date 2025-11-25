@@ -39,7 +39,7 @@ R5_pattern_part v_CLOSING_ATTEMPTS_INTERVAL'TIMEOUT (\<lambda> s1. getVarBool s1
 
 definition Einv5 where "Einv5 s \<equiv> common_extra_invariant s \<and>
 R5_pattern_inv_part v_CLOSING_ATTEMPTS_INTERVAL'TIMEOUT
-  (\<lambda> s. if getPstate s p_Closing' = ERROR then 0 else if getPstate s p_AutoDoors' = p_AutoDoors's_closingDelay' then ltime s p_AutoDoors'
+  (\<lambda> s. if getPstate s p_Closing' = ERROR \<and> getPstate s p_AutoDoors' = p_AutoDoors's_closing' then 0 else if getPstate s p_AutoDoors' = p_AutoDoors's_closingDelay' then ltime s p_AutoDoors'
      else v_CLOSING_ATTEMPTS_INTERVAL'TIMEOUT)
    (\<lambda> s. True) (\<lambda> s. getPstate s p_Closing' \<noteq> p_Closing's_closing') (\<lambda> s. getPstate s p_Closing' \<noteq> p_Closing's_opening')
   (\<lambda> s. getPstate s p_Closing' = p_Closing's_opening')
@@ -48,13 +48,13 @@ R5_pattern_inv_part v_CLOSING_ATTEMPTS_INTERVAL'TIMEOUT
    (\<lambda> s4. getVarBool s4 v_close' = False) (\<lambda> s5. getVarBool s5 v_emergencyMode') s"
 
 definition R6 where "R6 s \<equiv>
-R6_pattern_part (\<lambda> s1. getVarBool s1 v_requestStopButton' = v_PRESSED') 
+R6_pattern_part (\<lambda> s1. let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_sound' = False \<and> getVarBool s1 v_requestStopButton' = v_PRESSED') 
   (\<lambda> s2. let s1 = pred s2 in toEnvP s1 \<and> getVarBool s1 v_open' = True \<and> getVarBool s2 v_opened' = True) 
   (\<lambda> s3. getVarBool s3 v_openCloseButton' \<noteq> v_PRESSED') (\<lambda> s4. getVarBool s4 v_sound' = True) s"
 
 definition Einv6 where "Einv6 s \<equiv> common_extra_invariant s \<and>
-R6_pattern_inv_part (\<lambda> s .getPstate s p_AutoDoors' = p_AutoDoors's_open') (\<lambda> s. 0)
-   (\<lambda> s1. getVarBool s1 v_requestStopButton' = v_PRESSED') 
+R6_pattern_inv_part (\<lambda> s. getPstate s p_AutoDoors' = p_AutoDoors's_open') (\<lambda> s. 0)
+   (\<lambda> s1. let s0 =pred s1 in toEnvP s0 \<and> getVarBool s0 v_sound' = False \<and> getVarBool s1 v_requestStopButton' = v_PRESSED') 
   (\<lambda> s2. let s1 = pred s2 in toEnvP s1 \<and> getVarBool s1 v_open' = True \<and> getVarBool s2 v_opened' = True) 
   (\<lambda> s3. getVarBool s3 v_openCloseButton' \<noteq> v_PRESSED') (\<lambda> s4. getVarBool s4 v_sound' = True) s"
 

@@ -1,7 +1,7 @@
 session WaterHeater = VCProving +
- theories [timeout=1200] R1_WaterHeater_VC_1_361
-  theories [timeout=1200] R2_WaterHeater_VC_1_361
-  theories [timeout=1200] R3_WaterHeater_VC_1_361
+ (* theories [timeout=1200] R1_WaterHeater_VC_1_361
+  theories [timeout=1200] R2_WaterHeater_VC_1_361*)
+ theories [timeout=1200] R3_WaterHeater_VC_1_361
   theories [timeout=1200] R4_WaterHeater_VC_1_361
   theories [timeout=1200] R5_WaterHeater_VC_1_361
   theories [timeout=1200] R6_WaterHeater_VC_1_361

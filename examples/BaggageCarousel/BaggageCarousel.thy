@@ -8,11 +8,9 @@ abbreviation v_stuck' :: variable where "v_stuck' \<equiv> (Suc (Suc (Suc (Suc 0
 abbreviation v_engine' :: variable where "v_engine' \<equiv> (Suc (Suc (Suc (Suc (Suc 0)))))"
 
 abbreviation p_Carousel' :: process where "p_Carousel' \<equiv> (Suc 0)"
-abbreviation p_ProblemController' :: process where "p_ProblemController' \<equiv> (Suc (Suc 0))"
 
 abbreviation p_Carousel's_turnedOff' :: pstate where "p_Carousel's_turnedOff' \<equiv> (Suc (Suc 0))"
 abbreviation p_Carousel's_turnedOn' :: pstate where "p_Carousel's_turnedOn' \<equiv> (Suc (Suc (Suc 0)))"
-abbreviation p_ProblemController's_ctrl' :: pstate where "p_ProblemController's_ctrl' \<equiv> (Suc (Suc (Suc (Suc 0))))"
 
 abbreviation v_PRESSED' :: bool where "v_PRESSED' \<equiv> True"
 abbreviation v_DETECTED' :: bool where "v_DETECTED' \<equiv> True"
