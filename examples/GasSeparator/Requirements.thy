@@ -127,7 +127,7 @@ definition R7 where "R7 s \<equiv>
   let trigger =  (\<lambda> s1. (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s1 v_DegasLED' \<and>  getVarBool s0 v_release' = False \<and> getVarBool s1 v_release' = True)) in
   let finalt = v_RELEASE_TIMEOUT'TIMEOUT in
   let finale = (\<lambda> s3. (let s2 = pred s3 in toEnvP s2 \<and> getVarBool s3 v_Plow' = False \<or> getVarBool s2 v_DegasLED' = False)) in
-  let release = (\<lambda> s4. getVarBool s v_DegasLED' = False) in
+  let release = (\<lambda> s4. False) in
   let invariant = (\<lambda> s5. let s4 = pred s5 in toEnvP s5 \<and> getVarBool s4 v_release' = True) in
   let reaction = (\<lambda> s6. getVarBool s6 v_release' = False) in
   EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_part finalt trigger finale release invariant reaction s"
@@ -136,7 +136,7 @@ definition Einv7 where "Einv7 s \<equiv>
   let trigger = (\<lambda> s1. (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s1 v_DegasLED' \<and>  getVarBool s0 v_release' = False \<and> getVarBool s1 v_release' = True)) in
   let finalt = v_RELEASE_TIMEOUT'TIMEOUT in
   let finale = (\<lambda> s3. (let s2 = pred s3 in toEnvP s2 \<and> getVarBool s3 v_Plow' = False \<or> getVarBool s2 v_DegasLED' = False)) in
-  let release = (\<lambda> s4. getVarBool s v_DegasLED' = False) in
+  let release = (\<lambda> s4. False) in
   let invariant = (\<lambda> s5. let s4 = pred s5 in toEnvP s5 \<and> getVarBool s4 v_release' = True) in
   let reaction = (\<lambda> s6. getVarBool s6 v_release' = False) in
   EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_part finalt
@@ -260,7 +260,8 @@ definition Einv14 where "Einv14 s \<equiv>
      (\<lambda> s. getPstate s p_ButtonPressControl' \<noteq> p_ButtonPressControl's_waitingForEmptying') 
      (\<lambda> s. getPstate s p_ButtonPressControl' \<noteq> p_ButtonPressControl's_waiting')
      (\<lambda> s. getPstate s p_ButtonPressControl' = p_ButtonPressControl's_waiting' \<and> getVarBool s v_SafetyLED' = True)
-     (\<lambda> s. getPstate s p_ButtonPressControl' \<in> {p_ButtonPressControl's_waitingForEmptying', p_ButtonPressControl's_purge', STOP})
+     (\<lambda> s. getPstate s p_ButtonPressControl' \<in> {p_ButtonPressControl's_waitingForEmptying', p_ButtonPressControl's_purge'} \<or> 
+       getPstate s p_ButtonPressControl' = p_ButtonPressControl's_waiting' \<and> getVarBool s v_SafetyLED' = True)
      trigger final release invariant reaction s"
 
 definition R15 where "R15 s \<equiv>
