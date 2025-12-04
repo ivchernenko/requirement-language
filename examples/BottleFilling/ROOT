@@ -1,10 +1,9 @@
 session BottleFilling = VCProving +
- theories [timeout=1200] R1_BottleFilling_VC_1_2593
-  theories [timeout=1200] R2_BottleFilling_VC_1_2593
-  theories [timeout=1200] R3_BottleFilling_VC_1_2593
-  theories [timeout=1200] R4_BottleFilling_VC_1_2593
-  theories [timeout=1200] R5_BottleFilling_VC_1_25930
- theories [timeout=1200] R6_BottleFilling_VC_1_2593
- theories [timeout=1200] R7_BottleFilling_VC_1_2593
-   theories [timeout=1200] R8_BottleFilling_VC_1_2593
-
+ (*theories [timeout=1200] R1_BottleFilling_VC_1_1000*)
+  theories [timeout=1200] R2_BottleFilling_VC_1_1000
+ (* theories [timeout=1200] R3_BottleFilling_VC_1_1000
+  theories [timeout=1200] R4_BottleFilling_VC_1_1000
+  theories [timeout=1200] R5_BottleFilling_VC_1_1000
+ theories [timeout=1200] R6_BottleFilling_VC_1_1000
+ theories [timeout=1200] R7_BottleFilling_VC_1_1000
+   theories [timeout=1200] R8_BottleFilling_VC_1_1000*)

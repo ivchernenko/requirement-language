@@ -1,5 +1,5 @@
 theory Requirements
-  imports Common_Extra_Invariant VCProving.Basic_Patterns VCProving.Derived_Patterns EDTL_Patterns
+  imports Common_Extra_Invariant VCProving.Basic_Patterns VCProving.Derived_Patterns VCProving.EDTL_Patterns
 begin
 
 definition R1 where "R1 s \<equiv>
@@ -82,7 +82,7 @@ definition R5 where "R5 s \<equiv>
   let release = (\<lambda> s4. False) in
   let invariant = (\<lambda> s5. let s4 = pred s5 in toEnvP s4 \<and> getVarBool s4 v_heater' = True) in
   let reaction = (\<lambda> s6. getVarBool s6 v_heater' = False) in
-  EDTL_final_nontemporal_or_tau_delay_true_part finalt trigger finale release invariant reaction s"
+  EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_part finalt trigger finale release invariant reaction s"
 
 definition Einv5 where "Einv5 s \<equiv>
   let trigger = (\<lambda> s1. (let s0 = pred s1 in toEnvP s0 \<and> toEnvP s1 \<and> getVarBool s0 v_heater' = False \<and> getVarBool s1 v_heater' = True)) in
@@ -251,12 +251,15 @@ definition R14 where "R14 s \<equiv>
   EDTL_trigger_prev_final_prev_delay_true_part trigger final release invariant reaction s"
 
 definition Einv14 where "Einv14 s \<equiv>
- let trigger = (\<lambda> s2. let s1 = pred s2 in  (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_SafetyLED' = False \<and> getVarBool s1 v_SafetyLED' = True)) in
-  let final = (\<lambda> s2. let s1 = pred s2 in  (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_purge' = True \<and> getVarBool s1 v_purge' = False)) in
+ let trigger = (\<lambda> s1. (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_SafetyLED' = False \<and> getVarBool s1 v_SafetyLED' = True)) in
+  let final = (\<lambda> s1. (let s0 = pred s1 in toEnvP s0 \<and> getVarBool s0 v_purge' = True \<and> getVarBool s1 v_purge' = False)) in
   let release = (\<lambda> s4. getVarBool s4 v_EmergencyBtn' = True \<or> getVarBool s4 v_ThighAbnormally' = True \<or> getVarBool s4 v_PhighAbnormally' = True) in
   let invariant = (\<lambda> s5. let s4 = pred s5 in toEnvP s4 \<and> getVarBool s4 v_SafetyLED' = True) in
   let reaction = (\<lambda> s5. getVarBool s5 v_SafetyLED' = False) in
-  EDTL_delay_true_inv_part
+  EDTL_trigger_prev_final_prev_delay_true_inv_part
+     (\<lambda> s. getPstate s p_ButtonPressControl' \<noteq> p_ButtonPressControl's_waitingForEmptying') 
+     (\<lambda> s. getPstate s p_ButtonPressControl' \<noteq> p_ButtonPressControl's_waiting')
+     (\<lambda> s. getPstate s p_ButtonPressControl' = p_ButtonPressControl's_waiting' \<and> getVarBool s v_SafetyLED' = True)
      (\<lambda> s. getPstate s p_ButtonPressControl' \<in> {p_ButtonPressControl's_waitingForEmptying', p_ButtonPressControl's_purge', STOP})
      trigger final release invariant reaction s"
 

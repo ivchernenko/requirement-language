@@ -12,6 +12,10 @@ definition common_extra_invariant where "common_extra_invariant s \<equiv> toEnv
 (getPstate s p_ForceSterilization' = p_ForceSterilization's_sterilizationFor1min' \<longrightarrow> ltime s p_ForceSterilization' \<le> 1 * 60 * 1000) \<and>
 (getPstate s p_MainLoop' \<noteq> p_MainLoop's_waitForFilling' \<longrightarrow> getVarBool s v_oFillBottle' = False) \<and>
 (getPstate s p_NextBottle' \<noteq> STOP \<longrightarrow> getVarBool s v_oConveyor' = True) \<and>
-(getPstate s p_NextBottle' = STOP \<longrightarrow> getVarBool s v_oConveyor' = False)
-"
+(getPstate s p_NextBottle' = STOP \<longrightarrow> getVarBool s v_oConveyor' = False) \<and>
+getPstate s p_Initialization' \<in> {p_Initialization's_begin', p_Initialization's_waitForSterilization', p_Initialization's_keepSterilization'} \<and>
+getPstate s p_MainLoop' \<in> {p_MainLoop's_begin', p_MainLoop's_waitForNextBottle', p_MainLoop's_waitForFilling', STOP} \<and>
+getPstate s p_ForceSterilization' \<in> {p_ForceSterilization's_heatUp', p_ForceSterilization's_sterilizationFor1min', STOP} \<and>
+getPstate s p_NextBottle' \<in> {p_NextBottle's_begin', p_NextBottle's_waitBottlePosition', STOP}"
+
 end

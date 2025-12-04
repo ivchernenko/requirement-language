@@ -14,10 +14,10 @@ P1_2_inv_part 2 (\<lambda> s. getPstate s p_Initialization' \<noteq> p_Initializ
   (\<lambda> s4. getVarBool s4 v_oFillTank' = False \<and> getVarBool s4 v_oSteam' = True) s"
 
 definition R2 where "R2 s \<equiv>
-always2_part (\<lambda> s1. getVarBool s1 v_oSteam' = True) (\<lambda> s2. getVarBool s2 v_iHighTemp' = False) (\<lambda> s2. getVarBool s2 v_oSteam' = True) s"
+always2_part (\<lambda> s1. getVarBool s1 v_oSteam' = True \<and> getVarBool s1 v_iLowLevel') (\<lambda> s2. getVarBool s2 v_iHighTemp' = False) (\<lambda> s2. getVarBool s2 v_oSteam' = True) s"
 
 definition Einv2 where "Einv2 s \<equiv> common_extra_invariant s \<and>
-always2_inv_part (\<lambda> s. False) (\<lambda> s1. getVarBool s1 v_oSteam' = True) (\<lambda> s2. getVarBool s2 v_iHighTemp' = False) (\<lambda> s2. getVarBool s2 v_oSteam' = True) s"
+always2_inv_part (\<lambda> s. getPstate s p_Initialization' = p_Initialization's_begin') (\<lambda> s1. getVarBool s1 v_oSteam' = True \<and> getVarBool s1 v_iLowLevel') (\<lambda> s2. getVarBool s2 v_iHighTemp' = False) (\<lambda> s2. getVarBool s2 v_oSteam' = True) s"
 
 definition  R3 where "R3 s \<equiv>
 R3_pattern_part (60 * 10 - 1) (\<lambda> s1. getVarBool s1 v_oFillTank' = True) (\<lambda> s2. getVarBool s2 v_iHighLevel' = True) (\<lambda> s3. getVarBool s3 v_iHighTemp' = True)
