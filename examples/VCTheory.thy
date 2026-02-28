@@ -183,27 +183,8 @@ fun pred:: "state => state" where
     (if (toEnvP s) then s else pred s)" |
   "pred (reset s _) = 
     (if (toEnvP s) then s else pred s)"
-
-fun prev:: "state => state" where
-  "prev emptyState = emptyState" |
-  "prev (toEnv s) =
-    (if (toEnvP s) then s else prev s)" |		
-  "prev (setVarBool s _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setVarInt s _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setVarReal s _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setVarArrayBool s _ _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setVarArrayInt s _ _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setVarArrayReal s _ _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (setPstate s _ _) = 
-    (if (toEnvP s) then s else prev s)" |
-  "prev (reset s _) = 
-    (if (toEnvP s) then s else prev s)"
+	
+abbreviation prev :: "state => state" where "prev \<equiv> pred"
 
 fun shift:: "state => nat => state" where
   "shift s 0 = s" |

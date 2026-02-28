@@ -4,7 +4,7 @@ begin
 
 fun high_steady_time :: "state \<Rightarrow> (state \<Rightarrow> bool) \<Rightarrow> nat" where
 "high_steady_time emptyState A = 0" |
-"high_steady_time (toEnv s) A = (if  A (toEnv s) then if prev s = emptyState \<or> \<not> A (prev s) then 0 else Suc (high_steady_time s A) else high_steady_time s A)" |
+"high_steady_time (toEnv s) A = (if  A (toEnv s) then if prev (toEnv s) = emptyState \<or> \<not> A (prev (toEnv s)) then 0 else Suc (high_steady_time s A) else high_steady_time s A)" |
 "high_steady_time (setVarBool s x u) A = high_steady_time s A" |
 "high_steady_time (setVarInt s x u) A = high_steady_time s A" |
 "high_steady_time (setVarReal s x u) A = high_steady_time s A" |

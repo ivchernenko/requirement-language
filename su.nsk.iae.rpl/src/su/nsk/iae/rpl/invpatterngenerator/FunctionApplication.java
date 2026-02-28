@@ -49,7 +49,8 @@ public class FunctionApplication extends Term {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		return stringBuilder.append('(').append(fnParam.getName()).append(' ').append(state.getName()).append(')')
+		String stateName = state==null?"null":state.getName();
+		return stringBuilder.append('(').append(fnParam.getName()).append(' ').append(stateName).append(')')
 				.toString();
 	}
 

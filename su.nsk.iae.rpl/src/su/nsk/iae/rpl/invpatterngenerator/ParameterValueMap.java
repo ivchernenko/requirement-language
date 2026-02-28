@@ -31,6 +31,10 @@ public class ParameterValueMap {
 		this.fnParams = fnParams;
 		this.simpleFmParams = simpleFmParams;
 		this.regFmParams = regFmParams;
+		for (var subst : stateSubstitution.entrySet()) {
+			if (subst.getValue() == null)
+				throw new NullPointerException("state cannot be replaced by null");
+		}
 		this.stateSubstitution = stateSubstitution;
 	}
 
@@ -72,6 +76,10 @@ public class ParameterValueMap {
 		if (lemmaInitState != null)
 			stateSubstitution.put(lemmaInitState.getName(), initState);
 		stateSubstitution.put(lemma.getFinalState().getName(), finState);
+		for (var subst : stateSubstitution.entrySet()) {
+			if (subst.getValue() == null)
+				throw new NullPointerException("state cannot be replaced by null");
+		}
 	}
 
 	public Map<String, Term> getcParams() {

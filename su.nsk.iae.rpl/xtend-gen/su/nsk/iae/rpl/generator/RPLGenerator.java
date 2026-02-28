@@ -32,6 +32,8 @@ public class RPLGenerator extends AbstractGenerator {
 
   private static final String THEORY_EXTENSION = ".thy";
 
+  private static final String LEMMAS_FOR_PROVING_COMMON_EXTRA_INVARIANT = "toEnvP_imp_toEnvNum_geq_1";
+
   public RPLGenerator() {
     this.start = 0;
     this.end = (-1);
@@ -346,8 +348,10 @@ public class RPLGenerator extends AbstractGenerator {
     _builder.append(this.commonExtraInv);
     _builder.append("_def");
     _builder.newLineIfNotEmpty();
-    _builder.append("by (simp;force)");
-    _builder.newLine();
+    _builder.append("using ");
+    _builder.append(RPLGenerator.LEMMAS_FOR_PROVING_COMMON_EXTRA_INVARIANT);
+    _builder.append(" by (simp;force)");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder.toString();
   }

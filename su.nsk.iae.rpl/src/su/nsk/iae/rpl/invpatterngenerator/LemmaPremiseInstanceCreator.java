@@ -14,6 +14,7 @@ import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.LemmaPremiseFormula;
 import su.nsk.iae.rpl.rPL.NegationFormula;
 import su.nsk.iae.rpl.rPL.PrimaryLemmaPremiseFormula;
+import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.RegularFormulaParameter;
 import su.nsk.iae.rpl.rPL.SimpleFormulaParameter;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
@@ -26,7 +27,10 @@ public class LemmaPremiseInstanceCreator {
 		if (fnParams != null) {
 			fn = fnParams.getOrDefault(fn.getName(), fn);
 		}
-		FunctionApplication left = (FunctionApplication) new FunctionApplication(fn, funApp.getState())
+		UpdateStateVariable stateClone = RPLFactory.eINSTANCE.createUpdateStateVariable();
+		stateClone.setName(funApp.getState().getName());
+		FunctionApplication left = 
+				(FunctionApplication) new FunctionApplication(fn, stateClone)
 				.replaceStates(params.getStateSubstitution());
 		LemmaPremise right = premise.getRight().substitiuteParams(this,  params);
 		return new ImplicationLemmaPremise(left, right);
@@ -48,7 +52,7 @@ public class LemmaPremiseInstanceCreator {
 		if (premise.getAtomic() != null) {
 			su.nsk.iae.rpl.rPL.NegationFormula negFormula = premise.getAtomic();
 			FormulaParameterValue atomicPremise = negation(negFormula, params);
-			List<UpdateStateVariable> lambdaBound = atomicPremise.getStates();
+			List<UpdateStateVariable> lambdaBound = cloneUpdateStateList(atomicPremise.getStates());
 			if (lambdaBound == null || lambdaBound.isEmpty())
 				return ((InnerExtraInvariantFormula) atomicPremise.getFormula());
 			else {
@@ -137,33 +141,14 @@ public class LemmaPremiseInstanceCreator {
 		else 
 			return atomicPremise;
 	}
-/*
-	LemmaPremise pastExtraInvariantPatternInstance(PastExtraInvariantPatternInstance patternInst,
-			ParameterValueMap params) {
-		List<Term> cParams = new ArrayList<>();
-		Map<String, Term> cParamValues = params.getcParams();
-		for (ConstantParameter cParam: patternInst.getCParams()) {
-			Term value = cParamValues.get(cParam.getName());
-			cParams.add(value);
+
+	private List<UpdateStateVariable> cloneUpdateStateList(List<UpdateStateVariable> states) {
+		List<UpdateStateVariable> statesClone = new ArrayList<>();
+		for (UpdateStateVariable s : states) {
+			UpdateStateVariable newS = RPLFactory.eINSTANCE.createUpdateStateVariable();
+			newS.setName(s.getName());
+			statesClone.add(newS);
 		}
-		List<FunctionalParameter> fnParams = new ArrayList<>();
-		Map<String, FunctionalParameter> fnParamValues = params.getFnParams();
-		for (FunctionalParameter fnParam: patternInst.getFnParams()) {
-			FunctionalParameter value = fnParamValues.get(fnParam.getName());
-			fnParams.add(value);
-		}
-		List<FormulaParameterValue> fmParams = new ArrayList<>();
-		Map<String, FormulaParameterValue> fmParamValues = params.getRegFmParams();
-		for (RegularFormulaParameter fmParam: patternInst.getFmParams()) {
-			FormulaParameterValue value = fmParamValues.get(fmParam.getName());
-			fmParams.add(value);
-		}
-		return new su.nsk.iae.rpl.invpatterngenerator.PastExtraInvariantPatternInstance(
-				patternInst.getPattern(),
-				cParams,
-				fnParams,
-				fmParams,
-				params.getStateSubstitution().get(patternInst.getState().getName()),
-				false);
-	}	*/
+		return statesClone;
+	}
 }

@@ -51,6 +51,11 @@ s1=s2"
 lemma  substate_noteq_imp_substate_of_pred: "toEnvP s1 \<and> toEnvP s0 \<and> toEnvP s \<and> substate s0 s \<and> toEnvNum s0 s = 1 \<and> substate s1 s \<and>  s1 \<noteq> s \<longrightarrow> substate s1 s0"
   by (metis (full_types) One_nat_def add_is_1 substate_linear substate_toEnvNum_id toEnvNum3) 
 
+lemma toEnvP_imp_toEnvNum_geq_1: "toEnvP s \<Longrightarrow> toEnvNum emptyState s \<ge> 1"
+  apply(cases s)
+           apply auto
+  done
+
 instantiation state :: order
 begin
 

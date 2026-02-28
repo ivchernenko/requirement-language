@@ -122,12 +122,13 @@ class ProofScriptGenerator {
 		  «extraInv.generateL8PremiseInstance(initState, finalState).generateProofScript(initState, this)»
 		''');
 		for (PastExtraInvariantPatternInstance extraConj: extraConjs) {
-			val premisesName = premisesNames.remove(premisesNames.size() -1);
+			var premisesName = premisesNames.remove(premisesNames.size() -1);
+			var premiseConj = extraConj.setState(finalState, true);
 			script.append('''
 			apply(insert «premisesName»(1,3,5))
 			  apply(erule «extraConj.getPattern().getLemmas().getL6().getName()»)
 			  apply simp
-			  «extraConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this)»
+			  «premiseConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this)»
 			done
 			''')
 		}

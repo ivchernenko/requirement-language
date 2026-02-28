@@ -7,14 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import su.nsk.iae.rpl.rPL.DerivedLemmas
-import su.nsk.iae.rpl.rPL.ExtraInvariant
 import su.nsk.iae.rpl.rPL.Lemma
-import java.io.FileWriter
 import java.io.IOException
 import su.nsk.iae.rpl.rPL.Requirement
 import java.util.List
-import su.nsk.iae.rpl.rPL.DerivedRequirementPattern
 
 /**
  * Generates code from your model files on save.
@@ -24,6 +20,7 @@ import su.nsk.iae.rpl.rPL.DerivedRequirementPattern
 class RPLGenerator extends AbstractGenerator {
 	static final String LEMMA_THEORY = "VCProving.VCTheoryLemmas";
 	static final String THEORY_EXTENSION = ".thy";
+	static final String LEMMAS_FOR_PROVING_COMMON_EXTRA_INVARIANT = "toEnvP_imp_toEnvNum_geq_1";
 	
 	new() {
 		start = 0;
@@ -181,7 +178,7 @@ class RPLGenerator extends AbstractGenerator {
 		return '''
 		theorem cei«i»: "VC«i» «commonExtraInv» env «inputVars»"
 		unfolding VC«i»_def «commonExtraInv»_def
-		by (simp;force)
+		using «LEMMAS_FOR_PROVING_COMMON_EXTRA_INVARIANT» by (simp;force)
 		
 		'''
 	}

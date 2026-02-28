@@ -4,7 +4,7 @@ begin
 
 fun low_steady_time :: "state \<Rightarrow> (state \<Rightarrow> bool) \<Rightarrow> nat" where
 "low_steady_time emptyState A = 0" |
-"low_steady_time (toEnv s) A = (if \<not> A (toEnv s) then if prev s = emptyState \<or> A (prev s) then 0 else Suc (low_steady_time s A) else low_steady_time s A)" |
+"low_steady_time (toEnv s) A = (if \<not> A (toEnv s) then if prev (toEnv s) = emptyState \<or> A (prev (toEnv s)) then 0 else Suc (low_steady_time s A) else low_steady_time s A)" |
 "low_steady_time (setVarBool s x u) A = low_steady_time s A" |
 "low_steady_time (setVarInt s x u) A = low_steady_time s A" |
 "low_steady_time (setVarReal s x u) A = low_steady_time s A" |

@@ -219,7 +219,8 @@ public class ProofScriptGenerator {
       {
         int _size = premisesNames.size();
         int _minus = (_size - 1);
-        final String premisesName = premisesNames.remove(_minus);
+        String premisesName = premisesNames.remove(_minus);
+        PastExtraInvariantPatternInstance premiseConj = extraConj.setState(finalState, true);
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("apply(insert ");
         _builder_1.append(premisesName);
@@ -235,7 +236,7 @@ public class ProofScriptGenerator {
         _builder_1.append("apply simp");
         _builder_1.newLine();
         _builder_1.append("  ");
-        String _generateProofScript_1 = extraConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this);
+        String _generateProofScript_1 = premiseConj.generateLemmaPremiseInstance(initState).generateProofScript(initState, this);
         _builder_1.append(_generateProofScript_1, "  ");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("done");
