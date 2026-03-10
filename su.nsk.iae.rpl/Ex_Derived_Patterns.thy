@@ -12,7 +12,7 @@ definition EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_part where 
 lemma EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_saving_gen: "
 EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv finalt b_0 t1_0 b_1 b_2 t1_1_0 t2_1_0 trigger finale release_1 Inv_1 reaction_1 s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-((((True \<and> ((always_imp s0 (\<lambda> r1 . (release_1 s0 r1)) (\<lambda> r1 . (release_1 s r1))) \<and> (((always_imp s0 (\<lambda> r3 . (Inv_1 s0 r3)) (\<lambda> r3 . (Inv_1 s r3))) \<and> True) \<and> (((always_imp s0 (\<lambda> r3 . (release_1 s0 r3)) (\<lambda> r3 . (release_1 s r3))) \<and> (True \<and> ((always_imp s0 (\<lambda> r3 . (reaction_1 s0 r3)) (\<lambda> r3 . (reaction_1 s r3))) \<and> (always_imp s0 (\<lambda> r3 . (Inv_1 s0 r3)) (\<lambda> r3 . (Inv_1 s r3)))))) \<and> ((((t1_0 s0) < (finalt + 1)) \<and> ((((release_1 s s) \<or> ((finale s) \<and> ((reaction_1 s s) \<and> (Inv_1 s s)))) \<and> ((t1_0 s) <= ((finalt + 1) + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((Inv_1 s s) \<and> (\<not> (finale s)))))) \<or> (((t1_0 s0) >= (finalt + 1)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s0) \<and> True) \<or> ((release_1 s s) \<or> (((release_1 s s) \<or> ((finale s) \<and> ((reaction_1 s s) \<and> (Inv_1 s s)))) \<or> (((t1_0 s) = 0) \<and> ((Inv_1 s s) \<and> (\<not> (finale s)))))))) \<and> ((b_0 s) --> (\<not> (trigger s)))) \<and> ((((((True \<and> True) \<and> True) \<and> (always_imp s0 (\<lambda> r1 . (reaction_1 s0 r1)) (\<lambda> r1 . (reaction_1 s r1)))) \<and> ((((finalt > 0) \<or> (finale s)) \<and> ((((b_1 s0) \<and> True) \<or> (finale s)) \<or> ((b_2 s0) \<and> ((True \<and> True) \<and> (True \<and> (((t1_1_0 s0) < finalt) \<and> (finalt <= ((t2_1_0 s0) + 1)))))))) \<or> (reaction_1 s s))) \<and> ((b_2 s) --> ((((t1_1_0 s) > 0) \<or> (finale s)) \<and> ((((b_1 s0) \<and> True) \<or> (finale s)) \<or> ((b_2 s0) \<and> ((True \<and> True) \<and> (True \<and> (((t1_1_0 s0) < (t1_1_0 s)) \<and> ((t2_1_0 s) <= ((t2_1_0 s0) + 1)))))))))) \<and> ((b_1 s) --> (\<not> (trigger s))))) \<Longrightarrow>
+((((True \<and> ((always_imp s0 (\<lambda> r1 . (release_1 s0 r1)) (\<lambda> r1 . (release_1 s r1))) \<and> (((always_imp s0 (\<lambda> r3 . (Inv_1 s0 r3)) (\<lambda> r3 . (Inv_1 s r3))) \<and> True) \<and> (((always_imp s0 (\<lambda> r3 . (release_1 s0 r3)) (\<lambda> r3 . (release_1 s r3))) \<and> (True \<and> ((always_imp s0 (\<lambda> r3 . (reaction_1 s0 r3)) (\<lambda> r3 . (reaction_1 s r3))) \<and> (always_imp s0 (\<lambda> r3 . (Inv_1 s0 r3)) (\<lambda> r3 . (Inv_1 s r3)))))) \<and> ((((t1_0 s0) < (finalt + 1)) \<and> ((((release_1 s s) \<or> ((finale s) \<and> ((reaction_1 s s) \<and> (Inv_1 s s)))) \<and> ((t1_0 s) <= ((finalt + 1) + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((Inv_1 s s) \<and> (\<not> (finale s)))))) \<or> (((t1_0 s0) >= (finalt + 1)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))))))) \<and> (((b_0 s0) \<and> True) \<or> ((release_1 s s) \<or> (((release_1 s s) \<or> ((finale s) \<and> ((reaction_1 s s) \<and> (Inv_1 s s)))) \<or> (((t1_0 s) = 0) \<and> ((Inv_1 s s) \<and> (\<not> (finale s)))))))) \<and> ((b_0 s) --> (\<not> (trigger s)))) \<and> ((((((True \<and> True) \<and> True) \<and> (always_imp s0 (\<lambda> r1 . (reaction_1 s0 r1)) (\<lambda> r1 . (reaction_1 s r1)))) \<and> (((finalt > finalt) \<or> (((finalt > 0) \<or> (finale s)) \<and> ((((b_1 s0) \<and> True) \<or> (finale s)) \<or> ((finalt = 0) \<or> ((b_2 s0) \<and> ((True \<and> True) \<and> (True \<and> (((t1_1_0 s0) = 0) \<or> (((t1_1_0 s0) < finalt) \<and> (finalt <= ((t2_1_0 s0) + 1))))))))))) \<or> (reaction_1 s s))) \<and> ((b_2 s) --> (((t1_1_0 s) > (t2_1_0 s)) \<or> ((((t1_1_0 s) > 0) \<or> (finale s)) \<and> ((((b_1 s0) \<and> True) \<or> (finale s)) \<or> (((t2_1_0 s) = 0) \<or> ((b_2 s0) \<and> ((True \<and> True) \<and> (True \<and> ((((t1_1_0 s0) = 0) \<or> ((t1_1_0 s0) < (t1_1_0 s))) \<and> ((t2_1_0 s) <= ((t2_1_0 s0) + 1)))))))))))) \<and> ((b_1 s) --> (\<not> (trigger s))))) \<Longrightarrow>
 EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv finalt b_0 t1_0 b_1 b_2 t1_1_0 t2_1_0 trigger finale release_1 Inv_1 reaction_1 s"
 
 unfolding EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_def
@@ -280,67 +280,75 @@ apply(insert prems1(1,3,5))
       apply(rule disjI1)
         apply(rule dual_constrained_since_L7[OF prems25(3)])
         apply simp
-          apply(erule conjE)
-          subgoal premises prems30
-          apply(rule conjI)
-          apply(insert prems30(1,2))[1]
-            apply(erule disjE)
-            apply(rule disjI1)
-              apply simp
-            apply(rule disjI2)
-              apply simp
-          apply(insert prems30(1,3))
-            apply(erule disjE)
-            apply(rule disjI1)
+          apply(erule disjE)
+          apply(rule disjI1)
+            apply simp
+          apply(rule disjI2)
+            apply(erule conjE)
+            subgoal premises prems30
+            apply(rule conjI)
+            apply(insert prems30(1,2))[1]
               apply(erule disjE)
               apply(rule disjI1)
-                apply(rule weak_previous_L7[OF prems24(3)])
                 apply simp
-                  apply(erule conjE)
-                  subgoal premises prems31
-                  apply(rule conjI)
-                  apply(insert prems31(1,2))[1]
-                    apply simp
-                  apply(insert prems31(1,3))
-                    apply(rule always_imp_refl)
-                  done
               apply(rule disjI2)
                 apply simp
-            apply(rule disjI2)
-              apply(erule conjE)
-              subgoal premises prems32
-              apply(rule conjI)
-              apply(insert prems32(1,2))[1]
-                apply simp
-              apply(insert prems32(1,3))
-                apply(erule conjE)
-                subgoal premises prems33
-                apply(rule conjI)
-                apply(insert prems33(1,2))[1]
-                  apply(rule always_disj_rule)
+            apply(insert prems30(1,3))
+              apply(erule disjE)
+              apply(rule disjI1)
+                apply(erule disjE)
+                apply(rule disjI1)
+                  apply(rule weak_previous_L7[OF prems24(3)])
                   apply simp
                     apply(erule conjE)
-                    subgoal premises prems34
+                    subgoal premises prems31
                     apply(rule conjI)
-                    apply(insert prems34(1,2))[1]
-                      apply(rule weak_previous_L4)
+                    apply(insert prems31(1,2))[1]
                       apply simp
-                        apply(rule always_imp_refl)
-                    apply(insert prems34(1,3))
+                    apply(insert prems31(1,3))
                       apply(rule always_imp_refl)
                     done
-                apply(insert prems33(1,3))
+                apply(rule disjI2)
+                  apply simp
+              apply(rule disjI2)
+                apply(erule disjE)
+                apply(rule disjI1)
+                  apply simp
+                apply(rule disjI2)
                   apply(erule conjE)
-                  subgoal premises prems35
+                  subgoal premises prems32
                   apply(rule conjI)
-                  apply(insert prems35(1,2))[1]
-                    apply(rule always_imp_refl)
-                  apply(insert prems35(1,3))
+                  apply(insert prems32(1,2))[1]
                     apply simp
+                  apply(insert prems32(1,3))
+                    apply(erule conjE)
+                    subgoal premises prems33
+                    apply(rule conjI)
+                    apply(insert prems33(1,2))[1]
+                      apply(rule always_disj_rule)
+                      apply simp
+                        apply(erule conjE)
+                        subgoal premises prems34
+                        apply(rule conjI)
+                        apply(insert prems34(1,2))[1]
+                          apply(rule weak_previous_L4)
+                          apply simp
+                            apply(rule always_imp_refl)
+                        apply(insert prems34(1,3))
+                          apply(rule always_imp_refl)
+                        done
+                    apply(insert prems33(1,3))
+                      apply(erule conjE)
+                      subgoal premises prems35
+                      apply(rule conjI)
+                      apply(insert prems35(1,2))[1]
+                        apply(rule always_imp_refl)
+                      apply(insert prems35(1,3))
+                        apply simp
+                      done
+                    done
                   done
-                done
-              done
-          done
+            done
       apply(rule disjI2)
         apply simp
     done
@@ -352,67 +360,75 @@ apply(insert prems1(1,3,5))
     apply assumption
     subgoal premises prems36
     apply(insert prems36(1,3))
-      apply(erule conjE)
-      subgoal premises prems37
-      apply(rule conjI)
-      apply(insert prems37(1,2))[1]
-        apply(erule disjE)
-        apply(rule disjI1)
-          apply simp
-        apply(rule disjI2)
-          apply simp
-      apply(insert prems37(1,3))
-        apply(erule disjE)
-        apply(rule disjI1)
+      apply(erule disjE)
+      apply(rule disjI1)
+        apply simp
+      apply(rule disjI2)
+        apply(erule conjE)
+        subgoal premises prems37
+        apply(rule conjI)
+        apply(insert prems37(1,2))[1]
           apply(erule disjE)
           apply(rule disjI1)
-            apply(rule weak_previous_L7[OF prems24(3)])
             apply simp
-              apply(erule conjE)
-              subgoal premises prems38
-              apply(rule conjI)
-              apply(insert prems38(1,2))[1]
-                apply simp
-              apply(insert prems38(1,3))
-                apply(rule always_imp_refl)
-              done
           apply(rule disjI2)
             apply simp
-        apply(rule disjI2)
-          apply(erule conjE)
-          subgoal premises prems39
-          apply(rule conjI)
-          apply(insert prems39(1,2))[1]
-            apply simp
-          apply(insert prems39(1,3))
-            apply(erule conjE)
-            subgoal premises prems40
-            apply(rule conjI)
-            apply(insert prems40(1,2))[1]
-              apply(rule always_disj_rule)
+        apply(insert prems37(1,3))
+          apply(erule disjE)
+          apply(rule disjI1)
+            apply(erule disjE)
+            apply(rule disjI1)
+              apply(rule weak_previous_L7[OF prems24(3)])
               apply simp
                 apply(erule conjE)
-                subgoal premises prems41
+                subgoal premises prems38
                 apply(rule conjI)
-                apply(insert prems41(1,2))[1]
-                  apply(rule weak_previous_L4)
+                apply(insert prems38(1,2))[1]
                   apply simp
-                    apply(rule always_imp_refl)
-                apply(insert prems41(1,3))
+                apply(insert prems38(1,3))
                   apply(rule always_imp_refl)
                 done
-            apply(insert prems40(1,3))
+            apply(rule disjI2)
+              apply simp
+          apply(rule disjI2)
+            apply(erule disjE)
+            apply(rule disjI1)
+              apply simp
+            apply(rule disjI2)
               apply(erule conjE)
-              subgoal premises prems42
+              subgoal premises prems39
               apply(rule conjI)
-              apply(insert prems42(1,2))[1]
-                apply(rule always_imp_refl)
-              apply(insert prems42(1,3))
+              apply(insert prems39(1,2))[1]
                 apply simp
+              apply(insert prems39(1,3))
+                apply(erule conjE)
+                subgoal premises prems40
+                apply(rule conjI)
+                apply(insert prems40(1,2))[1]
+                  apply(rule always_disj_rule)
+                  apply simp
+                    apply(erule conjE)
+                    subgoal premises prems41
+                    apply(rule conjI)
+                    apply(insert prems41(1,2))[1]
+                      apply(rule weak_previous_L4)
+                      apply simp
+                        apply(rule always_imp_refl)
+                    apply(insert prems41(1,3))
+                      apply(rule always_imp_refl)
+                    done
+                apply(insert prems40(1,3))
+                  apply(erule conjE)
+                  subgoal premises prems42
+                  apply(rule conjI)
+                  apply(insert prems42(1,2))[1]
+                    apply(rule always_imp_refl)
+                  apply(insert prems42(1,3))
+                    apply simp
+                  done
+                done
               done
-            done
-          done
-      done
+        done
     done
   done
   apply(insert prems24(1,3,5))
@@ -563,7 +579,7 @@ done
 lemma EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_saving: "
 EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_part finalt b_0 t1_0 b_1 b_2 t1_1_0 t2_1_0 trigger finale release Inv reaction s0 \<Longrightarrow>
 consecutive s0 s \<Longrightarrow>
-(((((((t1_0 s0) < (finalt + 1)) \<and> ((((release s) \<or> ((finale s) \<and> ((reaction s) \<and> (Inv s)))) \<and> ((t1_0 s) <= ((finalt + 1) + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((Inv s) \<and> (\<not> (finale s)))))) \<or> (((t1_0 s0) >= (finalt + 1)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((release s) \<or> (((release s) \<or> ((finale s) \<and> ((reaction s) \<and> (Inv s)))) \<or> (((t1_0 s) = 0) \<and> ((Inv s) \<and> (\<not> (finale s)))))))) \<and> ((b_0 s) --> (\<not> (trigger s)))) \<and> ((((((finalt > 0) \<or> (finale s)) \<and> (((b_1 s0) \<or> (finale s)) \<or> ((b_2 s0) \<and> (((t1_1_0 s0) < finalt) \<and> (finalt <= ((t2_1_0 s0) + 1)))))) \<or> (reaction s)) \<and> ((b_2 s) --> ((((t1_1_0 s) > 0) \<or> (finale s)) \<and> (((b_1 s0) \<or> (finale s)) \<or> ((b_2 s0) \<and> (((t1_1_0 s0) < (t1_1_0 s)) \<and> ((t2_1_0 s) <= ((t2_1_0 s0) + 1)))))))) \<and> ((b_1 s) --> (\<not> (trigger s))))) \<Longrightarrow>
+(((((((t1_0 s0) < (finalt + 1)) \<and> ((((release s) \<or> ((finale s) \<and> ((reaction s) \<and> (Inv s)))) \<and> ((t1_0 s) <= ((finalt + 1) + 1))) \<or> (((t1_0 s) <= ((t1_0 s0) + 1)) \<and> ((Inv s) \<and> (\<not> (finale s)))))) \<or> (((t1_0 s0) >= (finalt + 1)) \<and> ((t1_0 s) <= ((t1_0 s0) + 1)))) \<and> ((b_0 s0) \<or> ((release s) \<or> (((release s) \<or> ((finale s) \<and> ((reaction s) \<and> (Inv s)))) \<or> (((t1_0 s) = 0) \<and> ((Inv s) \<and> (\<not> (finale s)))))))) \<and> ((b_0 s) --> (\<not> (trigger s)))) \<and> (((((finalt > finalt) \<or> (((finalt > 0) \<or> (finale s)) \<and> (((b_1 s0) \<or> (finale s)) \<or> ((finalt = 0) \<or> ((b_2 s0) \<and> (((t1_1_0 s0) = 0) \<or> (((t1_1_0 s0) < finalt) \<and> (finalt <= ((t2_1_0 s0) + 1))))))))) \<or> (reaction s)) \<and> ((b_2 s) --> (((t1_1_0 s) > (t2_1_0 s)) \<or> ((((t1_1_0 s) > 0) \<or> (finale s)) \<and> (((b_1 s0) \<or> (finale s)) \<or> (((t2_1_0 s) = 0) \<or> ((b_2 s0) \<and> ((((t1_1_0 s0) = 0) \<or> ((t1_1_0 s0) < (t1_1_0 s))) \<and> ((t2_1_0 s) <= ((t2_1_0 s0) + 1)))))))))) \<and> ((b_1 s) --> (\<not> (trigger s))))) \<Longrightarrow>
 EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_part finalt b_0 t1_0 b_1 b_2 t1_1_0 t2_1_0 trigger finale release Inv reaction s"
 
 unfolding EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_inv_part_def EDTL_trigger_prev_final_nontemporal_or_tau_delay_true_part_def

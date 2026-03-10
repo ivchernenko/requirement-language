@@ -13,8 +13,8 @@ derivedreq pattern EDTL_trigger_prev_final_nontemporal_or_tau_delay_true(const: 
   always(formulas: lambda r2 r1. dual_constrained_since(
   	const: finalt, finalt 
   	formulas: 
-  	lambda r4 r3. weak_previous(formulas: lambda r6 r5. ~ trigger(r5) final: r4 current: r3) \/ finale(r3), 
-  	lambda r4 r3. finale(r3)
+  	lambda r4 r3. finale(r3) \/ release(r4, r3),
+  	lambda r4 r3. weak_previous(formulas: lambda r6 r5. ~ trigger(r5) final: r4 current: r3) \/ finale(r3) \/ release(r4, r3)
   	final: r2 current: r1) \/
   	reaction(r2, r1)
   	);

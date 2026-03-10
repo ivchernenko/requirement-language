@@ -8,4 +8,7 @@ always_part (\<lambda> s1. getVarBool s1 v_oFillTank' = True \<longrightarrow> g
 definition Einv1 where "Einv1 s \<equiv> common_extra_invariant s \<and>
 always_inv_part (\<lambda> s1. getVarBool s1 v_oFillTank' = True \<longrightarrow> getVarBool s1 v_oSteam' = False) s"
 
+definition Einv1_ref where "Einv1_ref s \<equiv> common_extra_invariant s \<and>
+always_inv_part (\<lambda> s1. getVarBool s1 v_oFillTank' = True \<longrightarrow> getVarBool s1 v_oSteam' = False) s"
+
 end

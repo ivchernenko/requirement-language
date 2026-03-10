@@ -13,6 +13,7 @@ import su.nsk.iae.rpl.rPL.EqTerm;
 import su.nsk.iae.rpl.rPL.FunctionalParameter;
 import su.nsk.iae.rpl.rPL.MulOperator;
 import su.nsk.iae.rpl.rPL.MulTerm;
+import su.nsk.iae.rpl.rPL.PrimaryTerm;
 import su.nsk.iae.rpl.rPL.RPLFactory;
 import su.nsk.iae.rpl.rPL.UpdateStateVariable;
 
@@ -64,6 +65,10 @@ public class CompoundTerm extends Term {
 		RPLFactory factory = RPLFactory.eINSTANCE;
 		su.nsk.iae.rpl.rPL.Term eLeft = left.convertToRPLTerm();
 		su.nsk.iae.rpl.rPL.Term eRight = right.convertToRPLTerm();
+		PrimaryTerm leftWrapper = factory.createPrimaryTerm();
+		leftWrapper.setNestedTerm(eLeft);
+		PrimaryTerm rightWrapper = factory.createPrimaryTerm();
+		rightWrapper.setNestedTerm(eRight);
 		su.nsk.iae.rpl.rPL.Term term = null;
 		switch (operator) {
 		case AND:
@@ -105,8 +110,8 @@ public class CompoundTerm extends Term {
 		default:
 			break;
 		}
-		term.setLeft(eLeft);
-		term.setRight(eRight);
+		term.setLeft(leftWrapper);
+		term.setRight(rightWrapper);
 		return term;
 	}
 }
